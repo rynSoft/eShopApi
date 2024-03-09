@@ -8,7 +8,7 @@ using techiz.Domain.Interfaces;
 
 namespace techiz.Service.Contract
 {
-    public interface IIWorkProcessRouteService
+    public interface IWorkProcessRouteService
     {
         Task<ResponseModel> GetAll();
         Task<WorkProcessRouteDtoQ> Get(int id); 

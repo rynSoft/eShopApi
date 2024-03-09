@@ -17,7 +17,7 @@ namespace techiz.Domain.Entities
         }
         
 
-        public int WorkProcessRouteoId { get; set; }
+        public int WorkProcessRouteId { get; set; }
         public virtual WorkProcessRoute WorkProcessRoute { get; set; }
         public Guid? UserId { get; set; }
         public virtual User User { get; set; }

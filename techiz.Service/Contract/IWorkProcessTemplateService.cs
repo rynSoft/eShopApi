@@ -8,7 +8,7 @@ using techiz.Domain.Interfaces;
 
 namespace techiz.Service.Contract
 {
-    public interface IWorkProcessTemplate
+    public interface IWorkProcessTemplateService
     {
         Task<ResponseModel> GetAll();
         Task<ResponseModel> GetAllFilter();

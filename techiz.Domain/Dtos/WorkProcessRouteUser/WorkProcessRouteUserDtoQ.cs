@@ -7,6 +7,7 @@ namespace techiz.Domain.Dtos;
 
 public class WorkProcessRouteUserDtoQ
 {
+    public int? Id { get; set; }
     public int WorkProcessRouteoId { get; set; }
     public Guid? UserId { get; set; }
 }
