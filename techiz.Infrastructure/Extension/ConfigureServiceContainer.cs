@@ -88,6 +88,9 @@ namespace techiz.Infrastructure.Extension
             serviceCollection.AddTransient<IShiftDefinitionService, ShiftDefinitionService>();
             serviceCollection.AddTransient<IShiftDefinitionProcessService, ShiftDefinitionProcessService>();
             serviceCollection.AddTransient<IOeeService, OeeService>();
+            serviceCollection.AddTransient<IWorkProcessRouteService, WorkProcessRouteService>();
+            serviceCollection.AddTransient<IWorkProcessRouteUserService, WorkProcessRouteUserService>();
+            serviceCollection.AddTransient<IWorkProcessTemplateService, WorkProcessTemplateService>();
 
         }
         public static void AddSwaggerOpenAPI(this IServiceCollection serviceCollection)

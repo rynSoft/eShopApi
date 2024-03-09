@@ -6,6 +6,7 @@ using Microsoft.EntityFrameworkCore;
 using System.Threading.Tasks;
 using techiz.Domain.Auth;
 using techiz.Domain.Dtos;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace techiz.Persistence
 {
@@ -53,7 +54,7 @@ namespace techiz.Persistence
         public DbSet<QualityOperationDocument> QualityOperationDocument { get; set; }
         public DbSet<QualityUser> QualityUser { get; set; }
         public DbSet<NonComplianceCode> NonComplianceCode { get; set; }
-         public DbSet<WorkProcessRoute> WorkProcessRoute { get; set; }
+        public DbSet<WorkProcessRoute> WorkProcessRoute { get; set; }
         public DbSet<WorkProcessRouteUser> WorkProcessRouteUser { get; set; }
         public DbSet<WorkProcessTemplate> WorkProcessTemplate { get; set; }
 

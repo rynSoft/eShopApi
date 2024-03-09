@@ -15,6 +15,9 @@ using System.Linq;
 using Microsoft.Extensions.Logging;
 using Microsoft.AspNetCore.Hosting.Server;
 using System.Xml;
+using Microsoft.Extensions.Options;
+using static Microsoft.EntityFrameworkCore.DbLoggerCategory.Database;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace techiz.Persistence
 {
@@ -97,7 +100,7 @@ namespace techiz.Persistence
             modelBuilder.Entity<User>()
                 .HasMany(city => city.QualityOperations).WithOne()
                 .HasForeignKey(con => con.AuthorizedPersonId);
-          
+
             modelBuilder
     .Entity<Viewsa>(builder =>
     {
@@ -160,9 +163,7 @@ namespace techiz.Persistence
             if (!optionsBuilder.IsConfigured)
             {
                 optionsBuilder
-                .UseNpgsql("Host=192.168.11.29;Database=upts;Username=postgres;Password=Oxit2023!;", option => {
-                //.UseNpgsql("User ID=postgres;Password=Oxit2023!;Server=217.116.199.183;Port=5433;Database=upts;Integrated Security=true;Pooling=true;", option => {
-                   
+                .UseNpgsql("User ID=postgres;Password=oXit23-24;Server=217.116.199.183;Port=5433;Database=techiz;Integrated Security=true;Pooling=true;", option => {
                 option.EnableRetryOnFailure();
                 });
             }
