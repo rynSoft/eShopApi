@@ -25,7 +25,7 @@ public class WorkProcessTemplateService : IWorkProcessTemplateService
     {
         _repository = repository;
         _mapper = mapper;
-        _appDbContext = appDbContext
+        _appDbContext = appDbContext;
     }
 
     public async Task<ResponseModel> GetAll()
