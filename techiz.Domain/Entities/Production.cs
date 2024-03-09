@@ -19,6 +19,7 @@ namespace techiz.Domain.Entities
             ProductionLog = new();
             SetupVerification = new();
             ProductionProcessManual = new();
+            WorkProcessRoute = new();
         }
         
         public string OrderNo { get; set; }
@@ -42,7 +43,9 @@ namespace techiz.Domain.Entities
         
 
         public virtual HashSet<SetupVerification> SetupVerification { get; set; }
+        public virtual HashSet<WorkProcessRoute> WorkProcessRoute { get; set; }
         
+
 
     }
 }

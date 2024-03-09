@@ -396,8 +396,41 @@ namespace techiz.Infrastructure.Mapping
             CreateMap<ProductionUser, ProductionUserDtoQ>()
                 .ReverseMap();
             #endregion
-            
-            
+
+            #region WorkProcessRouteUser
+            CreateMap<WorkProcessRouteUserDtoC, WorkProcessRouteUser>()
+                .ReverseMap();
+            CreateMap<WorkProcessRouteUser, WorkProcessRouteUserDtoC>()
+                .ReverseMap();
+            CreateMap<WorkProcessRouteUserDtoQ, WorkProcessRouteUser>()
+                .ReverseMap();
+            CreateMap<WorkProcessRouteUser, WorkProcessRouteUserDtoQ>()
+                .ReverseMap();
+            #endregion
+
+            #region ProductionUser
+            CreateMap<WorkProcessRouteDtoC, WorkProcessRoute>()
+                .ReverseMap();
+            CreateMap<WorkProcessRoute, WorkProcessRouteDtoC>()
+                .ReverseMap();
+            CreateMap<WorkProcessRouteDtoQ, WorkProcessRoute>()
+                .ReverseMap();
+            CreateMap<WorkProcessRoute, WorkProcessRouteDtoQ>()
+                .ReverseMap();
+            #endregion
+
+            #region WorkProcessTemplate
+            CreateMap<WorkProcessTemplateDtoC, WorkProcessTemplate>()
+                .ReverseMap();
+            CreateMap<WorkProcessTemplate, WorkProcessTemplateDtoC>()
+                .ReverseMap();
+            CreateMap<WorkProcessTemplateDtoQ, WorkProcessTemplate>()
+                .ReverseMap();
+            CreateMap<WorkProcessTemplate, WorkProcessTemplateDtoQ>()
+                .ReverseMap();
+            #endregion
+
+
             #region ProductionTimeProcess
             CreateMap<ProductionTimeProcessDtoC, ProductionTimeProcess>()
                  .ForMember(dest => dest.Definition, opt => opt.MapFrom(src => src.Message))

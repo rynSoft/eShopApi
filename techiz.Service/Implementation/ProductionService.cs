@@ -9,7 +9,6 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Routing;
 using Microsoft.EntityFrameworkCore;
 using Newtonsoft.Json;
-using Org.BouncyCastle.Math.EC.Rfc7748;
 using techiz.Domain.Common;
 using techiz.Domain.Dtos;
 using techiz.Domain.Entities;

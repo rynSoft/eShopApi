@@ -99,14 +99,14 @@ namespace techiz.Infrastructure.Extension
                     "OpenAPISpecification",
                     new OpenApiInfo()
                     {
-                        Title = "Onion Architecture WebAPI",
+                        Title = "Techiz API",
                         Version = "1",
-                        Description = "Through this API you can access customer details",
+                        Description = "Techiz API",
                         Contact = new OpenApiContact()
                         {
-                            Email = "Udea.Api@Udea.Api.com",
-                            Name = "Udea.Api PTS",
-                            Url = new Uri("https://Udea.Api.com.tr/")
+                            Email = "techiz@ryntech.com",
+                            Name = "techiz.Api",
+                            Url = new Uri("https://techiz@ryntech.com/")
                         },
                     });
 

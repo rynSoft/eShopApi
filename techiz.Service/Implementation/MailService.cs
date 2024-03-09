@@ -24,7 +24,6 @@ namespace techiz.Service.Implementation
         {
             try
             {
-                // create message
                 var email = new MimeMessage();
                 email.Sender = MailboxAddress.Parse(mailRequest.From ?? _mailSettings.EmailFrom);
                 email.To.Add(MailboxAddress.Parse(mailRequest.ToEmail));
