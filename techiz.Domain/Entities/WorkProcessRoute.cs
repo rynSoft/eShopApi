@@ -17,6 +17,8 @@ namespace techiz.Domain.Entities
         public string VirtualName { get; set; }
         public int ProductionId { get; set; }
         public virtual Production Production { get; set; }
+        public int WorkProcessTemplateId { get; set; }
+        public virtual WorkProcessTemplate WorkProcessTemplate { get; set; }
         public bool State { get; set; }
         public int Order { get; set; }
 

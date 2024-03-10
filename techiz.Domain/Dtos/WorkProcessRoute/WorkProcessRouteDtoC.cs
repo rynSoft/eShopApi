@@ -13,6 +13,7 @@ public class WorkProcessRouteDtoC
     public string Name { get; set; }
     public string VirtualName { get; set; }
     public int ProductionId { get; set; }
+    public int WorkProcessTemplateId { get; set; }
     public bool State { get; set; }
     public int Order { get; set; }
 }
