@@ -17,12 +17,10 @@ namespace techizApi.Controllers
     public class WorkProcessRouteUserController : ControllerBase
     {
         private readonly IWorkProcessRouteUserService _workProcessRouteUserService;
-        private readonly IProductionUserService _productionUserService;
 
-        public WorkProcessRouteUserController(WorkProcessRouteUserService workProcessRouteUserService, IProductionUserService productionUserService)
+        public WorkProcessRouteUserController(IWorkProcessRouteUserService workProcessRouteUserService)
         {
             _workProcessRouteUserService = workProcessRouteUserService;
-            _productionUserService = productionUserService;
         }
 
         [HttpGet(nameof(GetAll))]
