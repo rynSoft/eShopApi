@@ -52,6 +52,7 @@ public class WorkProcessRouteService : IWorkProcessRouteService
                     VirtualName = x.VirtualName,
                     ProductionId = x.ProductionId,
                     WorkProcessTemplateId = x.WorkProcessTemplateId,
+                    WorkProcessTemplate = x.WorkProcessTemplate,
                     Order = x.Order,
                     UserList = _appDbContext.WorkProcessRouteUser.Where(t=>t.WorkProcessRouteId == x.Id).Include(x => x.User).Select(t => new UserRouteInfoDto()
                     {

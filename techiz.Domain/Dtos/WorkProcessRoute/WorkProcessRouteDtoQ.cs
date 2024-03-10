@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using techiz.Domain.Entities;
 using techiz.Domain.Enum;
 
 namespace techiz.Domain.Dtos;
@@ -17,5 +18,6 @@ public class WorkProcessRouteDtoQ
     public int WorkProcessTemplateId { get; set; }
     public bool State { get; set; }
     public int Order { get; set; }
+    public WorkProcessTemplate WorkProcessTemplate { get; set; }
     public List<UserRouteInfoDto> UserList { get; set; }
 }
