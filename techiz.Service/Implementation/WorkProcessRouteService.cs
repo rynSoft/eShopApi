@@ -32,7 +32,7 @@ public class WorkProcessRouteService : IWorkProcessRouteService
     
     public async Task<ResponseModel> GetAll()
     {
-        var entity = _appDbContext.RouteInfo.ToList();
+        var entity = _appDbContext.WorkProcessRoute.ToList();
         return new ResponseModel(entity);
     }
     public async Task<WorkProcessRouteDtoQ> Get(int id)
@@ -43,12 +43,12 @@ public class WorkProcessRouteService : IWorkProcessRouteService
     
     public async Task<IEnumerable<WorkProcessRouteDtoQ>> GetAllAsyncProductId(int id)
     {
-        var result  = _appDbContext.RouteInfo.Where(x=> x.ProductionId == id)
+        var result  = _appDbContext.WorkProcessRoute.Where(x=> x.ProductionId == id)
             .Select(x=> new WorkProcessRouteDtoQ()
                 {
                     Id = x.Id,
                     State=x.State,
-                    UserList = _appDbContext.RouteInfoUser.Where(t=>t.RouteInfoId==x.Id).Include(x => x.User).Select(t => new UserRouteInfoDto()
+                    UserList = _appDbContext.WorkProcessRouteUser.Where(t=>t.WorkProcessRouteId == x.Id).Include(x => x.User).Select(t => new UserRouteInfoDto()
                     {
                         Id = t.User.Id,
                         Name = t.User.Ad,
@@ -60,6 +60,25 @@ public class WorkProcessRouteService : IWorkProcessRouteService
             
         return result;
     }
+
+    public async Task<ResponseModel> AddAll(List<WorkProcessRouteDtoC> dto)
+    {
+        try
+        {
+            foreach (var item in dto)
+            {
+                var entity = _mapper.Map<WorkProcessRoute>(item);
+                await _repository.AddAsync(entity);
+            }
+        }
+        catch (Exception)
+        {
+            return new ResponseModel(Success: false);
+        }
+        return new ResponseModel(Success: true);
+    }           
+
+
     public async Task<ResponseModel> Add(WorkProcessRouteDtoC dto)
     {  
         var entity = _mapper.Map<WorkProcessRoute>(dto);

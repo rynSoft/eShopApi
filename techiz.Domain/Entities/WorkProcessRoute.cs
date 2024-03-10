@@ -2,6 +2,7 @@
 using System;
 using techiz.Domain.Auth;
 using techiz.Domain.Enum;
+using System.Collections.Generic;
 
 namespace techiz.Domain.Entities
 {
@@ -10,6 +11,7 @@ namespace techiz.Domain.Entities
     {
         public WorkProcessRoute()
         {
+            WorkProcessRouteUser = new();
         }
 
         public Guid? RouteId { get; set; }
@@ -21,6 +23,7 @@ namespace techiz.Domain.Entities
         public virtual WorkProcessTemplate WorkProcessTemplate { get; set; }
         public bool State { get; set; }
         public int Order { get; set; }
+        public virtual HashSet<WorkProcessRouteUser> WorkProcessRouteUser { get; set; }
 
     }
 }

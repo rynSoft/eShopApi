@@ -7,6 +7,7 @@ using System;
 using System.Threading.Tasks;
 using techiz.Domain.Common;
 using techiz.Domain.Dtos;
+using System.Collections.Generic;
 
 namespace techizApi.Controllers
 {
@@ -55,7 +56,13 @@ namespace techizApi.Controllers
             return Ok(null);
         }
 
-        
+
+        [HttpPost(nameof(AddAll))]
+        public async Task<ActionResult<ResponseModel>> AddAll(List<WorkProcessRouteDtoC> dto)
+        {
+            return await _workProcessRouteService.AddAll(dto);
+        }
+
         [HttpPost(nameof(Add))]
         public async Task<ActionResult<ResponseModel>> Add(WorkProcessRouteDtoC dto)
         { 

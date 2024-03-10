@@ -35,7 +35,7 @@ public class WorkProcessRouteUserService : IWorkProcessRouteUserService
 
     public async Task<ResponseModel> GetAll()
     {
-        var entity = _appDbContext.RouteInfo.ToList();
+        var entity = _appDbContext.WorkProcessRouteUser.ToList();
         return new ResponseModel(entity);
     }
     public async Task<WorkProcessRouteUserDtoQ> Get(int id)
