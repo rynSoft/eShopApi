@@ -57,10 +57,10 @@ namespace techizApi.Controllers
         }
 
 
-        [HttpPost(nameof(AddAll))]
-        public async Task<ActionResult<ResponseModel>> AddAll(List<WorkProcessRouteDtoC> dto)
+        [HttpPost(nameof(AddorUpdateAll))]
+        public async Task<ActionResult<ResponseModel>> AddorUpdateAll(List<WorkProcessRouteDtoC> dto)
         {
-            return await _workProcessRouteService.AddAll(dto);
+            return await _workProcessRouteService.AddorUpdateAll(dto);
         }
 
         [HttpPost(nameof(Add))]
@@ -74,6 +74,7 @@ namespace techizApi.Controllers
         {
             return await _workProcessRouteService.Update(dto);
         }
+
         [HttpPut(nameof(UpdateState))]
         public async Task<ActionResult<ResponseModel>> UpdateState(WorkProcessRouteDtoC dto)
         {

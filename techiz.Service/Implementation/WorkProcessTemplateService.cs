@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.EntityFrameworkCore;
 using techiz.Domain.Common;
 using techiz.Domain.Dtos;
+using techiz.Domain.Dtos.WorkProcessTemplate;
 using techiz.Domain.Entities;
 using techiz.Domain.Interfaces;
 using techiz.Persistence;
@@ -32,6 +33,16 @@ public class WorkProcessTemplateService : IWorkProcessTemplateService
     {
        return new ResponseModel(_mapper.Map<List<WorkProcessTemplateDtoQ>>(await _appDbContext.WorkProcessTemplate.ToListAsync()));
     }
+
+    public async Task<ResponseModel> GetAllListProductionId(int productionId)
+    {
+        WorkProcessTemplateInitialDtoQ st = new WorkProcessTemplateInitialDtoQ 
+                                      { List1 = _mapper.Map<List<WorkProcessTemplateDtoQ>>(await _appDbContext.WorkProcessTemplate.Where(y => y.Active).ToListAsync()),
+                                        List2 = _mapper.Map<List<WorkProcessRouteDtoC>>(await _appDbContext.WorkProcessRoute.Where(y => y.Active && y.ProductionId == productionId).ToListAsync())
+        };
+        return new ResponseModel(st);
+    }
+
 
     public async Task<ResponseModel> GetAllFilter()
     {

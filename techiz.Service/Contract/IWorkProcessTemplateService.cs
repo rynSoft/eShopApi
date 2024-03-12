@@ -11,6 +11,7 @@ namespace techiz.Service.Contract
     public interface IWorkProcessTemplateService
     {
         Task<ResponseModel> GetAll();
+        Task<ResponseModel>  GetAllListProductionId(int productionId);
         Task<ResponseModel> GetAllFilter();
         
         Task<ResponseModel> GetById(int id);

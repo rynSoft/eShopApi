@@ -51,8 +51,8 @@ public class WorkProcessRouteService : IWorkProcessRouteService
                     Name = x.Name,
                     VirtualName = x.VirtualName,
                     ProductionId = x.ProductionId,
-                    WorkProcessTemplateId = x.WorkProcessTemplateId,
-                    WorkProcessTemplate = x.WorkProcessTemplate,
+                    //WorkProcessTemplateId = x.WorkProcessTemplateId,
+                    //WorkProcessTemplateDtoQ = x.WorkProcessTemplate,
                     Order = x.Order,
                     UserList = _appDbContext.WorkProcessRouteUser.Where(t=>t.WorkProcessRouteId == x.Id).Include(x => x.User).Select(t => new UserRouteInfoDto()
                     {
@@ -67,14 +67,17 @@ public class WorkProcessRouteService : IWorkProcessRouteService
         return result;
     }
 
-    public async Task<ResponseModel> AddAll(List<WorkProcessRouteDtoC> dto)
+    public async Task<ResponseModel> AddorUpdateAll(List<WorkProcessRouteDtoC> dto)
     {
         try
         {
             foreach (var item in dto)
             {
                 var entity = _mapper.Map<WorkProcessRoute>(item);
-                await _repository.AddAsync(entity);
+                if (_appDbContext.WorkProcessRoute.Any(y=> y.Id == entity.Id))
+                    await _repository.UpdateAsync(entity);
+                else
+                    await _repository.AddAsync(entity);
             }
         }
         catch (Exception)
@@ -92,12 +95,13 @@ public class WorkProcessRouteService : IWorkProcessRouteService
     }
     public async Task<ResponseModel> Update(WorkProcessRouteDtoC data)
     {
-        var entity = _mapper.Map<Domain.Entities.WorkProcessRoute>(data);
+        var entity = _mapper.Map<WorkProcessRoute>(data);
         return await _repository.UpdateAsync(entity);
     }
+  
     public async Task<ResponseModel> UpdateState(WorkProcessRouteDtoC data)
     {
-        WorkProcessRoute routeInfo = await _repository.GetSingleAsync(x => x.Id == data.Id);
+        WorkProcessRoute routeInfo = await _repository.GetSingleAsync(x => x.Id == Convert.ToInt32(data.Id));
         routeInfo.State = (bool)data.State;
         return await _repository.UpdateAsync(routeInfo);
     }

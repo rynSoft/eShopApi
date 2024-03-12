@@ -7,10 +7,11 @@ namespace techiz.Domain.Dtos;
 
 public class WorkProcessRouteDtoC
 {
-    public int? Id { get; set; }
+    public string Id { get; set; }
     public Guid? RouteId { get; set; }
    
     public string Name { get; set; }
+    //public string Content { get { return Name; } }
     public string VirtualName { get; set; }
     public int ProductionId { get; set; }
     public int WorkProcessTemplateId { get; set; }

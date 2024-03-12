@@ -18,6 +18,6 @@ public class WorkProcessRouteDtoQ
     public int WorkProcessTemplateId { get; set; }
     public bool State { get; set; }
     public int Order { get; set; }
-    public WorkProcessTemplate WorkProcessTemplate { get; set; }
+    public WorkProcessTemplateDtoQ WorkProcessTemplateDtoQ { get; set; }
     public List<UserRouteInfoDto> UserList { get; set; }
 }
