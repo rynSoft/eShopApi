@@ -11,7 +11,7 @@ public class WorkProcessRouteDtoC
     public Guid? RouteId { get; set; }
    
     public string Name { get; set; }
-    //public string Content { get { return Name; } }
+    public string Content { get { return Name; } }
     public string VirtualName { get; set; }
     public int ProductionId { get; set; }
     public int WorkProcessTemplateId { get; set; }
