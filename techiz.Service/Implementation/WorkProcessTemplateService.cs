@@ -39,7 +39,7 @@ public class WorkProcessTemplateService : IWorkProcessTemplateService
     {
            var wpRoute = await _appDbContext.WorkProcessRoute
             .Where(t=> t.Active && t.ProductionId == productionId)
-            .Select(y => new WorkProcessRouteDtoC()
+            .Select(y => new WorkProcessRouteDtoQ()
             {
                 Id = y.Id.ToString(),
                 Name = y.Name,
@@ -56,7 +56,7 @@ public class WorkProcessTemplateService : IWorkProcessTemplateService
 
     WorkProcessTemplateInitialDtoQ st = new WorkProcessTemplateInitialDtoQ 
                                       { List1 = _mapper.Map<List<WorkProcessTemplateDtoQ>>(await _appDbContext.WorkProcessTemplate.Where(y => y.Active).ToListAsync()),
-                                        List2 = _mapper.Map<List<WorkProcessRouteDtoC>>(wpRoute)
+                                        List2 = _mapper.Map<List<WorkProcessRouteDtoQ>>(wpRoute)
         };
         return new ResponseModel(st);
     }

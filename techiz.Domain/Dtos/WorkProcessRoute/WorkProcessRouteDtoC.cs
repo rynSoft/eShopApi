@@ -11,9 +11,6 @@ public class WorkProcessRouteDtoC
     public Guid? RouteId { get; set; }
    
     public string Name { get; set; }
-    public string Content { get; set; }
-    public string Color => "light-warning";
-    public string Icon => "";
     public string VirtualName { get; set; }
     public int ProductionId { get; set; }
     public int WorkProcessTemplateId { get; set; }

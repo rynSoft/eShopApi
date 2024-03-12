@@ -46,14 +46,14 @@ public class WorkProcessRouteService : IWorkProcessRouteService
         var result  = _appDbContext.WorkProcessRoute.Where(x=> x.ProductionId == id)
             .Select(x=> new WorkProcessRouteDtoQ()
                 {
-                    Id = x.Id,
+                    Id = x.Id.ToString(),
                     State=x.State,
                     Name = x.Name,
                     VirtualName = x.VirtualName,
                     ProductionId = x.ProductionId,
-                    //WorkProcessTemplateId = x.WorkProcessTemplateId,
-                    //WorkProcessTemplateDtoQ = x.WorkProcessTemplate,
-                    Order = x.Order,
+                WorkProcessTemplateId = x.WorkProcessTemplateId,
+                //WorkProcessTemplateDtoQ = x.WorkProcessTemplate,
+                Order = x.Order,
                     UserList = _appDbContext.WorkProcessRouteUser.Where(t=>t.WorkProcessRouteId == x.Id).Include(x => x.User).Select(t => new UserRouteInfoDto()
                     {
                         Id = t.User.Id,

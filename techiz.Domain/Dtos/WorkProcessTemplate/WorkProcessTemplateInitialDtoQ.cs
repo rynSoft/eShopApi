@@ -15,5 +15,5 @@ public class WorkProcessTemplateInitialDtoQ
     }
 
     public List<WorkProcessTemplateDtoQ> List1 { get; set; }
-    public List<WorkProcessRouteDtoC> List2 { get; set; }
+    public List<WorkProcessRouteDtoQ> List2 { get; set; }
 }
