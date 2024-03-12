@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -36,9 +37,26 @@ public class WorkProcessTemplateService : IWorkProcessTemplateService
 
     public async Task<ResponseModel> GetAllListProductionId(int productionId)
     {
-        WorkProcessTemplateInitialDtoQ st = new WorkProcessTemplateInitialDtoQ 
+           var wpRoute = await _appDbContext.WorkProcessRoute
+            .Where(t=> t.Active && t.ProductionId == productionId)
+            .Select(y => new WorkProcessRouteDtoC()
+            {
+                Id = y.Id.ToString(),
+                Name = y.Name,
+                Content = _appDbContext.WorkProcessTemplate.Where(z=> z.Id == y.WorkProcessTemplateId).FirstOrDefault().Name,
+                RouteId = y.RouteId,
+                VirtualName = y.VirtualName,
+                ProductionId = y.ProductionId,
+                WorkProcessTemplateId = y.WorkProcessTemplateId,
+                State = y.State,
+                Active = y.State,
+                Order = y.Order
+            }).ToListAsync();
+
+
+    WorkProcessTemplateInitialDtoQ st = new WorkProcessTemplateInitialDtoQ 
                                       { List1 = _mapper.Map<List<WorkProcessTemplateDtoQ>>(await _appDbContext.WorkProcessTemplate.Where(y => y.Active).ToListAsync()),
-                                        List2 = _mapper.Map<List<WorkProcessRouteDtoC>>(await _appDbContext.WorkProcessRoute.Where(y => y.Active && y.ProductionId == productionId).ToListAsync())
+                                        List2 = _mapper.Map<List<WorkProcessRouteDtoC>>(wpRoute)
         };
         return new ResponseModel(st);
     }
