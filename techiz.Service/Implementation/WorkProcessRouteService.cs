@@ -62,7 +62,7 @@ public class WorkProcessRouteService : IWorkProcessRouteService
                         UserRouteInfoId=t.Id,
                     }).ToList(),
                 }
-            ).OrderBy(x=> x.Order);
+            ).OrderBy(x=> x.Id);
             
         return result;
     }
