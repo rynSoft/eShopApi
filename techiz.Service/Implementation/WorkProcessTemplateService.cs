@@ -38,7 +38,7 @@ public class WorkProcessTemplateService : IWorkProcessTemplateService
     public async Task<ResponseModel> GetAllListProductionId(int productionId)
     {
            var wpRoute = await _appDbContext.WorkProcessRoute
-            .Where(t=> t.Active && t.ProductionId == productionId)
+            .Where(t=>  t.ProductionId == productionId)
             .Select(y => new WorkProcessRouteDtoQ()
             {
                 Id = y.Id.ToString(),
@@ -51,7 +51,7 @@ public class WorkProcessTemplateService : IWorkProcessTemplateService
                 State = y.State,
                 Active = y.State,
                 Order = y.Order
-            }).ToListAsync();
+            }).OrderBy(y=> y.Order).ToListAsync();
 
 
     WorkProcessTemplateInitialDtoQ st = new WorkProcessTemplateInitialDtoQ 

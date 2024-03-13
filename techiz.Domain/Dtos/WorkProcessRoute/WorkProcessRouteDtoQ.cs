@@ -22,6 +22,6 @@ public class WorkProcessRouteDtoQ
     public bool State { get; set; }
     public int Order { get; set; }
     public bool Active { get; set; }
-    public WorkProcessTemplateDtoQ WorkProcessTemplateDtoQ { get; set; }
+    //public WorkProcessTemplateDtoQ WorkProcessTemplateDtoQ { get; set; }
     public List<UserRouteInfoDto> UserList { get; set; }
 }
