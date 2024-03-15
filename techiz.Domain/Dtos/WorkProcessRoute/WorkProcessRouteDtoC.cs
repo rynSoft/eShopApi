@@ -17,4 +17,5 @@ public class WorkProcessRouteDtoC
     public bool State { get; set; }
     public bool Active { get; set; }
     public int Order { get; set; }
+    public string WhichPage { get; set; }
 }
