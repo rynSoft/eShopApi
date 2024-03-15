@@ -8,6 +8,6 @@ namespace techiz.Domain.Dtos
         public string? Name { get; set; }
         public string? SurName { get; set; }
 
-        public int? UserRouteInfoId { get; set; }
+        public int? WorkProcessRouteId { get; set; }
     }
 }

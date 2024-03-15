@@ -50,14 +50,14 @@ public class RouteInfoService : IRouteInfoService
                     Explanation = x.Explanation,
                     UserId = x.UserId,          
                     State=x.State,
-                    userList = _appDbContext.RouteInfoUser.Where(t=>t.RouteInfoId==x.Id).Include(x => x.User).Select(t => new UserRouteInfoDto()
-                    {
+                    //userList = _appDbContext.RouteInfoUser.Where(t=>t.RouteInfoId==x.Id).Include(x => x.User).Select(t => new UserRouteInfoDto()
+                    //{
                         
-                        Id = t.User.Id,
-                        Name = t.User.Ad,
-                        SurName = t.User.Soyad,
-                        UserRouteInfoId=t.Id,
-                    }).ToList(),
+                    //    Id = t.User.Id,
+                    //    Name = t.User.Ad,
+                    //    SurName = t.User.Soyad,
+                    //    UserRouteInfoId=t.Id,
+                    //}).ToList(),
                     AdSoyad = x.User.Ad + " "+ x.User.Soyad,
                     KitHazirlamaState = _appDbContext.ProductionTimeProcess.Where(y=> y.ProductionId == id && y.ProductionProcess == ProductionProcess.KitProvision).OrderBy(y=>y.Id)
                                                                             .LastOrDefault().ProductionTimeStatus,

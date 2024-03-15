@@ -48,6 +48,13 @@ public class WorkProcessTemplateService : IWorkProcessTemplateService
                 VirtualName = y.VirtualName,
                 ProductionId = y.ProductionId,
                 WorkProcessTemplateId = y.WorkProcessTemplateId,
+                UserList = _appDbContext.WorkProcessRouteUser.Where(t => t.WorkProcessRouteId == y.Id).Include(x => x.User).Select(t => new UserRouteInfoDto()
+                {
+                    Id = t.User.Id,
+                    Name = t.User.Ad,
+                    SurName = t.User.Soyad,
+                    WorkProcessRouteId = t.Id,
+                }).ToList(),
                 State = y.State,
                 Active = y.State,
                 Order = y.Order

@@ -59,7 +59,7 @@ public class WorkProcessRouteService : IWorkProcessRouteService
                         Id = t.User.Id,
                         Name = t.User.Ad,
                         SurName = t.User.Soyad,
-                        UserRouteInfoId=t.Id,
+                        WorkProcessRouteId = t.Id,
                     }).ToList(),
                 }
             ).OrderBy(x=> x.Order);
