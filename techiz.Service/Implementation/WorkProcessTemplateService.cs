@@ -20,13 +20,16 @@ public class WorkProcessTemplateService : IWorkProcessTemplateService
     private readonly IRepository<WorkProcessTemplate> _repository;
     private readonly IMapper _mapper;
     private readonly IAppDbContext _appDbContext;
+    private readonly IHttpContextAccessor _httpContextAccessor;
 
     public WorkProcessTemplateService(IRepository<WorkProcessTemplate> repository,
            IAppDbContext appDbContext,
+           IHttpContextAccessor httpContextAccessor,
            IMapper mapper)
     {
         _repository = repository;
         _mapper = mapper;
+        _httpContextAccessor = httpContextAccessor;
         _appDbContext = appDbContext;
     }
 
@@ -69,18 +72,42 @@ public class WorkProcessTemplateService : IWorkProcessTemplateService
 
     public async Task<ResponseModel> GetNavListProductionId(int productionId)
     {
-        var wpRoute = await _appDbContext.WorkProcessRoute
-         .Where(t => t.ProductionId == productionId)
-         .Select(y => new
-         {
-             Id = y.Id.ToString(),
-             Name = y.Name,
-             Order = y.Order,
-             WhichPage = y.WorkProcessTemplate.WhichPage
-         }).OrderBy(t => t.Order).ToListAsync();
+        var user = _httpContextAccessor.HttpContext.GetCurrentUser();
+        var roleId = _appDbContext.UserRole.Where(x => x.UserId == user).FirstOrDefault().RoleId;
+        var role = _appDbContext.Role.Where(x => x.Id == roleId).FirstOrDefault().NormalizedName;
+
+        if (role == "SISTEMADMIN")
+        {
+            var wpRoute = await _appDbContext.WorkProcessRoute
+                                             .Where(t => t.ProductionId == productionId)
+                                             .Select(y => new
+                                             {
+                                                 Id = y.Id.ToString(),
+                                                 Name = y.Name,
+                                                 Order = y.Order,
+                                                 WhichPage = y.WorkProcessTemplate.WhichPage
+                                             }).OrderBy(t => t.Order).ToListAsync();
 
 
-        return new ResponseModel(wpRoute);
+            return new ResponseModel(wpRoute);
+        }
+        else
+        {
+            var wpRoute = await _appDbContext.WorkProcessRouteUser
+                                             .Where(t => t.WorkProcessRoute.ProductionId == productionId && t.UserId == user)
+                         
+                                             .Select(y => new
+                                             {
+                                                 Id = y.Id.ToString(),
+                                                 Name = y.WorkProcessRoute.Name,
+                                                 Order = y.WorkProcessRoute.Order,
+                                                 WhichPage = y.WorkProcessRoute.WorkProcessTemplate.WhichPage
+                                             }).OrderBy(t => t.Order).ToListAsync();
+
+            return new ResponseModel(wpRoute);
+        }
+
+
     }
 
 
