@@ -39,6 +39,18 @@ namespace techizApi.Controllers
             }
             return BadRequest("No records found");
         }
+
+        [HttpGet(nameof(GetNavListProductionId))]
+        public async Task<IActionResult> GetNavListProductionId(int productionId)
+        {
+            var result = await _workProcessTemplateService.GetNavListProductionId(productionId);
+            if (result is not null)
+            {
+                return Ok(result);
+            }
+            return BadRequest("No records found");
+        }
+
         
 
         [HttpGet(nameof(GetAllFilter))]

@@ -60,13 +60,29 @@ public class WorkProcessTemplateService : IWorkProcessTemplateService
                 Order = y.Order
             }).OrderBy(y=> y.Order).ToListAsync();
 
-
     WorkProcessTemplateInitialDtoQ st = new WorkProcessTemplateInitialDtoQ 
                                       { List1 = _mapper.Map<List<WorkProcessTemplateDtoQ>>(await _appDbContext.WorkProcessTemplate.Where(y => y.Active).ToListAsync()),
                                         List2 = _mapper.Map<List<WorkProcessRouteDtoQ>>(wpRoute)
         };
         return new ResponseModel(st);
     }
+
+    public async Task<ResponseModel> GetNavListProductionId(int productionId)
+    {
+        var wpRoute = await _appDbContext.WorkProcessRoute
+         .Where(t => t.ProductionId == productionId)
+         .Select(y => new
+         {
+             Id = y.Id.ToString(),
+             Name = y.Name,
+             Order = y.Order,
+             WhichPage = y.WorkProcessTemplate.WhichPage
+         }).OrderBy(t => t.Order).ToListAsync();
+
+
+        return new ResponseModel(wpRoute);
+    }
+
 
 
     public async Task<ResponseModel> GetAllFilter()

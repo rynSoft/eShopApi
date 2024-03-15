@@ -12,6 +12,7 @@ namespace techiz.Service.Contract
     {
         Task<ResponseModel> GetAll();
         Task<ResponseModel>  GetAllListProductionId(int productionId);
+        Task<ResponseModel> GetNavListProductionId(int productionId)
         Task<ResponseModel> GetAllFilter();
         
         Task<ResponseModel> GetById(int id);
