@@ -60,6 +60,10 @@ public class WorkProcessRouteUserService : IWorkProcessRouteUserService
     {
         if (dto.WorkProcessRouteId is not null)
         {
+            var routeUserList = _appDbContext.WorkProcessRouteUser.Where(x => x.WorkProcessRouteId == dto.WorkProcessRouteId).ToList();
+            if(routeUserList.Where(x => x.UserId == dto.UserId).Any())
+                return new ResponseModel(Success:false);
+
             var routeInfo = await _appDbContext.WorkProcessRoute.Include(y => y.Production).Where(z => z.Id == dto.WorkProcessRouteId).FirstOrDefaultAsync();
 
             await _productionUserService.Add(new ProductionUserDtoC()
