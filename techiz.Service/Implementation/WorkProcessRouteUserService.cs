@@ -83,11 +83,10 @@ public class WorkProcessRouteUserService : IWorkProcessRouteUserService
 
     public async Task<ResponseModel> Delete(int id)
     {
-        WorkProcessRouteUser routeInfo = await _appDbContext.WorkProcessRouteUser.Include(y=> y.WorkProcessRoute).Where(x => x.Id == id).FirstOrDefaultAsync();
-
+        WorkProcessRouteUser routeInfo = await _appDbContext.WorkProcessRouteUser.Where(x => x.Id == id).FirstOrDefaultAsync();
         //var st = await _productionUserService.Delete(routeInfo.WorkProcessRoute.ProductionId,(Guid)routeInfo.UserId);
 
 
-       return new ResponseModel((await _repository.DeleteAsync(routeInfo)));
+        return new ResponseModel((await _repository.DeleteAsync(routeInfo)));
     }
 }

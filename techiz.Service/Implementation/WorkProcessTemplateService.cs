@@ -53,6 +53,7 @@ public class WorkProcessTemplateService : IWorkProcessTemplateService
                 WorkProcessTemplateId = y.WorkProcessTemplateId,
                 UserList = _appDbContext.WorkProcessRouteUser.Where(t => t.WorkProcessRouteId == y.Id).Include(x => x.User).Select(t => new UserRouteInfoDto()
                 {
+                    WorkProcessRouteUserId = t.WorkProcessRouteId,
                     Id = t.User.Id,
                     Name = t.User.Ad,
                     SurName = t.User.Soyad,
