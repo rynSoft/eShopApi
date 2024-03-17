@@ -18,7 +18,13 @@ namespace techiz.Domain.Entities
 
         public int LineId { get; set; }
         public virtual Line Line { get; set; }
-        
+
+        public int? InputCameraId { get; set; }
+        public virtual Camera InputCamera { get; set; }
+
+        public int? OutputCameraId { get; set; }
+        public virtual Camera OutputCamera { get; set; }
+
         public string Code { get; set; }
         public string Name { get; set; }
         public string? BarcodeReaderId { get; set; }

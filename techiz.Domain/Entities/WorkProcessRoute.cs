@@ -3,6 +3,8 @@ using System;
 using techiz.Domain.Auth;
 using techiz.Domain.Enum;
 using System.Collections.Generic;
+using Microsoft.EntityFrameworkCore.Metadata.Internal;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace techiz.Domain.Entities
 {
@@ -23,7 +25,10 @@ namespace techiz.Domain.Entities
         public virtual WorkProcessTemplate WorkProcessTemplate { get; set; }
         public bool State { get; set; }
         public int Order { get; set; }
+        [Column(TypeName = "jsonb")]
+        public string OtherObjects { get; set; }
         public virtual HashSet<WorkProcessRouteUser> WorkProcessRouteUser { get; set; }
+        public virtual HashSet<ProductionInput> ProductionInput { get; set; }
 
     }
 }

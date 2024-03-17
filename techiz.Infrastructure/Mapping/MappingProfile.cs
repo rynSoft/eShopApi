@@ -112,6 +112,20 @@ namespace techiz.Infrastructure.Mapping
 
             #endregion
 
+            #region Line
+
+            CreateMap<Camera, CameraDtoC>()
+                .ReverseMap();
+            CreateMap<CameraDtoC, Camera>()
+                .ReverseMap();
+            CreateMap<Camera, CameraDtoQ>()
+                .ReverseMap();
+            CreateMap<CameraDtoQ, Camera>()
+                .ReverseMap();
+
+            #endregion
+
+
             #region NonCompliance
 
             CreateMap<NonComplianceCode, NonComplianceCodeDtoC>()

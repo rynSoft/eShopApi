@@ -19,6 +19,7 @@ namespace techiz.Domain.Entities
         public string Color { get; set; }
         public string Icon { get; set; }
         public string WhichPage { get; set; }
+        public bool? IsTemplate { get; set; } = true;
         public virtual HashSet<WorkProcessRoute> WorkProcessRoute { get; set; }
         
     }

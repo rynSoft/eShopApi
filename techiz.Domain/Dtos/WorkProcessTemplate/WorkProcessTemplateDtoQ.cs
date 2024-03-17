@@ -14,6 +14,7 @@ public class WorkProcessTemplateDtoQ
     public string Color { get; set; }
     public string Icon { get; set; }
     public bool Active { get; set; }
+    public bool? IsTemplate { get; set; }
     public int WorkProcessTemplateId { get; set; }
     public List<WorkProcessRouteUserDtoQ> UserList { get; set; }
 }

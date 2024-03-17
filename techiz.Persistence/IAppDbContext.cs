@@ -56,7 +56,11 @@ namespace techiz.Persistence
         public DbSet<NonComplianceCode> NonComplianceCode { get; set; }
         public DbSet<WorkProcessRoute> WorkProcessRoute { get; set; }
         public DbSet<WorkProcessRouteUser> WorkProcessRouteUser { get; set; }
+        public DbSet<Camera> Camera { get; set; }
         public DbSet<WorkProcessTemplate> WorkProcessTemplate { get; set; }
+
+        public DbSet<ProductionInput> ProductionInput { get; set; }
+        public DbSet<ProductionInputHistories> ProductionInputHistories { get; set; }
 
         Task<int> SaveChangesAsync();
     }
