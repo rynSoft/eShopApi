@@ -8,7 +8,7 @@ namespace techiz.Service.Contract
     public interface IProductService
     {
         Task<ResponseModel> GetAll();
-        Task<ProductionDtoQ> Get(int id);
+        Task<ProductDtoQ> Get(int id);
         Task<ResponseModel> GetAllProductionId(int productionId);
         Task<ResponseModel> Add(ProductDtoC dto);
         Task<ResponseModel> Delete(int id);
