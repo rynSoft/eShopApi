@@ -125,6 +125,20 @@ namespace techiz.Infrastructure.Mapping
 
             #endregion
 
+            #region Product
+
+            CreateMap<Product, ProductDtoC>()
+                .ReverseMap();
+            CreateMap<ProductDtoC, Product>()
+                .ReverseMap();
+            CreateMap<Product, ProductDtoQ>()
+                  .ForMember(dest => dest.Operator, opt => opt.MapFrom(src => src.User.UserName))
+                .ReverseMap();
+            CreateMap<ProductDtoQ, Product>()
+                    
+                .ReverseMap();
+
+            #endregion
 
             #region NonCompliance
 
