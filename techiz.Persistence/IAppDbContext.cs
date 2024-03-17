@@ -44,7 +44,6 @@ namespace techiz.Persistence
         public DbSet<Line> Line { get; set; }
         public DbSet<ProductionLog> ProductionLog { get; set; }
         public DbSet<ProductionProcessManualTest> ProductionProcessManualTest { get; set; }
-
         public DbSet<ProductionUserRelation> ProductionUserRelation { get; set; }
         public DbSet<RestCause> RestCause { get; set; }
         public DbSet<QualityInfo> QualityInfo { get; set; }
@@ -59,8 +58,8 @@ namespace techiz.Persistence
         public DbSet<Camera> Camera { get; set; }
         public DbSet<WorkProcessTemplate> WorkProcessTemplate { get; set; }
 
-        public DbSet<ProductionInput> ProductionInput { get; set; }
-        public DbSet<ProductionInputHistories> ProductionInputHistories { get; set; }
+        public DbSet<Product> Product { get; set; }
+        public DbSet<ProductHistories> ProductHistories { get; set; }
 
         Task<int> SaveChangesAsync();
     }

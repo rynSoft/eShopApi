@@ -8,14 +8,14 @@ using System.ComponentModel.DataAnnotations.Schema;
 namespace techiz.Domain.Entities
 {
 
-    public class ProductionInputHistories : BaseSimpleModel
+    public class ProductHistories : BaseSimpleModel
     {
-        public ProductionInputHistories()
+        public ProductHistories()
         {   
         }
         
-        public int ProductionInputId { get; set; }
-        public virtual ProductionInput ProductionInput { get; set; }
+        public int ProductId { get; set; }
+        public virtual Product Product { get; set; }
         public int WorkProcessRouteId { get; set; }
         public virtual WorkProcessRoute WorkProcessRoute { get; set; }
     }

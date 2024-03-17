@@ -9,4 +9,5 @@ public class CameraDtoQ
     public string Name { get; set; }
     public string? IpAdress { get; set; }
     public int? Port { get; set; }
+    public bool Active { get; set; }
 }

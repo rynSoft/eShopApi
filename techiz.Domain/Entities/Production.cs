@@ -44,7 +44,7 @@ namespace techiz.Domain.Entities
 
         public virtual HashSet<SetupVerification> SetupVerification { get; set; }
         public virtual HashSet<WorkProcessRoute> WorkProcessRoute { get; set; }
-        public virtual HashSet<ProductionInput> ProductionInput { get; set; }
+        public virtual HashSet<Product> Product { get; set; }
         
 
 

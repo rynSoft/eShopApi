@@ -13,11 +13,6 @@ using Microsoft.AspNetCore.Http;
 using techiz.Domain;
 using System.Linq;
 using Microsoft.Extensions.Logging;
-using Microsoft.AspNetCore.Hosting.Server;
-using System.Xml;
-using Microsoft.Extensions.Options;
-using static Microsoft.EntityFrameworkCore.DbLoggerCategory.Database;
-using System.ComponentModel.DataAnnotations.Schema;
 
 namespace techiz.Persistence
 {
@@ -26,16 +21,13 @@ namespace techiz.Persistence
         // This constructor is used of runit testing
         public appDbContext()
         {
-            
         }
         private readonly IHttpContextAccessor _httpContextAccessor;
         public appDbContext(DbContextOptions<appDbContext> options, IHttpContextAccessor httpcontextaccessor) : base(options)
         {
             ChangeTracker.QueryTrackingBehavior = QueryTrackingBehavior.NoTracking;
             _httpContextAccessor = httpcontextaccessor;
-
         }
-
 
         public DbSet<Menu> Menu { get; set; }
         public DbSet<MenuPermission> MenuPermission { get; set; }
@@ -62,7 +54,6 @@ namespace techiz.Persistence
         public DbSet<RouteInfo> RouteInfo { get; set; }
         public DbSet<SetupVerificationInfo> SetupVerificationInfo { get; set; }
         public DbSet<SetupVerification> SetupVerification { get; set; }
-
         public DbSet<Line> Line { get; set; }
         public DbSet<ProductionLog> ProductionLog { get; set; }
         public DbSet<ProductionOperations> ProductionOperations { get; set; }
@@ -83,9 +74,8 @@ namespace techiz.Persistence
         public DbSet<WorkProcessRoute> WorkProcessRoute { get; set; }
         public DbSet<WorkProcessRouteUser> WorkProcessRouteUser { get; set; }
         public DbSet<Camera> Camera { get; set; }
-        public DbSet<ProductionInput> ProductionInput { get; set; }
-        public DbSet<ProductionInputHistories> ProductionInputHistories { get; set; }
-        
+        public DbSet<Product> Product { get; set; }
+        public DbSet<ProductHistories> ProductHistories { get; set; }
         public DbSet<WorkProcessTemplate> WorkProcessTemplate { get; set; }
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
@@ -111,8 +101,6 @@ namespace techiz.Persistence
         builder.HasNoKey();
         builder.ToTable("MY_Viewsa");
     });
-
-
 
             #region Identity
             modelBuilder.Entity<IdentityUserToken<Guid>>(x =>

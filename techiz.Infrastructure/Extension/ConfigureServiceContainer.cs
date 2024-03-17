@@ -91,6 +91,7 @@ namespace techiz.Infrastructure.Extension
             serviceCollection.AddTransient<IWorkProcessRouteService, WorkProcessRouteService>();
             serviceCollection.AddTransient<IWorkProcessRouteUserService, WorkProcessRouteUserService>();
             serviceCollection.AddTransient<IWorkProcessTemplateService, WorkProcessTemplateService>();
+            serviceCollection.AddTransient<ICameraService, CameraService>();
 
         }
         public static void AddSwaggerOpenAPI(this IServiceCollection serviceCollection)

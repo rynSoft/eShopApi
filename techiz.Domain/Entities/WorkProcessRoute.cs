@@ -28,7 +28,7 @@ namespace techiz.Domain.Entities
         [Column(TypeName = "jsonb")]
         public string OtherObjects { get; set; }
         public virtual HashSet<WorkProcessRouteUser> WorkProcessRouteUser { get; set; }
-        public virtual HashSet<ProductionInput> ProductionInput { get; set; }
+        public virtual HashSet<Product> Product { get; set; }
 
     }
 }
