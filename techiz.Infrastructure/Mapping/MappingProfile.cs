@@ -132,10 +132,9 @@ namespace techiz.Infrastructure.Mapping
             CreateMap<ProductDtoC, Product>()
                 .ReverseMap();
             CreateMap<Product, ProductDtoQ>()
-                  .ForMember(dest => dest.Operator, opt => opt.MapFrom(src => src.User.UserName))
+                  //.ForMember(dest => dest.Operator, opt => opt.MapFrom(src => src.User.UserName))
                 .ReverseMap();
             CreateMap<ProductDtoQ, Product>()
-                    
                 .ReverseMap();
 
             #endregion
