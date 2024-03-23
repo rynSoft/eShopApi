@@ -1,0 +1,175 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
+using AutoMapper;
+using Microsoft.AspNetCore.Http;
+using Microsoft.EntityFrameworkCore;
+using techiz.Domain.Common;
+using techiz.Domain.Dtos;
+using techiz.Domain.Entities;
+using techiz.Domain.Enum;
+using techiz.Domain.Interfaces;
+using techiz.Persistence;
+using techiz.Service.Contract;
+
+namespace techiz.Service.Implementation;
+
+public class WorkProcessRouteTimeHistoriesService : IWorkProcessRouteTimeHistoriesService
+{
+    private readonly IRepository<WorkProcessRouteTimeHistories> _repository;
+    private readonly IMapper _mapper;
+    private readonly IAppDbContext _appDbContext;
+    private readonly IProductionLogService _productionLogService;
+    private readonly IHttpContextAccessor _httpContextAccessor;
+
+    public WorkProcessRouteTimeHistoriesService(IRepository<WorkProcessRouteTimeHistories> repository, 
+           IAppDbContext appDbContext,
+           IMapper mapper,
+           IHttpContextAccessor httpContextAccessor,
+           IProductionLogService productionLogService)
+    {
+        _repository = repository;
+        _mapper = mapper;
+        _appDbContext = appDbContext;
+        _httpContextAccessor = httpContextAccessor;
+        _productionLogService = productionLogService;
+    }
+    
+    public async Task<IEnumerable<WorkProcessRouteTimeHistoriesDtoQ>> GetAllAsyncRouteId(int id)
+    {
+        var process = await _appDbContext.WorkProcessRouteTimeHistories.Where(x => x.WorkProcessRouteId == id)
+            .Select(x => new WorkProcessRouteTimeHistoriesDtoQ()
+                {
+                    UserAd =  _appDbContext.User.Where(y=> y.Id == x.UserId).FirstOrDefault().Ad,
+                    UserSoyad =  _appDbContext.User.Where(y=> y.Id == x.UserId).FirstOrDefault().Soyad,
+                    Date = x.StartDate,
+                    Message=x.Definition,
+                    ElapsedTime = x.ElapsedTime,
+                    RestCause = x.RestCause.Name,
+                    WorkProcessRouteTimeStatus = EnumHelper<WorkProcessRouteTimeStatus>.GetDisplayValue(x.WorkProcessRouteTimeStatus),
+                }
+            ).OrderByDescending(x=> x.Date).ToListAsync();
+      
+        return  process;
+    }
+    
+    public async Task<ResponseModel> Start(WorkProcessRouteTimeHistoriesDtoC dto)
+    {   
+        var user = _httpContextAccessor.HttpContext.GetCurrentUser();
+        await AddWorkProcessRouteLog(dto);
+
+        dto.WorkProcessRouteTimeStatus = WorkProcessRouteTimeStatus.Start;
+        dto.UserId = (Guid)user;
+        var entity = _mapper.Map<WorkProcessRouteTimeHistories>(dto);
+        return await _repository.AddAsync(entity);
+    }
+    
+    public async Task<ResponseModel> Pause(WorkProcessRouteTimeHistoriesDtoC dto)
+    {
+        var user = _httpContextAccessor.HttpContext.GetCurrentUser();
+        var lastData = await _appDbContext.WorkProcessRouteTimeHistories
+                                                            .AsNoTracking()
+                                                            .Where(x=> x.WorkProcessRouteId == dto.WorkProcessRouteId
+                                                                                         )
+                                                            .OrderBy(x => x.Id).LastOrDefaultAsync();
+       
+        if (lastData.WorkProcessRouteTimeStatus == WorkProcessRouteTimeStatus.Resume)
+        {       
+
+            lastData.EndDate = DateTimeOffset.UtcNow;
+            await _repository.UpdateAsync(lastData);
+        }
+        
+        if (dto.WorkProcessRouteTimeStatus == WorkProcessRouteTimeStatus.Pause)
+        {
+            lastData.ElapsedTime = DateTimeOffset.Now - lastData.StartDate;
+            await _repository.UpdateAsync(lastData);
+        }
+
+        
+        dto.WorkProcessRouteTimeStatus = WorkProcessRouteTimeStatus.Pause;
+     
+        dto.UserId = user == null ? dto.UserId : (Guid)user;
+        var entity = _mapper.Map<WorkProcessRouteTimeHistories>(dto);
+        return await _repository.AddAsync(entity);
+    }
+    
+    public async Task<ResponseModel> Resume(WorkProcessRouteTimeHistoriesDtoC dto)
+    {
+        var user = _httpContextAccessor.HttpContext.GetCurrentUser();
+        var lastData = await _appDbContext.WorkProcessRouteTimeHistories
+                                                            .Where(x=> x.WorkProcessRouteId == dto.WorkProcessRouteId
+                                                                && !(x.WorkProcessRouteTimeStatus == WorkProcessRouteTimeStatus.Resume || x.WorkProcessRouteTimeStatus == WorkProcessRouteTimeStatus.Start))
+                                                            .OrderBy(x => x.Id).LastOrDefaultAsync();
+
+        if (lastData.WorkProcessRouteTimeStatus == WorkProcessRouteTimeStatus.Pause)
+        {
+            lastData.EndDate = DateTime.Now;
+            await _repository.UpdateAsync(lastData);
+        }
+
+        if (dto.WorkProcessRouteTimeStatus == WorkProcessRouteTimeStatus.Resume)
+        {
+            if (_appDbContext.RestCause.Where(x => x.Id == lastData.RestCauseId).AsNoTracking().FirstOrDefault().Hanging)
+                lastData.ElapsedTime = TimeSpan.Zero;
+            else
+               lastData.ElapsedTime = DateTimeOffset.Now - lastData.StartDate;
+            await _repository.UpdateAsync(lastData);
+        }
+     
+        dto.WorkProcessRouteTimeStatus = WorkProcessRouteTimeStatus.Resume;
+        dto.UserId = (Guid)user;
+        var entity = _mapper.Map<WorkProcessRouteTimeHistories>(dto);
+        return await _repository.AddAsync(entity);
+    }
+
+    public async Task<ResponseModel> Stop(WorkProcessRouteTimeHistoriesDtoC dto)
+    {
+        var user = _httpContextAccessor.HttpContext.GetCurrentUser();
+        await AddWorkProcessRouteLog(dto);
+
+        var lastData = await _appDbContext.WorkProcessRouteTimeHistories
+                                                            .Where(x => x.WorkProcessRouteId == dto.WorkProcessRouteId)
+                                                            .OrderBy(x => x.Id).LastOrDefaultAsync();
+
+        lastData.EndDate = DateTimeOffset.Now;
+        await _appDbContext.SaveChangesAsync();
+
+
+
+        dto.ElapsedTime = DateTimeOffset.Now - lastData.StartDate;
+        dto.WorkProcessRouteTimeStatus = WorkProcessRouteTimeStatus.Stop;
+        dto.UserId = (Guid)user;
+        var entity = _mapper.Map<WorkProcessRouteTimeHistories>(dto);
+        return await _repository.AddAsync(entity);
+    }
+
+    public async Task<ResponseModel> StopVirtual(WorkProcessRouteTimeHistoriesDtoC dto)
+    {
+        await AddWorkProcessRouteLog(dto);
+        return new ResponseModel();
+    }
+    
+    public async Task<ResponseModel> Update(WorkProcessRouteTimeHistories dto)
+    {
+        var entity =  _mapper.Map<WorkProcessRouteTimeHistories>(dto);
+        return new ResponseModel((await _repository.UpdateAsync(entity)));
+    }
+
+    private async Task<bool> AddWorkProcessRouteLog(WorkProcessRouteTimeHistoriesDtoC dto)
+    {
+        var user = _httpContextAccessor.HttpContext.GetCurrentUser();
+        await _productionLogService.Add(new ProductionLogDtoC()
+        {
+            Date = DateTimeOffset.Now,
+            ProductionId = dto.WorkProcessRouteId,
+            Message = dto.Definition,
+            UserId = (Guid)user,
+        });
+
+        return false;
+    }
+}
+
+ 

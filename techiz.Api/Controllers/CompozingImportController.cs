@@ -80,7 +80,7 @@ namespace techizApi.Controllers
                    
                     await _productionLogService.Add(new ProductionLogDtoC()
                     {
-                        ProductionProcess = ProductionProcess.Created,
+                        //ProductionProcess = ProductionProcess.Created,
                         Date = DateTimeOffset.Now,
                         ProductionId = (int) dto.ProductionId,
                         Message = $"Setup Verification Dosyası aktarıldı . Dosya Adı : {dto.FileName }",

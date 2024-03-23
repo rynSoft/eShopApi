@@ -21,5 +21,6 @@ namespace techiz.Domain.Entities
         public bool UseOee { get; set; } = true;
         public virtual HashSet<ProductionTimeProcess> ProductionTimeProcess { get; set; }
         public virtual HashSet<ShiftTargetParameters> ShiftTargetParameters { get; set; }
+        public virtual HashSet<WorkProcessRouteTimeHistories> WorkProcessRouteTimeHistories { get; set; }
     }
 }

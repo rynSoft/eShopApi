@@ -1,7 +1,4 @@
-﻿using techiz.Domain;
-using System;
-using techiz.Domain.Auth;
-using techiz.Domain.Enum;
+﻿using System;
 using System.Collections.Generic;
 using Microsoft.EntityFrameworkCore.Metadata.Internal;
 using System.ComponentModel.DataAnnotations.Schema;
@@ -14,6 +11,7 @@ namespace techiz.Domain.Entities
         public WorkProcessRoute()
         {
             WorkProcessRouteUser = new();
+            WorkProcessRouteTimeHistories = new();
         }
 
         public Guid? RouteId { get; set; }
@@ -29,6 +27,8 @@ namespace techiz.Domain.Entities
         public string OtherObjects { get; set; }
         public virtual HashSet<WorkProcessRouteUser> WorkProcessRouteUser { get; set; }
         public virtual HashSet<Product> Product { get; set; }
+        public virtual HashSet<WorkProcessRouteTimeHistories> WorkProcessRouteTimeHistories { get; set; }
+        
 
     }
 }

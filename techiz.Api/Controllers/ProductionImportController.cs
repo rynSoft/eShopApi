@@ -166,7 +166,7 @@ namespace techizApi.Controllers
 
                 await _productionLogService.Add(new ProductionLogDtoC()
                 {
-                    ProductionProcess = ProductionProcess.Created,
+                    //ProductionProcess = ProductionProcess.Created,
                     Date = DateTimeOffset.Now,
                     ProductionId = (int)resultProductionInfo.Result.Data,
                     Message = $"Üretim İş Emri Oluşturuldu. {dto.Production.orderNo}",

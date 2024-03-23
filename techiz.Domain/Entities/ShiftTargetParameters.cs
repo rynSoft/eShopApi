@@ -13,6 +13,7 @@ namespace techiz.Domain.Entities
     {
         public ShiftTargetParameters()
         {
+            WorkProcessRouteTimeHistories = new();
         }
         public int ShiftDefinitionId { get; set; }
         public virtual ShiftDefinition ShiftDefinition { get; set; }
@@ -30,11 +31,9 @@ namespace techiz.Domain.Entities
         public int LineId { get; set; }
         public virtual Line Line { get; set; }
         public int? TargetCardCount { get; set; }
-
         public virtual HashSet<ProductionOperations> ProductionOperations { get; set; }
         public virtual HashSet<ProductionTimeProcess> ProductionTimeProcess { get; set; }
-        
-
+        public virtual HashSet<WorkProcessRouteTimeHistories> WorkProcessRouteTimeHistories { get; set; }
 
     }
 }

@@ -124,7 +124,7 @@ namespace techizApi.Controllers
 
                 await _productionLogService.Add(new ProductionLogDtoC()
                     {
-                        ProductionProcess = ProductionProcess.ProductionProcess,
+                        //ProductionProcess = ProductionProcess.ProductionProcess,
                         Date = DateTimeOffset.Now,
                         ProductionId = (int)dto.ProductionId,
                         Message = $"Üretim Süreci Başlatıldı. {dto.ProductionId}  MachineId {dto.MachineId}",

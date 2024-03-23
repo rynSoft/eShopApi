@@ -60,7 +60,7 @@ namespace techiz.Persistence
 
         public DbSet<Product> Product { get; set; }
         public DbSet<ProductHistories> ProductHistories { get; set; }
-
+        public DbSet<WorkProcessRouteTimeHistories> WorkProcessRouteTimeHistories { get; set; }
         Task<int> SaveChangesAsync();
     }
 }

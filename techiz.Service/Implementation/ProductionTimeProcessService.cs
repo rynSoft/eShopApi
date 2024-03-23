@@ -68,7 +68,6 @@ public class ProductionTimeProcessService : IProductionTimeProcessService
         var user = _httpContextAccessor.HttpContext.GetCurrentUser();
         await _productionLogService.Add(new ProductionLogDtoC()
         {
-            ProductionProcess = dto.ProductionProcess,
             Date = DateTimeOffset.Now,
             ProductionId = dto.ProductionId,
             Message = dto.Message,
@@ -166,7 +165,6 @@ public class ProductionTimeProcessService : IProductionTimeProcessService
         var user = _httpContextAccessor.HttpContext.GetCurrentUser();
         await _productionLogService.Add(new ProductionLogDtoC()
         {
-            ProductionProcess = dto.ProductionProcess,
             Date = DateTimeOffset.Now,
             ProductionId = dto.ProductionId,
             Message = dto.Message,
@@ -196,8 +194,7 @@ public class ProductionTimeProcessService : IProductionTimeProcessService
     {
         var user = _httpContextAccessor.HttpContext.GetCurrentUser();
         await _productionLogService.Add(new ProductionLogDtoC()
-        {
-            ProductionProcess = dto.ProductionProcess,
+        {  
             Date = DateTimeOffset.Now,
             ProductionId = dto.ProductionId,
             Message = dto.Message,
