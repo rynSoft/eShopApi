@@ -1,5 +1,6 @@
 using System;
 using techiz.Domain.Auth;
+using techiz.Domain.Entities;
 using techiz.Domain.Enum;
 
 namespace techiz.Domain.Dtos;
@@ -11,4 +12,6 @@ public class ProductionLogDtoC
     public int? WorkProcessRouteId { get; set; }
     public DateTimeOffset Date { get; set; }
     public string Message { get; set; }
+
+
 }

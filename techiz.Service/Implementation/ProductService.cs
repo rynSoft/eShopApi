@@ -43,7 +43,7 @@ public class ProductService : IProductService
         var production = await _appDbContext.Product.OrderByDescending(x=> x.Id).ToListAsync();
         return new ResponseModel(production);
     }
-    public async Task<ResponseModel> GetAllProductionId(int productionId)
+    public async Task<ResponseModel> GetAllProductId(int productionId)
     {
         //var production = _mapper.Map<ProductDtoQ>(await _appDbContext.Product.Where(x=> x.ProductionId == productionId).OrderByDescending(x => x.Id).ToListAsync());
         var production = _mapper.Map<List<ProductDtoQ>>(await _appDbContext.Product.Where(x => x.ProductionId == productionId).OrderBy(x => x.Id).ToListAsync());

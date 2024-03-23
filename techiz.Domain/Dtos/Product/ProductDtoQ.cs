@@ -6,6 +6,7 @@ namespace techiz.Domain.Dtos
   public class ProductDtoQ
     {
         public int Id { get; set; }
+        public int WorkProcessRouteId { get; set; }
         public string Operator { get; set; }
         public DateTimeOffset? CreateDate { get; set; }
         public string Qrcode { get; set; }

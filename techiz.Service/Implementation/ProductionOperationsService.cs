@@ -221,7 +221,9 @@ public class ProductionOperationsService : IProductionOperationsService
     public async Task<ResponseModel> GetProductionTimeLog(int productionId)
     {
         var data = _appDbContext.ProductionLog
-            .Where(y => y.ProductionId == productionId && y.ProductionProcess == ProductionProcess.ProductionProcessSecret)
+            .Where(y => y.ProductionId == productionId 
+            //&& y.ProductionProcess == ProductionProcess.ProductionProcessSecret
+            )
             .ToList();
 
         return  new ResponseModel(data);

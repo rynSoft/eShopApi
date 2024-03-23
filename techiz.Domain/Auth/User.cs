@@ -16,6 +16,7 @@ namespace techiz.Domain.Auth
             UserRole = new();
             QualityOperations = new HashSet<QualityOperation>();
             Product = new();
+            WorkProcessRoute = new();
 
         }
         public string Ad { get; set; }
@@ -39,5 +40,7 @@ namespace techiz.Domain.Auth
         public ICollection<QualityOperation> QualityOperations { get; set; }
         public virtual HashSet<IdentityUserRole<Guid>> UserRole { get; set; }
        public virtual HashSet<Product> Product { get; set; }
+        public virtual HashSet<WorkProcessRoute> WorkProcessRoute { get; set; }
+        
     }
 }

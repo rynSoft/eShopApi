@@ -9,7 +9,7 @@ namespace techiz.Service.Contract
     {
         Task<ResponseModel> GetAll();
         Task<ProductDtoQ> Get(int id);
-        Task<ResponseModel> GetAllProductionId(int productionId);
+        Task<ResponseModel> GetAllProductId(int productionId);
         Task<ResponseModel> Add(ProductDtoC dto);
         Task<ResponseModel> Delete(int id);
     }

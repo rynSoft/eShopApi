@@ -103,7 +103,7 @@ public class WorkProcessRouteTimeHistoriesService : IWorkProcessRouteTimeHistori
                                                                 && !(x.WorkProcessRouteTimeStatus == WorkProcessRouteTimeStatus.Resume || x.WorkProcessRouteTimeStatus == WorkProcessRouteTimeStatus.Start))
                                                             .OrderBy(x => x.Id).LastOrDefaultAsync();
 
-        if (lastData.WorkProcessRouteTimeStatus == WorkProcessRouteTimeStatus.Pause)
+        if (lastData?.WorkProcessRouteTimeStatus == WorkProcessRouteTimeStatus.Pause)
         {
             lastData.EndDate = DateTime.Now;
             await _repository.UpdateAsync(lastData);
@@ -163,7 +163,7 @@ public class WorkProcessRouteTimeHistoriesService : IWorkProcessRouteTimeHistori
         await _productionLogService.Add(new ProductionLogDtoC()
         {
             Date = DateTimeOffset.Now,
-            ProductionId = dto.WorkProcessRouteId,
+            //ProductionId = (int)dto.ProductionId,
             Message = dto.Definition,
             UserId = (Guid)user,
         });

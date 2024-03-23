@@ -457,6 +457,17 @@ namespace techiz.Infrastructure.Mapping
                 .ReverseMap();
             #endregion
 
+            #region WorkProcessTemplate
+            CreateMap<WorkProcessRouteTimeHistoriesDtoC, WorkProcessRouteTimeHistories>()
+                .ReverseMap();
+            CreateMap<WorkProcessRouteTimeHistories, WorkProcessRouteTimeHistoriesDtoC>()
+                .ReverseMap();
+            CreateMap<WorkProcessRouteTimeHistoriesDtoQ, WorkProcessRouteTimeHistories>()
+                .ReverseMap();
+            CreateMap<WorkProcessRouteTimeHistories, WorkProcessRouteTimeHistoriesDtoQ>()
+                .ReverseMap();
+            #endregion
+
 
             #region ProductionTimeProcess
             CreateMap<ProductionTimeProcessDtoC, ProductionTimeProcess>()

@@ -7,7 +7,7 @@ namespace techiz.Domain.Dtos;
 
 public class WorkProcessRouteTimeHistoriesDtoC
 {
-    public int WorkProcessRouteId { get; set; }
+    public int? WorkProcessRouteId { get; set; }
     public int? RestCauseId { get; set; }
 
     public Guid UserId { get; set; }

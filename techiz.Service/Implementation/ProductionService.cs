@@ -210,7 +210,10 @@ public class ProductionService : IProductionService
 
         if(production is not null)
         {
-            ProductionLog productionLog = _appDbContext.ProductionLog.Where(x => x.ProductionId == id && x.ProductionProcess == ProductionProcess.KitProvision).FirstOrDefault();
+            ProductionLog productionLog = _appDbContext.ProductionLog.Where(x => x.ProductionId == id 
+            //&&
+            //x.ProductionProcess == ProductionProcess.KitProvision
+            ).FirstOrDefault();
             if (productionLog != null)
             {
                 return new ResponseModel { Success = false, Message = "Islem Kaydi Mevcut" };

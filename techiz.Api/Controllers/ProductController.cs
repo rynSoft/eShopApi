@@ -42,10 +42,10 @@ namespace techizApi.Controllers
             return Ok(null);
         }
 
-        [HttpGet(nameof(GetAllProductionId))]
-        public async Task<IActionResult> GetAllProductionId(int id)
+        [HttpGet(nameof(GetAllProductId))]
+        public async Task<IActionResult> GetAllProductId(int id)
         {
-            var result = await _productService.GetAllProductionId(id);
+            var result = await _productService.GetAllProductId(id);
             if (result is not null)
             {
                 return Ok(result);
