@@ -159,23 +159,23 @@ public class ProductionService : IProductionService
         return _mapper.Map<ProductionDtoQ>(entity);
     }
     
-    public async Task<ProductionOperationDtoQ> GetOperationState(int id,ProductionProcess ps )
+    public async Task<ProductionOperationDtoQ> GetOperationState(int id,int routeId )
     {
         var entity =  new ProductionOperationDtoQ()
         {
-            BeginState = await _appDbContext.ProductionTimeProcess.AnyAsync(x=> x.ProductionId == id && x.ProductionProcess == ps),
-            ElapsedTime = TimeSpan.FromSeconds(await _appDbContext.ProductionTimeProcess.Where(x=> x.ProductionId == id && x.ProductionProcess == ps && 
-                                                               ( x.ProductionTimeStatus == ProductionTimeStatus.Start || x.ProductionTimeStatus == ProductionTimeStatus.Resume))
+            BeginState = await _appDbContext.WorkProcessRouteTimeHistories.AnyAsync(x=> x.WorkProcessRoute.ProductionId == id && x.WorkProcessRouteId == routeId),
+            ElapsedTime = TimeSpan.FromSeconds(await _appDbContext.WorkProcessRouteTimeHistories.AsNoTracking().Where(x=> x.WorkProcessRoute.ProductionId == id && x.WorkProcessRouteId == routeId && 
+                                                               ( x.WorkProcessRouteTimeStatus == WorkProcessRouteTimeStatus.Start || x.WorkProcessRouteTimeStatus == WorkProcessRouteTimeStatus.Resume))
                                                                .SumAsync(x => x.ElapsedTime.TotalSeconds)).ToString(@"hh\:mm\:ss"),
-            DownTime = TimeSpan.FromSeconds(await _appDbContext.ProductionTimeProcess.Where(x => x.ProductionId == id && x.ProductionProcess == ps &&
-                                                               (x.ProductionTimeStatus == ProductionTimeStatus.Stop || x.ProductionTimeStatus == ProductionTimeStatus.Pause))
+            DownTime = TimeSpan.FromSeconds(await _appDbContext.WorkProcessRouteTimeHistories.AsNoTracking().Where(x => x.WorkProcessRoute.ProductionId == id && x.WorkProcessRouteId == routeId &&
+                                                               (x.WorkProcessRouteTimeStatus == WorkProcessRouteTimeStatus.Stop || x.WorkProcessRouteTimeStatus == WorkProcessRouteTimeStatus.Pause))
                                                              .SumAsync(x=> x.ElapsedTime.TotalSeconds)).ToString(@"hh\:mm\:ss"),
-            ElapsedDay = Math.Round(await _appDbContext.ProductionTimeProcess.Where(x => x.ProductionId == id && x.ProductionProcess == ps &&
-                                                               (x.ProductionTimeStatus == ProductionTimeStatus.Start || x.ProductionTimeStatus == ProductionTimeStatus.Resume))
+            ElapsedDay = Math.Round(await _appDbContext.WorkProcessRouteTimeHistories.AsNoTracking().Where(x => x.WorkProcessRoute.ProductionId == id && x.WorkProcessRouteId == routeId &&
+                                                               (x.WorkProcessRouteTimeStatus == WorkProcessRouteTimeStatus.Start || x.WorkProcessRouteTimeStatus == WorkProcessRouteTimeStatus.Resume))
                                                              .SumAsync(x => x.ElapsedTime.TotalDays ), 0, MidpointRounding.ToZero).ToString(),
             //ProductionOrderNo =  _appDbContext.Production.Where(x=> x.Id == id ).FirstOrDefault().OrderNo,
             //ProductionStartDate =  _appDbContext.ProductionTimeProcess.Where(x=> x.ProductionId == id && x.ProductionProcess == ps && x.ProductionTimeStatus == ProductionTimeStatus.Start).FirstOrDefault()?.StartDate.ToString("dd:MM:yyyy HH:mm"),
-            StopState = await _appDbContext.ProductionTimeProcess.AnyAsync(x=> x.ProductionId == id && x.ProductionProcess == ps && x.ProductionTimeStatus == ProductionTimeStatus.Stop),
+            StopState = await _appDbContext.WorkProcessRouteTimeHistories.AsNoTracking().AnyAsync(x=> x.WorkProcessRoute.ProductionId == id && x.WorkProcessRouteId == routeId && x.WorkProcessRouteTimeStatus == WorkProcessRouteTimeStatus.Stop),
         };
         return entity;
     }

@@ -67,9 +67,9 @@ namespace techizApi.Controllers
         }
 
         [HttpGet(nameof(GetOperationState))]
-        public async Task<IActionResult> GetOperationState(int id,ProductionProcess ps)
+        public async Task<IActionResult> GetOperationState(int id, int routeId)
         {
-            var result = await _productionService.GetOperationState(id,ps);
+            var result = await _productionService.GetOperationState(id, routeId);
             if (result is not null)
             {
                 return Ok(result);

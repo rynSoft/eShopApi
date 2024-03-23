@@ -41,12 +41,15 @@ public class WorkProcessTemplateService : IWorkProcessTemplateService
     public async Task<ResponseModel> GetAllListProductionId(int productionId)
     {
            var wpRoute = await _appDbContext.WorkProcessRoute
+            .AsNoTracking()
             .Where(t=>  t.ProductionId == productionId)
             .Select(y => new WorkProcessRouteDtoQ()
             {
                 Id = y.Id.ToString(),
                 Name = y.Name,
-                Content = _appDbContext.WorkProcessTemplate.Where(z=> z.Id == y.WorkProcessTemplateId).FirstOrDefault().Name,
+                Content = y.WorkProcessTemplate.Name, //_appDbContext.WorkProcessTemplate.Where(z=> z.Id == y.WorkProcessTemplateId).FirstOrDefault().Name,
+                Color = y.WorkProcessTemplate.Color,
+                Icon = y.WorkProcessTemplate.Icon,
                 RouteId = y.RouteId,
                 VirtualName = y.VirtualName,
                 ProductionId = y.ProductionId,

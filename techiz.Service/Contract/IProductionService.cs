@@ -16,7 +16,7 @@ namespace techiz.Service.Contract
         Task<ResponseModel> GetAll();
         Task<ProductionDtoQ> Get(int id);
         Task<ResponseModel> GetAllQrCodeDetail(int productionId);
-        Task<ProductionOperationDtoQ> GetOperationState(int id,ProductionProcess ps);
+        Task<ProductionOperationDtoQ> GetOperationState(int id, int routeId);
         Task<ResponseModel> GetProductionProcessAll(ProductionProcess ps);
         Task<ResponseModel> Add(ProductionDtoC dto);
         Task<ResponseModel> Delete(int id);

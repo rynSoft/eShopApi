@@ -9,6 +9,7 @@ public class WorkProcessRouteTimeHistoriesDtoC
 {
     public int? WorkProcessRouteId { get; set; }
     public int? RestCauseId { get; set; }
+    public int? ProductionId { get; set; }
 
     public Guid UserId { get; set; }
     public int? ShiftTargetParametersId { get; set; }

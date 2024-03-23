@@ -15,8 +15,8 @@ public class WorkProcessRouteDtoQ
     public string Name { get; set; }
     public string VirtualName { get; set; }
     public string Content { get; set; }
-    public string Color => "light-warning";
-    public string Icon => "";
+    public string Color { get; set; }
+    public string Icon { get; set; }
     public int ProductionId { get; set; }
     public int WorkProcessTemplateId { get; set; }
     public bool State { get; set; }
