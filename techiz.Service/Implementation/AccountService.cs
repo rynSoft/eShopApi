@@ -340,17 +340,17 @@ namespace techiz.Service.Implementation
         }
         public async Task<ResponseModel> GetAllTaskQualityAsync(Guid Id)
         {
-            //// var usersDto = _mapper.Map<List<UserInformationDto>>(_userManager.Users.Include(x=> x.UserRole).ToListAsync());
-            //var usersDto = await _appDbContext.QualityUser.Where(x => x.UserId == Id && x.OpenState == false)
-            //    .Select(x => new
-            //    {
-            //        Id = x.Id,
-            //        Message = x.Message,
-            //        QualityProcess = x.QualityProcess,
-            //        Dates = x.Date,
-            //        QualityId = x.QualityId
-            //    })
-            //    .ToListAsync();
+            // var usersDto = _mapper.Map<List<UserInformationDto>>(_userManager.Users.Include(x=> x.UserRole).ToListAsync());
+            var usersDto = await _appDbContext.QualityUser.Where(x => x.UserId == Id && x.OpenState == false)
+                .Select(x => new
+                {
+                    Id = x.Id,
+                    Message = x.Message,
+                    QualityProcess = x.QualityProcess,
+                    Dates = x.Date,
+                    QualityId = x.QualityId
+                })
+                .ToListAsync();
 
             return new ResponseModel(null);
         }
@@ -366,10 +366,10 @@ namespace techiz.Service.Implementation
         }
         public async Task<ResponseModel> UpdateTaskQualityAsync(int Id)
         {
-            //var productionUser = _appDbContext.QualityUser.Where(x => x.Id == Id).FirstOrDefault();
-            //productionUser.OpenState = true;
-            //_appDbContext.QualityUser.Update(productionUser);
-            //await _appDbContext.SaveChangesAsync();
+            var productionUser = _appDbContext.QualityUser.Where(x => x.Id == Id).FirstOrDefault();
+            productionUser.OpenState = true;
+            _appDbContext.QualityUser.Update(productionUser);
+            await _appDbContext.SaveChangesAsync();
             return new ResponseModel(new ResponseModel(Success: true));
         }
         public async Task<ResponseModel> Delete(Guid id)
