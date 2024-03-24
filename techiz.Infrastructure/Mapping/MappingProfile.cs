@@ -132,7 +132,8 @@ namespace techiz.Infrastructure.Mapping
             CreateMap<ProductDtoC, Product>()
                 .ReverseMap();
             CreateMap<Product, ProductDtoQ>()
-                  //.ForMember(dest => dest.Operator, opt => opt.MapFrom(src => src.User.UserName))
+                  .ForMember(dest => dest.UserAdSoyAd, opt => opt.MapFrom(src => $"{src.User.Ad} {src.User.Soyad}" ))
+                  .ForMember(dest => dest.CreateDate, opt => opt.MapFrom(src => $"{src.CreateDate.Value.ToString("dd.MM.yyyy HH:mm:ss")}"))
                 .ReverseMap();
             CreateMap<ProductDtoQ, Product>()
                 .ReverseMap();

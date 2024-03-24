@@ -45,8 +45,8 @@ public class WorkProcessRouteTimeHistoriesService : IWorkProcessRouteTimeHistori
         var process = await _appDbContext.WorkProcessRouteTimeHistories.AsNoTracking().Where(x => x.WorkProcessRouteId == id)
             .Select(x => new WorkProcessRouteTimeHistoriesDtoQ()
                 {
-                    UserAd =  _appDbContext.User.Where(y=> y.Id == x.UserId).FirstOrDefault().Ad,
-                    UserSoyad =  _appDbContext.User.Where(y=> y.Id == x.UserId).FirstOrDefault().Soyad,
+                    //UserAd =  _appDbContext.User.Where(y=> y.Id == x.UserId).FirstOrDefault().Ad,
+                    //UserSoyad =  _appDbContext.User.Where(y=> y.Id == x.UserId).FirstOrDefault().Soyad,
                     Date = x.StartDate,
                     Message=x.Definition,
                     ElapsedTime = x.ElapsedTime,

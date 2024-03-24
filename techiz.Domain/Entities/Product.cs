@@ -13,9 +13,9 @@ namespace techiz.Domain.Entities
         public string Qrcode { get; set; }
         public int ProductionId { get; set; }
         public virtual Production Production { get; set; }
-        public Guid? OperatorId { get; set; }
+        public Guid? UserId { get; set; }
         public virtual User User { get; set; }
-        public int CurrentWorkProcessRouteId { get; set; }
+        public int CurrentWPRId { get; set; }
         public virtual WorkProcessRoute WorkProcessRoute { get; set; }
         public virtual HashSet<ProductHistories> ProductionInputHistories { get; set; }
     }

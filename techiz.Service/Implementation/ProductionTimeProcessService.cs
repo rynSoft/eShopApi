@@ -50,8 +50,8 @@ public class ProductionTimeProcessService : IProductionTimeProcessService
                                                                      && x.ProductionProcess == ps)
             .Select(x => new ProductionTimeProcessDtoQ()
                 {
-                    UserAd =  _appDbContext.User.Where(y=> y.Id == x.UserId).FirstOrDefault().Ad,
-                    UserSoyad =  _appDbContext.User.Where(y=> y.Id == x.UserId).FirstOrDefault().Soyad,
+                    //UserAd =  x.User.ad   _appDbContext.User.Where(y=> y.Id == x.UserId).FirstOrDefault().Ad,
+                    //UserSoyad =  _appDbContext.User.Where(y=> y.Id == x.UserId).FirstOrDefault().Soyad,
                     Date = x.StartDate,
                     Message=x.Definition,
                     ElapsedTime = x.ElapsedTime,

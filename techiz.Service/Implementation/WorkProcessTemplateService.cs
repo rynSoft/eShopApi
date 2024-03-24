@@ -77,8 +77,8 @@ public class WorkProcessTemplateService : IWorkProcessTemplateService
     public async Task<ResponseModel> GetNavListProductionId(int productionId)
     {
         var user = _httpContextAccessor.HttpContext.GetCurrentUser();
-        var roleId = _appDbContext.UserRole.Where(x => x.UserId == user).FirstOrDefault().RoleId;
-        var role = _appDbContext.Role.Where(x => x.Id == roleId).FirstOrDefault().NormalizedName;
+        var roleId = _appDbContext.UserRole.AsNoTracking().Where(x => x.UserId == user).FirstOrDefault().RoleId;
+        var role = _appDbContext.Role.AsNoTracking().Where(x => x.Id == roleId).FirstOrDefault().NormalizedName;
 
         if (role == "SISTEMADMIN")
         {
@@ -97,7 +97,7 @@ public class WorkProcessTemplateService : IWorkProcessTemplateService
         }
         else
         {
-            var wpRoute = await _appDbContext.WorkProcessRouteUser
+            var wpRoute = await _appDbContext.WorkProcessRouteUser.AsNoTracking()
                                              .Where(t => t.WorkProcessRoute.ProductionId == productionId && t.UserId == user)
                          
                                              .Select(y => new

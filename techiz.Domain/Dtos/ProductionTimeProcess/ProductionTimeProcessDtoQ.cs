@@ -8,9 +8,9 @@ public class ProductionTimeProcessDtoQ
 {
     public int Id { get; set; }
     public int ProductionId { get; set; }
-    public Guid UserId { get; set; }
-    public string UserAd { get; set; }
-    public string UserSoyad { get; set; }
+    //public Guid UserId { get; set; }
+    //public string UserAd { get; set; }
+    //public string UserSoyad { get; set; }
     public string RestCause { get; set; }
     public string ProductionProcess { get; set; }
     public string ProductionTimeStatus { get; set; }

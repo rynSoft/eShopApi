@@ -29,7 +29,6 @@ public class ProductService : IProductService
         IAppDbContext appDbContext,
            IRepository<Domain.Entities.Product> repository,
            IHttpContextAccessor httpContextAccessor,
-            
            IMapper mapper)
     {
         _repository = repository;
@@ -45,8 +44,18 @@ public class ProductService : IProductService
     }
     public async Task<ResponseModel> GetAllProductId(int productionId)
     {
-        //var production = _mapper.Map<ProductDtoQ>(await _appDbContext.Product.Where(x=> x.ProductionId == productionId).OrderByDescending(x => x.Id).ToListAsync());
-        var production = _mapper.Map<List<ProductDtoQ>>(await _appDbContext.Product.Where(x => x.ProductionId == productionId).OrderBy(x => x.Id).ToListAsync());
+        var production = await _appDbContext.Product.Include(x => x.User).Where(x => x.ProductionId == productionId)
+            .Select(x => new ProductDtoQ()
+            {
+                CreateDate = x.CreateDate,
+                Id = x.Id,
+                Qrcode = x.Qrcode,
+                UserAdSoyAd = $"{x.User.Ad} {x.User.Soyad}"
+            })
+            .OrderBy(x => x.Id).ToListAsync();
+
+
+        //var production = _mapper.Map<List<ProductDtoQ>>(await _appDbContext.Product.Include(x=> x.User).Where(x => x.ProductionId == productionId).OrderBy(x => x.Id).ToListAsync());
         return new ResponseModel(production);
     }
 
@@ -58,7 +67,7 @@ public class ProductService : IProductService
     public async Task<ResponseModel> Add(ProductDtoC dto)
     {  
         var entity = _mapper.Map<Product>(dto);
-        entity.OperatorId = _httpContextAccessor.HttpContext.GetCurrentUser();
+        entity.UserId = _httpContextAccessor.HttpContext.GetCurrentUser();
         return await _repository.AddAsync(entity);
     }
 
