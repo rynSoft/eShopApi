@@ -10,6 +10,7 @@ using Microsoft.EntityFrameworkCore.Query;
 using techiz.Domain.Common;
 using techiz.Domain.Interfaces;
 using techiz.Persistence;
+using Microsoft.Extensions.Logging;
 
 namespace techiz.Persistence.Repositories
 {
@@ -17,16 +18,19 @@ namespace techiz.Persistence.Repositories
     {
         private readonly appDbContext _context;
         private DbSet<T> _dbSet;
+        private readonly ILogger<Repository<T>> _logger;
 
-        
-        public Repository(appDbContext context)
+
+        public Repository(appDbContext context, ILogger<Repository<T>> logger)
         {
             _context = context;
+            _logger = logger;
             _dbSet = context.Set<T>();
         }
         
         public async Task<ResponseModel> AddAsync(T entity)
         {
+            _logger.LogWarning($"Repository | Add : Start");
             if (entity == null)
             {
                 throw new ArgumentNullException($"{nameof(AddAsync)} entity must not be null");
@@ -36,10 +40,13 @@ namespace techiz.Persistence.Repositories
             {
                 await _context.AddAsync(entity);
                 var result = await _context.SaveChangesAsync();
+
+                _logger.LogWarning($"Repository | Add : End-Success");
                 return new ResponseModel(){ Success = true, Message = "Succeded",Data = entity.Id};
             }
             catch (Exception ex)
             {
+                _logger.LogWarning($"Repository | Add : End-ERROR : {ex.InnerException.Message}");
                 return new ResponseModel(){ Success = false, Message = "Error",Data = ex.InnerException.Message};
                 //throw new Exception($"{nameof(entity)} could not be saved: {ex.Message}");
             }

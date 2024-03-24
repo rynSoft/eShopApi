@@ -27,7 +27,10 @@ namespace techizApi
 
         public Startup(IConfiguration configuration)
         {
-            Log.Logger = new LoggerConfiguration().ReadFrom.Configuration(configuration).CreateLogger();
+            Log.Logger = new LoggerConfiguration().ReadFrom.Configuration(configuration)
+                .WriteTo.File(@"C:\logs\log.txt",rollingInterval : RollingInterval.Hour)
+                .WriteTo.Debug()
+                .CreateLogger();
             Configuration = configuration;
 
             IConfigurationBuilder builder = new ConfigurationBuilder().SetBasePath(Directory.GetCurrentDirectory()).AddJsonFile("appsettings.json");

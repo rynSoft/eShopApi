@@ -18,9 +18,10 @@ namespace techiz.Service
             if (context.Request.Headers.Any(c => c.Key == "Authorization"))
             {
                 var tk = context.Request.Headers.FirstOrDefault(c => c.Key == "Authorization").Value.ToString().Split(' ')[1];
-                var token = appDbContext.RefreshToken.FirstOrDefault(c => c.Token == tk.Replace(@"""", ""));
-                if (token != null && appDbContext.Users.Find(token.UserId) != null)
-                    return appDbContext.Users.Find(token.UserId).Id;
+                var token = appDbContext.RefreshToken.Where(c => c.Token == tk.Replace(@"""", "")).Select(x => new { x.UserId }).FirstOrDefault();
+                var user = appDbContext.Users.Find(token.UserId);
+                if (token != null && user != null)
+                    return user.Id;
             }
 
             return null;

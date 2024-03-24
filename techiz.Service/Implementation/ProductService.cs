@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -8,6 +8,7 @@ using MailKit.Search;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Routing;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Logging;
 using Newtonsoft.Json;
 using techiz.Domain.Common;
 using techiz.Domain.Dtos;
@@ -24,15 +25,18 @@ public class ProductService : IProductService
     private IAppDbContext _appDbContext;
     private IHttpContextAccessor _httpContextAccessor;
     private readonly IRepository<Domain.Entities.Product> _repository;
+    private readonly ILogger<ProductService> _logger;
 
     public ProductService(
         IAppDbContext appDbContext,
            IRepository<Domain.Entities.Product> repository,
            IHttpContextAccessor httpContextAccessor,
+           ILogger<ProductService> logger,
            IMapper mapper)
     {
         _repository = repository;
         _mapper = mapper;
+        _logger = logger;
         _httpContextAccessor = httpContextAccessor;
         _appDbContext = appDbContext;
     }
@@ -65,10 +69,17 @@ public class ProductService : IProductService
         return _mapper.Map<ProductDtoQ>(entity);
     }
     public async Task<ResponseModel> Add(ProductDtoC dto)
-    {  
-        var entity = _mapper.Map<Product>(dto);
-        entity.UserId = _httpContextAccessor.HttpContext.GetCurrentUser();
-        return await _repository.AddAsync(entity);
+    {
+        _logger.LogWarning($"Product | Add : Start");
+        if (!await _appDbContext.Product.AnyAsync(x => x.ProductionId == dto.ProductionId && x.Qrcode == dto.Qrcode))
+        {
+            var entity = _mapper.Map<Product>(dto);
+            entity.UserId = _httpContextAccessor.HttpContext.GetCurrentUser();
+            _logger.LogWarning($"Product | Add : End Succes");
+            return await _repository.AddAsync(entity);
+        }
+        _logger.LogWarning($"Product | Add : End NotSuccess");
+        return new ResponseModel { Success = false, Message = "Ürün Daha Önce Kaydetilmiş" };
     }
 
     public async Task<ResponseModel> Delete(int id)
