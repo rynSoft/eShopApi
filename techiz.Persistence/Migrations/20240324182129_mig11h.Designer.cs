@@ -2,6 +2,7 @@
 using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 using techiz.Persistence;
@@ -11,9 +12,10 @@ using techiz.Persistence;
 namespace techiz.Persistence.Migrations
 {
     [DbContext(typeof(appDbContext))]
-    partial class appDbContextModelSnapshot : ModelSnapshot
+    [Migration("20240324182129_mig11h")]
+    partial class mig11h
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -43,22 +45,22 @@ namespace techiz.Persistence.Migrations
                     b.HasData(
                         new
                         {
-                            Id = "50e3a770-89da-4f70-be35-4b9eea646b82",
-                            ConcurrencyStamp = "db539550-7631-4f1c-8a30-4744cc3539f8",
+                            Id = "d68e3581-8bc5-45fa-88ea-bb04f1412f8f",
+                            ConcurrencyStamp = "c23bb6c8-bb2c-4138-831a-bd5fe6520831",
                             Name = "sistemadmin",
                             NormalizedName = "SİSTEMADMİN"
                         },
                         new
                         {
-                            Id = "543c8e49-274b-4dce-b85c-46d5bd33c3e8",
-                            ConcurrencyStamp = "6bc7b760-4085-430d-9454-c2273a2ac9af",
+                            Id = "4fae586c-dd70-46c1-97a4-a71f2c979132",
+                            ConcurrencyStamp = "c18df9e9-7792-4178-8a3d-1a5e72cdbf0b",
                             Name = "admin",
                             NormalizedName = "ADMİN"
                         },
                         new
                         {
-                            Id = "5fc1b47e-2999-43c9-8aea-350529df6daf",
-                            ConcurrencyStamp = "a0a1de23-b2f2-4bf5-b7af-1905c9ca1261",
+                            Id = "a484877c-8b6d-43de-adf4-18a7465da88a",
+                            ConcurrencyStamp = "4d213e14-7fc7-43ba-abdc-9aede9881987",
                             Name = "depo",
                             NormalizedName = "DEPO"
                         });
@@ -291,10 +293,10 @@ namespace techiz.Persistence.Migrations
                     b.HasData(
                         new
                         {
-                            Id = new Guid("c8837177-eb1e-4031-8c1b-c09f10bc08d1"),
+                            Id = new Guid("42a2c681-5058-4d84-9959-70d3e2967c75"),
                             AccessFailedCount = 0,
                             Ad = "Hakan",
-                            ConcurrencyStamp = "9c144b7b-2f86-46da-941c-b551ad0b0dc1",
+                            ConcurrencyStamp = "1aa22210-d578-40a8-85a5-f7c86eb42a93",
                             Email = "hakan@.com",
                             EmailConfirmed = false,
                             Eposta = "hakan@.com",
@@ -310,10 +312,10 @@ namespace techiz.Persistence.Migrations
                         },
                         new
                         {
-                            Id = new Guid("cf2691d1-70ce-4d0c-865b-f071d7fe330e"),
+                            Id = new Guid("d1e28eac-5de8-4a92-8a90-06670cbe97df"),
                             AccessFailedCount = 0,
                             Ad = "Tolga",
-                            ConcurrencyStamp = "682356c9-8395-41ed-be5f-7ea486e5d34b",
+                            ConcurrencyStamp = "1d9d6893-5652-4f1c-81c0-ab1cd867286d",
                             Email = "tolga@.com",
                             EmailConfirmed = true,
                             Eposta = "tolga@.com",
@@ -329,10 +331,10 @@ namespace techiz.Persistence.Migrations
                         },
                         new
                         {
-                            Id = new Guid("86dc0588-50ea-4576-926e-1fca2a3d36c7"),
+                            Id = new Guid("33607edd-8d51-41c2-a452-21f8713015e4"),
                             AccessFailedCount = 0,
                             Ad = "Salih",
-                            ConcurrencyStamp = "743905d0-038f-472f-9379-0f5863610182",
+                            ConcurrencyStamp = "53bc4afb-1d61-49f7-86ca-170c38f4a06c",
                             Email = "salih@.com",
                             EmailConfirmed = true,
                             Eposta = "salih@.com",
@@ -348,10 +350,10 @@ namespace techiz.Persistence.Migrations
                         },
                         new
                         {
-                            Id = new Guid("3f4ec8dc-b51b-4093-9146-464f2bd1cf50"),
+                            Id = new Guid("37254259-0d73-4937-b714-7ba640e6f133"),
                             AccessFailedCount = 0,
                             Ad = "Cagan",
-                            ConcurrencyStamp = "1e3fb7db-486f-4017-85b3-21d5e6424fb8",
+                            ConcurrencyStamp = "5a1b23fb-8aef-412e-a855-687fa4e3f500",
                             Email = "cagan@.com",
                             EmailConfirmed = true,
                             Eposta = "cagan@.com",
@@ -645,7 +647,7 @@ namespace techiz.Persistence.Migrations
                         {
                             Id = 1,
                             Active = true,
-                            CreateDate = new DateTimeOffset(new DateTime(2024, 3, 26, 1, 3, 0, 567, DateTimeKind.Unspecified).AddTicks(1486), new TimeSpan(0, 3, 0, 0, 0)),
+                            CreateDate = new DateTimeOffset(new DateTime(2024, 3, 24, 21, 21, 28, 82, DateTimeKind.Unspecified).AddTicks(6349), new TimeSpan(0, 3, 0, 0, 0)),
                             Icon = "pi pi-fw pi-globe",
                             IsDeleted = false,
                             Label = "Panel",
@@ -655,7 +657,7 @@ namespace techiz.Persistence.Migrations
                         {
                             Id = 2,
                             Active = true,
-                            CreateDate = new DateTimeOffset(new DateTime(2024, 3, 26, 1, 3, 0, 567, DateTimeKind.Unspecified).AddTicks(1540), new TimeSpan(0, 3, 0, 0, 0)),
+                            CreateDate = new DateTimeOffset(new DateTime(2024, 3, 24, 21, 21, 28, 82, DateTimeKind.Unspecified).AddTicks(6391), new TimeSpan(0, 3, 0, 0, 0)),
                             Icon = "fa fa-gavel",
                             IsDeleted = false,
                             Label = "Kullanıcı",
@@ -665,7 +667,7 @@ namespace techiz.Persistence.Migrations
                         {
                             Id = 3,
                             Active = true,
-                            CreateDate = new DateTimeOffset(new DateTime(2024, 3, 26, 1, 3, 0, 567, DateTimeKind.Unspecified).AddTicks(1543), new TimeSpan(0, 3, 0, 0, 0)),
+                            CreateDate = new DateTimeOffset(new DateTime(2024, 3, 24, 21, 21, 28, 82, DateTimeKind.Unspecified).AddTicks(6394), new TimeSpan(0, 3, 0, 0, 0)),
                             Icon = "fa fa-balance-scale",
                             IsDeleted = false,
                             Label = "Kullanıcı Grup",
@@ -675,7 +677,7 @@ namespace techiz.Persistence.Migrations
                         {
                             Id = 5,
                             Active = true,
-                            CreateDate = new DateTimeOffset(new DateTime(2024, 3, 26, 1, 3, 0, 567, DateTimeKind.Unspecified).AddTicks(1544), new TimeSpan(0, 3, 0, 0, 0)),
+                            CreateDate = new DateTimeOffset(new DateTime(2024, 3, 24, 21, 21, 28, 82, DateTimeKind.Unspecified).AddTicks(6396), new TimeSpan(0, 3, 0, 0, 0)),
                             Icon = "pi pi-fw pi-id-card",
                             IsDeleted = false,
                             Label = "Tanımlar",
@@ -802,7 +804,7 @@ namespace techiz.Persistence.Migrations
                         {
                             Id = 1,
                             Active = true,
-                            CreateDate = new DateTimeOffset(new DateTime(2024, 3, 26, 1, 3, 0, 567, DateTimeKind.Unspecified).AddTicks(2062), new TimeSpan(0, 3, 0, 0, 0)),
+                            CreateDate = new DateTimeOffset(new DateTime(2024, 3, 24, 21, 21, 28, 82, DateTimeKind.Unspecified).AddTicks(6849), new TimeSpan(0, 3, 0, 0, 0)),
                             IsDeleted = false,
                             Name = "Permissions.Genel.All"
                         },
@@ -810,7 +812,7 @@ namespace techiz.Persistence.Migrations
                         {
                             Id = 2,
                             Active = true,
-                            CreateDate = new DateTimeOffset(new DateTime(2024, 3, 26, 1, 3, 0, 567, DateTimeKind.Unspecified).AddTicks(2526), new TimeSpan(0, 3, 0, 0, 0)),
+                            CreateDate = new DateTimeOffset(new DateTime(2024, 3, 24, 21, 21, 28, 82, DateTimeKind.Unspecified).AddTicks(7278), new TimeSpan(0, 3, 0, 0, 0)),
                             IsDeleted = false,
                             Name = "Üretim Bandı"
                         },
@@ -818,7 +820,7 @@ namespace techiz.Persistence.Migrations
                         {
                             Id = 3,
                             Active = true,
-                            CreateDate = new DateTimeOffset(new DateTime(2024, 3, 26, 1, 3, 0, 567, DateTimeKind.Unspecified).AddTicks(2945), new TimeSpan(0, 3, 0, 0, 0)),
+                            CreateDate = new DateTimeOffset(new DateTime(2024, 3, 24, 21, 21, 28, 82, DateTimeKind.Unspecified).AddTicks(7659), new TimeSpan(0, 3, 0, 0, 0)),
                             IsDeleted = false,
                             Name = "Etiketleme"
                         },
@@ -826,7 +828,7 @@ namespace techiz.Persistence.Migrations
                         {
                             Id = 4,
                             Active = true,
-                            CreateDate = new DateTimeOffset(new DateTime(2024, 3, 26, 1, 3, 0, 567, DateTimeKind.Unspecified).AddTicks(3363), new TimeSpan(0, 3, 0, 0, 0)),
+                            CreateDate = new DateTimeOffset(new DateTime(2024, 3, 24, 21, 21, 28, 82, DateTimeKind.Unspecified).AddTicks(8079), new TimeSpan(0, 3, 0, 0, 0)),
                             IsDeleted = false,
                             Name = "Display Montajı"
                         },
@@ -834,7 +836,7 @@ namespace techiz.Persistence.Migrations
                         {
                             Id = 5,
                             Active = true,
-                            CreateDate = new DateTimeOffset(new DateTime(2024, 3, 26, 1, 3, 0, 567, DateTimeKind.Unspecified).AddTicks(3781), new TimeSpan(0, 3, 0, 0, 0)),
+                            CreateDate = new DateTimeOffset(new DateTime(2024, 3, 24, 21, 21, 28, 82, DateTimeKind.Unspecified).AddTicks(8391), new TimeSpan(0, 3, 0, 0, 0)),
                             IsDeleted = false,
                             Name = "Programlama"
                         },
@@ -842,7 +844,7 @@ namespace techiz.Persistence.Migrations
                         {
                             Id = 6,
                             Active = true,
-                            CreateDate = new DateTimeOffset(new DateTime(2024, 3, 26, 1, 3, 0, 567, DateTimeKind.Unspecified).AddTicks(4196), new TimeSpan(0, 3, 0, 0, 0)),
+                            CreateDate = new DateTimeOffset(new DateTime(2024, 3, 24, 21, 21, 28, 82, DateTimeKind.Unspecified).AddTicks(8781), new TimeSpan(0, 3, 0, 0, 0)),
                             IsDeleted = false,
                             Name = "Panelden Ayırma"
                         },
@@ -850,7 +852,7 @@ namespace techiz.Persistence.Migrations
                         {
                             Id = 7,
                             Active = true,
-                            CreateDate = new DateTimeOffset(new DateTime(2024, 3, 26, 1, 3, 0, 567, DateTimeKind.Unspecified).AddTicks(4701), new TimeSpan(0, 3, 0, 0, 0)),
+                            CreateDate = new DateTimeOffset(new DateTime(2024, 3, 24, 21, 21, 28, 82, DateTimeKind.Unspecified).AddTicks(9112), new TimeSpan(0, 3, 0, 0, 0)),
                             IsDeleted = false,
                             Name = "Test"
                         },
@@ -858,7 +860,7 @@ namespace techiz.Persistence.Migrations
                         {
                             Id = 8,
                             Active = true,
-                            CreateDate = new DateTimeOffset(new DateTime(2024, 3, 26, 1, 3, 0, 567, DateTimeKind.Unspecified).AddTicks(5154), new TimeSpan(0, 3, 0, 0, 0)),
+                            CreateDate = new DateTimeOffset(new DateTime(2024, 3, 24, 21, 21, 28, 82, DateTimeKind.Unspecified).AddTicks(9428), new TimeSpan(0, 3, 0, 0, 0)),
                             IsDeleted = false,
                             Name = "Kalite Süreçler"
                         },
@@ -866,7 +868,7 @@ namespace techiz.Persistence.Migrations
                         {
                             Id = 9,
                             Active = true,
-                            CreateDate = new DateTimeOffset(new DateTime(2024, 3, 26, 1, 3, 0, 567, DateTimeKind.Unspecified).AddTicks(5619), new TimeSpan(0, 3, 0, 0, 0)),
+                            CreateDate = new DateTimeOffset(new DateTime(2024, 3, 24, 21, 21, 28, 82, DateTimeKind.Unspecified).AddTicks(9741), new TimeSpan(0, 3, 0, 0, 0)),
                             IsDeleted = false,
                             Name = "Kalite Onaylar"
                         },
@@ -874,7 +876,7 @@ namespace techiz.Persistence.Migrations
                         {
                             Id = 10,
                             Active = true,
-                            CreateDate = new DateTimeOffset(new DateTime(2024, 3, 26, 1, 3, 0, 567, DateTimeKind.Unspecified).AddTicks(6036), new TimeSpan(0, 3, 0, 0, 0)),
+                            CreateDate = new DateTimeOffset(new DateTime(2024, 3, 24, 21, 21, 28, 83, DateTimeKind.Unspecified).AddTicks(57), new TimeSpan(0, 3, 0, 0, 0)),
                             IsDeleted = false,
                             Name = "Kalite Operasyonlar"
                         },
@@ -882,7 +884,7 @@ namespace techiz.Persistence.Migrations
                         {
                             Id = 11,
                             Active = true,
-                            CreateDate = new DateTimeOffset(new DateTime(2024, 3, 26, 1, 3, 0, 567, DateTimeKind.Unspecified).AddTicks(6452), new TimeSpan(0, 3, 0, 0, 0)),
+                            CreateDate = new DateTimeOffset(new DateTime(2024, 3, 24, 21, 21, 28, 83, DateTimeKind.Unspecified).AddTicks(374), new TimeSpan(0, 3, 0, 0, 0)),
                             IsDeleted = false,
                             Name = "Depo Tanımları"
                         },
@@ -890,7 +892,7 @@ namespace techiz.Persistence.Migrations
                         {
                             Id = 12,
                             Active = true,
-                            CreateDate = new DateTimeOffset(new DateTime(2024, 3, 26, 1, 3, 0, 567, DateTimeKind.Unspecified).AddTicks(6889), new TimeSpan(0, 3, 0, 0, 0)),
+                            CreateDate = new DateTimeOffset(new DateTime(2024, 3, 24, 21, 21, 28, 83, DateTimeKind.Unspecified).AddTicks(702), new TimeSpan(0, 3, 0, 0, 0)),
                             IsDeleted = false,
                             Name = "Hat Tanımları"
                         },
@@ -898,7 +900,7 @@ namespace techiz.Persistence.Migrations
                         {
                             Id = 13,
                             Active = true,
-                            CreateDate = new DateTimeOffset(new DateTime(2024, 3, 26, 1, 3, 0, 567, DateTimeKind.Unspecified).AddTicks(7308), new TimeSpan(0, 3, 0, 0, 0)),
+                            CreateDate = new DateTimeOffset(new DateTime(2024, 3, 24, 21, 21, 28, 83, DateTimeKind.Unspecified).AddTicks(1009), new TimeSpan(0, 3, 0, 0, 0)),
                             IsDeleted = false,
                             Name = "Makine Tanımları"
                         },
@@ -906,7 +908,7 @@ namespace techiz.Persistence.Migrations
                         {
                             Id = 14,
                             Active = true,
-                            CreateDate = new DateTimeOffset(new DateTime(2024, 3, 26, 1, 3, 0, 567, DateTimeKind.Unspecified).AddTicks(7753), new TimeSpan(0, 3, 0, 0, 0)),
+                            CreateDate = new DateTimeOffset(new DateTime(2024, 3, 24, 21, 21, 28, 83, DateTimeKind.Unspecified).AddTicks(1344), new TimeSpan(0, 3, 0, 0, 0)),
                             IsDeleted = false,
                             Name = "Vardiya Tanımları"
                         },
@@ -914,7 +916,7 @@ namespace techiz.Persistence.Migrations
                         {
                             Id = 15,
                             Active = true,
-                            CreateDate = new DateTimeOffset(new DateTime(2024, 3, 26, 1, 3, 0, 567, DateTimeKind.Unspecified).AddTicks(8174), new TimeSpan(0, 3, 0, 0, 0)),
+                            CreateDate = new DateTimeOffset(new DateTime(2024, 3, 24, 21, 21, 28, 83, DateTimeKind.Unspecified).AddTicks(1699), new TimeSpan(0, 3, 0, 0, 0)),
                             IsDeleted = false,
                             Name = "Oee Gösterim"
                         },
@@ -922,7 +924,7 @@ namespace techiz.Persistence.Migrations
                         {
                             Id = 16,
                             Active = true,
-                            CreateDate = new DateTimeOffset(new DateTime(2024, 3, 26, 1, 3, 0, 567, DateTimeKind.Unspecified).AddTicks(8601), new TimeSpan(0, 3, 0, 0, 0)),
+                            CreateDate = new DateTimeOffset(new DateTime(2024, 3, 24, 21, 21, 28, 83, DateTimeKind.Unspecified).AddTicks(2031), new TimeSpan(0, 3, 0, 0, 0)),
                             IsDeleted = false,
                             Name = "Vardiya - Hat Hedef Miktar Tanımları"
                         },
@@ -930,7 +932,7 @@ namespace techiz.Persistence.Migrations
                         {
                             Id = 17,
                             Active = true,
-                            CreateDate = new DateTimeOffset(new DateTime(2024, 3, 26, 1, 3, 0, 567, DateTimeKind.Unspecified).AddTicks(9015), new TimeSpan(0, 3, 0, 0, 0)),
+                            CreateDate = new DateTimeOffset(new DateTime(2024, 3, 24, 21, 21, 28, 83, DateTimeKind.Unspecified).AddTicks(2346), new TimeSpan(0, 3, 0, 0, 0)),
                             IsDeleted = false,
                             Name = "Mola Tanımları"
                         },
@@ -938,7 +940,7 @@ namespace techiz.Persistence.Migrations
                         {
                             Id = 18,
                             Active = true,
-                            CreateDate = new DateTimeOffset(new DateTime(2024, 3, 26, 1, 3, 0, 567, DateTimeKind.Unspecified).AddTicks(9473), new TimeSpan(0, 3, 0, 0, 0)),
+                            CreateDate = new DateTimeOffset(new DateTime(2024, 3, 24, 21, 21, 28, 83, DateTimeKind.Unspecified).AddTicks(2656), new TimeSpan(0, 3, 0, 0, 0)),
                             IsDeleted = false,
                             Name = "Tamamlanan Kalite Operasyonları"
                         },
@@ -946,7 +948,7 @@ namespace techiz.Persistence.Migrations
                         {
                             Id = 19,
                             Active = true,
-                            CreateDate = new DateTimeOffset(new DateTime(2024, 3, 26, 1, 3, 0, 567, DateTimeKind.Unspecified).AddTicks(9890), new TimeSpan(0, 3, 0, 0, 0)),
+                            CreateDate = new DateTimeOffset(new DateTime(2024, 3, 24, 21, 21, 28, 83, DateTimeKind.Unspecified).AddTicks(2969), new TimeSpan(0, 3, 0, 0, 0)),
                             IsDeleted = false,
                             Name = "Üretim Planlama"
                         },
@@ -954,7 +956,7 @@ namespace techiz.Persistence.Migrations
                         {
                             Id = 20,
                             Active = true,
-                            CreateDate = new DateTimeOffset(new DateTime(2024, 3, 26, 1, 3, 0, 568, DateTimeKind.Unspecified).AddTicks(349), new TimeSpan(0, 3, 0, 0, 0)),
+                            CreateDate = new DateTimeOffset(new DateTime(2024, 3, 24, 21, 21, 28, 83, DateTimeKind.Unspecified).AddTicks(3280), new TimeSpan(0, 3, 0, 0, 0)),
                             IsDeleted = false,
                             Name = "Üretim Planlama Görüntüle"
                         },
@@ -962,7 +964,7 @@ namespace techiz.Persistence.Migrations
                         {
                             Id = 21,
                             Active = true,
-                            CreateDate = new DateTimeOffset(new DateTime(2024, 3, 26, 1, 3, 0, 568, DateTimeKind.Unspecified).AddTicks(817), new TimeSpan(0, 3, 0, 0, 0)),
+                            CreateDate = new DateTimeOffset(new DateTime(2024, 3, 24, 21, 21, 28, 83, DateTimeKind.Unspecified).AddTicks(3614), new TimeSpan(0, 3, 0, 0, 0)),
                             IsDeleted = false,
                             Name = "Üretim Planlama Kaydet"
                         },
@@ -970,7 +972,7 @@ namespace techiz.Persistence.Migrations
                         {
                             Id = 22,
                             Active = true,
-                            CreateDate = new DateTimeOffset(new DateTime(2024, 3, 26, 1, 3, 0, 568, DateTimeKind.Unspecified).AddTicks(1235), new TimeSpan(0, 3, 0, 0, 0)),
+                            CreateDate = new DateTimeOffset(new DateTime(2024, 3, 24, 21, 21, 28, 83, DateTimeKind.Unspecified).AddTicks(3924), new TimeSpan(0, 3, 0, 0, 0)),
                             IsDeleted = false,
                             Name = "Üretim Planlama Sil"
                         },
@@ -978,7 +980,7 @@ namespace techiz.Persistence.Migrations
                         {
                             Id = 23,
                             Active = true,
-                            CreateDate = new DateTimeOffset(new DateTime(2024, 3, 26, 1, 3, 0, 568, DateTimeKind.Unspecified).AddTicks(1651), new TimeSpan(0, 3, 0, 0, 0)),
+                            CreateDate = new DateTimeOffset(new DateTime(2024, 3, 24, 21, 21, 28, 83, DateTimeKind.Unspecified).AddTicks(4235), new TimeSpan(0, 3, 0, 0, 0)),
                             IsDeleted = false,
                             Name = "Kit Hazırlama"
                         },
@@ -986,7 +988,7 @@ namespace techiz.Persistence.Migrations
                         {
                             Id = 24,
                             Active = true,
-                            CreateDate = new DateTimeOffset(new DateTime(2024, 3, 26, 1, 3, 0, 568, DateTimeKind.Unspecified).AddTicks(2063), new TimeSpan(0, 3, 0, 0, 0)),
+                            CreateDate = new DateTimeOffset(new DateTime(2024, 3, 24, 21, 21, 28, 83, DateTimeKind.Unspecified).AddTicks(4585), new TimeSpan(0, 3, 0, 0, 0)),
                             IsDeleted = false,
                             Name = "Kit Doğrulama"
                         },
@@ -994,7 +996,7 @@ namespace techiz.Persistence.Migrations
                         {
                             Id = 25,
                             Active = true,
-                            CreateDate = new DateTimeOffset(new DateTime(2024, 3, 26, 1, 3, 0, 568, DateTimeKind.Unspecified).AddTicks(2475), new TimeSpan(0, 3, 0, 0, 0)),
+                            CreateDate = new DateTimeOffset(new DateTime(2024, 3, 24, 21, 21, 28, 83, DateTimeKind.Unspecified).AddTicks(4897), new TimeSpan(0, 3, 0, 0, 0)),
                             IsDeleted = false,
                             Name = "Setup Verification"
                         },
@@ -1002,7 +1004,7 @@ namespace techiz.Persistence.Migrations
                         {
                             Id = 26,
                             Active = true,
-                            CreateDate = new DateTimeOffset(new DateTime(2024, 3, 26, 1, 3, 0, 568, DateTimeKind.Unspecified).AddTicks(2900), new TimeSpan(0, 3, 0, 0, 0)),
+                            CreateDate = new DateTimeOffset(new DateTime(2024, 3, 24, 21, 21, 28, 83, DateTimeKind.Unspecified).AddTicks(5219), new TimeSpan(0, 3, 0, 0, 0)),
                             IsDeleted = false,
                             Name = "Ayarlar"
                         },
@@ -1010,7 +1012,7 @@ namespace techiz.Persistence.Migrations
                         {
                             Id = 27,
                             Active = true,
-                            CreateDate = new DateTimeOffset(new DateTime(2024, 3, 26, 1, 3, 0, 568, DateTimeKind.Unspecified).AddTicks(3418), new TimeSpan(0, 3, 0, 0, 0)),
+                            CreateDate = new DateTimeOffset(new DateTime(2024, 3, 24, 21, 21, 28, 83, DateTimeKind.Unspecified).AddTicks(5569), new TimeSpan(0, 3, 0, 0, 0)),
                             IsDeleted = false,
                             Name = "Credential"
                         },
@@ -1018,7 +1020,7 @@ namespace techiz.Persistence.Migrations
                         {
                             Id = 28,
                             Active = true,
-                            CreateDate = new DateTimeOffset(new DateTime(2024, 3, 26, 1, 3, 0, 568, DateTimeKind.Unspecified).AddTicks(3870), new TimeSpan(0, 3, 0, 0, 0)),
+                            CreateDate = new DateTimeOffset(new DateTime(2024, 3, 24, 21, 21, 28, 83, DateTimeKind.Unspecified).AddTicks(5905), new TimeSpan(0, 3, 0, 0, 0)),
                             IsDeleted = false,
                             Name = "Kalite"
                         },
@@ -1026,7 +1028,7 @@ namespace techiz.Persistence.Migrations
                         {
                             Id = 29,
                             Active = true,
-                            CreateDate = new DateTimeOffset(new DateTime(2024, 3, 26, 1, 3, 0, 568, DateTimeKind.Unspecified).AddTicks(4289), new TimeSpan(0, 3, 0, 0, 0)),
+                            CreateDate = new DateTimeOffset(new DateTime(2024, 3, 24, 21, 21, 28, 83, DateTimeKind.Unspecified).AddTicks(6218), new TimeSpan(0, 3, 0, 0, 0)),
                             IsDeleted = false,
                             Name = "Dashboard"
                         },
@@ -1034,7 +1036,7 @@ namespace techiz.Persistence.Migrations
                         {
                             Id = 30,
                             Active = true,
-                            CreateDate = new DateTimeOffset(new DateTime(2024, 3, 26, 1, 3, 0, 568, DateTimeKind.Unspecified).AddTicks(4704), new TimeSpan(0, 3, 0, 0, 0)),
+                            CreateDate = new DateTimeOffset(new DateTime(2024, 3, 24, 21, 21, 28, 83, DateTimeKind.Unspecified).AddTicks(6532), new TimeSpan(0, 3, 0, 0, 0)),
                             IsDeleted = false,
                             Name = "Rol Görüntüle"
                         },
@@ -1042,7 +1044,7 @@ namespace techiz.Persistence.Migrations
                         {
                             Id = 31,
                             Active = true,
-                            CreateDate = new DateTimeOffset(new DateTime(2024, 3, 26, 1, 3, 0, 568, DateTimeKind.Unspecified).AddTicks(5119), new TimeSpan(0, 3, 0, 0, 0)),
+                            CreateDate = new DateTimeOffset(new DateTime(2024, 3, 24, 21, 21, 28, 83, DateTimeKind.Unspecified).AddTicks(6843), new TimeSpan(0, 3, 0, 0, 0)),
                             IsDeleted = false,
                             Name = "Rol Kaydet"
                         },
@@ -1050,7 +1052,7 @@ namespace techiz.Persistence.Migrations
                         {
                             Id = 32,
                             Active = true,
-                            CreateDate = new DateTimeOffset(new DateTime(2024, 3, 26, 1, 3, 0, 568, DateTimeKind.Unspecified).AddTicks(5534), new TimeSpan(0, 3, 0, 0, 0)),
+                            CreateDate = new DateTimeOffset(new DateTime(2024, 3, 24, 21, 21, 28, 83, DateTimeKind.Unspecified).AddTicks(7251), new TimeSpan(0, 3, 0, 0, 0)),
                             IsDeleted = false,
                             Name = "Rol Sil"
                         },
@@ -1058,7 +1060,7 @@ namespace techiz.Persistence.Migrations
                         {
                             Id = 33,
                             Active = true,
-                            CreateDate = new DateTimeOffset(new DateTime(2024, 3, 26, 1, 3, 0, 568, DateTimeKind.Unspecified).AddTicks(5985), new TimeSpan(0, 3, 0, 0, 0)),
+                            CreateDate = new DateTimeOffset(new DateTime(2024, 3, 24, 21, 21, 28, 83, DateTimeKind.Unspecified).AddTicks(7654), new TimeSpan(0, 3, 0, 0, 0)),
                             IsDeleted = false,
                             Name = "Kullanıcı Görüntüle"
                         },
@@ -1066,7 +1068,7 @@ namespace techiz.Persistence.Migrations
                         {
                             Id = 34,
                             Active = true,
-                            CreateDate = new DateTimeOffset(new DateTime(2024, 3, 26, 1, 3, 0, 568, DateTimeKind.Unspecified).AddTicks(6432), new TimeSpan(0, 3, 0, 0, 0)),
+                            CreateDate = new DateTimeOffset(new DateTime(2024, 3, 24, 21, 21, 28, 83, DateTimeKind.Unspecified).AddTicks(8072), new TimeSpan(0, 3, 0, 0, 0)),
                             IsDeleted = false,
                             Name = "Kullanıcı Kaydet"
                         },
@@ -1074,7 +1076,7 @@ namespace techiz.Persistence.Migrations
                         {
                             Id = 35,
                             Active = true,
-                            CreateDate = new DateTimeOffset(new DateTime(2024, 3, 26, 1, 3, 0, 568, DateTimeKind.Unspecified).AddTicks(6851), new TimeSpan(0, 3, 0, 0, 0)),
+                            CreateDate = new DateTimeOffset(new DateTime(2024, 3, 24, 21, 21, 28, 83, DateTimeKind.Unspecified).AddTicks(8412), new TimeSpan(0, 3, 0, 0, 0)),
                             IsDeleted = false,
                             Name = "Kullanıcı Sil"
                         },
@@ -1082,7 +1084,7 @@ namespace techiz.Persistence.Migrations
                         {
                             Id = 36,
                             Active = true,
-                            CreateDate = new DateTimeOffset(new DateTime(2024, 3, 26, 1, 3, 0, 568, DateTimeKind.Unspecified).AddTicks(7335), new TimeSpan(0, 3, 0, 0, 0)),
+                            CreateDate = new DateTimeOffset(new DateTime(2024, 3, 24, 21, 21, 28, 83, DateTimeKind.Unspecified).AddTicks(8724), new TimeSpan(0, 3, 0, 0, 0)),
                             IsDeleted = false,
                             Name = "KullaniciGrup All"
                         },
@@ -1090,7 +1092,7 @@ namespace techiz.Persistence.Migrations
                         {
                             Id = 37,
                             Active = true,
-                            CreateDate = new DateTimeOffset(new DateTime(2024, 3, 26, 1, 3, 0, 568, DateTimeKind.Unspecified).AddTicks(7752), new TimeSpan(0, 3, 0, 0, 0)),
+                            CreateDate = new DateTimeOffset(new DateTime(2024, 3, 24, 21, 21, 28, 83, DateTimeKind.Unspecified).AddTicks(9038), new TimeSpan(0, 3, 0, 0, 0)),
                             IsDeleted = false,
                             Name = "LogAll"
                         });
@@ -1114,6 +1116,9 @@ namespace techiz.Persistence.Migrations
                     b.Property<Guid?>("CreatorId")
                         .HasColumnType("uuid");
 
+                    b.Property<int>("CurrentWPRId")
+                        .HasColumnType("integer");
+
                     b.Property<DateTimeOffset?>("EditDate")
                         .HasColumnType("timestamp with time zone");
 
@@ -1122,12 +1127,6 @@ namespace techiz.Persistence.Migrations
 
                     b.Property<bool>("IsDeleted")
                         .HasColumnType("boolean");
-
-                    b.Property<int>("NextWPRId")
-                        .HasColumnType("integer");
-
-                    b.Property<int>("Order")
-                        .HasColumnType("integer");
 
                     b.Property<int>("ProductionId")
                         .HasColumnType("integer");
@@ -1138,13 +1137,16 @@ namespace techiz.Persistence.Migrations
                     b.Property<Guid?>("UserId")
                         .HasColumnType("uuid");
 
-                    b.HasKey("Id");
+                    b.Property<int?>("WorkProcessRouteId")
+                        .HasColumnType("integer");
 
-                    b.HasIndex("NextWPRId");
+                    b.HasKey("Id");
 
                     b.HasIndex("ProductionId");
 
                     b.HasIndex("UserId");
+
+                    b.HasIndex("WorkProcessRouteId");
 
                     b.ToTable("Product");
                 });
@@ -2836,7 +2838,7 @@ namespace techiz.Persistence.Migrations
                         {
                             Id = 1,
                             Active = true,
-                            CreateDate = new DateTimeOffset(new DateTime(2024, 3, 26, 1, 3, 0, 568, DateTimeKind.Unspecified).AddTicks(8307), new TimeSpan(0, 3, 0, 0, 0)),
+                            CreateDate = new DateTimeOffset(new DateTime(2024, 3, 24, 21, 21, 28, 83, DateTimeKind.Unspecified).AddTicks(9448), new TimeSpan(0, 3, 0, 0, 0)),
                             IsDeleted = false,
                             Name = "DEPO"
                         },
@@ -2844,7 +2846,7 @@ namespace techiz.Persistence.Migrations
                         {
                             Id = 2,
                             Active = true,
-                            CreateDate = new DateTimeOffset(new DateTime(2024, 3, 26, 1, 3, 0, 568, DateTimeKind.Unspecified).AddTicks(8325), new TimeSpan(0, 3, 0, 0, 0)),
+                            CreateDate = new DateTimeOffset(new DateTime(2024, 3, 24, 21, 21, 28, 83, DateTimeKind.Unspecified).AddTicks(9461), new TimeSpan(0, 3, 0, 0, 0)),
                             IsDeleted = false,
                             Name = "SMT DZG"
                         },
@@ -2852,7 +2854,7 @@ namespace techiz.Persistence.Migrations
                         {
                             Id = 3,
                             Active = true,
-                            CreateDate = new DateTimeOffset(new DateTime(2024, 3, 26, 1, 3, 0, 568, DateTimeKind.Unspecified).AddTicks(8327), new TimeSpan(0, 3, 0, 0, 0)),
+                            CreateDate = new DateTimeOffset(new DateTime(2024, 3, 24, 21, 21, 28, 83, DateTimeKind.Unspecified).AddTicks(9464), new TimeSpan(0, 3, 0, 0, 0)),
                             IsDeleted = false,
                             Name = "THT DZG"
                         },
@@ -2860,7 +2862,7 @@ namespace techiz.Persistence.Migrations
                         {
                             Id = 4,
                             Active = true,
-                            CreateDate = new DateTimeOffset(new DateTime(2024, 3, 26, 1, 3, 0, 568, DateTimeKind.Unspecified).AddTicks(8329), new TimeSpan(0, 3, 0, 0, 0)),
+                            CreateDate = new DateTimeOffset(new DateTime(2024, 3, 24, 21, 21, 28, 83, DateTimeKind.Unspecified).AddTicks(9466), new TimeSpan(0, 3, 0, 0, 0)),
                             IsDeleted = false,
                             Name = "KLT"
                         },
@@ -2868,7 +2870,7 @@ namespace techiz.Persistence.Migrations
                         {
                             Id = 5,
                             Active = true,
-                            CreateDate = new DateTimeOffset(new DateTime(2024, 3, 26, 1, 3, 0, 568, DateTimeKind.Unspecified).AddTicks(8331), new TimeSpan(0, 3, 0, 0, 0)),
+                            CreateDate = new DateTimeOffset(new DateTime(2024, 3, 24, 21, 21, 28, 83, DateTimeKind.Unspecified).AddTicks(9467), new TimeSpan(0, 3, 0, 0, 0)),
                             IsDeleted = false,
                             Name = "KMYSL"
                         });
@@ -3189,12 +3191,6 @@ namespace techiz.Persistence.Migrations
 
             modelBuilder.Entity("techiz.Domain.Entities.Product", b =>
                 {
-                    b.HasOne("techiz.Domain.Entities.WorkProcessRoute", "NextWPR")
-                        .WithMany("Product")
-                        .HasForeignKey("NextWPRId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
                     b.HasOne("techiz.Domain.Entities.Production", "Production")
                         .WithMany("Product")
                         .HasForeignKey("ProductionId")
@@ -3205,11 +3201,15 @@ namespace techiz.Persistence.Migrations
                         .WithMany("Product")
                         .HasForeignKey("UserId");
 
-                    b.Navigation("NextWPR");
+                    b.HasOne("techiz.Domain.Entities.WorkProcessRoute", "WorkProcessRoute")
+                        .WithMany("Product")
+                        .HasForeignKey("WorkProcessRouteId");
 
                     b.Navigation("Production");
 
                     b.Navigation("User");
+
+                    b.Navigation("WorkProcessRoute");
                 });
 
             modelBuilder.Entity("techiz.Domain.Entities.ProductHistories", b =>

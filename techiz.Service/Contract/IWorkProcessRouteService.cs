@@ -17,6 +17,7 @@ namespace techiz.Service.Contract
         Task<ResponseModel> AddorUpdateAll(List<WorkProcessRouteDtoC> dto);
         Task<ResponseModel> UpdateState(WorkProcessRouteDtoC dto);
         Task<ResponseModel> Update(WorkProcessRouteDtoC dto);
+        Task<ResponseModel> GetOrderNextId(int productionId, int workProcessRouteId,int order);
 
     }
 }

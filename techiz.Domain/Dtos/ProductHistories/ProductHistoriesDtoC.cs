@@ -1,32 +1,21 @@
-﻿using techiz.Domain;
 using System;
-using System.Collections;
 using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
-using System.ComponentModel.DataAnnotations.Schema;
 using techiz.Domain.Auth;
+using techiz.Domain.Entities;
 
-namespace techiz.Domain.Entities
+namespace techiz.Domain.Dtos
 {
-
-    public class ProductHistories : BaseSimpleModel
+  public class ProductHistoriesDtoC
     {
-        public ProductHistories()
-        {   
-        }
-        
         public int ProductId { get; set; }
-        public virtual Product Product { get; set; }
         public int WorkProcessRouteId { get; set; }
-        public virtual WorkProcessRoute WorkProcessRoute { get; set; }
 
         public DateTimeOffset? BeginDate { get; set; }
         public DateTimeOffset? EndDate { get; set; }
         public int? ElapsedTime { get; set; }
         public Guid? UserId { get; set; }
-        public virtual User User { get; set; }
         public string Explination { get; set; }
         public bool IsFininshed { get; set; }
-
     }
+
 }

@@ -56,6 +56,16 @@ namespace techizApi.Controllers
             return Ok(null);
         }
 
+        [HttpGet(nameof(GetOrderNextId))]
+        public async Task<IActionResult> GetOrderNextId(int productionId, int workProcessRouteId,int order)
+        {
+            var result = await _workProcessRouteService.GetOrderNextId(productionId, workProcessRouteId, order);
+            if (result is not null)
+            {
+                return Ok(result);
+            }
+            return Ok(null);
+        }
 
         [HttpPost(nameof(AddorUpdateAll))]
         public async Task<ActionResult<ResponseModel>> AddorUpdateAll(List<WorkProcessRouteDtoC> dto)

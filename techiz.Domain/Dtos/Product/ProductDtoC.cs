@@ -7,6 +7,9 @@ namespace techiz.Domain.Dtos
     {
         public string Qrcode { get; set; }
         public int ProductionId { get; set; }
+        public int Order { get; set; }
+        public int NextWPRId { get; set; }
+        
     }
 
 }

@@ -60,24 +60,26 @@ public class WorkProcessRouteUserService : IWorkProcessRouteUserService
     {
         if (dto.WorkProcessRouteId is not null)
         {
-            var routeUserList = _appDbContext.WorkProcessRouteUser.Where(x => x.WorkProcessRouteId == dto.WorkProcessRouteId).ToList();
-            if(routeUserList.Where(x => x.UserId == dto.UserId).Any())
-                return new ResponseModel(Success:false);
-
-            var routeInfo = await _appDbContext.WorkProcessRoute.Include(y => y.Production).Where(z => z.Id == dto.WorkProcessRouteId).FirstOrDefaultAsync();
-
-            await _productionUserService.Add(new ProductionUserDtoC()
+            if (!await _appDbContext.WorkProcessRouteUser.AnyAsync(x => x.WorkProcessRouteId == dto.WorkProcessRouteId && x.UserId == dto.UserId))
             {
-                Date = DateTimeOffset.Now,
-                ProductionId = routeInfo.ProductionId,
-                Message = $"Yeni Görev Atandı . Üretim Numarası {routeInfo.Production.OrderNo}",
-                UserId = dto.UserId
-            });
+                var routeInfo = await _appDbContext.WorkProcessRoute.Include(y => y.Production).Where(z => z.Id == dto.WorkProcessRouteId).FirstOrDefaultAsync();
 
-            var entity = _mapper.Map<WorkProcessRouteUser>(dto);
-            return await _repository.AddAsync(entity);
+                await _productionUserService.Add(new ProductionUserDtoC()
+                {
+                    Date = DateTimeOffset.Now,
+                    ProductionId = routeInfo.ProductionId,
+                    Message = $"Yeni Görev Atandı . Üretim Numarası {routeInfo.Production.OrderNo}",
+                    UserId = dto.UserId
+                });
+
+                var entity = _mapper.Map<WorkProcessRouteUser>(dto);
+                return await _repository.AddAsync(entity);
+            }else
+                return new ResponseModel(Success: false ,Message: "Kullanıcı Eklenemedi" );
+
         }
-        return new ResponseModel();
+       
+        return new ResponseModel(Success: false);
     }
     public async Task<ResponseModel> Update(WorkProcessRouteUserDtoC data)
     {

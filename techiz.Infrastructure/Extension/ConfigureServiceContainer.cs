@@ -94,7 +94,8 @@ namespace techiz.Infrastructure.Extension
             serviceCollection.AddTransient<ICameraService, CameraService>();
             serviceCollection.AddTransient<IProductService, ProductService>();
             serviceCollection.AddTransient<IWorkProcessRouteTimeHistoriesService, WorkProcessRouteTimeHistoriesService>();
-            
+            serviceCollection.AddTransient<IProductHistoriesService, ProductHistoriesService>();
+
 
         }
         public static void AddSwaggerOpenAPI(this IServiceCollection serviceCollection)

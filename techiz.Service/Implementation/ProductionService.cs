@@ -108,8 +108,6 @@ public class ProductionService : IProductionService
                .ToListAsync();
                 return new ResponseModel(production);
             }
-
-
         }       
     }
 

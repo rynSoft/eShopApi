@@ -40,7 +40,21 @@ public class WorkProcessRouteService : IWorkProcessRouteService
         var entity = await _repository.GetSingleAsync(x=>x.Id == id);
         return _mapper.Map<WorkProcessRouteDtoQ>(entity);
     }
-    
+
+    public async Task<ResponseModel> GetOrderNextId(int productionId , int workProcessRouteId , int order)
+    {
+        var nextWorkProcess = await _appDbContext.WorkProcessRoute.Where(x => x.ProductionId == productionId && x.Id != workProcessRouteId && x.Order > order && 
+                                                                        x.WorkProcessTemplate.IsTemplate == true)
+                                                            .Select(y=> new
+                                                            {
+                                                                Id = y.Id,
+                                                                IsProductPage = y.WorkProcessTemplate.WhichPage == "Product" ? 1 : 0,
+                                                                Order = y.Order
+                                                            } )    
+                                                            .OrderBy(z=> z.Order).FirstOrDefaultAsync();
+        return new ResponseModel( Data : nextWorkProcess);
+    }
+
     public async Task<IEnumerable<WorkProcessRouteDtoQ>> GetAllAsyncProductId(int id)
     {
         var result  = _appDbContext.WorkProcessRoute.Where(x=> x.ProductionId == id)
