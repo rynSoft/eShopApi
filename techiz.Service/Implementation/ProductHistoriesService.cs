@@ -49,18 +49,35 @@ public class ProductHistoriesService : IProductHistoriesService
 
     public async Task<ResponseModel> GetAllAsyncProductHistories(int workProcessRouteId, int productionId, bool IsProductPage)
     {
-        //var lst = await _appDbContext.ProductHistories.Where(t => t.WorkProcessRouteId == workProcessRouteId).Select(y => y.ProductId).ToListAsync();
-        //var product = _appDbContext.Product.Where(d => d.ProductionId == productionId && !lst.Contains(d.Id)).Select(y => new { Id = y.Id, QrCode = y.Qrcode }).Take(20).ToListAsync();
-        //var productHistories =_appDbContext.ProductHistories.Include(t => t.User).OrderByDescending(i => i.EndDate).Take(20).ToListAsync();
+        var lst = await _appDbContext.ProductHistories.Where(t => t.WorkProcessRouteId == workProcessRouteId).Select(y => y.ProductId).ToListAsync();
+        var product = _appDbContext.Product.Where(d => d.ProductionId == productionId && !lst.Contains(d.Id)).Select(y => new { Id = y.Id, QrCode = y.Qrcode }).Take(20).ToListAsync();
+        var productHistories = _appDbContext.ProductHistories.Include(t => t.User).OrderByDescending(i => i.EndDate).Take(20).ToListAsync();
 
-        //var data = new
-        //{
-        //    notRead = choseeWhichTable,
+        if (IsProductPage)
+        {
+            var data = new
+            {
+                notRead = product,
 
-        //    read = _mapper.Map<List<ProductHistoriesDtoQ>>(await _appDbContext.ProductHistories
-        //                  .Include(t => t.User)
-        //                  .Where(x => x.BeginDate != null && x.WorkProcessRouteId == workProcessRouteId).OrderByDescending(i => i.EndDate).Take(20).ToListAsync())
-        //};
+                read = _mapper.Map<List<ProductHistoriesDtoQ>>(await _appDbContext.ProductHistories
+                  .Include(t => t.User)
+                  .Where(x => x.BeginDate != null && x.WorkProcessRouteId == workProcessRouteId).OrderByDescending(i => i.EndDate).Take(20).ToListAsync())
+            };
+            return new ResponseModel(data);
+        }
+
+        if (!IsProductPage)
+        {
+            var data = new
+            {
+                notRead = productHistories,
+
+                read = _mapper.Map<List<ProductHistoriesDtoQ>>(await _appDbContext.ProductHistories
+                  .Include(t => t.User)
+                  .Where(x => x.BeginDate != null && x.WorkProcessRouteId == workProcessRouteId).OrderByDescending(i => i.EndDate).Take(20).ToListAsync())
+            };
+            return new ResponseModel(data);
+        }
 
         return new ResponseModel(null);
     }
