@@ -47,13 +47,13 @@ public class ProductHistoriesService : IProductHistoriesService
         return new  ResponseModel(await _repository.GetAsync(id));
     }
 
-    public async Task<ResponseModel> GetAllAsyncProductHistories(int workProcessRouteId, int productionId, bool IsProductPage)
+    public async Task<ResponseModel> GetAllAsyncProductHistories(int workProcessRouteId, int productionId, int isProductPage)
     {
         var lst = await _appDbContext.ProductHistories.Where(t => t.WorkProcessRouteId == workProcessRouteId).Select(y => y.ProductId).ToListAsync();
-        var product = _appDbContext.Product.Where(d => d.ProductionId == productionId && !lst.Contains(d.Id)).Select(y => new { Id = y.Id, QrCode = y.Qrcode }).Take(20).ToListAsync();
-        var productHistories = _appDbContext.ProductHistories.Include(t => t.User).OrderByDescending(i => i.EndDate).Take(20).ToListAsync();
+        var product = await _appDbContext.Product.Where(d => d.ProductionId == productionId && !lst.Contains(d.Id)).Select(y => new { Id = y.Id, QrCode = y.Qrcode }).Take(20).ToListAsync();
+        var productHistories = await _appDbContext.ProductHistories.Include(t => t.User).OrderByDescending(i => i.EndDate).Take(20).ToListAsync();
 
-        if (IsProductPage)
+        if (isProductPage == 1)
         {
             var data = new
             {
@@ -66,7 +66,7 @@ public class ProductHistoriesService : IProductHistoriesService
             return new ResponseModel(data);
         }
 
-        if (!IsProductPage)
+        if (isProductPage == 0)
         {
             var data = new
             {
@@ -82,7 +82,7 @@ public class ProductHistoriesService : IProductHistoriesService
         return new ResponseModel(null);
     }
 
-    public async Task<ResponseModel> GetByQrCode(string code, int workProcessRouteId, int productionId)
+    public async Task<ResponseModel> GetByQrCode(string code, int workProcessRouteId, int productionId, int isProductPage)
     {
         if (!await _appDbContext.Product.Where(x => x.ProductionId == productionId && x.Qrcode == code.Trim()).AnyAsync())
             return new ResponseModel() { Success = false, Message = $"Bu iş emrinde {code}'lu ürün bulunamadı" };

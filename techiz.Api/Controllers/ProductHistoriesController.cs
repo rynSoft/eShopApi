@@ -59,9 +59,9 @@ namespace techizApi.Controllers
         }
         
         [HttpGet(nameof(GetAllAsyncProductHistories))]
-        public async Task<IActionResult> GetAllAsyncProductHistories(int workProcessRouteId, int productionId, bool IsProductPage)
+        public async Task<IActionResult> GetAllAsyncProductHistories(int workProcessRouteId, int productionId, int isProductPage)
         {
-            var result = await _productHistoriesService.GetAllAsyncProductHistories(workProcessRouteId, productionId, IsProductPage);
+            var result = await _productHistoriesService.GetAllAsyncProductHistories(workProcessRouteId, productionId, isProductPage);
             if (result is not null)
             {
                 return Ok(result);
