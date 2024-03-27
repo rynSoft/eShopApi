@@ -70,9 +70,9 @@ namespace techizApi.Controllers
         }
 
         [HttpGet(nameof(GetByQrCode))]
-        public async Task<IActionResult> GetByQrCode(string code, int workProcessRouteId, int productionId)
+        public async Task<IActionResult> GetByQrCode(string code, int workProcessRouteId, int productionId, int isProductPage)
         {
-            var result = await _productHistoriesService.GetByQrCode(code.Trim(), workProcessRouteId, productionId);
+            var result = await _productHistoriesService.GetByQrCode(code.Trim(), workProcessRouteId, productionId, isProductPage);
             if (result is not null)
             {
                 return Ok(result);
