@@ -69,10 +69,21 @@ namespace techizApi.Controllers
             return BadRequest("No records found");
         }
 
-        [HttpGet(nameof(GetByQrCode))]
-        public async Task<IActionResult> GetByQrCode(string code, int workProcessRouteId, int productionId, int isProductPage)
+        [HttpGet(nameof(GetByQrCodeHistories))]
+        public async Task<IActionResult> GetByQrCodeHistories(string code, int workProcessRouteId)
         {
-            var result = await _productHistoriesService.GetByQrCode(code.Trim(), workProcessRouteId, productionId, isProductPage);
+            var result = await _productHistoriesService.GetByQrCodeHistories(code.Trim(), workProcessRouteId);
+            if (result is not null)
+            {
+                return Ok(result);
+            }
+            return BadRequest("No records found");
+        }
+
+        [HttpGet(nameof(GetByQrCode))]
+        public async Task<IActionResult> GetByQrCodeProduct(string code, int workProcessRouteId)
+        {
+            var result = await _productHistoriesService.GetByQrCodeProduct(code.Trim(), workProcessRouteId);
             if (result is not null)
             {
                 return Ok(result);
