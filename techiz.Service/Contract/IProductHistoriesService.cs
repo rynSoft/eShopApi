@@ -15,7 +15,9 @@ namespace techiz.Service.Contract
         Task<ResponseModel> GetAll();
         Task<ResponseModel> GetById(int id);
         Task<ResponseModel> GetAllAsyncProductHistories(int workProcessRouteId, int productionId, int isProductPage);
-        Task<ResponseModel> GetByQrCode(string code, int workProcessRouteId, int productionId, int isProductPage);
+        Task<ResponseModel> GetByQrCodeHistories(string code, int workProcessRouteId);
+        Task<ResponseModel> GetByQrCodeProduct(string code, int productionId);
+
         Task<ResponseModel> ElapsedTimeCalculate( int workProcessRouteId);
         Task<ResponseModel> Update(ProductHistoriesDtoC dto);
 
