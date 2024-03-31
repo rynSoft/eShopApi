@@ -57,9 +57,9 @@ namespace techizApi.Controllers
         }
 
         [HttpGet(nameof(GetOrderNextId))]
-        public async Task<IActionResult> GetOrderNextId(int workProcessRouteId,int order)
+        public async Task<IActionResult> GetOrderNextId(int productionId, int workProcessRouteId, int order)
         {
-            var result = await _workProcessRouteService.GetOrderNextId( workProcessRouteId, order);
+            var result = await _workProcessRouteService.GetOrderNextId(productionId,workProcessRouteId,order);
             if (result is not null)
             {
                 return Ok(result);

@@ -14,7 +14,7 @@ namespace techiz.Service.Contract
         Task<ResponseModel> GetAllProductId(int productionId);
         Task<ResponseModel> Add(ProductDtoC dto);
         Task<ResponseModel> Delete(int id);
-        Task<ResponseModel> Update(Product entity);
+        Task<ResponseModel> Update(ProductDtoC dto);
         Task<ResponseModel> ProductNextOrder(string qrCode, int productionId);
         Task<ResponseModel> GetByQrCode(string code, int productionId);
     }

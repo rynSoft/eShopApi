@@ -15,6 +15,7 @@ using techiz.Domain.Dtos.ProductionProcessManual;
 using techiz.Domain.Enum;
 using techiz.Infrastructure;
 using techiz.Persistence;
+using techiz.Service.Implementation;
 
 namespace techizApi.Controllers
 {
@@ -59,9 +60,9 @@ namespace techizApi.Controllers
         }
         
         [HttpGet(nameof(GetAllAsyncProductHistories))]
-        public async Task<IActionResult> GetAllAsyncProductHistories(int workProcessRouteId, int productionId, int isProductPage)
+        public async Task<IActionResult> GetAllAsyncProductHistories(int workProcessRouteId)
         {
-            var result = await _productHistoriesService.GetAllAsyncProductHistories(workProcessRouteId, productionId, isProductPage);
+            var result = await _productHistoriesService.GetAllAsyncProductHistories(workProcessRouteId);
             if (result is not null)
             {
                 return Ok(result);
@@ -70,9 +71,9 @@ namespace techizApi.Controllers
         }
 
         [HttpGet(nameof(GetByQrCodeHistories))]
-        public async Task<IActionResult> GetByQrCodeHistories(string code, int workProcessRouteId)
+        public async Task<IActionResult> GetByQrCodeHistories(int workProcessRouteId,string code)
         {
-            var result = await _productHistoriesService.GetByQrCodeHistories(code.Trim(), workProcessRouteId);
+            var result = await _productHistoriesService.GetByQrCodeHistories(workProcessRouteId,code);
             if (result is not null)
             {
                 return Ok(result);
@@ -80,10 +81,10 @@ namespace techizApi.Controllers
             return BadRequest("No records found");
         }
 
-        [HttpGet(nameof(GetByQrCode))]
-        public async Task<IActionResult> GetByQrCodeProduct(string code, int workProcessRouteId)
+        [HttpGet(nameof(GetByQrCodeProduct))]
+        public async Task<IActionResult> GetByQrCodeProduct(int productionId,string code)
         {
-            var result = await _productHistoriesService.GetByQrCodeProduct(code.Trim(), workProcessRouteId);
+            var result = await _productHistoriesService.GetByQrCodeProduct(productionId,code );
             if (result is not null)
             {
                 return Ok(result);
@@ -94,18 +95,7 @@ namespace techizApi.Controllers
         [HttpPost(nameof(Add))]
         public async Task<ActionResult<ResponseModel>> Add(ProductHistoriesDtoC dto)
         {
-            //var state = new ResponseModel(null);
-            //if (dto.QrCode != "Finish24061994")
-            //{
-            //    state = await _productHistoriesService.GetByQrCode(dto.QrCode.Trim(), dto.ProductionId, ProductionProcess.ProductionProcessLabeling);
-
-            //    if (state.Data == null)
-            //        return new ResponseModel(Success: false, Message: "Okutulan Kod seçili üretim hattında kullanılmamıştır...");
-            //}
-
-            return null; 
-            //await _productHistoriesService.ElapsedTimeCalculate(dto.WorkProcessRouteId);
-           
+            return await _productHistoriesService.Add(dto);
         }
         
         [HttpPut(nameof(Update))]

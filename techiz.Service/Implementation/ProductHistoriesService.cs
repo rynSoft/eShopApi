@@ -21,8 +21,8 @@ public class ProductHistoriesService : IProductHistoriesService
 {
     private readonly IRepository<ProductHistories> _repository;
     private readonly IMapper _mapper;
-    private readonly IWorkProcessRouteService _routeService;
     private IHttpContextAccessor _httpContextAccessor;
+    private readonly IProductService _productService;
     private readonly ILogger<ProductService> _logger;
     private readonly IAppDbContext _appDbContext;
     
@@ -30,13 +30,13 @@ public class ProductHistoriesService : IProductHistoriesService
            IAppDbContext appDbContext,
            IHttpContextAccessor httpContextAccessor,
            ILogger<ProductService> logger,
-           IWorkProcessRouteService routeService,
+           IProductService productService,
            IMapper mapper)
     {
         _repository = repository;
         _mapper = mapper;
         _logger = logger;
-        _routeService = routeService;
+        _productService = productService; 
         _httpContextAccessor = httpContextAccessor;
         _appDbContext = appDbContext;
     }
@@ -50,69 +50,51 @@ public class ProductHistoriesService : IProductHistoriesService
         return new  ResponseModel(await _repository.GetAsync(id));
     }
 
-    public async Task<ResponseModel> GetAllAsyncProductHistories(int workProcessRouteId, int productionId, int isProductPage)
+    public async Task<ResponseModel> GetAllAsyncProductHistories(int workProcessRouteId)
     {
-        var lst = await _appDbContext.ProductHistories.Where(t => t.WorkProcessRouteId == workProcessRouteId).Select(y => y.ProductId).ToListAsync();
-        var product = await _appDbContext.Product.Where(d => d.ProductionId == productionId && !lst.Contains(d.Id)).Select(y => new { Id = y.Id, QrCode = y.Qrcode }).Take(20).ToListAsync();
-        var productHistories = await _appDbContext.ProductHistories.Include(t => t.User).OrderByDescending(i => i.EndDate).Take(30).ToListAsync();
-
-        if (isProductPage == 1)
-        {
-            var data = new
-            {
-                notRead = product,
-
-                read = _mapper.Map<List<ProductHistoriesDtoQ>>(await _appDbContext.ProductHistories
-                  .Include(t => t.User)
-                  .Where(x => x.BeginDate != null && x.WorkProcessRouteId == workProcessRouteId).OrderByDescending(i => i.EndDate).Take(20).ToListAsync())
-            };
-            return new ResponseModel(data);
-        }
-
-        if (isProductPage == 0)
-        {
-            var data = new
-            {
-                notRead = productHistories,
-
-                read = _mapper.Map<List<ProductHistoriesDtoQ>>(await _appDbContext.ProductHistories
-                  .Include(t => t.User)
-                  .Where(x => x.BeginDate != null && x.WorkProcessRouteId == workProcessRouteId).OrderByDescending(i => i.EndDate).Take(20).ToListAsync())
-            };
-            return new ResponseModel(data);
-        }
-
-        return new ResponseModel(null);
+        var data = _mapper.Map<List<ProductHistoriesDtoQ>>(await _appDbContext.ProductHistories
+                   .Include(t => t.User)
+                   .Include(y=> y.Product)
+                   .Where(x => x.WorkProcessRouteId == workProcessRouteId).OrderByDescending(i => i.Id).Take(20).ToListAsync());
+           
+        return new ResponseModel(data);
     }
 
-    public async Task<ResponseModel> GetByQrCodeHistories(string code, int workProcessRouteId)
+    public async Task<ResponseModel> GetByQrCodeHistories(int workProcessRouteId,string code)
     {
-        if (!await _appDbContext.ProductHistories.Where(x => x.WorkProcessRouteId == workProcessRouteId && x.Product.Qrcode == code.Trim()).AnyAsync())
+        if (!await _appDbContext.ProductHistories.Where(x => x.WorkProcessRouteId == workProcessRouteId && x.Product.Qrcode == code).AnyAsync())
         {
             return new ResponseModel() { Success = false, Message = $"Bu iş sürecinde bu {code}'lu ürün bulunamadı" };
         }else
         {
-            return new ResponseModel() { Success = true, Message = $"{code}'lu ürün bulundu" };
+            return new ResponseModel() { Success = true,  Data = _appDbContext.ProductHistories.Where(x => x.WorkProcessRouteId == workProcessRouteId && x.Product.Qrcode == code).FirstOrDefaultAsync().Result?.ProductId, Message = $"{code}'lu ürün bulundu" };
         }
     }
 
-    public async Task<ResponseModel> GetByQrCodeProduct(string code, int productionId)
+    public async Task<ResponseModel> GetByQrCodeProduct(int productionId,string code)
     {
-        if (!await _appDbContext.Product.Where(x => x.ProductionId == productionId && x.Qrcode == code.Trim()).AnyAsync())
+        if (!await _appDbContext.Product.Where(x => x.ProductionId == productionId && x.Qrcode == code).AnyAsync())
         {
             return new ResponseModel() { Success = false, Message = $"Bu iş emrinde {code}'lu ürün bulunamadı" };
         }
         else
         {
-            return new ResponseModel() { Success = true, Message = $"{code}'lu ürün bulundu" };
+            return new ResponseModel() { Success = true, Data = _appDbContext.Product.Where(x => x.ProductionId == productionId && x.Qrcode == code).FirstOrDefaultAsync().Result?.Id, Message = $"{code}'lu ürün bulundu" };
         }
     }
 
-    private async Task<ResponseModel> Add(ProductHistoriesDtoC dto)
+    public async Task<ResponseModel> Add(ProductHistoriesDtoC dto)
     {  
        var entity = _mapper.Map<ProductHistories>(dto);
-        return await _repository.AddAsync(entity);
+        entity.UserId = _httpContextAccessor.HttpContext.GetCurrentUser();
 
+        if (_repository.AddAsync(entity).GetAwaiter().GetResult().Success)
+        {
+            var result = await _productService.Update(new ProductDtoC { Id = dto.ProductId, NextWPRId = dto.NextProcessRouteId, ProductionId = dto.ProductionId ,Qrcode = dto.ProductQrCode, Order = (int)dto.Order});
+            return new ResponseModel(result);
+        }
+          
+        return new ResponseModel(Success : false);
     }
 
     public async Task<ResponseModel> ElapsedTimeCalculate(int workProcessRouteId)
@@ -145,34 +127,5 @@ public class ProductHistoriesService : IProductHistoriesService
         return new ResponseModel(null);
     }
 
-    public async Task<ResponseModel> Update(ProductHistoriesDtoC dto)
-    {
-        //var kontrol = await _appDbContext.ProductionProcessManual.Where(x => x.ProductionId == dto.ProductionId && x.LabelingBeginDate != null  &&
-        //                                                                     x.LabelingElapsedTime == null).FirstOrDefaultAsync();
-        //var entity = await _appDbContext.ProductionProcessManual.Where(x => x.Id == dto.Id).FirstOrDefaultAsync();
-        //if (kontrol is not null)
-        //{
-        //    await ElapsedTimeCalculate( dto.work, kontrol);
-        //}
-        //if (entity is not null)
-        //{
-        //    if (dto.QrCode.Trim() != "Finish24061994")
-        //    {
-        //        entity.LabelingUserId = _httpContextAccessor.HttpContext.GetCurrentUser();
-        //        entity.LabelingBeginDate = DateTimeOffset.Now;
-        //        return new ResponseModel((await _repository.UpdateAsync(entity)));
-        //    }
-        //    else
-        //    {
-        //        entity.LabelingUserId = _httpContextAccessor.HttpContext.GetCurrentUser();
-        //        entity.LabelingBeginDate = DateTimeOffset.Now;
-        //        return new ResponseModel((await _repository.UpdateAsync(kontrol)));
-        //    }
-        //}
-        //else
-        //{
-        return new ResponseModel(Success: false);
-        // }
-
-    }
+ 
 }

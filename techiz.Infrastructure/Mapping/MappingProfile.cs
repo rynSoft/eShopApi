@@ -48,6 +48,22 @@ namespace techiz.Infrastructure.Mapping
             #endregion
 
 
+            #region QualityOperationDocument
+
+            CreateMap<ProductHistories, ProductHistoriesDtoC>()
+                   .ReverseMap();
+            CreateMap<ProductHistoriesDtoC, ProductHistories>()
+                 .ReverseMap();
+            CreateMap<ProductHistoriesDtoQ, ProductHistories>()
+                .ReverseMap();
+            CreateMap<ProductHistories, ProductHistoriesDtoQ>()
+                .ReverseMap();
+
+            #endregion
+
+            
+
+
             #region QualityUser
 
             CreateMap<QualityUser, QualityUserDtoC>()

@@ -14,12 +14,12 @@ namespace techiz.Service.Contract
     {
         Task<ResponseModel> GetAll();
         Task<ResponseModel> GetById(int id);
-        Task<ResponseModel> GetAllAsyncProductHistories(int workProcessRouteId, int productionId, int isProductPage);
-        Task<ResponseModel> GetByQrCodeHistories(string code, int workProcessRouteId);
-        Task<ResponseModel> GetByQrCodeProduct(string code, int productionId);
+        Task<ResponseModel> GetAllAsyncProductHistories(int workProcessRouteId);
+        Task<ResponseModel> GetByQrCodeHistories(int workProcessRouteId,string code);
+        Task<ResponseModel> GetByQrCodeProduct(int productionId,string code);
 
         Task<ResponseModel> ElapsedTimeCalculate( int workProcessRouteId);
-        Task<ResponseModel> Update(ProductHistoriesDtoC dto);
+        Task<ResponseModel> Add(ProductHistoriesDtoC dto);
 
     }
 }

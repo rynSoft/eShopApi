@@ -23,7 +23,7 @@ public class ProductService : IProductService
 {
     private readonly IMapper _mapper;
     private IAppDbContext _appDbContext;
-    
+
     private readonly IRepository<Domain.Entities.Product> _repository;
     private IHttpContextAccessor _httpContextAccessor;
     private readonly ILogger<ProductService> _logger;
@@ -41,10 +41,10 @@ public class ProductService : IProductService
         _httpContextAccessor = httpContextAccessor;
         _appDbContext = appDbContext;
     }
-    
+
     public async Task<ResponseModel> GetAll()
     {
-        var production = await _appDbContext.Product.OrderByDescending(x=> x.Id).ToListAsync();
+        var production = await _appDbContext.Product.OrderByDescending(x => x.Id).ToListAsync();
         return new ResponseModel(production);
     }
     public async Task<ResponseModel> GetAllProductId(int productionId)
@@ -73,7 +73,7 @@ public class ProductService : IProductService
 
     public async Task<ProductDtoQ> Get(int id)
     {
-        var entity = await _repository.GetSingleAsync(x=>x.Id == id);
+        var entity = await _repository.GetSingleAsync(x => x.Id == id);
         return _mapper.Map<ProductDtoQ>(entity);
     }
     public async Task<ResponseModel> Add(ProductDtoC dto)
@@ -91,28 +91,36 @@ public class ProductService : IProductService
         return new ResponseModel { Success = false, Message = "Ürün Daha Önce Kaydetilmiş" };
     }
 
-    public async Task<ResponseModel> Update(Product entity)
+    public async Task<ResponseModel> Update(ProductDtoC dto)
     {
-        //var entity = _mapper.Map<Product>(dto);
+       // dto = (ProductDtoC)_appDbContext.Product.Where(x => x.ProductionId == dto.ProductionId && x.Id == dto.Id);
+        var entity = _mapper.Map<Product>(dto);
+
         return new ResponseModel((await _repository.UpdateAsync(entity)));
     }
 
     public async Task<ResponseModel> Delete(int id)
     {
         Product production = _appDbContext.Product.Where(x => x.Id == id).FirstOrDefault();
-        
+
         _appDbContext.Product.Remove(production);
         await _appDbContext.SaveChangesAsync();
-       
+
         return new ResponseModel { Success = false, Message = "Uretim Emri Bulunamadi" };
     }
 
-    public async Task<ResponseModel> ProductNextOrder(string qrCode,int productionId)
+    public async Task<ResponseModel> ProductNextOrder(string qrCode, int productionId)
     {
-        var entity = await _appDbContext.Product.Where(y => y.ProductionId == productionId && y.Qrcode == qrCode).FirstOrDefaultAsync();
+        ProductDtoC dto = new() { Qrcode = qrCode, ProductionId = productionId };
+
+        var entity = _mapper.Map<Product>(dto);
+
         entity.Order++;
-       
         entity.NextWPRId = _appDbContext.WorkProcessRoute.Where(y => y.ProductionId == productionId && y.Order == entity.Order).FirstOrDefaultAsync().GetAwaiter().GetResult().Id;
-        return new ResponseModel((await Update(entity)));
+        
+        return new ResponseModel((await _repository.UpdateAsync(entity)));
     }
+
 }
+      
+      

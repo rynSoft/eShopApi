@@ -22,7 +22,7 @@ namespace techiz.Domain.Entities
 
         public DateTimeOffset? BeginDate { get; set; }
         public DateTimeOffset? EndDate { get; set; }
-        public int? ElapsedTime { get; set; }
+        public double? ElapsedTime { get; set; }
         public Guid? UserId { get; set; }
         public virtual User User { get; set; }
         public string Explination { get; set; }

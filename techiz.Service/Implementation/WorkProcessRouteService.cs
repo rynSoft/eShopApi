@@ -41,17 +41,18 @@ public class WorkProcessRouteService : IWorkProcessRouteService
         return _mapper.Map<WorkProcessRouteDtoQ>(entity);
     }
 
-    public async Task<ResponseModel> GetOrderNextId( int workProcessRouteId , int order)
+    public async Task<ResponseModel> GetOrderNextId(int productionId, int workProcessRouteId , int order)
     {
-        var IsProductPage =  _appDbContext.WorkProcessRoute.Where(x =>  x.Id != workProcessRouteId && x.Order == (order -1) &&
+        var IsProductPage =  _appDbContext.WorkProcessRoute.Where(x => x.ProductionId == productionId && x.Id != workProcessRouteId && x.Order == (order -1) &&
                                                                      x.WorkProcessTemplate.IsTemplate == true)
-                                                                 .Select(y => new { IsProductPage = y.WorkProcessTemplate.WhichPage == "Product" ? 1 : 0, Order = y.Order })
-                                                                 .OrderByDescending(z => z.Order).FirstOrDefaultAsync()?.Result?.IsProductPage;
+                                                           .Select(y => new { IsProductPage = y.WorkProcessTemplate.WhichPage == "Product" ? 1 : 0, Order = y.Order })
+                                                           //.OrderBy(z => z.Order)
+                                                           .FirstOrDefaultAsync()?.Result?.IsProductPage;
 
-        var nextWorkProcess = await _appDbContext.WorkProcessRoute.Where(x => x.Id != workProcessRouteId && x.Order > order && 
+        var nextWorkProcess = await _appDbContext.WorkProcessRoute.Where(x => x.ProductionId == productionId &&  x.Id != workProcessRouteId && x.Order > order && 
                                                                              x.WorkProcessTemplate.IsTemplate == true)
                                                                   .Select(y=> new { Id = y.Id, Order = y.Order , IsProductPage = IsProductPage } )    
-                                                                  .OrderByDescending(z=> z.Order).FirstOrDefaultAsync();
+                                                                  .OrderBy(z=> z.Order).FirstOrDefaultAsync();
 
 
 
