@@ -54,6 +54,18 @@ namespace techizApi.Controllers
         }
 
 
+        [HttpGet(nameof(GetByQrCodeProduct))]
+        public async Task<IActionResult> GetByQrCodeProduct(int productionId, string code, int workProcessRouteId)
+        {
+            var result = await _productService.GetByQrCodeProduct(productionId, code, workProcessRouteId);
+            if (result is not null)
+            {
+                return Ok(result);
+            }
+            return BadRequest("No records found");
+        }
+
+
         [HttpPost(nameof(Add))]
         public async Task<ActionResult<ResponseModel>> Add(ProductDtoC dto)
         { 

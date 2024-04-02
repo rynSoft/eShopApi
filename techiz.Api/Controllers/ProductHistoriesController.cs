@@ -81,17 +81,6 @@ namespace techizApi.Controllers
             return BadRequest("No records found");
         }
 
-        [HttpGet(nameof(GetByQrCodeProduct))]
-        public async Task<IActionResult> GetByQrCodeProduct(int productionId,string code)
-        {
-            var result = await _productHistoriesService.GetByQrCodeProduct(productionId,code );
-            if (result is not null)
-            {
-                return Ok(result);
-            }
-            return BadRequest("No records found");
-        }
-
         [HttpPost(nameof(Add))]
         public async Task<ActionResult<ResponseModel>> Add(ProductHistoriesDtoC dto)
         {

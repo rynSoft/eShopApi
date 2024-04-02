@@ -71,17 +71,6 @@ public class ProductHistoriesService : IProductHistoriesService
         }
     }
 
-    public async Task<ResponseModel> GetByQrCodeProduct(int productionId,string code)
-    {
-        if (!await _appDbContext.Product.Where(x => x.ProductionId == productionId && x.Qrcode == code).AnyAsync())
-        {
-            return new ResponseModel() { Success = false, Message = $"Bu iş emrinde {code}'lu ürün bulunamadı" };
-        }
-        else
-        {
-            return new ResponseModel() { Success = true, Data = _appDbContext.Product.Where(x => x.ProductionId == productionId && x.Qrcode == code).FirstOrDefaultAsync().Result?.Id, Message = $"{code}'lu ürün bulundu" };
-        }
-    }
 
     public async Task<ResponseModel> Add(ProductHistoriesDtoC dto)
     {  

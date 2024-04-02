@@ -60,16 +60,18 @@ public class ProductService : IProductService
             .OrderBy(x => x.Id).ToListAsync();
         return new ResponseModel(production);
     }
-
-    public async Task<ResponseModel> GetByQrCode(string code, int productionId)
+    public async Task<ResponseModel> GetByQrCodeProduct(int productionId, string code,int workProcessRouteId)
     {
-        if (await _appDbContext.Product.Where(x => x.ProductionId == productionId && x.Qrcode == code.Trim()).AnyAsync())
+        if (!await _appDbContext.Product.Where(x => x.ProductionId == productionId && x.Qrcode == code && x.NextWPRId == workProcessRouteId).AnyAsync())
         {
-            return new ResponseModel(_appDbContext.Product.Where(x => x.Qrcode == code.Trim()).FirstOrDefaultAsync().Result.Id);
+            return new ResponseModel() { Success = false, Message = $"Bu iş sürecinde {code}'lu ürün bulunamadı" };
         }
         else
-            return new ResponseModel(0);
+        {
+            return new ResponseModel() { Success = true, Data = _appDbContext.Product.Where(x => x.ProductionId == productionId && x.Qrcode == code).FirstOrDefaultAsync().Result?.Id, Message = $"{code}'lu ürün bulundu" };
+        }
     }
+
 
     public async Task<ProductDtoQ> Get(int id)
     {
