@@ -1,0 +1,68 @@
+ ----------- Linux puty ---------------
+ 84.252.81.174
+ Kullanıcı Adı: root
+ Şifre: A192408a 
+ --------------------------------------
+ 
+ 
+------------Postgre---------------------
+ 
+ psql -U postgres -c "drop database techiz"
+ 
+--------------
+ 
+  
+-------Jenkins----------
+ jenkins 
+ 
+ ryn
+ A192408a
+------------------
+ 
+ 
+ 
+ --------------------
+ docker 
+ 
+-backend
+
+- visual studio developr console . 
+    docker build -t techiz-be .
+
+
+- windowsta ki image tar a cevirmek.
+    docker save -o C:\bin\image\techiz-be.tar techiz-be
+
+- windowsdan oluşan tar dosyasını linux makıneye kopyala;
+    scp C:\bin\image\techiz-be.tar root@84.252.81.174:/root
+
+- linuxTe imagei load ediyoruz
+    docker load -i techiz-be.tar
+	
+- linuxte run ediyoruz imagi (containere çeviriyoruz)
+      docker run -p 5029:80 techiz-be	
+
+-----------------------
+-----------------------
+
+-frontend
+
+- visual studio developr console . 
+     docker build -t techiz-fe .
+
+
+- windowsta ki image tar a cevirmek.
+    docker save -o C:\bin\image\techiz-fe.tar techiz-fe
+
+- windowsdan oluşan tar dosyasını linux makıneye kopyala;
+    scp C:\bin\image\techiz-fe.tar root@84.252.81.174:/root
+
+- linuxTe imagei load ediyoruz
+    docker load -i techiz-fe.tar
+	
+- linuxte run ediyoruz imagi (containere çeviriyoruz)
+      docker run -d -p 80:80 techiz-fe	
+
+-----------------------
+
+

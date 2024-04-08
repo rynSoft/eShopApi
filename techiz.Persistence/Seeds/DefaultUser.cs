@@ -72,6 +72,22 @@ namespace techiz.Persistence.Seeds
                     NormalizedEmail= "BASICUSER@GMAIL.COM",
                     NormalizedUserName="SUPERADMIN"
                 },
+                   new User
+                {
+                    Id = Guid.NewGuid(),
+                    UserName = "Techiz",
+                    Email = "techiz@sentytech.com",
+                    Eposta = "techiz@sentytech.com",
+                    Ad = "Techiz",
+                    Soyad = "Techiz",
+                    EmailConfirmed = true,
+
+                    PhoneNumberConfirmed = false,
+                    // Password@123
+                    PasswordHash = "AQAAAAEAACcQAAAAEBLjouNqaeiVWbN0TbXUS3+ChW3d7aQIk/BQEkWBxlrdRRngp14b0BIH0Rp65qD6mA==",
+                    NormalizedEmail= "BASICUSER@GMAIL.COM",
+                    NormalizedUserName="BASICUSER"
+                },
             };
         }
     }

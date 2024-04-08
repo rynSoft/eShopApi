@@ -28,5 +28,8 @@ namespace techiz.Domain.Entities
         public string Explination { get; set; }
         public bool IsFininshed { get; set; }
 
+        [Column(TypeName = "jsonb")]
+        public string Metarialds { get; set; }
+
     }
 }

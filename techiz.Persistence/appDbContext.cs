@@ -74,6 +74,12 @@ namespace techiz.Persistence
         public DbSet<WorkProcessRoute> WorkProcessRoute { get; set; }
         public DbSet<WorkProcessRouteUser> WorkProcessRouteUser { get; set; }
         public DbSet<Camera> Camera { get; set; }
+
+        public DbSet<Material> Material { get; set; }
+        public DbSet<MaterialDecreaseHistory> MaterialDecreaseHistory { get; set; }
+        public DbSet<WorkProcessRouteMaterial> WorkProcessRouteMaterial { get; set; }
+
+
         public DbSet<Product> Product { get; set; }
         public DbSet<ProductHistories> ProductHistories { get; set; }
         public DbSet<WorkProcessTemplate> WorkProcessTemplate { get; set; }
