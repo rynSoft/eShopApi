@@ -48,20 +48,60 @@ namespace techiz.Infrastructure.Mapping
             #endregion
 
 
-            #region QualityOperationDocument
+            #region WorkProcessRouteMaterial
 
-            CreateMap<ProductHistories, ProductHistoriesDtoC>()
+            CreateMap<WorkProcessRouteMaterial, WorkProcessRouteMaterialDtoC>()
                    .ReverseMap();
-            CreateMap<ProductHistoriesDtoC, ProductHistories>()
+            CreateMap<WorkProcessRouteMaterialDtoC, WorkProcessRouteMaterial>()
                  .ReverseMap();
-            CreateMap<ProductHistoriesDtoQ, ProductHistories>()
+            CreateMap<WorkProcessRouteMaterialDtoQ, WorkProcessRouteMaterial>()
                 .ReverseMap();
-            CreateMap<ProductHistories, ProductHistoriesDtoQ>()
+            CreateMap<WorkProcessRouteMaterial, WorkProcessRouteMaterialDtoQ>()
                 .ReverseMap();
 
             #endregion
 
-            
+            #region MaterialDecreaseHistory
+
+            CreateMap<MaterialDecreaseHistory, MaterialDecreaseHistoryDtoC>()
+                   .ReverseMap();
+            CreateMap<MaterialDecreaseHistoryDtoC, MaterialDecreaseHistory>()
+                 .ReverseMap();
+            CreateMap<MaterialDecreaseHistory, MaterialDecreaseHistoryDtoQ>()
+                .ReverseMap();
+            CreateMap<MaterialDecreaseHistoryDtoQ, MaterialDecreaseHistory>()
+                .ReverseMap();
+
+            #endregion
+
+            #region Material
+
+            CreateMap<Material, MaterialDtoC>()
+                   .ReverseMap();
+            CreateMap<MaterialDtoC, Material>()
+                 .ReverseMap();
+            CreateMap<Material, MaterialDtoQ>()
+                .ReverseMap();
+            CreateMap<MaterialDtoQ, Material>()
+                .ReverseMap();
+
+            #endregion
+
+            #region QualityOperationDocument
+
+            CreateMap<QualityOperationDocument, QualityOperationDocumentDtoC>()
+                   .ReverseMap();
+            CreateMap<QualityOperationDocumentDtoC, QualityOperationDocument>()
+                 .ReverseMap();
+            CreateMap<QualityOperationDocument, QualityOperationDocumentDtoQ>()
+                .ReverseMap();
+            CreateMap<QualityOperationDocumentDtoQ, QualityOperationDocument>()
+                .ReverseMap();
+
+            #endregion
+
+
+
 
 
             #region QualityUser
