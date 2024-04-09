@@ -48,7 +48,9 @@
 -frontend
 
 - visual studio developr console . 
-     docker build -t techiz-fe .
+    - docker build -t techiz-fe .
+	$env:NODE_ENV="production"
+	docker build -t techiz-${NODE_ENV}-fe .  --build-arg NODE_ENV=${NODE_ENV} --no-cache
 
 
 - windowsta ki image tar a cevirmek.
