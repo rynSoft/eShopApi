@@ -19,5 +19,7 @@ namespace techiz.Domain.Entities
         public virtual WorkProcessRoute NextWPR { get; set; }
         public int Order { get; set; }
         public virtual HashSet<ProductHistories> ProductionInputHistories { get; set; }
+
+        
     }
 }

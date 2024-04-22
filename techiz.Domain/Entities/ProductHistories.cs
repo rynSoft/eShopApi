@@ -27,9 +27,7 @@ namespace techiz.Domain.Entities
         public virtual User User { get; set; }
         public string Explination { get; set; }
         public bool IsFininshed { get; set; }
-
-        [Column(TypeName = "jsonb")]
-        public string Metarialds { get; set; }
+        public virtual HashSet<MaterialDecreaseHistory> MaterialDecreaseHistory { get; set; }
 
     }
 }

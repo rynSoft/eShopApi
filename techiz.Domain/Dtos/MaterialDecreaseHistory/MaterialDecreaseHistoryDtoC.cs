@@ -8,6 +8,7 @@ namespace techiz.Domain.Dtos
         public int? Id { get; set; }
         public int? WorkProcessRouteId { get; set; }
         public int? MaterialId { get; set; }
+        public int? ProductHistoriesId { get; set; }
         public string? Description { get; set; }
         public double? Quantity { get; set; }
 

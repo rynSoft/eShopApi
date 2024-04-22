@@ -15,6 +15,7 @@ namespace techiz.Service.Contract
         Task<ResponseModel> Add(MaterialDtoC dto);
         Task<ResponseModel> Delete(int id);
         Task<ResponseModel> Update(MaterialDtoC dto);
+        Task<ResponseModel> UpdateRemainQuantity(Material entity);
         Task<ResponseModel> GetByQrCodeMaterial(int productionId, string code, int workProcessRouteId);
     }
 }

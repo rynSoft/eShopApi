@@ -19,6 +19,7 @@ namespace techiz.Domain.Dtos
         public string Explination { get; set; }
         public bool? IsFininshed { get; set; }
         public int? NextProcessRouteId { get; set; }
+        public List<MaterialDecreaseHistoryDtoC> Metarialds { get; set; }
     }
 
 }

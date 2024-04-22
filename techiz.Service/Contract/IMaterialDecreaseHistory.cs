@@ -11,6 +11,7 @@ namespace techiz.Service.Contract
     {
         Task<ResponseModel> GetAll();
         Task<MaterialDecreaseHistoryDtoQ> Get(int id);
+        Task<ResponseModel> GetProductHistoryId(int productHistoryId);
         Task<ResponseModel> Add(MaterialDecreaseHistoryDtoC dto);
         Task<ResponseModel> Delete(int id);
     }

@@ -19,6 +19,8 @@ namespace techiz.Domain.Entities
         public virtual WorkProcessRoute WorkProcessRoute { get; set; }
         public int? MaterialId { get; set; }
         public virtual Material Material { get; set; }
+        public int? ProductHistoriesId { get; set; }
+        public virtual ProductHistories ProductHistories { get; set; }
         public string? Description { get; set; }
         public double? Quantity { get; set; }
     }

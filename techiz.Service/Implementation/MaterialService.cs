@@ -49,13 +49,8 @@ public class MaterialService : IMaterialService
     }
     public async Task<ResponseModel> GetAllMaterialId(int productionId)
     {
-        var production = await _appDbContext.Material.Where(x => x.ProductionId == productionId)
-            .Select(x => new MaterialDtoQ()
-            {
-                Id = x.Id               
-            })
-            .OrderBy(x => x.Id).ToListAsync();
-        return new ResponseModel(production);
+        return new ResponseModel(_mapper.Map<List<MaterialDtoQ>>(await _appDbContext.Material.Where(x => x.ProductionId == productionId).OrderByDescending(x => x.Id).ToListAsync()));
+
     }
     public async Task<ResponseModel> GetByQrCodeMaterial(int productionId, string code,int workProcessRouteId)
     {
@@ -94,6 +89,12 @@ public class MaterialService : IMaterialService
 
         return new ResponseModel((await _repository.UpdateAsync(entity)));
     }
+
+    public async Task<ResponseModel> UpdateRemainQuantity(Material entity)
+    {
+        return new ResponseModel((await _repository.UpdateAsync(entity)));
+    }
+
 
     public async Task<ResponseModel> Delete(int id)
     {

@@ -95,7 +95,9 @@ namespace techiz.Infrastructure.Extension
             serviceCollection.AddTransient<IProductService, ProductService>();
             serviceCollection.AddTransient<IWorkProcessRouteTimeHistoriesService, WorkProcessRouteTimeHistoriesService>();
             serviceCollection.AddTransient<IProductHistoriesService, ProductHistoriesService>();
-
+            serviceCollection.AddTransient<IMaterialService, MaterialService>();
+            serviceCollection.AddTransient<IMaterialDecreaseHistoryService, MaterialDecreaseHistoryService>();
+            serviceCollection.AddTransient<IWorkProcessRouteMaterialService, WorkProcessRouteMaterialService>();
 
         }
         public static void AddSwaggerOpenAPI(this IServiceCollection serviceCollection)

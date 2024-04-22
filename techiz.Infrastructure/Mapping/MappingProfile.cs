@@ -70,6 +70,7 @@ namespace techiz.Infrastructure.Mapping
             CreateMap<MaterialDecreaseHistory, MaterialDecreaseHistoryDtoQ>()
                 .ReverseMap();
             CreateMap<MaterialDecreaseHistoryDtoQ, MaterialDecreaseHistory>()
+     
                 .ReverseMap();
 
             #endregion
@@ -195,6 +196,21 @@ namespace techiz.Infrastructure.Mapping
                 .ReverseMap();
 
             #endregion
+
+
+            #region Product
+
+            CreateMap<ProductHistories, ProductHistoriesDtoC>()
+                .ReverseMap();
+            CreateMap<ProductHistoriesDtoC, ProductHistories>()
+                .ReverseMap();
+            CreateMap<ProductHistories, ProductHistoriesDtoQ>()
+                .ReverseMap();
+            CreateMap<ProductHistoriesDtoQ, ProductHistories>()
+                .ReverseMap();
+
+            #endregion
+
 
             #region NonCompliance
 

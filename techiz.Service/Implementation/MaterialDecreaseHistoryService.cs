@@ -27,10 +27,12 @@ public class MaterialDecreaseHistoryService : IMaterialDecreaseHistoryService
     private readonly IRepository<Domain.Entities.MaterialDecreaseHistory> _repository;
     private IHttpContextAccessor _httpContextAccessor;
     private readonly ILogger<MaterialDecreaseHistoryService> _logger;
+    private readonly IMaterialService _materialService;
 
     public MaterialDecreaseHistoryService(
         IAppDbContext appDbContext,
            IRepository<Domain.Entities.MaterialDecreaseHistory> repository,
+           IMaterialService materialService,
            IHttpContextAccessor httpContextAccessor,
            ILogger<MaterialDecreaseHistoryService> logger,
            IMapper mapper)
@@ -38,6 +40,7 @@ public class MaterialDecreaseHistoryService : IMaterialDecreaseHistoryService
         _repository = repository;
         _mapper = mapper;
         _logger = logger;
+        _materialService = materialService;
         _httpContextAccessor = httpContextAccessor;
         _appDbContext = appDbContext;
     }
@@ -53,17 +56,28 @@ public class MaterialDecreaseHistoryService : IMaterialDecreaseHistoryService
         var entity = await _repository.GetSingleAsync(x => x.Id == id);
         return _mapper.Map<MaterialDecreaseHistoryDtoQ>(entity);
     }
+
+    public async Task<ResponseModel> GetProductHistoryId(int productHistoryId)
+    {
+        var data = _mapper.Map<List<MaterialDecreaseHistoryDtoQ>>(await _appDbContext.MaterialDecreaseHistory.Include(y=> y.Material).Where(x => x.ProductHistoriesId == productHistoryId).OrderByDescending(x => x.Id).ToListAsync());
+
+        return new ResponseModel(data);
+    }
+
+
     public async Task<ResponseModel> Add(MaterialDecreaseHistoryDtoC dto)
     {
+        var entity = _mapper.Map<MaterialDecreaseHistory>(dto);
+        _logger.LogWarning($"MaterialDecreaseHistory | Add : {dto.MaterialId}");
 
+        var materailCount = _appDbContext.MaterialDecreaseHistory.Where(x => x.MaterialId == dto.MaterialId).Count();
+        var materailUpdate = _appDbContext.Material.FirstOrDefault(x => x.Id == dto.MaterialId);
+        _logger.LogWarning($"MaterialDecreaseHistory | Add | materailCount : {materailCount}  materailUpdate : {materailUpdate}");
+        materailUpdate.RemainQuantity = (materailCount * materailUpdate.DecreaseQuantity) + materailCount;
+        _logger.LogWarning($"MaterialDecreaseHistory | Add | RemainQuantity : {materailUpdate.RemainQuantity} ");
+        await _materialService.UpdateRemainQuantity(materailUpdate);
 
-            var entity = _mapper.Map<MaterialDecreaseHistory>(dto);
-            _logger.LogWarning($"Material | Add : End Succes");
-
-            return await _repository.AddAsync(entity);
-     
-        _logger.LogWarning($"Material | Add : End NotSuccess");
-        return new ResponseModel { Success = false, Message = "Ürün Daha Önce Kaydetilmiş" };
+        return await _repository.AddAsync(entity);
     }
 
     public async Task<ResponseModel> Update(MaterialDecreaseHistoryDtoC dto)

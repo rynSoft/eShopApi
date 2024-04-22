@@ -5,8 +5,11 @@ using System.Linq;
 using System.Threading.Tasks;
 using AutoMapper;
 using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
+using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
 using techiz.Domain.Common;
 using techiz.Domain.Dtos;
 using techiz.Domain.Entities;
@@ -23,19 +26,23 @@ public class ProductHistoriesService : IProductHistoriesService
     private readonly IMapper _mapper;
     private IHttpContextAccessor _httpContextAccessor;
     private readonly IProductService _productService;
+    private readonly IMaterialDecreaseHistoryService _materialDecreaseHistoryService;
+    
     private readonly ILogger<ProductService> _logger;
     private readonly IAppDbContext _appDbContext;
     
     public ProductHistoriesService(IRepository<ProductHistories> repository, 
            IAppDbContext appDbContext,
            IHttpContextAccessor httpContextAccessor,
-           ILogger<ProductService> logger,
+           IMaterialDecreaseHistoryService materialDecreaseHistoryService,
+    ILogger<ProductService> logger,
            IProductService productService,
            IMapper mapper)
     {
         _repository = repository;
         _mapper = mapper;
         _logger = logger;
+        _materialDecreaseHistoryService = materialDecreaseHistoryService;
         _productService = productService; 
         _httpContextAccessor = httpContextAccessor;
         _appDbContext = appDbContext;
@@ -77,12 +84,25 @@ public class ProductHistoriesService : IProductHistoriesService
        var entity = _mapper.Map<ProductHistories>(dto);
         entity.UserId = _httpContextAccessor.HttpContext.GetCurrentUser();
 
-        if (_repository.AddAsync(entity).GetAwaiter().GetResult().Success)
+
+        List<MaterialDecreaseHistoryDtoC> jsonData = dto.Metarialds;
+
+       var resultId = _repository.AddAsync(entity).GetAwaiter().GetResult().Data;
+
+
+ 
+        foreach (var item in jsonData)
         {
-            var result = await _productService.Update(new ProductDtoC { Id = dto.ProductId, NextWPRId = dto.NextProcessRouteId, ProductionId = dto.ProductionId ,Qrcode = dto.ProductQrCode, Order = (int)dto.Order});
+            await _materialDecreaseHistoryService.Add(new MaterialDecreaseHistoryDtoC { ProductHistoriesId = (int)resultId, MaterialId = item.MaterialId, Quantity = item.Quantity, WorkProcessRouteId = dto.WorkProcessRouteId });
+        }
+
+        if ((int?)resultId > 0)
+        {
+
+            var result = await _productService.Update(new ProductDtoC { Id = dto.ProductId, NextWPRId = dto.NextProcessRouteId, ProductionId = dto.ProductionId, Qrcode = dto.ProductQrCode, Order = (int)dto.Order });
             return new ResponseModel(result);
         }
-          
+
         return new ResponseModel(Success : false);
     }
 

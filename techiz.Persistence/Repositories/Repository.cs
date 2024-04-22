@@ -30,7 +30,7 @@ namespace techiz.Persistence.Repositories
         
         public async Task<ResponseModel> AddAsync(T entity)
         {
-            _logger.LogWarning($"Repository | Add : Start");
+            _logger.LogWarning($"Repository | Add : Start entity : {entity}");
             if (entity == null)
             {
                 throw new ArgumentNullException($"{nameof(AddAsync)} entity must not be null");

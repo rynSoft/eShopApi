@@ -12,5 +12,5 @@ public class WorkProcessTemplateDtoC
     public string WhichPage { get; set; }
     public string Color { get; set; }
     public string Icon { get; set; }
-    public bool? IsTemplate { get; set; } = true;
+    public WorkProcessTemplateState? WPTState { get; set; } 
 }
