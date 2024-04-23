@@ -20,86 +20,73 @@ using techiz.Service.Contract;
 
 namespace techiz.Service.Implementation;
 
-public class ProductHistoriesService : IProductHistoriesService
+public class MaterialHistoriesService : IMaterialHistoriesService
 {
-    private readonly IRepository<ProductHistories> _repository;
+    private readonly IRepository<MaterialHistories> _repository;
     private readonly IMapper _mapper;
     private IHttpContextAccessor _httpContextAccessor;
-    private readonly IProductService _productService;
-    private readonly IMaterialDecreaseHistoryService _materialDecreaseHistoryService;
-    
-    private readonly ILogger<ProductHistoriesService> _logger;
+    private readonly IMaterialService _materialService;
+    private readonly ILogger<MaterialHistoriesService> _logger;
     private readonly IAppDbContext _appDbContext;
     
-    public ProductHistoriesService(IRepository<ProductHistories> repository, 
+    public MaterialHistoriesService(IRepository<MaterialHistories> repository, 
            IAppDbContext appDbContext,
            IHttpContextAccessor httpContextAccessor,
-           IMaterialDecreaseHistoryService materialDecreaseHistoryService,
-    ILogger<ProductHistoriesService> logger,
-           IProductService productService,
+           ILogger<MaterialHistoriesService> logger,
+           IMaterialService materialService,
            IMapper mapper)
     {
         _repository = repository;
         _mapper = mapper;
         _logger = logger;
-        _materialDecreaseHistoryService = materialDecreaseHistoryService;
-        _productService = productService; 
+        _materialService = materialService; 
         _httpContextAccessor = httpContextAccessor;
         _appDbContext = appDbContext;
     }
     
     public async Task<ResponseModel> GetAll()
     {
-        return  new  ResponseModel(_mapper.Map<List<ProductHistoriesDtoQ>>(await _appDbContext.ProductionOperations.OrderBy(x=> x.Id).ToListAsync()));
+        return  new  ResponseModel(_mapper.Map<List<MaterialHistoriesDtoQ>>(await _appDbContext.MaterialHistories.OrderBy(x=> x.Id).ToListAsync()));
     }
     public async Task<ResponseModel> GetById(int id)
     {
         return new  ResponseModel(await _repository.GetAsync(id));
     }
 
-    public async Task<ResponseModel> GetAllAsyncProductHistories(int workProcessRouteId)
+    public async Task<ResponseModel> GetAllAsyncMaterialHistories(int workProcessRouteId)
     {
-        var data = _mapper.Map<List<ProductHistoriesDtoQ>>(await _appDbContext.ProductHistories
+        var data = _mapper.Map<List<MaterialHistoriesDtoQ>>(await _appDbContext.MaterialHistories
                    .Include(t => t.User)
-                   .Include(y=> y.Product)
+                   .Include(y=> y.Material)
                    .Where(x => x.WorkProcessRouteId == workProcessRouteId).OrderByDescending(i => i.Id).Take(20).ToListAsync());
            
         return new ResponseModel(data);
     }
 
-    public async Task<ResponseModel> GetByQrCodeHistories(int workProcessRouteId,string code)
+    public async Task<ResponseModel> GetByCodeHistories(int workProcessRouteId,string code)
     {
-        if (!await _appDbContext.ProductHistories.Where(x => x.WorkProcessRouteId == workProcessRouteId && x.Product.Qrcode == code).AnyAsync())
+        if (!await _appDbContext.MaterialHistories.Where(x => x.WorkProcessRouteId == workProcessRouteId && x.Material.Code == code).AnyAsync())
         {
             return new ResponseModel() { Success = false, Message = $"Bu iş sürecinde bu {code}'lu ürün bulunamadı" };
         }else
         {
-            return new ResponseModel() { Success = true,  Data = _appDbContext.ProductHistories.Where(x => x.WorkProcessRouteId == workProcessRouteId && x.Product.Qrcode == code).FirstOrDefaultAsync().Result?.ProductId, Message = $"{code}'lu ürün bulundu" };
+            return new ResponseModel() { Success = true,  Data = _appDbContext.MaterialHistories.Where(x => x.WorkProcessRouteId == workProcessRouteId && x.Material.Code == code).FirstOrDefaultAsync().Result?.MaterialId, Message = $"{code}'lu ürün bulundu" };
         }
     }
 
 
-    public async Task<ResponseModel> Add(ProductHistoriesDtoC dto)
+    public async Task<ResponseModel> Add(MaterialHistoriesDtoC dto)
     {  
-       var entity = _mapper.Map<ProductHistories>(dto);
-        entity.UserId = _httpContextAccessor.HttpContext.GetCurrentUser();
+       var entity = _mapper.Map<MaterialHistories>(dto);
+       entity.UserId = _httpContextAccessor.HttpContext.GetCurrentUser();
 
+        var resultId = _repository.AddAsync(entity).GetAwaiter().GetResult().Data;
 
-        List<MaterialDecreaseHistoryDtoC> jsonData = dto.Metarialds;
-
-       var resultId = _repository.AddAsync(entity).GetAwaiter().GetResult().Data;
-
-
- 
-        foreach (var item in jsonData)
-        {
-            await _materialDecreaseHistoryService.Add(new MaterialDecreaseHistoryDtoC { ProductHistoriesId = (int)resultId, MaterialId = item.MaterialId, Quantity = item.Quantity, WorkProcessRouteId = dto.WorkProcessRouteId });
-        }
 
         if ((int?)resultId > 0)
         {
 
-            var result = await _productService.Update(new ProductDtoC { Id = dto.ProductId, NextWPRId = dto.NextProcessRouteId, ProductionId = dto.ProductionId, Qrcode = dto.ProductQrCode, Order = (int)dto.Order });
+            var result = await _materialService.Update(new MaterialDtoC { Id = dto.MaterialId, NextWPRId = dto.NextProcessRouteId});
             return new ResponseModel(result);
         }
 
@@ -108,7 +95,7 @@ public class ProductHistoriesService : IProductHistoriesService
 
     public async Task<ResponseModel> ElapsedTimeCalculate(int workProcessRouteId)
     {
-        ProductHistories ps = new();
+        MaterialHistories ps = new();
         if (ps != null)
         {
             var endStartTime = await _appDbContext.WorkProcessRouteTimeHistories.AsNoTracking()

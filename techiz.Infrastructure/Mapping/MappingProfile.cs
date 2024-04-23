@@ -88,6 +88,21 @@ namespace techiz.Infrastructure.Mapping
 
             #endregion
 
+
+            #region MaterialHistories
+
+            CreateMap<MaterialHistories, MaterialHistoriesDtoC>()
+                   .ReverseMap();
+            CreateMap<MaterialHistoriesDtoC, MaterialHistories>()
+                 .ReverseMap();
+            CreateMap<MaterialHistories, MaterialHistoriesDtoQ>()
+                .ReverseMap();
+            CreateMap<MaterialHistoriesDtoQ, MaterialHistories>()
+                .ReverseMap();
+
+            #endregion
+
+
             #region QualityOperationDocument
 
             CreateMap<QualityOperationDocument, QualityOperationDocumentDtoC>()

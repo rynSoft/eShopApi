@@ -28,6 +28,8 @@ namespace techiz.Domain.Entities
         public double? RemainQuantity { get; set; }
         public double? DecreaseQuantity { get; set; }
         public string Unit { get; set; }
+        public int? NextWPRId { get; set; }
+        public virtual WorkProcessRoute NextWPR { get; set; }
 
     }
 }

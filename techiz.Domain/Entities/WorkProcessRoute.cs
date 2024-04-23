@@ -27,8 +27,10 @@ namespace techiz.Domain.Entities
         public string OtherObjects { get; set; }
         public virtual HashSet<WorkProcessRouteUser> WorkProcessRouteUser { get; set; }
         public virtual HashSet<Product> Product { get; set; }
+        public virtual HashSet<Material> Material { get; set; }
         public virtual HashSet<WorkProcessRouteTimeHistories> WorkProcessRouteTimeHistories { get; set; }
-        
+        public virtual HashSet<MaterialHistories> MaterialHistories { get; set; }
+
 
     }
 }
