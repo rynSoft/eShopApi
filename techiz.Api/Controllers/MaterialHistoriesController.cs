@@ -59,10 +59,10 @@ namespace techizApi.Controllers
             return BadRequest("No records found");
         }
         
-        [HttpGet(nameof(GetAllAsyncProductHistories))]
-        public async Task<IActionResult> GetAllAsyncProductHistories(int workProcessRouteId)
+        [HttpGet(nameof(GetAllMaterialHistories))]
+        public async Task<IActionResult> GetAllMaterialHistories(int productionId,int workProcessRouteId)
         {
-            var result = await _materialHistoriesService.GetAllAsyncMaterialHistories(workProcessRouteId);
+            var result = await _materialHistoriesService.GetAllMaterialHistories(productionId,workProcessRouteId);
             if (result is not null)
             {
                 return Ok(result);

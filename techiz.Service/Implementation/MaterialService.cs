@@ -52,7 +52,7 @@ public class MaterialService : IMaterialService
         return new ResponseModel(_mapper.Map<List<MaterialDtoQ>>(await _appDbContext.Material.Where(x => x.ProductionId == productionId).OrderByDescending(x => x.Id).ToListAsync()));
 
     }
-    public async Task<ResponseModel> GetByQrCodeMaterial(int productionId, string code,int workProcessRouteId)
+    public async Task<ResponseModel> GetByCodeMaterial(int productionId, string code,int workProcessRouteId)
     {
         if (!await _appDbContext.Material.Where(x => x.ProductionId == productionId && x.Code == code).AnyAsync())
         {
@@ -85,7 +85,9 @@ public class MaterialService : IMaterialService
 
     public async Task<ResponseModel> Update(MaterialDtoC dto)
     {
-        var entity = _mapper.Map<Material>(dto);
+        Material material = _appDbContext.Material.Where(x => x.Id == dto.Id).FirstOrDefault();
+        var entity = _mapper.Map<Material>(material);
+        entity.NextWPRId = dto.NextWPRId;
 
         return new ResponseModel((await _repository.UpdateAsync(entity)));
     }

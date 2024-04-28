@@ -5,6 +5,7 @@ namespace techiz.Domain.Dtos
 {
   public class ProductionDtoC 
     {
+        public int? Id { get; set; }
         public string orderNo { get; set; }
         public int quantity { get; set; }
         public string aciklama { get; set; }

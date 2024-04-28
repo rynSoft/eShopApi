@@ -55,6 +55,18 @@ namespace techizApi.Controllers
         }
 
 
+        [HttpGet(nameof(GetByCodeMaterial))]
+        public async Task<IActionResult> GetByCodeMaterial(int productionId, string code, int workProcessRouteId)
+        {
+            var result = await _materialService.GetByCodeMaterial(productionId, code, workProcessRouteId);
+            if (result is not null)
+            {
+                return Ok(result);
+            }
+            return BadRequest("No records found");
+        }
+
+
         [HttpPost(nameof(Add))]
         public async Task<ActionResult<ResponseModel>> Add(MaterialDtoC dto)
         { 

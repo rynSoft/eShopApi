@@ -14,7 +14,7 @@ namespace techiz.Service.Contract
     {
         Task<ResponseModel> GetAll();
         Task<ResponseModel> GetById(int id);
-        Task<ResponseModel> GetAllAsyncMaterialHistories(int workProcessRouteId);
+        Task<ResponseModel> GetAllMaterialHistories(int productionId, int workProcessRouteId);
         Task<ResponseModel> GetByCodeHistories(int workProcessRouteId,string code);
 
         Task<ResponseModel> ElapsedTimeCalculate( int workProcessRouteId);
