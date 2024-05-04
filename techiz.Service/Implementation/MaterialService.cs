@@ -49,7 +49,7 @@ public class MaterialService : IMaterialService
     }
     public async Task<ResponseModel> GetAllMaterialId(int productionId)
     {
-        return new ResponseModel(_mapper.Map<List<MaterialDtoQ>>(await _appDbContext.Material.Where(x => x.ProductionId == productionId).OrderByDescending(x => x.Id).ToListAsync()));
+        return new ResponseModel(_mapper.Map<List<MaterialDtoQ>>(await _appDbContext.Material.Include(y=> y.WareHouse).Where(x => x.ProductionId == productionId).OrderByDescending(x => x.Id).ToListAsync()));
 
     }
     public async Task<ResponseModel> GetByCodeMaterial(int productionId, string code,int workProcessRouteId)

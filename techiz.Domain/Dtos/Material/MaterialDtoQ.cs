@@ -11,6 +11,7 @@ namespace techiz.Domain.Dtos
         public int? Id { get; set; }
         public int ProductionId { get; set; }
         public int? WareHouseId { get; set; }
+        public string WareHouseName { get; set; }
         public string? Code { get; set; }
         public string Name { get; set; }
         public string? Explanation { get; set; }

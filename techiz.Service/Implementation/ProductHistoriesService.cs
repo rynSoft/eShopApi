@@ -90,7 +90,7 @@ public class ProductHistoriesService : IProductHistoriesService
        var resultId = _repository.AddAsync(entity).GetAwaiter().GetResult().Data;
 
 
- 
+        if ( jsonData != null)
         foreach (var item in jsonData)
         {
             await _materialDecreaseHistoryService.Add(new MaterialDecreaseHistoryDtoC { ProductHistoriesId = (int)resultId, MaterialId = item.MaterialId, Quantity = item.Quantity, WorkProcessRouteId = dto.WorkProcessRouteId });
