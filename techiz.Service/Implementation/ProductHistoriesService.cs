@@ -80,31 +80,43 @@ public class ProductHistoriesService : IProductHistoriesService
 
 
     public async Task<ResponseModel> Add(ProductHistoriesDtoC dto)
-    {  
-       var entity = _mapper.Map<ProductHistories>(dto);
-        entity.UserId = _httpContextAccessor.HttpContext.GetCurrentUser();
-
-
-        List<MaterialDecreaseHistoryDtoC> jsonData = dto.Metarialds;
-
-       var resultId = _repository.AddAsync(entity).GetAwaiter().GetResult().Data;
-
-
-        if ( jsonData != null)
-        foreach (var item in jsonData)
+    {
+        _logger.LogWarning($"ProductHistories | Add : Start Control in Db");
+        if (!await _appDbContext.ProductHistories.AnyAsync(x => x.WorkProcessRouteId == dto.WorkProcessRouteId && x.ProductId == dto.ProductId))
         {
-            await _materialDecreaseHistoryService.Add(new MaterialDecreaseHistoryDtoC { ProductHistoriesId = (int)resultId, MaterialId = item.MaterialId, Quantity = item.Quantity, WorkProcessRouteId = dto.WorkProcessRouteId });
-        }
+            _logger.LogWarning($"ProductHistories | Add : Start Control not in Db");
+            var entity = _mapper.Map<ProductHistories>(dto);
+            _logger.LogWarning($"ProductHistories | Add : Dto Mapping ");
+            entity.UserId = _httpContextAccessor.HttpContext.GetCurrentUser();
+            _logger.LogWarning($"ProductHistories | Add : Get CurrentUser ");
 
-        if ((int?)resultId > 0)
+            List<MaterialDecreaseHistoryDtoC> jsonData = dto.Metarialds;
+
+            var resultId = _repository.AddAsync(entity).GetAwaiter().GetResult().Data;
+            _logger.LogWarning($"ProductHistories | Add : Add Completed ");
+
+            if (jsonData != null)
+                foreach (var item in jsonData)
+                {
+                    await _materialDecreaseHistoryService.Add(new MaterialDecreaseHistoryDtoC { ProductHistoriesId = (int)resultId, MaterialId = item.MaterialId, Quantity = item.Quantity, WorkProcessRouteId = dto.WorkProcessRouteId });
+                }
+            _logger.LogWarning($"ProductHistories | Add : MaterialDecreaseHistory Completed ");
+
+            if ((int?)resultId > 0 && dto.NextProcessRouteId > 0)
+            {
+
+                var result = await _productService.Update(new ProductDtoC { Id = dto.ProductId, NextWPRId = dto.NextProcessRouteId, ProductionId = dto.ProductionId, Qrcode = dto.ProductQrCode, Order = (int)dto.Order });
+
+            }
+            _logger.LogWarning($"ProductHistories | Add : Product Update Completed ");
+            return new ResponseModel { Success = true, Message = "Kayıt Başarılı." };
+        }
+        else
         {
-
-            var result = await _productService.Update(new ProductDtoC { Id = dto.ProductId, NextWPRId = dto.NextProcessRouteId, ProductionId = dto.ProductionId, Qrcode = dto.ProductQrCode, Order = (int)dto.Order });
-            return new ResponseModel(result);
+            return new ResponseModel { Success = false, Message = "Ürün Daha Önce Kaydetilmiş." };
         }
-
-        return new ResponseModel(Success : false);
-    }
+   
+        }
 
     public async Task<ResponseModel> ElapsedTimeCalculate(int workProcessRouteId)
     {

@@ -59,8 +59,10 @@ public class MaterialDecreaseHistoryService : IMaterialDecreaseHistoryService
 
     public async Task<ResponseModel> GetProductHistoryId(int productHistoryId)
     {
-        var data = _mapper.Map<List<MaterialDecreaseHistoryDtoQ>>(await _appDbContext.MaterialDecreaseHistory.Include(y=> y.Material).Where(x => x.ProductHistoriesId == productHistoryId).OrderByDescending(x => x.Id).ToListAsync());
+        var data = _mapper.Map<List<MaterialDecreaseHistoryDtoQ>>(await _appDbContext.MaterialDecreaseHistory.Include(y=> y.Material).Where(x => x.ProductHistoriesId == productHistoryId)
+                              .OrderByDescending(x => x.Id).ToListAsync());
 
+       
         return new ResponseModel(data);
     }
 

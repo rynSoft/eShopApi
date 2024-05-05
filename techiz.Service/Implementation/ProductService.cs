@@ -63,7 +63,8 @@ public class ProductService : IProductService
     public async Task<ResponseModel> GetByQrCodeProduct(int productionId, string code,int workProcessRouteId)
     {
         if (await _appDbContext.Material.AnyAsync(x => x.ProductionId == productionId && x.Code == code))
-            return new ResponseModel() { Success = true, Data =  _appDbContext.Material.Where(x => x.ProductionId == productionId && x.Code == code).Select(y=> new {Id = y.Id, MaterialRemainQuantity = y.RemainQuantity,  Decrease = y.DecreaseQuantity , Type = false }).FirstOrDefaultAsync()?.Result, Message = $"{code}'lu malzeme bulundu" };
+            return new ResponseModel() { Success = true, Data =  _appDbContext.Material.Where(x => x.ProductionId == productionId && x.Code == code).Select(y=> new {Id = y.Id, Quantity = y.Quantity, RemainQuantity = y.Quantity - _appDbContext.MaterialDecreaseHistory.Where(z=> z.MaterialId == y.Id ).Select(x => x.Quantity).Sum(), 
+                                                                                                  Decrease = y.DecreaseQuantity , Type = false }).FirstOrDefaultAsync()?.Result, Message = $"{code}'lu malzeme bulundu" };
 
         if (!await _appDbContext.Product.Where(x => x.ProductionId == productionId && x.Qrcode == code && x.NextWPRId == workProcessRouteId).AnyAsync())
         {

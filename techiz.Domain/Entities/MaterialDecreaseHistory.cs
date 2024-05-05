@@ -22,6 +22,6 @@ namespace techiz.Domain.Entities
         public int? ProductHistoriesId { get; set; }
         public virtual ProductHistories ProductHistories { get; set; }
         public string? Description { get; set; }
-        public double? Quantity { get; set; }
+        public double Quantity { get; set; }
     }
 }
