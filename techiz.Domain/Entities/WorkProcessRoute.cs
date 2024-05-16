@@ -25,6 +25,8 @@ namespace techiz.Domain.Entities
         public int Order { get; set; }
         [Column(TypeName = "jsonb")]
         public string OtherObjects { get; set; }
+        public string Img { get; set; }
+        public string ProgressColor { get; set; }
         public virtual HashSet<WorkProcessRouteUser> WorkProcessRouteUser { get; set; }
         public virtual HashSet<Product> Product { get; set; }
         public virtual HashSet<Material> Material { get; set; }

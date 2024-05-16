@@ -6,10 +6,14 @@ namespace techiz.Domain.Enum
     {
         [Display(Name = "Product")]
         Product = 1,
+        [Display(Name = "ProductHistories")]
+        ProductHistories = 2,
         [Display(Name = "Material")]
-        Material = 2,
+        Material = 3,
+        [Display(Name = "MaterialHistories")]
+        MaterialHistories = 4,
         [Display(Name = "Template")]
-        Template = 3,
+        Template = 5,
        
     }
 }

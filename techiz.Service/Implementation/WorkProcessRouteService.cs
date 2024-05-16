@@ -84,6 +84,27 @@ public class WorkProcessRouteService : IWorkProcessRouteService
         return result;
     }
 
+    public async Task<IEnumerable<WorkProcessRouteDashboardDtoQ>> GetAllProductIdDashboard(int id)
+    {
+        var result = _appDbContext.WorkProcessRoute.Where(x => x.ProductionId == id)
+            .Select(x => new WorkProcessRouteDashboardDtoQ()
+            {
+                Progress = x.WorkProcessTemplate.WPTState == WorkProcessTemplateState.Product ? 
+                (( _appDbContext.Product.Where(t => t.ProductionId == id).Count() * 100 ) / _appDbContext.Production.Where(d=> d.Id == id).FirstOrDefault().Quantity  ) :
+                 x.WorkProcessTemplate.WPTState == WorkProcessTemplateState.ProductHistories ?
+                    ((_appDbContext.ProductHistories.Where(t => t.Product.ProductionId == id && t.WorkProcessRouteId == x.Id).Count() * 100) / _appDbContext.Production.Where(d => d.Id == id).FirstOrDefault().Quantity) :
+                ( (_appDbContext.MaterialHistories.Where(t => t.Material.ProductionId == id && t.WorkProcessRouteId == x.Id).Count() * 100 ) /_appDbContext.Material.Where(d => d.ProductionId == id).Count() ) 
+                ,
+                ProgressColor = x.ProgressColor,
+                SubTitle = x.Name,
+                Title = x.Name,
+                Img = x.Img,
+           }).ToList().OrderBy(x => x.Order);
+
+        return result;
+    }
+
+
     public async Task<ResponseModel> AddorUpdateAll(List<WorkProcessRouteDtoC> dto)
     {
         try

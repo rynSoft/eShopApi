@@ -87,6 +87,7 @@ namespace techiz.Infrastructure.Mapping
                 .ReverseMap();
 
             #endregion
+            
 
 
             #region MaterialHistories
@@ -523,7 +524,7 @@ namespace techiz.Infrastructure.Mapping
                 .ReverseMap();
             #endregion
 
-            #region ProductionUser
+            #region WorkProcessRoute
             CreateMap<WorkProcessRouteDtoC, WorkProcessRoute>()
                 .ReverseMap();
             CreateMap<WorkProcessRoute, WorkProcessRouteDtoC>()
@@ -532,6 +533,13 @@ namespace techiz.Infrastructure.Mapping
                 .ReverseMap();
             CreateMap<WorkProcessRoute, WorkProcessRouteDtoQ>()
                 .ReverseMap();
+
+            CreateMap<WorkProcessRoute, WorkProcessRouteDashboardDtoQ>()
+                   .ReverseMap();
+            CreateMap<WorkProcessRouteDashboardDtoQ, WorkProcessRoute>()
+                 .ReverseMap();
+
+
             #endregion
 
             #region WorkProcessTemplate

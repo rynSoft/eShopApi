@@ -44,7 +44,18 @@ namespace techizApi.Controllers
             }
             return BadRequest("No records found");
         }
-        
+
+        [HttpGet(nameof(GetAllProductIdDashboard))]
+        public async Task<IActionResult> GetAllProductIdDashboard(int id)
+        {
+            var result = await _workProcessRouteService.GetAllProductIdDashboard(id);
+            if (result is not null)
+            {
+                return Ok(result);
+            }
+            return BadRequest("No records found");
+        }
+
         [HttpGet(nameof(GetById))]
         public async Task<IActionResult> GetById(int id)
         {

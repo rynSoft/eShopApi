@@ -61,7 +61,6 @@ public class MaterialDecreaseHistoryService : IMaterialDecreaseHistoryService
     {
         var data = _mapper.Map<List<MaterialDecreaseHistoryDtoQ>>(await _appDbContext.MaterialDecreaseHistory.Include(y=> y.Material).Where(x => x.ProductHistoriesId == productHistoryId)
                               .OrderByDescending(x => x.Id).ToListAsync());
-
        
         return new ResponseModel(data);
     }
@@ -98,9 +97,6 @@ public class MaterialDecreaseHistoryService : IMaterialDecreaseHistoryService
 
         return new ResponseModel { Success = false, Message = "Uretim Emri Bulunamadi" };
     }
-
-
-
 }
       
       

@@ -13,6 +13,8 @@ namespace techiz.Service.Contract
         Task<ResponseModel> GetAll();
         Task<WorkProcessRouteDtoQ> Get(int id); 
         Task<IEnumerable<WorkProcessRouteDtoQ>> GetAllAsyncProductId(int id);
+        Task<IEnumerable<WorkProcessRouteDashboardDtoQ>> GetAllProductIdDashboard(int id);
+
         Task<ResponseModel> Add(WorkProcessRouteDtoC dto);
         Task<ResponseModel> AddorUpdateAll(List<WorkProcessRouteDtoC> dto);
         Task<ResponseModel> UpdateState(WorkProcessRouteDtoC dto);
