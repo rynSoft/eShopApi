@@ -64,7 +64,11 @@ namespace techiz.Persistence
 
         public DbSet<Material> Material { get; set; }
         public DbSet<MaterialHistories> MaterialHistories { get; set; }
+
+        public DbSet<ScrapInfo> ScrapInfo { get; set; }
+        public DbSet<WorkProcessRouteTemplate> WorkProcessRouteTemplate { get; set; }
         
+
         public DbSet<MaterialDecreaseHistory> MaterialDecreaseHistory { get; set; }
         public DbSet<WorkProcessRouteMaterial> WorkProcessRouteMaterial { get; set; }
         Task<int> SaveChangesAsync();

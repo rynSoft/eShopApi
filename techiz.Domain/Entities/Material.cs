@@ -31,7 +31,7 @@ namespace techiz.Domain.Entities
         public  bool IsDone { get; set; }
         public int? NextWPRId { get; set; }
         public virtual WorkProcessRoute NextWPR { get; set; }
-        public virtual HashSet<WorkProcessRouteMaterials> WorkProcessRouteMaterials { get; set; }
+        public virtual HashSet<WorkProcessRouteMaterial> WorkProcessRouteMaterial { get; set; }
 
     }
 }

@@ -78,7 +78,8 @@ namespace techiz.Persistence
         public DbSet<Material> Material { get; set; }
         public DbSet<MaterialDecreaseHistory> MaterialDecreaseHistory { get; set; }
         public DbSet<WorkProcessRouteMaterial> WorkProcessRouteMaterial { get; set; }
-
+        public DbSet<ScrapInfo> ScrapInfo { get; set; }
+        public DbSet<WorkProcessRouteTemplate> WorkProcessRouteTemplate { get; set; }
 
         public DbSet<Product> Product { get; set; }
         public DbSet<ProductHistories> ProductHistories { get; set; }
@@ -102,12 +103,12 @@ namespace techiz.Persistence
                 .HasMany(city => city.QualityOperations).WithOne()
                 .HasForeignKey(con => con.AuthorizedPersonId);
 
-            modelBuilder
-    .Entity<Viewsa>(builder =>
-    {
-        builder.HasNoKey();
-        builder.ToTable("MY_Viewsa");
-    });
+    //        modelBuilder
+    //.Entity<Viewsa>(builder =>
+    //{
+    //    builder.HasNoKey();
+    //    builder.ToTable("MY_Viewsa");
+    //});
 
             #region Identity
             modelBuilder.Entity<IdentityUserToken<Guid>>(x =>
