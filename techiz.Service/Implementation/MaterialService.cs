@@ -83,6 +83,20 @@ public class MaterialService : IMaterialService
         return new ResponseModel { Success = false, Message = "Ürün Daha Önce Kaydetilmiş" };
     }
 
+    public async Task<ResponseModel> ImportToAdd(MaterialImportDtoC dto)
+    {
+        _logger.LogWarning($"Material | Add : Start {dto.URUN_BARKOD_KODU}");
+        if (!await _appDbContext.Material.AnyAsync(x => x.ProductionId == dto.ProductionId && x.Code == dto.URUN_BARKOD_KODU))
+        {
+            var entity = _mapper.Map<Material>(dto);
+            _logger.LogWarning($"Material | Add : End Succes");
+
+            return await _repository.AddAsync(entity);
+        }
+        _logger.LogWarning($"Material | Add : End NotSuccess");
+        return new ResponseModel { Success = false, Message = "Ürün Daha Önce Kaydetilmiş" };
+    }
+
     public async Task<ResponseModel> Update(MaterialDtoC dto)
     {
         Material material = _appDbContext.Material.Where(x => x.Id == dto.Id).FirstOrDefault();

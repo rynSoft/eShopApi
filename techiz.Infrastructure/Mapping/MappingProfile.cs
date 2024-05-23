@@ -86,8 +86,22 @@ namespace techiz.Infrastructure.Mapping
             CreateMap<MaterialDtoQ, Material>()
                 .ReverseMap();
 
+
+            CreateMap<MaterialImportDtoC, Material>()
+                .ForMember(dest => dest.Code, opt => opt.MapFrom(src => src.URUN_KODU))
+                .ForMember(dest => dest.Name, opt => opt.MapFrom(src => src.URUN_ADI))
+                .ForMember(dest => dest.PartyNumber, opt => opt.MapFrom(src => src.PARTI_NO))
+                .ForMember(dest => dest.Quantity, opt => opt.MapFrom(src => Convert.ToDouble(src.MIKTAR)))
+                  .ForMember(dest => dest.DecreaseQuantity, opt => opt.MapFrom(src => Convert.ToDouble(src.DUSUM_MIKTARI)))
+                .ForMember(dest => dest.Unit, opt => opt.MapFrom(src => src.BIRIM))
+                  .ForMember(dest => dest.RemainQuantity, opt => opt.MapFrom(src => Convert.ToDouble(src.MIKTAR)))
+                .ForMember(dest => dest.PartyNumber, opt => opt.MapFrom(src => src.PARTI_NO))
+                .ForMember(dest => dest.Explanation, opt => opt.MapFrom(src => src.HAMMADDE_YERI))
+                .ForMember(dest => dest.Description, opt => opt.MapFrom(src => src.ACIKLAMA))
+                .ReverseMap();
+
             #endregion
-            
+
 
 
             #region MaterialHistories
@@ -339,7 +353,6 @@ namespace techiz.Infrastructure.Mapping
             #region BomKitInfo
             
             CreateMap<BomKitInfo, BomKitInfoDtoC>()
-                
                 .ReverseMap();
             CreateMap<BomKitInfoDtoC, BomKitInfo>()
                 .ForMember(dest=> dest.Explanation,opt => opt.MapFrom(src=> src.ACIKLAMA))

@@ -11,7 +11,7 @@ namespace techiz.Domain.Dtos
         public int MaterialId { get; set; }
         public int WorkProcessRouteId { get; set; }
         public Guid? UserId { get; set; }
-        public string Explination { get; set; }
+        public string Explanation { get; set; }
         public bool? IsFininshed { get; set; }
         public bool? MaterialUsableState { get; set; }
         

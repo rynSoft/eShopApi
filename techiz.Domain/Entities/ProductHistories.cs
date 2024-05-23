@@ -25,8 +25,8 @@ namespace techiz.Domain.Entities
         public double? ElapsedTime { get; set; }
         public Guid? UserId { get; set; }
         public virtual User User { get; set; }
-        public string Explination { get; set; }
-        public bool IsFininshed { get; set; }
+        public string Explanation { get; set; }
+        public bool IsFinished { get; set; }
         public virtual HashSet<MaterialDecreaseHistory> MaterialDecreaseHistory { get; set; }
 
     }

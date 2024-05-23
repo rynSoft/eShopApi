@@ -13,6 +13,7 @@ namespace techiz.Service.Contract
         Task<MaterialDtoQ> Get(int id);
         Task<ResponseModel> GetAllMaterialId(int productionId);
         Task<ResponseModel> Add(MaterialDtoC dto);
+        Task<ResponseModel> ImportToAdd(MaterialImportDtoC dto);
         Task<ResponseModel> Delete(int id);
         Task<ResponseModel> Update(MaterialDtoC dto);
         Task<ResponseModel> UpdateRemainQuantity(Material entity);

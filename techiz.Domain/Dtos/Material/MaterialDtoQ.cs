@@ -21,5 +21,6 @@ namespace techiz.Domain.Dtos
         public double? RemainQuantity { get; set; }
         public double? DecreaseQuantity { get; set; }
         public string Unit { get; set; }
+        public bool IsDone { get; set; }
     }
 }

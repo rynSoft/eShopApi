@@ -16,7 +16,7 @@ namespace techiz.Domain.Dtos
         public DateTimeOffset? EndDate { get; set; }
         public double? ElapsedTime { get; set; }
         public Guid? UserId { get; set; }
-        public string Explination { get; set; }
+        public string Explanation { get; set; }
         public bool? IsFininshed { get; set; }
         public int? NextProcessRouteId { get; set; }
         public List<MaterialDecreaseHistoryDtoC> Metarialds { get; set; }

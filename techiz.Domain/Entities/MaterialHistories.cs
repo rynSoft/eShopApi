@@ -23,7 +23,7 @@ namespace techiz.Domain.Entities
         public DateTimeOffset? Date { get; set; }
         public Guid? UserId { get; set; }
         public virtual User User { get; set; }
-        public string Explination { get; set; }
+        public string Explanation { get; set; }
         public int? MaterialUsableState { get; set; }
 
         public MaterailReadState MaterailReadState { get; set; }

@@ -6,7 +6,6 @@ namespace techiz.Domain;
 
 public class ProductionImportDto
 {
-        public ProductionDtoC Production { get; set; }
-        public HashSet<BomKitInfoDtoC> BomKit  { get; set; }
-        public HashSet<RouteInfoDtoC> Route  { get; set; }
+    public ProductionDtoC Production { get; set; }
+     public HashSet<MaterialImportDtoC> Material { get; set; }
 }

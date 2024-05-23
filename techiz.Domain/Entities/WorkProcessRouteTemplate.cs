@@ -6,19 +6,15 @@ using System.ComponentModel.DataAnnotations.Schema;
 namespace techiz.Domain.Entities
 {
 
-    public class WorkProcessRoute : BaseSimpleModel
+    public class WorkProcessRouteTemplate : BaseSimpleModel
     {
-        public WorkProcessRoute()
+        public WorkProcessRouteTemplate()
         {
-            WorkProcessRouteUser = new();
-            WorkProcessRouteTimeHistories = new();
         }
 
         public Guid? RouteId { get; set; }
         public string Name { get; set; }
         public string VirtualName { get; set; }
-        public int ProductionId { get; set; }
-        public virtual Production Production { get; set; }
         public int WorkProcessTemplateId { get; set; }
         public virtual WorkProcessTemplate WorkProcessTemplate { get; set; }
         public bool State { get; set; }
@@ -28,14 +24,5 @@ namespace techiz.Domain.Entities
         public string Img { get; set; }
         public string ProgressColor { get; set; }
         public string Explanation { get; set; }
-        public virtual HashSet<WorkProcessRouteUser> WorkProcessRouteUser { get; set; }
-        public virtual HashSet<Product> Product { get; set; }
-        public virtual HashSet<Material> Material { get; set; }
-        public virtual HashSet<WorkProcessRouteMaterials> WorkProcessRouteMaterials { get; set; }
-        
-        public virtual HashSet<WorkProcessRouteTimeHistories> WorkProcessRouteTimeHistories { get; set; }
-        public virtual HashSet<MaterialHistories> MaterialHistories { get; set; }
-
-
     }
 }
