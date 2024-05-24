@@ -38,9 +38,9 @@ public class OeeService : IOeeService
 
     public async Task<ResponseModel> GetOeeList()
     {
-        var ss = await _appDbContext.Viewsa.FromSqlRaw("SELECT  * FROM public.ooecalc;").AsNoTracking().ToListAsync();
+        //var ss = await _appDbContext.Viewsa.FromSqlRaw("SELECT  * FROM public.ooecalc;").AsNoTracking().ToListAsync();
 
-        return new ResponseModel(ss);
+        return new ResponseModel(null);
     }
 
     public async Task<ResponseModel> GetOeeListORM()

@@ -38,7 +38,6 @@ namespace techiz.Persistence
         public DbSet<IdentityRole<Guid>> Role { get; set; }
         public DbSet<WareHouse> WareHouse { get; set; }
         public DbSet<User> User { get; set; }
-        public DbSet<Viewsa> Viewsa { get; set; }
         public DbSet<BomKitInfo> BomKitInfo { get; set; }
         public DbSet<Machine> Machine { get; set; }
         public DbSet<SetupVerificationDChange> SetupVerificationDChange { get; set; }
@@ -102,13 +101,6 @@ namespace techiz.Persistence
             modelBuilder.Entity<User>()
                 .HasMany(city => city.QualityOperations).WithOne()
                 .HasForeignKey(con => con.AuthorizedPersonId);
-
-    //        modelBuilder
-    //.Entity<Viewsa>(builder =>
-    //{
-    //    builder.HasNoKey();
-    //    builder.ToTable("MY_Viewsa");
-    //});
 
             #region Identity
             modelBuilder.Entity<IdentityUserToken<Guid>>(x =>

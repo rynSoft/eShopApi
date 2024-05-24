@@ -20,7 +20,6 @@ namespace techiz.Persistence
         public DbSet<ProductionMachineMatch> ProductionMachineMatch { get; set; }
         public DbSet<IdentityUserRole<Guid>> UserRole { get; set; }
         public DbSet<User> User { get; set; }
-        public DbSet<Viewsa> Viewsa { get; set; }
         public DbSet<IdentityRole<Guid>> Role { get; set; }
         public DbSet<BomKitInfo> BomKitInfo { get; set; }
         public DbSet<WareHouse> WareHouse { get; set; }
