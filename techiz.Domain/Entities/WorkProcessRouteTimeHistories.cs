@@ -28,7 +28,7 @@ namespace techiz.Domain.Entities
          public WorkProcessRouteTimeStatus WorkProcessRouteTimeStatus { get; set; }
 
         public DateTimeOffset StartDate { get; set; } = DateTime.UtcNow;
-        public DateTimeOffset EndDate { get; set; }
+        public DateTimeOffset? EndDate { get; set; }
         public TimeSpan ElapsedTime { get; set; }
         public string Definition { get; set; }
     }
