@@ -50,7 +50,7 @@ public class ProductHistoriesService : IProductHistoriesService
     
     public async Task<ResponseModel> GetAll()
     {
-        return  new  ResponseModel(_mapper.Map<List<ProductHistoriesDtoQ>>(await _appDbContext.ProductionOperations.OrderBy(x=> x.Id).ToListAsync()));
+        return  new  ResponseModel(_mapper.Map<List<ProductHistoriesDtoQ>>(await _appDbContext.ProductionOperations.AsNoTracking().OrderBy(x=> x.Id).ToListAsync()));
     }
     public async Task<ResponseModel> GetById(int id)
     {
@@ -59,7 +59,7 @@ public class ProductHistoriesService : IProductHistoriesService
 
     public async Task<ResponseModel> GetAllAsyncProductHistories(int workProcessRouteId)
     {
-        var data = _mapper.Map<List<ProductHistoriesDtoQ>>(await _appDbContext.ProductHistories
+        var data = _mapper.Map<List<ProductHistoriesDtoQ>>(await _appDbContext.ProductHistories.AsNoTracking()
                    .Include(t => t.User)
                    .Include(y=> y.Product)
                    .Where(x => x.WorkProcessRouteId == workProcessRouteId).OrderByDescending(i => i.Id).Take(20).ToListAsync());
@@ -69,7 +69,7 @@ public class ProductHistoriesService : IProductHistoriesService
 
     public async Task<ResponseModel> GetByQrCodeHistories(int workProcessRouteId,string code)
     {
-        if (!await _appDbContext.ProductHistories.Where(x => x.WorkProcessRouteId == workProcessRouteId && x.Product.Qrcode == code).AnyAsync())
+        if (!await _appDbContext.ProductHistories.AsNoTracking().Where(x => x.WorkProcessRouteId == workProcessRouteId && x.Product.Qrcode == code).AnyAsync())
         {
             return new ResponseModel() { Success = false, Message = $"Bu iş sürecinde bu {code}'lu ürün bulunamadı" };
         }else
