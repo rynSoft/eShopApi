@@ -61,10 +61,8 @@ namespace techizApi.Controllers
                     item.ProductionId = (int)resultProductionInfo.Result.Data;
                     item.WareHouseId = _wareHouseService.GetBynemToId(item.HAMMADDE_YERI).Result;
 
-
                     await _materialService.ImportToAdd(item);
                 }
-              
 
                 await _productionLogService.Add(new ProductionLogDtoC()
                 {

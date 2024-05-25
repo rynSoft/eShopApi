@@ -19,6 +19,7 @@
   </ItemGroup>
 
   <ItemGroup>
+	  
     <ProjectReference Include="..\techiz.Infrastructure\techiz.Infrastructure.csproj" />
   </ItemGroup>
 

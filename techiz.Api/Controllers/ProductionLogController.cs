@@ -50,6 +50,5 @@ namespace techizApi.Controllers
         { 
             return await _productionLogService.Add(dto);
         }
-
     }
 }
