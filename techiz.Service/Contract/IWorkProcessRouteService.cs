@@ -20,6 +20,7 @@ namespace techiz.Service.Contract
         Task<ResponseModel> UpdateState(WorkProcessRouteDtoC dto);
         Task<ResponseModel> Update(WorkProcessRouteDtoC dto);
         Task<ResponseModel> GetOrderNextId(int productionId, int workProcessRouteId, int order);
+        Task<ResponseModel> Delete(int id);
 
     }
 }

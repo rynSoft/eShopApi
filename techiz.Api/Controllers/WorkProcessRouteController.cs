@@ -8,6 +8,7 @@ using System.Threading.Tasks;
 using techiz.Domain.Common;
 using techiz.Domain.Dtos;
 using System.Collections.Generic;
+using techiz.Service.Implementation;
 
 namespace techizApi.Controllers
 {
@@ -100,6 +101,18 @@ namespace techizApi.Controllers
         public async Task<ActionResult<ResponseModel>> UpdateState(WorkProcessRouteDtoC dto)
         {
             return await _workProcessRouteService.UpdateState(dto);
+        }
+
+        [HttpDelete(nameof(Delete))]
+        public async Task<ActionResult<ResponseModel>> Delete(int Id)
+        {
+            var result = _workProcessRouteService.Delete(Id);
+            if (result is not null)
+            {
+                return Ok(result.Result);
+            }
+            return BadRequest("No records found");
+
         }
 
     }

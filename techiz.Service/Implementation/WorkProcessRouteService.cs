@@ -89,16 +89,24 @@ public class WorkProcessRouteService : IWorkProcessRouteService
         var result = _appDbContext.WorkProcessRoute.Where(x => x.ProductionId == id)
             .Select(x => new WorkProcessRouteDashboardDtoQ()
             {
-                Progress = x.WorkProcessTemplate.WPTState == WorkProcessTemplateState.Product ? 
-                (( _appDbContext.Product.Where(t => t.ProductionId == id).Count() * 100 ) / _appDbContext.Production.Where(d=> d.Id == id).FirstOrDefault().Quantity  ) :
-                 x.WorkProcessTemplate.WPTState == WorkProcessTemplateState.ProductHistories ?
-                    ((_appDbContext.ProductHistories.Where(t => t.Product.ProductionId == id && t.WorkProcessRouteId == x.Id).Count() * 100) / _appDbContext.Production.Where(d => d.Id == id).FirstOrDefault().Quantity) :
-                ( (_appDbContext.MaterialHistories.Where(t => t.Material.ProductionId == id && t.WorkProcessRouteId == x.Id).Count() * 100 ) /_appDbContext.Material.Where(d => d.ProductionId == id).Count() ) 
+                Progress = x.WorkProcessTemplate.WPTState == WorkProcessTemplateState.Product && _appDbContext.Product.Where(t => t.ProductionId == id).Count() >0 ? 
+                (( _appDbContext.Product.Where(t => t.ProductionId == id).Count() * 100 ) /
+                _appDbContext.Production.Where(d=> d.Id == id).FirstOrDefault().Quantity  ) 
+                
+                :
+                 x.WorkProcessTemplate.WPTState == WorkProcessTemplateState.ProductHistories && _appDbContext.ProductHistories.Where(t => t.Product.ProductionId == id && t.WorkProcessRouteId == x.Id).Count()>0  ?
+                    ((_appDbContext.ProductHistories.Where(t => t.Product.ProductionId == id && t.WorkProcessRouteId == x.Id).Count() * 100) / 
+                    _appDbContext.Production.Where(d => d.Id == id).FirstOrDefault().Quantity) 
+                    :
+                (_appDbContext.MaterialHistories.Where(t => t.Material.ProductionId == id && t.WorkProcessRouteId == x.Id).Count()>0 ? 
+                (_appDbContext.MaterialHistories.Where(t => t.Material.ProductionId == id && t.WorkProcessRouteId == x.Id).Count() * 100 ) /_appDbContext.Material.Where(d => d.ProductionId == id).Count() : 0) 
+              
                 ,
                 ProgressColor = x.ProgressColor,
                 SubTitle = x.Name,
                 Title = x.Name,
                 Img = x.Img,
+                Order=x.Order 
            }).ToList().OrderBy(x => x.Order);
 
         return result;
@@ -143,5 +151,12 @@ public class WorkProcessRouteService : IWorkProcessRouteService
         routeInfo.State = (bool)data.State;
         return await _repository.UpdateAsync(routeInfo);
     }
+
+    public async Task<ResponseModel> Delete(int id)
+    {
+        WorkProcessRoute workProcessRouteSingle = await _repository.GetSingleAsync(x => x.Id == id);
+        return new ResponseModel((await _repository.DeleteAsync(workProcessRouteSingle)));
+    }
+
 
 }
