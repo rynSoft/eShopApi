@@ -325,50 +325,50 @@ namespace eShop.Service.Implementation
         public async Task<ResponseModel> GetAllTaskAsync(Guid Id)
         {
             // var usersDto = _mapper.Map<List<UserInformationDto>>(_userManager.Users.Include(x=> x.UserRole).ToListAsync());
-            var usersDto = await _appDbContext.ProductionUser.Where(x => x.UserId == Id && x.OpenState == false)
-                .Select(x => new
-                {
-                    Id = x.Id,
-                    Message = x.Message,
-                    ProductionProcess = x.ProductionProcess,
-                    Dates = x.Date,
-                    ProductionId = x.ProductionId
-                })
-                .ToListAsync();
+            //var usersDto = await _appDbContext.ProductionUser.Where(x => x.UserId == Id && x.OpenState == false)
+            //    .Select(x => new
+            //    {
+            //        Id = x.Id,
+            //        Message = x.Message,
+            //        ProductionProcess = x.ProductionProcess,
+            //        Dates = x.Date,
+            //        ProductionId = x.ProductionId
+            //    })
+            //    .ToListAsync();
 
-            return new ResponseModel(usersDto);
+            return new ResponseModel(null);
         }
         public async Task<ResponseModel> GetAllTaskQualityAsync(Guid Id)
         {
             // var usersDto = _mapper.Map<List<UserInformationDto>>(_userManager.Users.Include(x=> x.UserRole).ToListAsync());
-            var usersDto = await _appDbContext.QualityUser.Where(x => x.UserId == Id && x.OpenState == false)
-                .Select(x => new
-                {
-                    Id = x.Id,
-                    Message = x.Message,
-                    QualityProcess = x.QualityProcess,
-                    Dates = x.Date,
-                    QualityId = x.QualityId
-                })
-                .ToListAsync();
+            //var usersDto = await _appDbContext.QualityUser.Where(x => x.UserId == Id && x.OpenState == false)
+            //    .Select(x => new
+            //    {
+            //        Id = x.Id,
+            //        Message = x.Message,
+            //        QualityProcess = x.QualityProcess,
+            //        Dates = x.Date,
+            //        QualityId = x.QualityId
+            //    })
+            //    .ToListAsync();
 
             return new ResponseModel(null);
         }
         public async Task<ResponseModel> UpdateTaskAsync(int Id)
         {
-            var productionUser = _appDbContext.ProductionUser.Where(x => x.Id == Id).FirstOrDefault();
-            productionUser.OpenState = true;
+            //var productionUser = _appDbContext.ProductionUser.Where(x => x.Id == Id).FirstOrDefault();
+            //productionUser.OpenState = true;
 
-            _appDbContext.ProductionUser.Update(productionUser);
+            //_appDbContext.ProductionUser.Update(productionUser);
             await _appDbContext.SaveChangesAsync();
 
             return new ResponseModel(new ResponseModel(Success: true));
         }
         public async Task<ResponseModel> UpdateTaskQualityAsync(int Id)
         {
-            var productionUser = _appDbContext.QualityUser.Where(x => x.Id == Id).FirstOrDefault();
-            productionUser.OpenState = true;
-            _appDbContext.QualityUser.Update(productionUser);
+            //var productionUser = _appDbContext.QualityUser.Where(x => x.Id == Id).FirstOrDefault();
+            //productionUser.OpenState = true;
+            //_appDbContext.QualityUser.Update(productionUser);
             await _appDbContext.SaveChangesAsync();
             return new ResponseModel(new ResponseModel(Success: true));
         }

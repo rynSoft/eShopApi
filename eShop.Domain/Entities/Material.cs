@@ -15,10 +15,6 @@ namespace eShop.Domain.Entities
         {
         }
         
-        public int ProductionId { get; set; }
-        public virtual Production Production { get; set; }
-        public int? WareHouseId { get; set; }
-        public virtual WareHouse WareHouse { get; set; }
         public string? Code { get; set; }
         public string Name { get; set; }
         public string? Explanation { get; set; }
@@ -30,8 +26,6 @@ namespace eShop.Domain.Entities
         public string Unit { get; set; }
         public  bool IsDone { get; set; }
         public int? NextWPRId { get; set; }
-        public virtual WorkProcessRoute NextWPR { get; set; }
-        public virtual HashSet<WorkProcessRouteMaterial> WorkProcessRouteMaterial { get; set; }
 
     }
 }

@@ -55,52 +55,17 @@ namespace eShop.Infrastructure.Extension
         }
         public static void AddTransientServices(this IServiceCollection serviceCollection)
         {
-            serviceCollection.AddTransient<IRouteInfoUserService, RouteInfoUserService>();
+
             serviceCollection.AddTransient<IDateTimeService, DateTimeService>();
             serviceCollection.AddTransient<IAccountService, AccountService>();
             serviceCollection.AddTransient<IRoleService, RoleService>();
-            serviceCollection.AddTransient<INonComplianceCodeService, NonComplianceCodeService>();
-            serviceCollection.AddTransient<IProductionOperationsTimeLogService, ProductionOperationsTimeLogService>();
-            serviceCollection.AddTransient<IProductionService, ProductionService>();
-            serviceCollection.AddTransient<IWareHouseService, WareHouseService>();
-            serviceCollection.AddTransient<IMachineService, MachineService>();
+           
             serviceCollection.AddTransient<ILineService, LineService>();
-            serviceCollection.AddTransient<IQualityInfoService, QualityInfoService>();
-            serviceCollection.AddTransient<IQualityService, QualityService>();
-            serviceCollection.AddTransient<IShiftTargetParametersService, ShiftTargetParametersService>();
-            serviceCollection.AddTransient<IQualityUserService, QualityUserService>();
-            serviceCollection.AddTransient<IQualityOperationService, QualityOperationService>();
-            serviceCollection.AddTransient<IBomKitInfoService, BomKitInfoService>();
-            serviceCollection.AddTransient<IRouteInfoService, RouteInfoService>();
-            serviceCollection.AddTransient<IWorkCentreService, WorkCentreService>();
-            serviceCollection.AddTransient<IProductionUserService, ProductionUserService>();
-            serviceCollection.AddTransient<IRestCauseService, RestCauseService>();
-            serviceCollection.AddTransient<IProductionLogService, ProductionLogService>();
-            serviceCollection.AddTransient<IProductionTimeProcessService, ProductionTimeProcessService>();
-            serviceCollection.AddTransient<ISetupVerificationService, SetupVerificationService>();
-            serviceCollection.AddTransient<ISetupVerificationDetailService, SetupVerificationDetailService>();
-            serviceCollection.AddTransient<IProductionOperationsService, ProductionOperationsService>();
-            serviceCollection.AddTransient<IProductionMachineMatchService, ProductionMachineMatchService>();
-            serviceCollection.AddTransient<IQualityOperationDocumentService, QualityOperationDocumentService>();
-            serviceCollection.AddTransient<IProductionProcessManualService, ProductionProcessManualService>();
-            serviceCollection.AddTransient<IProductionProcessManualTestService, ProductionProcessManualTestService>();
+           
             serviceCollection.AddTransient<IDashboardService, DashboardService>();
-            serviceCollection.AddTransient<IShiftDefinitionService, ShiftDefinitionService>();
-            serviceCollection.AddTransient<IShiftDefinitionProcessService, ShiftDefinitionProcessService>();
-            serviceCollection.AddTransient<IOeeService, OeeService>();
-            serviceCollection.AddTransient<IWorkProcessRouteService, WorkProcessRouteService>();
-            serviceCollection.AddTransient<IWorkProcessRouteUserService, WorkProcessRouteUserService>();
-            serviceCollection.AddTransient<IWorkProcessTemplateService, WorkProcessTemplateService>();
+           
             serviceCollection.AddTransient<ICameraService, CameraService>();
-            serviceCollection.AddTransient<IProductService, ProductService>();
-            serviceCollection.AddTransient<IWorkProcessRouteTimeHistoriesService, WorkProcessRouteTimeHistoriesService>();
-            serviceCollection.AddTransient<IProductHistoriesService, ProductHistoriesService>();
-            serviceCollection.AddTransient<IMaterialService, MaterialService>();
-            serviceCollection.AddTransient<IMaterialDecreaseHistoryService, MaterialDecreaseHistoryService>();
-            serviceCollection.AddTransient<IWorkProcessRouteMaterialService, WorkProcessRouteMaterialService>();
-            serviceCollection.AddTransient<IMaterialHistoriesService, MaterialHistoriesService>();
-            serviceCollection.AddTransient<IScrapInfoService, ScrapInfoService>();
-            serviceCollection.AddTransient<IWorkProcessRouteTemplateService, WorkProcessRouteTemplateService>();
+           
 
 
         }

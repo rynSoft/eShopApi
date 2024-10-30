@@ -15,11 +15,8 @@ namespace eShop.Domain.Entities
         public virtual Production Production { get; set; }
         public Guid? UserId { get; set; }
         public virtual User User { get; set; }
-        public int NextWPRId { get; set; }
-        public virtual WorkProcessRoute NextWPR { get; set; }
         public int Order { get; set; }
         public string Explanation { get; set; }
-        public virtual HashSet<ProductHistories> ProductionInputHistories { get; set; }
 
 
     }

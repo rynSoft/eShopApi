@@ -12,14 +12,6 @@ namespace eShop.Domain.Entities
     {
         public Production()
         {
-            BomKitInfo = new();
-            RouteInfo = new();
-            ProductionTimeProcess = new();
-            ProductionUser = new();
-            ProductionLog = new();
-            SetupVerification = new();
-            ProductionProcessManual = new();
-            WorkProcessRoute = new();
         }
         
         public string OrderNo { get; set; }
@@ -29,21 +21,6 @@ namespace eShop.Domain.Entities
         public DateTimeOffset? StartDate { get; set; } 
         public string UretimAdi { get; set; }
         public string Aciklama { get; set; }
-        
-        public virtual HashSet<BomKitInfo> BomKitInfo { get; set; }
-        public virtual HashSet<RouteInfo> RouteInfo { get; set; }
-        public virtual HashSet<ProductionTimeProcess> ProductionTimeProcess { get; set; }
-         public virtual HashSet<ProductionUser> ProductionUser { get; set; }
-        public virtual HashSet<ProductionLog> ProductionLog { get; set; }
-        public virtual HashSet<SetupVerificationInfo> SetupVerificationInfo { get; set; }
-        public virtual HashSet<ProductionOperations> ProductionOperations { get; set; }
-        public virtual HashSet<SetupVerificationDChange> SetupVerificationDChange { get; set; }
-        public virtual HashSet<ProductionProcessManual> ProductionProcessManual { get; set; }
-        public virtual HashSet<ProductionProcessManualTest> ProductionProcessManualTest { get; set; }
-        
-
-        public virtual HashSet<SetupVerification> SetupVerification { get; set; }
-        public virtual HashSet<WorkProcessRoute> WorkProcessRoute { get; set; }
         public virtual HashSet<Product> Product { get; set; }
         
 

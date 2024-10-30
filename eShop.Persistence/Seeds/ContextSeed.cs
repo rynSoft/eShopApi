@@ -20,7 +20,6 @@ namespace eShop.Persistence.Seeds
 
             CreatePermissions(modelBuilder);
             
-            CreateWorkCentre(modelBuilder);
         }
 
         private static void CreateRoles(ModelBuilder modelBuilder)
@@ -54,10 +53,6 @@ namespace eShop.Persistence.Seeds
             modelBuilder.Entity<Permission>().HasData(permission);
         }
         
-        private static void CreateWorkCentre(ModelBuilder modelBuilder)
-        {
-            var workCentre = SeedWorkCentre.WorkCentreList();
-            modelBuilder.Entity<WorkCentre>().HasData(workCentre);
-        }
+       
     }
 }

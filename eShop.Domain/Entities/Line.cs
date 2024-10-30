@@ -13,14 +13,10 @@ namespace eShop.Domain.Entities
     {
         public Line ()
         {
-            Machine = new();
+
         }
         
         public int Number { get; set; }
         public string Name { get; set; }
-        public virtual  HashSet<Machine> Machine { get; set; }
-        public virtual  HashSet<ShiftDefinitionProcess> ShiftDefinitionProcess { get; set; }
-        public virtual HashSet<ShiftTargetParameters> ShiftTargetParameters { get; set; }
-
     }
 }
