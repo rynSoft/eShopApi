@@ -1,12 +1,12 @@
 ﻿using MediatR;
 using Microsoft.EntityFrameworkCore;
 //using Udea.Api.Domain.Entities;
-using techiz.Persistence;
+using eShop.Persistence;
 using System.Collections.Generic;
 using System.Threading;
 using System.Threading.Tasks;
 
-namespace techiz.Service.Features.CustomerFeatures.Queries
+namespace eShop.Service.Features.CustomerFeatures.Queries
 {
     //public class GetAllCustomerQuery : IRequest<IEnumerable<Customer>>
     //{

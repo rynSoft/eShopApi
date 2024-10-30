@@ -1,4 +1,4 @@
-﻿namespace techizApi.Auth
+﻿namespace eShopApi.Auth
 {
     public static class CustomClaimTypes
     {

@@ -1,13 +1,13 @@
-﻿using techiz.Domain.Auth;
-using techiz.Domain.Common;
-using techiz.Domain.Dtos;
+﻿using eShop.Domain.Auth;
+using eShop.Domain.Common;
+using eShop.Domain.Dtos;
 using System.Collections.Generic;
 using System.Threading.Tasks;
-using techiz.Domain.Entities;
-using techiz.Domain.Interfaces;
+using eShop.Domain.Entities;
+using eShop.Domain.Interfaces;
 using System;
 
-namespace techiz.Service.Contract
+namespace eShop.Service.Contract
 {
     public interface IShiftDefinitionProcessService
     {

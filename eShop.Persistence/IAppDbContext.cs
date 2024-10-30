@@ -1,14 +1,14 @@
 ﻿using System;
-using techiz.Domain.Entities;
+using eShop.Domain.Entities;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using System.Threading.Tasks;
-using techiz.Domain.Auth;
-using techiz.Domain.Dtos;
+using eShop.Domain.Auth;
+using eShop.Domain.Dtos;
 using System.ComponentModel.DataAnnotations.Schema;
 
-namespace techiz.Persistence
+namespace eShop.Persistence
 {
     public interface IAppDbContext 
     {

@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 #nullable disable
 
-namespace techiz.Persistence.Migrations
+namespace eShop.Persistence.Migrations
 {
     public partial class mig10h : Migration
     {

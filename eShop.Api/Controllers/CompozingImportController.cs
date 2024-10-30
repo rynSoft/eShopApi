@@ -2,23 +2,23 @@
 using System.Collections.Generic;
 using System.Linq;
 using Microsoft.AspNetCore.Mvc;
-using techiz.Service.Contract;
+using eShop.Service.Contract;
 using System.Threading.Tasks;
 using System.Transactions;
 using AutoMapper;
 using Microsoft.AspNetCore.Http;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
-using techiz.Domain;
-using techiz.Domain.Common;
-using techiz.Domain.Dtos;
-using techiz.Domain.Entities;
-using techiz.Domain.Enum;
-using techiz.Infrastructure;
-using techiz.Persistence;
+using eShop.Domain;
+using eShop.Domain.Common;
+using eShop.Domain.Dtos;
+using eShop.Domain.Entities;
+using eShop.Domain.Enum;
+using eShop.Infrastructure;
+using eShop.Persistence;
 using System.Reflection.PortableExecutable;
 
-namespace techizApi.Controllers
+namespace eShopApi.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]

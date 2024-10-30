@@ -4,7 +4,7 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 
 #nullable disable
 
-namespace techiz.Persistence.Migrations
+namespace eShop.Persistence.Migrations
 {
     public partial class mig19h : Migration
     {
@@ -404,7 +404,7 @@ namespace techiz.Persistence.Migrations
                     { new Guid("0481a625-2bdd-4c76-958a-40f24df0122d"), 0, "Hakan", "034215c5-4998-4012-ba1f-a7a73647af7e", "hakan@.com", false, "hakan@.com", null, true, false, null, "SUPERADMIN@GMAIL.COM", "SUPERADMIN", "AQAAAAEAACcQAAAAEBLjouNqaeiVWbN0TbXUS3+ChW3d7aQIk/BQEkWBxlrdRRngp14b0BIH0Rp65qD6mA==", null, false, null, "YILDIRIM", null, false, "hakanyildirim" },
                     { new Guid("3d9365ec-a245-4b28-b885-4d3655f9e91b"), 0, "Tolga", "70bb5391-5562-4534-a3bb-d167ef22d23c", "tolga@.com", true, "tolga@.com", null, true, false, null, "BASICUSER@GMAIL.COM", "BASICUSER", "AQAAAAEAACcQAAAAEBLjouNqaeiVWbN0TbXUS3+ChW3d7aQIk/BQEkWBxlrdRRngp14b0BIH0Rp65qD6mA==", null, false, null, "Bagin", null, false, "Tolga" },
                     { new Guid("aa3a2e32-8bd9-4d25-9c5f-ee30b0f9bced"), 0, "Cagan", "be63db97-8f66-419c-bd19-c772112892c2", "cagan@.com", true, "cagan@.com", null, true, false, null, "BASICUSER@GMAIL.COM", "SUPERADMIN", "AQAAAAEAACcQAAAAEBLjouNqaeiVWbN0TbXUS3+ChW3d7aQIk/BQEkWBxlrdRRngp14b0BIH0Rp65qD6mA==", null, false, null, "Turhan", null, false, "cagan" },
-                    { new Guid("b528735b-aac5-4ba5-8898-c5035c026370"), 0, "Techiz", "d289b518-6a6c-44c9-ade3-03e5f1111dcd", "techiz@sentytech.com", true, "techiz@sentytech.com", null, true, false, null, "BASICUSER@GMAIL.COM", "BASICUSER", "AQAAAAEAACcQAAAAEBLjouNqaeiVWbN0TbXUS3+ChW3d7aQIk/BQEkWBxlrdRRngp14b0BIH0Rp65qD6mA==", null, false, null, "Techiz", null, false, "Techiz" },
+                    { new Guid("b528735b-aac5-4ba5-8898-c5035c026370"), 0, "eShop", "d289b518-6a6c-44c9-ade3-03e5f1111dcd", "eShop@sentytech.com", true, "eShop@sentytech.com", null, true, false, null, "BASICUSER@GMAIL.COM", "BASICUSER", "AQAAAAEAACcQAAAAEBLjouNqaeiVWbN0TbXUS3+ChW3d7aQIk/BQEkWBxlrdRRngp14b0BIH0Rp65qD6mA==", null, false, null, "eShop", null, false, "eShop" },
                     { new Guid("ba81dcc7-5e52-4b2f-97ea-77715e1bc5d2"), 0, "Salih", "a64cb406-14f6-4e40-b564-fbdbf116cb80", "salih@.com", true, "salih@.com", null, true, false, null, "BASICUSER@GMAIL.COM", "SUPERADMIN", "AQAAAAEAACcQAAAAEBLjouNqaeiVWbN0TbXUS3+ChW3d7aQIk/BQEkWBxlrdRRngp14b0BIH0Rp65qD6mA==", null, false, null, "Dürüs", null, false, "Salih" }
                 });
 
@@ -832,7 +832,7 @@ namespace techiz.Persistence.Migrations
                 {
                     { new Guid("9be00d97-b1ac-423e-89f1-b56dd4dd8986"), 0, "Cagan", "6a8f4ea5-5437-421c-b025-bda6f46ff2da", "cagan@.com", true, "cagan@.com", null, true, false, null, "BASICUSER@GMAIL.COM", "SUPERADMIN", "AQAAAAEAACcQAAAAEBLjouNqaeiVWbN0TbXUS3+ChW3d7aQIk/BQEkWBxlrdRRngp14b0BIH0Rp65qD6mA==", null, false, null, "Turhan", null, false, "cagan" },
                     { new Guid("9d876e8f-6248-4c0d-a37b-98e789273d2f"), 0, "Hakan", "0c1e8e72-82d1-40fc-bb3f-2d4597c4dbe5", "hakan@.com", false, "hakan@.com", null, true, false, null, "SUPERADMIN@GMAIL.COM", "SUPERADMIN", "AQAAAAEAACcQAAAAEBLjouNqaeiVWbN0TbXUS3+ChW3d7aQIk/BQEkWBxlrdRRngp14b0BIH0Rp65qD6mA==", null, false, null, "YILDIRIM", null, false, "hakanyildirim" },
-                    { new Guid("ad0d0e29-f59b-4ce2-b924-91fc9fb49cfb"), 0, "Techiz", "e0468b20-b704-4b27-9cd4-6e4e934fbe04", "techiz@sentytech.com", true, "techiz@sentytech.com", null, true, false, null, "BASICUSER@GMAIL.COM", "BASICUSER", "AQAAAAEAACcQAAAAEBLjouNqaeiVWbN0TbXUS3+ChW3d7aQIk/BQEkWBxlrdRRngp14b0BIH0Rp65qD6mA==", null, false, null, "Techiz", null, false, "Techiz" },
+                    { new Guid("ad0d0e29-f59b-4ce2-b924-91fc9fb49cfb"), 0, "eShop", "e0468b20-b704-4b27-9cd4-6e4e934fbe04", "eShop@sentytech.com", true, "eShop@sentytech.com", null, true, false, null, "BASICUSER@GMAIL.COM", "BASICUSER", "AQAAAAEAACcQAAAAEBLjouNqaeiVWbN0TbXUS3+ChW3d7aQIk/BQEkWBxlrdRRngp14b0BIH0Rp65qD6mA==", null, false, null, "eShop", null, false, "eShop" },
                     { new Guid("b4bc1de4-2c60-4586-ba7f-0777ef6e2212"), 0, "Salih", "f416c9be-fac8-4022-beb2-79b1ec1fe946", "salih@.com", true, "salih@.com", null, true, false, null, "BASICUSER@GMAIL.COM", "SUPERADMIN", "AQAAAAEAACcQAAAAEBLjouNqaeiVWbN0TbXUS3+ChW3d7aQIk/BQEkWBxlrdRRngp14b0BIH0Rp65qD6mA==", null, false, null, "Dürüs", null, false, "Salih" },
                     { new Guid("bed281f6-af87-4c4f-b958-a5b49a734750"), 0, "Tolga", "98d4cf42-e5ca-468b-8452-411fe2507985", "tolga@.com", true, "tolga@.com", null, true, false, null, "BASICUSER@GMAIL.COM", "BASICUSER", "AQAAAAEAACcQAAAAEBLjouNqaeiVWbN0TbXUS3+ChW3d7aQIk/BQEkWBxlrdRRngp14b0BIH0Rp65qD6mA==", null, false, null, "Bagin", null, false, "Tolga" }
                 });

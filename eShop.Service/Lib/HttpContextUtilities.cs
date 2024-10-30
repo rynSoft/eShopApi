@@ -5,9 +5,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using techiz.Persistence;
+using eShop.Persistence;
 
-namespace techiz.Service
+namespace eShop.Service
 {
     public static class HttpContextUtilities
     {

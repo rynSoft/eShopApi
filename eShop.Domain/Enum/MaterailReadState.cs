@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace techiz.Domain.Enum
+namespace eShop.Domain.Enum
 {
     public enum MaterailReadState
     {

@@ -1,10 +1,10 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
-using techiz.Domain.Entities;
-using techiz.Domain.Enum;
+using eShop.Domain.Entities;
+using eShop.Domain.Enum;
 
-namespace techiz.Domain.Dtos.WorkProcessTemplate;
+namespace eShop.Domain.Dtos.WorkProcessTemplate;
 
 public class WorkProcessTemplateInitialDtoQ
 {

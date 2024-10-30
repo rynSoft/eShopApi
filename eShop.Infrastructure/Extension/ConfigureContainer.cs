@@ -4,10 +4,10 @@ using Microsoft.AspNetCore.Diagnostics.HealthChecks;
 using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.Diagnostics.HealthChecks;
 using Microsoft.Extensions.Logging;
-using techiz.Service.Middleware;
+using eShop.Service.Middleware;
 using Serilog;
 
-namespace techiz.Infrastructure.Extension
+namespace eShop.Infrastructure.Extension
 {
     public static class ConfigureContainer
     {

@@ -4,9 +4,9 @@ using System.Linq;
 using System.Linq.Expressions;
 using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore.Query;
-using techiz.Domain.Common;
+using eShop.Domain.Common;
 
-namespace techiz.Domain.Interfaces
+namespace eShop.Domain.Interfaces
 {
     public interface IRepository<T> : IDisposable where T : class
     {

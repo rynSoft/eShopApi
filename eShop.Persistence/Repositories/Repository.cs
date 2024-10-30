@@ -3,16 +3,16 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Linq.Expressions;
 using System.Threading.Tasks;
-using techiz.Domain;
+using eShop.Domain;
 
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Query;
-using techiz.Domain.Common;
-using techiz.Domain.Interfaces;
-using techiz.Persistence;
+using eShop.Domain.Common;
+using eShop.Domain.Interfaces;
+using eShop.Persistence;
 using Microsoft.Extensions.Logging;
 
-namespace techiz.Persistence.Repositories
+namespace eShop.Persistence.Repositories
 {
     public class Repository<T> : IRepository<T> where T : BaseSimpleModel
     {

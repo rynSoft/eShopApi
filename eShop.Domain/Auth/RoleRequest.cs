@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace techiz.Domain.Auth
+namespace eShop.Domain.Auth
 {   public class RoleRequest
     {
         public string Name { get; set; }

@@ -1,16 +1,16 @@
-﻿using techiz.Domain.Auth;
-using techiz.Domain.Common;
-using techiz.Domain.Dtos;
+﻿using eShop.Domain.Auth;
+using eShop.Domain.Common;
+using eShop.Domain.Dtos;
 using System.Collections.Generic;
 using System.Threading.Tasks;
-using techiz.Domain;
-using techiz.Domain.Entities;
-using techiz.Domain.Enum;
-using techiz.Domain.Interfaces;
-using ProductionProcess = techiz.Domain.Enum.ProductionProcess;
+using eShop.Domain;
+using eShop.Domain.Entities;
+using eShop.Domain.Enum;
+using eShop.Domain.Interfaces;
+using ProductionProcess = eShop.Domain.Enum.ProductionProcess;
 
 
-namespace techiz.Service.Contract
+namespace eShop.Service.Contract
 {
     public interface IProductionTimeProcessService
     {

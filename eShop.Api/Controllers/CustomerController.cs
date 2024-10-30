@@ -2,11 +2,11 @@
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.DependencyInjection;
-using techiz.Service.Features.CustomerFeatures.Commands;
+using eShop.Service.Features.CustomerFeatures.Commands;
 //using Udea.Api.Service.Features.CustomerFeatures.Queries;
 using System.Threading.Tasks;
 
-namespace techizApi.Controllers
+namespace eShopApi.Controllers
 {
     //[Authorize]
     //[ApiController]

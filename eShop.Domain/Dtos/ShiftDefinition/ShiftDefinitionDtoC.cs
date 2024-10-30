@@ -1,7 +1,7 @@
 
 using System;
 
-namespace techiz.Domain.Dtos;
+namespace eShop.Domain.Dtos;
 
 public class ShiftDefinitionDtoC
 {

@@ -1,13 +1,13 @@
-﻿using techiz.Domain;
+﻿using eShop.Domain;
 using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
-using techiz.Domain.Enum;
-using techiz.Domain.Auth;
+using eShop.Domain.Enum;
+using eShop.Domain.Auth;
 
-namespace techiz.Domain.Entities
+namespace eShop.Domain.Entities
 {
 
     public class MaterialHistories : BaseSimpleModel

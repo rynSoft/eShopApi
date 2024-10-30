@@ -5,23 +5,23 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Diagnostics.HealthChecks;
 using Microsoft.OpenApi.Models;
-using techiz.Domain.Settings;
-using techiz.Persistence;
-using techiz.Service.Contract;
-using techiz.Service.Implementation;
+using eShop.Domain.Settings;
+using eShop.Persistence;
+using eShop.Service.Contract;
+using eShop.Service.Implementation;
 using System;
 using System.Collections.Generic;
 using System.Configuration;
 using System.IO;
 using System.Reflection;
-using techiz.Domain.Interfaces;
-using techiz.Persistence.Repositories;
+using eShop.Domain.Interfaces;
+using eShop.Persistence.Repositories;
 using Newtonsoft.Json;
-using techiz.Infrastructure.Mapping;
+using eShop.Infrastructure.Mapping;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Newtonsoft.Json.Linq;
 
-namespace techiz.Infrastructure.Extension
+namespace eShop.Infrastructure.Extension
 {
     public static class ConfigureServiceContainer
     {
@@ -113,14 +113,14 @@ namespace techiz.Infrastructure.Extension
                     "OpenAPISpecification",
                     new OpenApiInfo()
                     {
-                        Title = "Techiz API",
+                        Title = "eShop API",
                         Version = "1",
-                        Description = "Techiz API",
+                        Description = "eShop API",
                         Contact = new OpenApiContact()
                         {
-                            Email = "techiz@ryntech.com",
-                            Name = "techiz.Api",
-                            Url = new Uri("https://techiz@ryntech.com/")
+                            Email = "eShop@ryntech.com",
+                            Name = "eShop.Api",
+                            Url = new Uri("https://eShop@ryntech.com/")
                         },
                     });
 

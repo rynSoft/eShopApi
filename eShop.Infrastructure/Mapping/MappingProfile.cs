@@ -1,14 +1,14 @@
 ﻿using System;
 using System.Linq;
 using AutoMapper;
-using techiz.Domain;
-using techiz.Domain.Dtos;
-using techiz.Domain.Dtos.ProductionProcessManual;
-using techiz.Domain.Entities;
-using techiz.Domain.Enum;
-using techiz.Infrastructure.ViewModel;
+using eShop.Domain;
+using eShop.Domain.Dtos;
+using eShop.Domain.Dtos.ProductionProcessManual;
+using eShop.Domain.Entities;
+using eShop.Domain.Enum;
+using eShop.Infrastructure.ViewModel;
 
-namespace techiz.Infrastructure.Mapping
+namespace eShop.Infrastructure.Mapping
 {
     public class MappingProfile : Profile
     {

@@ -1,23 +1,23 @@
 ﻿using MediatR;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using techiz.Service.Contract;
-using techiz.Domain.Entities;
+using eShop.Service.Contract;
+using eShop.Domain.Entities;
 using System;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Transactions;
 using Microsoft.AspNetCore.Http;
-using techiz.Domain;
-using techiz.Domain.Common;
-using techiz.Domain.Dtos;
-using techiz.Domain.Dtos.ProductionProcessManual;
-using techiz.Domain.Enum;
-using techiz.Infrastructure;
-using techiz.Persistence;
-using techiz.Service.Implementation;
+using eShop.Domain;
+using eShop.Domain.Common;
+using eShop.Domain.Dtos;
+using eShop.Domain.Dtos.ProductionProcessManual;
+using eShop.Domain.Enum;
+using eShop.Infrastructure;
+using eShop.Persistence;
+using eShop.Service.Implementation;
 
-namespace techizApi.Controllers
+namespace eShopApi.Controllers
 {
     //[Authorize]
     [ApiController]

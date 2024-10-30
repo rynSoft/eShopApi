@@ -1,8 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
-using techiz.Domain.Auth;
+using eShop.Domain.Auth;
 
-namespace techiz.Domain.Entities
+namespace eShop.Domain.Entities
 {
     public class Product : BaseSimpleModel
     {

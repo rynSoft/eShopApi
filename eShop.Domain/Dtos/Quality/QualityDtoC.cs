@@ -1,10 +1,10 @@
 using System;
 using System.Collections.Generic;
-using techiz.Domain.Auth;
-using techiz.Domain.Entities;
-using techiz.Domain.Enum;
+using eShop.Domain.Auth;
+using eShop.Domain.Entities;
+using eShop.Domain.Enum;
 
-namespace techiz.Domain.Dtos;
+namespace eShop.Domain.Dtos;
 
 public class QualityDtoC
 {

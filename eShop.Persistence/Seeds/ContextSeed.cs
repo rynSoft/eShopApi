@@ -1,10 +1,10 @@
 ﻿using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
-using techiz.Domain.Auth;
+using eShop.Domain.Auth;
 using System.Collections.Generic;
-using techiz.Domain.Entities;
+using eShop.Domain.Entities;
 
-namespace techiz.Persistence.Seeds
+namespace eShop.Persistence.Seeds
 {
     public static class ContextSeed
     {

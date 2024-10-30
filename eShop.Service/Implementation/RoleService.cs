@@ -1,20 +1,20 @@
 ﻿using Microsoft.AspNetCore.Identity;
-using techiz.Domain.Auth;
-using techiz.Domain.Common;
-using techiz.Service.Contract;
-using techiz.Service.Exceptions;
+using eShop.Domain.Auth;
+using eShop.Domain.Common;
+using eShop.Service.Contract;
+using eShop.Service.Exceptions;
 using System.Linq;
 using System.Threading.Tasks;
 using System;
 using Microsoft.Extensions.Logging;
-using techiz.Persistence;
+using eShop.Persistence;
 using System.Collections.Generic;
-using techiz.Domain.Dtos;
-using techiz.Domain.Entities;
+using eShop.Domain.Dtos;
+using eShop.Domain.Entities;
 using AutoMapper;
 using Microsoft.EntityFrameworkCore;
 
-namespace techiz.Service.Implementation
+namespace eShop.Service.Implementation
 {
     public class RoleService : IRoleService
     {

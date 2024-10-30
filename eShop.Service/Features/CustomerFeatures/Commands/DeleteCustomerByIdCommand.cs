@@ -1,11 +1,11 @@
 ﻿using MediatR;
 using Microsoft.EntityFrameworkCore;
-using techiz.Persistence;
+using eShop.Persistence;
 using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
 
-namespace techiz.Service.Features.CustomerFeatures.Commands
+namespace eShop.Service.Features.CustomerFeatures.Commands
 {
     public class DeleteCustomerByIdCommand : IRequest<int>
     {

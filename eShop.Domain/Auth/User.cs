@@ -1,11 +1,11 @@
 ﻿using System;
-using techiz.Domain.Entities;
+using eShop.Domain.Entities;
 using Microsoft.AspNetCore.Identity;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations.Schema;
 using static Microsoft.EntityFrameworkCore.DbLoggerCategory.Database;
 
-namespace techiz.Domain.Auth
+namespace eShop.Domain.Auth
 {
     public class User : IdentityUser<Guid>
     {

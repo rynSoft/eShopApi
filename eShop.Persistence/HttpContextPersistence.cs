@@ -5,7 +5,7 @@ using System.Collections.Generic;
 using System.Linq;
 
 
-namespace techiz.Persistence
+namespace eShop.Persistence
 {
     public static class HttpContextPersistence
     {

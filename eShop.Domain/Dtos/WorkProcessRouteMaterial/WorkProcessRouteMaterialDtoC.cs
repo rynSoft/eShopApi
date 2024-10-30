@@ -1,8 +1,8 @@
 using System;
 using System.Collections.Generic;
-using techiz.Domain.Entities;
+using eShop.Domain.Entities;
 
-namespace techiz.Domain.Dtos
+namespace eShop.Domain.Dtos
 {
   public class WorkProcessRouteMaterialDtoC
     {

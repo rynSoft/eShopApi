@@ -1,8 +1,8 @@
 using System;
 using System.Collections.Generic;
-using techiz.Domain.Dtos;
+using eShop.Domain.Dtos;
 
-namespace techiz.Domain;
+namespace eShop.Domain;
 
 public class WorkCentreDtoC
 {

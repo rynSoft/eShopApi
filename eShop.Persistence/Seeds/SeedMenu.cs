@@ -1,9 +1,9 @@
 ﻿
-using techiz.Domain.Entities;
+using eShop.Domain.Entities;
 using System;
 using System.Collections.Generic;
 
-namespace techiz.Persistence.Seeds
+namespace eShop.Persistence.Seeds
 {
     public static class SeedMenu
     {

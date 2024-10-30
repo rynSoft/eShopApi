@@ -6,7 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace techizApi.Controllers
+namespace eShopApi.Controllers
 {
     public class MetaController : ControllerBase
     {

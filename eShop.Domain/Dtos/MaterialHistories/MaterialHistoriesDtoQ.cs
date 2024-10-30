@@ -1,10 +1,10 @@
 using System;
 using System.Collections.Generic;
 using System.Xml.Linq;
-using techiz.Domain.Auth;
-using techiz.Domain.Entities;
+using eShop.Domain.Auth;
+using eShop.Domain.Entities;
 
-namespace techiz.Domain.Dtos
+namespace eShop.Domain.Dtos
 {
   public class MaterialHistoriesDtoQ
     {

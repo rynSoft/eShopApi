@@ -1,8 +1,8 @@
 ﻿
-using techiz.Domain.Entities;
+using eShop.Domain.Entities;
 using Microsoft.EntityFrameworkCore;
 
-namespace techiz.Persistence.Mapper
+namespace eShop.Persistence.Mapper
 {
     class MenuPermissionMapper
     {

@@ -1,11 +1,11 @@
 ﻿
-using techiz.Domain.Common;
-using techiz.Domain.Dtos;
+using eShop.Domain.Common;
+using eShop.Domain.Dtos;
 using System.Threading.Tasks;
-using techiz.Domain.Dtos.ProductionProcessManual;
-using techiz.Domain.Entities;
+using eShop.Domain.Dtos.ProductionProcessManual;
+using eShop.Domain.Entities;
 
-namespace techiz.Service.Contract
+namespace eShop.Service.Contract
 {
     public interface IProductService
     {

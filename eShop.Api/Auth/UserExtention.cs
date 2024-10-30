@@ -1,7 +1,7 @@
 ﻿using Microsoft.AspNetCore.Http;
 using System.Security.Claims;
 
-namespace techizApi.Auth
+namespace eShopApi.Auth
 {
     public static class UserExtention
     {

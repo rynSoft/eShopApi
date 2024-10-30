@@ -1,13 +1,13 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using techiz.Service.Contract;
+using eShop.Service.Contract;
 using System.Threading.Tasks;
 using Serilog;
-using techiz.Domain.Auth;
-using techiz.Domain.Utilities;
+using eShop.Domain.Auth;
+using eShop.Domain.Utilities;
 using System;
-using techizApi.Auth;
+using eShopApi.Auth;
 
-namespace techizApi.Controllers
+namespace eShopApi.Controllers
 {
     [ApiController]
     [Route("api/Role")]

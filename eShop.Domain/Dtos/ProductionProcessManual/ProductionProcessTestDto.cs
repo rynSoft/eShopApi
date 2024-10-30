@@ -1,6 +1,6 @@
 using System;
 
-namespace techiz.Domain.Dtos.ProductionProcessManual;
+namespace eShop.Domain.Dtos.ProductionProcessManual;
 
 public class ProductionProcessTestDto
 {

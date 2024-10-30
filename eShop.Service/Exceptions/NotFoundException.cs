@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace techiz.Service.Exceptions
+namespace eShop.Service.Exceptions
 {
     public class NotFoundException : Exception
     {

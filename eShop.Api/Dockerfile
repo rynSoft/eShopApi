@@ -9,21 +9,21 @@ EXPOSE 8081
 FROM mcr.microsoft.com/dotnet/sdk:8.0-alpine AS build
 ARG BUILD_CONFIGURATION=Release
 WORKDIR /src
-COPY ["techiz.Api/techiz.Api.csproj", "techiz.Api/"]
-COPY ["techiz.Infrastructure/techiz.Infrastructure.csproj", "techiz.Infrastructure/"]
-COPY ["techiz.Service/techiz.Service.csproj", "techiz.Service/"]
-COPY ["techiz.Persistence/techiz.Persistence.csproj", "techiz.Persistence/"]
-COPY ["techiz.Domain/techiz.Domain.csproj", "techiz.Domain/"]
-RUN dotnet restore "./techiz.Api/techiz.Api.csproj"
+COPY ["eShop.Api/eShop.Api.csproj", "eShop.Api/"]
+COPY ["eShop.Infrastructure/eShop.Infrastructure.csproj", "eShop.Infrastructure/"]
+COPY ["eShop.Service/eShop.Service.csproj", "eShop.Service/"]
+COPY ["eShop.Persistence/eShop.Persistence.csproj", "eShop.Persistence/"]
+COPY ["eShop.Domain/eShop.Domain.csproj", "eShop.Domain/"]
+RUN dotnet restore "./eShop.Api/eShop.Api.csproj"
 COPY . .
-WORKDIR "/src/techiz.Api"
-RUN dotnet build "./techiz.Api.csproj" -c $BUILD_CONFIGURATION -o /app/build
+WORKDIR "/src/eShop.Api"
+RUN dotnet build "./eShop.Api.csproj" -c $BUILD_CONFIGURATION -o /app/build
 
 FROM build AS publish
 ARG BUILD_CONFIGURATION=Release
-RUN dotnet publish "./techiz.Api.csproj" -c $BUILD_CONFIGURATION -o /app/publish /p:UseAppHost=false
+RUN dotnet publish "./eShop.Api.csproj" -c $BUILD_CONFIGURATION -o /app/publish /p:UseAppHost=false
 
 FROM base AS final
 WORKDIR /app
 COPY --from=publish /app/publish .
-ENTRYPOINT ["dotnet", "techiz.Api.dll"]
+ENTRYPOINT ["dotnet", "eShop.Api.dll"]

@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace techiz.Domain.Common
+namespace eShop.Domain.Common
 {    public class ResponseModel
     {
         public ResponseModel()

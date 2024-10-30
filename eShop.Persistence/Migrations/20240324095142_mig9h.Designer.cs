@@ -5,11 +5,11 @@ using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
-using techiz.Persistence;
+using eShop.Persistence;
 
 #nullable disable
 
-namespace techiz.Persistence.Migrations
+namespace eShop.Persistence.Migrations
 {
     [DbContext(typeof(appDbContext))]
     [Migration("20240324095142_mig9h")]
@@ -181,7 +181,7 @@ namespace techiz.Persistence.Migrations
                     b.ToTable("UserToken", (string)null);
                 });
 
-            modelBuilder.Entity("techiz.Domain.Auth.RefreshToken", b =>
+            modelBuilder.Entity("eShop.Domain.Auth.RefreshToken", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -220,7 +220,7 @@ namespace techiz.Persistence.Migrations
                     b.ToTable("RefreshToken");
                 });
 
-            modelBuilder.Entity("techiz.Domain.Auth.User", b =>
+            modelBuilder.Entity("eShop.Domain.Auth.User", b =>
                 {
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
@@ -369,7 +369,7 @@ namespace techiz.Persistence.Migrations
                         });
                 });
 
-            modelBuilder.Entity("techiz.Domain.Entities.BomKitInfo", b =>
+            modelBuilder.Entity("eShop.Domain.Entities.BomKitInfo", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -453,7 +453,7 @@ namespace techiz.Persistence.Migrations
                     b.ToTable("BomKitInfo");
                 });
 
-            modelBuilder.Entity("techiz.Domain.Entities.Camera", b =>
+            modelBuilder.Entity("eShop.Domain.Entities.Camera", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -497,7 +497,7 @@ namespace techiz.Persistence.Migrations
                     b.ToTable("Camera");
                 });
 
-            modelBuilder.Entity("techiz.Domain.Entities.Line", b =>
+            modelBuilder.Entity("eShop.Domain.Entities.Line", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -535,7 +535,7 @@ namespace techiz.Persistence.Migrations
                     b.ToTable("Line");
                 });
 
-            modelBuilder.Entity("techiz.Domain.Entities.Machine", b =>
+            modelBuilder.Entity("eShop.Domain.Entities.Machine", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -594,7 +594,7 @@ namespace techiz.Persistence.Migrations
                     b.ToTable("Machine");
                 });
 
-            modelBuilder.Entity("techiz.Domain.Entities.Menu", b =>
+            modelBuilder.Entity("eShop.Domain.Entities.Menu", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -685,7 +685,7 @@ namespace techiz.Persistence.Migrations
                         });
                 });
 
-            modelBuilder.Entity("techiz.Domain.Entities.MenuPermission", b =>
+            modelBuilder.Entity("eShop.Domain.Entities.MenuPermission", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -730,7 +730,7 @@ namespace techiz.Persistence.Migrations
                     b.ToTable("MenuPermission");
                 });
 
-            modelBuilder.Entity("techiz.Domain.Entities.NonComplianceCode", b =>
+            modelBuilder.Entity("eShop.Domain.Entities.NonComplianceCode", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -765,7 +765,7 @@ namespace techiz.Persistence.Migrations
                     b.ToTable("NonComplianceCode");
                 });
 
-            modelBuilder.Entity("techiz.Domain.Entities.Permission", b =>
+            modelBuilder.Entity("eShop.Domain.Entities.Permission", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -1098,7 +1098,7 @@ namespace techiz.Persistence.Migrations
                         });
                 });
 
-            modelBuilder.Entity("techiz.Domain.Entities.Product", b =>
+            modelBuilder.Entity("eShop.Domain.Entities.Product", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -1151,7 +1151,7 @@ namespace techiz.Persistence.Migrations
                     b.ToTable("Product");
                 });
 
-            modelBuilder.Entity("techiz.Domain.Entities.ProductHistories", b =>
+            modelBuilder.Entity("eShop.Domain.Entities.ProductHistories", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -1193,7 +1193,7 @@ namespace techiz.Persistence.Migrations
                     b.ToTable("ProductHistories");
                 });
 
-            modelBuilder.Entity("techiz.Domain.Entities.Production", b =>
+            modelBuilder.Entity("eShop.Domain.Entities.Production", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -1246,7 +1246,7 @@ namespace techiz.Persistence.Migrations
                     b.ToTable("Production");
                 });
 
-            modelBuilder.Entity("techiz.Domain.Entities.ProductionLog", b =>
+            modelBuilder.Entity("eShop.Domain.Entities.ProductionLog", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -1304,7 +1304,7 @@ namespace techiz.Persistence.Migrations
                     b.ToTable("ProductionLog");
                 });
 
-            modelBuilder.Entity("techiz.Domain.Entities.ProductionMachineMatch", b =>
+            modelBuilder.Entity("eShop.Domain.Entities.ProductionMachineMatch", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -1358,7 +1358,7 @@ namespace techiz.Persistence.Migrations
                     b.ToTable("ProductionMachineMatch");
                 });
 
-            modelBuilder.Entity("techiz.Domain.Entities.ProductionOperations", b =>
+            modelBuilder.Entity("eShop.Domain.Entities.ProductionOperations", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -1425,7 +1425,7 @@ namespace techiz.Persistence.Migrations
                     b.ToTable("ProductionOperations");
                 });
 
-            modelBuilder.Entity("techiz.Domain.Entities.ProductionOperationsTimeLog", b =>
+            modelBuilder.Entity("eShop.Domain.Entities.ProductionOperationsTimeLog", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -1476,7 +1476,7 @@ namespace techiz.Persistence.Migrations
                     b.ToTable("ProductionOperationsTimeLog");
                 });
 
-            modelBuilder.Entity("techiz.Domain.Entities.ProductionProcessManual", b =>
+            modelBuilder.Entity("eShop.Domain.Entities.ProductionProcessManual", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -1578,7 +1578,7 @@ namespace techiz.Persistence.Migrations
                     b.ToTable("ProductionProcessManual");
                 });
 
-            modelBuilder.Entity("techiz.Domain.Entities.ProductionProcessManualTest", b =>
+            modelBuilder.Entity("eShop.Domain.Entities.ProductionProcessManualTest", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -1640,7 +1640,7 @@ namespace techiz.Persistence.Migrations
                     b.ToTable("ProductionProcessManualTest");
                 });
 
-            modelBuilder.Entity("techiz.Domain.Entities.ProductionTimeProcess", b =>
+            modelBuilder.Entity("eShop.Domain.Entities.ProductionTimeProcess", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -1715,7 +1715,7 @@ namespace techiz.Persistence.Migrations
                     b.ToTable("ProductionTimeProcess");
                 });
 
-            modelBuilder.Entity("techiz.Domain.Entities.ProductionUser", b =>
+            modelBuilder.Entity("eShop.Domain.Entities.ProductionUser", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -1769,7 +1769,7 @@ namespace techiz.Persistence.Migrations
                     b.ToTable("ProductionUser");
                 });
 
-            modelBuilder.Entity("techiz.Domain.Entities.ProductionUserRelation", b =>
+            modelBuilder.Entity("eShop.Domain.Entities.ProductionUserRelation", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -1814,7 +1814,7 @@ namespace techiz.Persistence.Migrations
                     b.ToTable("ProductionUserRelation");
                 });
 
-            modelBuilder.Entity("techiz.Domain.Entities.Quality", b =>
+            modelBuilder.Entity("eShop.Domain.Entities.Quality", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -1867,7 +1867,7 @@ namespace techiz.Persistence.Migrations
                     b.ToTable("Quality");
                 });
 
-            modelBuilder.Entity("techiz.Domain.Entities.QualityInfo", b =>
+            modelBuilder.Entity("eShop.Domain.Entities.QualityInfo", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -1924,7 +1924,7 @@ namespace techiz.Persistence.Migrations
                     b.ToTable("QualityInfo");
                 });
 
-            modelBuilder.Entity("techiz.Domain.Entities.QualityOperation", b =>
+            modelBuilder.Entity("eShop.Domain.Entities.QualityOperation", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -1990,7 +1990,7 @@ namespace techiz.Persistence.Migrations
                     b.ToTable("QualityOperation");
                 });
 
-            modelBuilder.Entity("techiz.Domain.Entities.QualityOperationDocument", b =>
+            modelBuilder.Entity("eShop.Domain.Entities.QualityOperationDocument", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -2036,7 +2036,7 @@ namespace techiz.Persistence.Migrations
                     b.ToTable("QualityOperationDocument");
                 });
 
-            modelBuilder.Entity("techiz.Domain.Entities.QualityUser", b =>
+            modelBuilder.Entity("eShop.Domain.Entities.QualityUser", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -2090,7 +2090,7 @@ namespace techiz.Persistence.Migrations
                     b.ToTable("QualityUser");
                 });
 
-            modelBuilder.Entity("techiz.Domain.Entities.RestCause", b =>
+            modelBuilder.Entity("eShop.Domain.Entities.RestCause", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -2134,7 +2134,7 @@ namespace techiz.Persistence.Migrations
                     b.ToTable("RestCause");
                 });
 
-            modelBuilder.Entity("techiz.Domain.Entities.RouteInfo", b =>
+            modelBuilder.Entity("eShop.Domain.Entities.RouteInfo", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -2200,7 +2200,7 @@ namespace techiz.Persistence.Migrations
                     b.ToTable("RouteInfo");
                 });
 
-            modelBuilder.Entity("techiz.Domain.Entities.RouteInfoUser", b =>
+            modelBuilder.Entity("eShop.Domain.Entities.RouteInfoUser", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -2242,7 +2242,7 @@ namespace techiz.Persistence.Migrations
                     b.ToTable("RouteInfoUser");
                 });
 
-            modelBuilder.Entity("techiz.Domain.Entities.SetupVerification", b =>
+            modelBuilder.Entity("eShop.Domain.Entities.SetupVerification", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -2284,7 +2284,7 @@ namespace techiz.Persistence.Migrations
                     b.ToTable("SetupVerification");
                 });
 
-            modelBuilder.Entity("techiz.Domain.Entities.SetupVerificationDChange", b =>
+            modelBuilder.Entity("eShop.Domain.Entities.SetupVerificationDChange", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -2352,7 +2352,7 @@ namespace techiz.Persistence.Migrations
                     b.ToTable("SetupVerificationDChange");
                 });
 
-            modelBuilder.Entity("techiz.Domain.Entities.SetupVerificationDetails", b =>
+            modelBuilder.Entity("eShop.Domain.Entities.SetupVerificationDetails", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -2432,7 +2432,7 @@ namespace techiz.Persistence.Migrations
                     b.ToTable("SetupVerificationDetails");
                 });
 
-            modelBuilder.Entity("techiz.Domain.Entities.SetupVerificationInfo", b =>
+            modelBuilder.Entity("eShop.Domain.Entities.SetupVerificationInfo", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -2503,7 +2503,7 @@ namespace techiz.Persistence.Migrations
                     b.ToTable("SetupVerificationInfo");
                 });
 
-            modelBuilder.Entity("techiz.Domain.Entities.ShiftDefinition", b =>
+            modelBuilder.Entity("eShop.Domain.Entities.ShiftDefinition", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -2544,7 +2544,7 @@ namespace techiz.Persistence.Migrations
                     b.ToTable("ShiftDefinition");
                 });
 
-            modelBuilder.Entity("techiz.Domain.Entities.ShiftDefinitionProcess", b =>
+            modelBuilder.Entity("eShop.Domain.Entities.ShiftDefinitionProcess", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -2600,7 +2600,7 @@ namespace techiz.Persistence.Migrations
                     b.ToTable("ShiftDefinitionProcess");
                 });
 
-            modelBuilder.Entity("techiz.Domain.Entities.ShiftTargetParameters", b =>
+            modelBuilder.Entity("eShop.Domain.Entities.ShiftTargetParameters", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -2676,7 +2676,7 @@ namespace techiz.Persistence.Migrations
                     b.ToTable("ShiftTargetParameters");
                 });
 
-            modelBuilder.Entity("techiz.Domain.Entities.Viewsa", b =>
+            modelBuilder.Entity("eShop.Domain.Entities.Viewsa", b =>
                 {
                     b.Property<string>("Break")
                         .HasColumnType("text");
@@ -2738,7 +2738,7 @@ namespace techiz.Persistence.Migrations
                     b.ToTable("MY_Viewsa", (string)null);
                 });
 
-            modelBuilder.Entity("techiz.Domain.Entities.WareHouse", b =>
+            modelBuilder.Entity("eShop.Domain.Entities.WareHouse", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -2779,7 +2779,7 @@ namespace techiz.Persistence.Migrations
                     b.ToTable("WareHouse");
                 });
 
-            modelBuilder.Entity("techiz.Domain.Entities.WorkCentre", b =>
+            modelBuilder.Entity("eShop.Domain.Entities.WorkCentre", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -2856,7 +2856,7 @@ namespace techiz.Persistence.Migrations
                         });
                 });
 
-            modelBuilder.Entity("techiz.Domain.Entities.WorkProcessRoute", b =>
+            modelBuilder.Entity("eShop.Domain.Entities.WorkProcessRoute", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -2921,7 +2921,7 @@ namespace techiz.Persistence.Migrations
                     b.ToTable("WorkProcessRoute");
                 });
 
-            modelBuilder.Entity("techiz.Domain.Entities.WorkProcessRouteTimeHistories", b =>
+            modelBuilder.Entity("eShop.Domain.Entities.WorkProcessRouteTimeHistories", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -2988,7 +2988,7 @@ namespace techiz.Persistence.Migrations
                     b.ToTable("WorkProcessRouteTimeHistories");
                 });
 
-            modelBuilder.Entity("techiz.Domain.Entities.WorkProcessRouteUser", b =>
+            modelBuilder.Entity("eShop.Domain.Entities.WorkProcessRouteUser", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -3030,7 +3030,7 @@ namespace techiz.Persistence.Migrations
                     b.ToTable("WorkProcessRouteUser");
                 });
 
-            modelBuilder.Entity("techiz.Domain.Entities.WorkProcessTemplate", b =>
+            modelBuilder.Entity("eShop.Domain.Entities.WorkProcessTemplate", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -3082,31 +3082,31 @@ namespace techiz.Persistence.Migrations
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserRole<System.Guid>", b =>
                 {
-                    b.HasOne("techiz.Domain.Auth.User", null)
+                    b.HasOne("eShop.Domain.Auth.User", null)
                         .WithMany("UserRole")
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
                 });
 
-            modelBuilder.Entity("techiz.Domain.Auth.RefreshToken", b =>
+            modelBuilder.Entity("eShop.Domain.Auth.RefreshToken", b =>
                 {
-                    b.HasOne("techiz.Domain.Auth.User", null)
+                    b.HasOne("eShop.Domain.Auth.User", null)
                         .WithMany("RefreshTokens")
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
                 });
 
-            modelBuilder.Entity("techiz.Domain.Entities.BomKitInfo", b =>
+            modelBuilder.Entity("eShop.Domain.Entities.BomKitInfo", b =>
                 {
-                    b.HasOne("techiz.Domain.Entities.Production", "Production")
+                    b.HasOne("eShop.Domain.Entities.Production", "Production")
                         .WithMany("BomKitInfo")
                         .HasForeignKey("ProductionId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("techiz.Domain.Entities.WareHouse", "WareHouse")
+                    b.HasOne("eShop.Domain.Entities.WareHouse", "WareHouse")
                         .WithMany("BomKitInfo")
                         .HasForeignKey("WareHouseId");
 
@@ -3115,19 +3115,19 @@ namespace techiz.Persistence.Migrations
                     b.Navigation("WareHouse");
                 });
 
-            modelBuilder.Entity("techiz.Domain.Entities.Machine", b =>
+            modelBuilder.Entity("eShop.Domain.Entities.Machine", b =>
                 {
-                    b.HasOne("techiz.Domain.Entities.Camera", "InputCamera")
+                    b.HasOne("eShop.Domain.Entities.Camera", "InputCamera")
                         .WithMany()
                         .HasForeignKey("InputCameraId");
 
-                    b.HasOne("techiz.Domain.Entities.Line", "Line")
+                    b.HasOne("eShop.Domain.Entities.Line", "Line")
                         .WithMany("Machine")
                         .HasForeignKey("LineId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("techiz.Domain.Entities.Camera", "OutputCamera")
+                    b.HasOne("eShop.Domain.Entities.Camera", "OutputCamera")
                         .WithMany()
                         .HasForeignKey("OutputCameraId");
 
@@ -3138,9 +3138,9 @@ namespace techiz.Persistence.Migrations
                     b.Navigation("OutputCamera");
                 });
 
-            modelBuilder.Entity("techiz.Domain.Entities.Menu", b =>
+            modelBuilder.Entity("eShop.Domain.Entities.Menu", b =>
                 {
-                    b.HasOne("techiz.Domain.Entities.Menu", "ParentMenu")
+                    b.HasOne("eShop.Domain.Entities.Menu", "ParentMenu")
                         .WithMany("items")
                         .HasForeignKey("ParentMenuId")
                         .OnDelete(DeleteBehavior.Restrict);
@@ -3148,16 +3148,16 @@ namespace techiz.Persistence.Migrations
                     b.Navigation("ParentMenu");
                 });
 
-            modelBuilder.Entity("techiz.Domain.Entities.MenuPermission", b =>
+            modelBuilder.Entity("eShop.Domain.Entities.MenuPermission", b =>
                 {
-                    b.HasOne("techiz.Domain.Entities.Menu", "Menu")
+                    b.HasOne("eShop.Domain.Entities.Menu", "Menu")
                         .WithMany("MenuPermission")
                         .HasForeignKey("MenuId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired()
                         .HasConstraintName("FK_Menu");
 
-                    b.HasOne("techiz.Domain.Entities.Permission", "Permission")
+                    b.HasOne("eShop.Domain.Entities.Permission", "Permission")
                         .WithMany("MenuPermission")
                         .HasForeignKey("PermissionId")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -3169,19 +3169,19 @@ namespace techiz.Persistence.Migrations
                     b.Navigation("Permission");
                 });
 
-            modelBuilder.Entity("techiz.Domain.Entities.Product", b =>
+            modelBuilder.Entity("eShop.Domain.Entities.Product", b =>
                 {
-                    b.HasOne("techiz.Domain.Entities.Production", "Production")
+                    b.HasOne("eShop.Domain.Entities.Production", "Production")
                         .WithMany("Product")
                         .HasForeignKey("ProductionId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("techiz.Domain.Auth.User", "User")
+                    b.HasOne("eShop.Domain.Auth.User", "User")
                         .WithMany("Product")
                         .HasForeignKey("UserId");
 
-                    b.HasOne("techiz.Domain.Entities.WorkProcessRoute", "WorkProcessRoute")
+                    b.HasOne("eShop.Domain.Entities.WorkProcessRoute", "WorkProcessRoute")
                         .WithMany("Product")
                         .HasForeignKey("WorkProcessRouteId");
 
@@ -3192,15 +3192,15 @@ namespace techiz.Persistence.Migrations
                     b.Navigation("WorkProcessRoute");
                 });
 
-            modelBuilder.Entity("techiz.Domain.Entities.ProductHistories", b =>
+            modelBuilder.Entity("eShop.Domain.Entities.ProductHistories", b =>
                 {
-                    b.HasOne("techiz.Domain.Entities.Product", "Product")
+                    b.HasOne("eShop.Domain.Entities.Product", "Product")
                         .WithMany("ProductionInputHistories")
                         .HasForeignKey("ProductId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("techiz.Domain.Entities.WorkProcessRoute", "WorkProcessRoute")
+                    b.HasOne("eShop.Domain.Entities.WorkProcessRoute", "WorkProcessRoute")
                         .WithMany()
                         .HasForeignKey("WorkProcessRouteId")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -3211,25 +3211,25 @@ namespace techiz.Persistence.Migrations
                     b.Navigation("WorkProcessRoute");
                 });
 
-            modelBuilder.Entity("techiz.Domain.Entities.ProductionLog", b =>
+            modelBuilder.Entity("eShop.Domain.Entities.ProductionLog", b =>
                 {
-                    b.HasOne("techiz.Domain.Entities.Machine", null)
+                    b.HasOne("eShop.Domain.Entities.Machine", null)
                         .WithMany("ProductionLog")
                         .HasForeignKey("MachineId");
 
-                    b.HasOne("techiz.Domain.Entities.Production", "Production")
+                    b.HasOne("eShop.Domain.Entities.Production", "Production")
                         .WithMany("ProductionLog")
                         .HasForeignKey("ProductionId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("techiz.Domain.Auth.User", "User")
+                    b.HasOne("eShop.Domain.Auth.User", "User")
                         .WithMany("ProductionLog")
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("techiz.Domain.Entities.WorkProcessRoute", "WorkProcessRoute")
+                    b.HasOne("eShop.Domain.Entities.WorkProcessRoute", "WorkProcessRoute")
                         .WithMany()
                         .HasForeignKey("WorkProcessRouteId");
 
@@ -3240,15 +3240,15 @@ namespace techiz.Persistence.Migrations
                     b.Navigation("WorkProcessRoute");
                 });
 
-            modelBuilder.Entity("techiz.Domain.Entities.ProductionMachineMatch", b =>
+            modelBuilder.Entity("eShop.Domain.Entities.ProductionMachineMatch", b =>
                 {
-                    b.HasOne("techiz.Domain.Entities.Machine", "Machine")
+                    b.HasOne("eShop.Domain.Entities.Machine", "Machine")
                         .WithMany()
                         .HasForeignKey("MachineId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("techiz.Domain.Entities.Production", "Production")
+                    b.HasOne("eShop.Domain.Entities.Production", "Production")
                         .WithMany()
                         .HasForeignKey("ProductionId")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -3259,25 +3259,25 @@ namespace techiz.Persistence.Migrations
                     b.Navigation("Production");
                 });
 
-            modelBuilder.Entity("techiz.Domain.Entities.ProductionOperations", b =>
+            modelBuilder.Entity("eShop.Domain.Entities.ProductionOperations", b =>
                 {
-                    b.HasOne("techiz.Domain.Entities.Machine", "Machine")
+                    b.HasOne("eShop.Domain.Entities.Machine", "Machine")
                         .WithMany("ProductionOperations")
                         .HasForeignKey("MachineId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("techiz.Domain.Entities.Production", "Production")
+                    b.HasOne("eShop.Domain.Entities.Production", "Production")
                         .WithMany("ProductionOperations")
                         .HasForeignKey("ProductionId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("techiz.Domain.Entities.SetupVerification", null)
+                    b.HasOne("eShop.Domain.Entities.SetupVerification", null)
                         .WithMany("ProductionOperations")
                         .HasForeignKey("SetupVerificationId");
 
-                    b.HasOne("techiz.Domain.Entities.ShiftTargetParameters", "ShiftTargetParameters")
+                    b.HasOne("eShop.Domain.Entities.ShiftTargetParameters", "ShiftTargetParameters")
                         .WithMany("ProductionOperations")
                         .HasForeignKey("ShiftTargetParametersId");
 
@@ -3288,15 +3288,15 @@ namespace techiz.Persistence.Migrations
                     b.Navigation("ShiftTargetParameters");
                 });
 
-            modelBuilder.Entity("techiz.Domain.Entities.ProductionOperationsTimeLog", b =>
+            modelBuilder.Entity("eShop.Domain.Entities.ProductionOperationsTimeLog", b =>
                 {
-                    b.HasOne("techiz.Domain.Entities.Production", "Production")
+                    b.HasOne("eShop.Domain.Entities.Production", "Production")
                         .WithMany()
                         .HasForeignKey("ProductionId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("techiz.Domain.Entities.ProductionOperations", "ProductionOperations")
+                    b.HasOne("eShop.Domain.Entities.ProductionOperations", "ProductionOperations")
                         .WithMany()
                         .HasForeignKey("ProductionOperationsId")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -3307,27 +3307,27 @@ namespace techiz.Persistence.Migrations
                     b.Navigation("ProductionOperations");
                 });
 
-            modelBuilder.Entity("techiz.Domain.Entities.ProductionProcessManual", b =>
+            modelBuilder.Entity("eShop.Domain.Entities.ProductionProcessManual", b =>
                 {
-                    b.HasOne("techiz.Domain.Auth.User", "DetachFromPanelUser")
+                    b.HasOne("eShop.Domain.Auth.User", "DetachFromPanelUser")
                         .WithMany()
                         .HasForeignKey("DetachFromPanelUserId");
 
-                    b.HasOne("techiz.Domain.Auth.User", "DisplayUser")
+                    b.HasOne("eShop.Domain.Auth.User", "DisplayUser")
                         .WithMany()
                         .HasForeignKey("DisplayUserId");
 
-                    b.HasOne("techiz.Domain.Auth.User", "LabelingUser")
+                    b.HasOne("eShop.Domain.Auth.User", "LabelingUser")
                         .WithMany()
                         .HasForeignKey("LabelingUserId");
 
-                    b.HasOne("techiz.Domain.Entities.Production", "Production")
+                    b.HasOne("eShop.Domain.Entities.Production", "Production")
                         .WithMany("ProductionProcessManual")
                         .HasForeignKey("ProductionId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("techiz.Domain.Auth.User", "ProgrammingUser")
+                    b.HasOne("eShop.Domain.Auth.User", "ProgrammingUser")
                         .WithMany()
                         .HasForeignKey("ProgrammingUserId");
 
@@ -3342,19 +3342,19 @@ namespace techiz.Persistence.Migrations
                     b.Navigation("ProgrammingUser");
                 });
 
-            modelBuilder.Entity("techiz.Domain.Entities.ProductionProcessManualTest", b =>
+            modelBuilder.Entity("eShop.Domain.Entities.ProductionProcessManualTest", b =>
                 {
-                    b.HasOne("techiz.Domain.Entities.Production", "Production")
+                    b.HasOne("eShop.Domain.Entities.Production", "Production")
                         .WithMany("ProductionProcessManualTest")
                         .HasForeignKey("ProductionId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("techiz.Domain.Entities.ProductionOperations", "ProductionOperations")
+                    b.HasOne("eShop.Domain.Entities.ProductionOperations", "ProductionOperations")
                         .WithMany("ProductionProcessManualTest")
                         .HasForeignKey("ProductionOperationsId");
 
-                    b.HasOne("techiz.Domain.Auth.User", "TestUser")
+                    b.HasOne("eShop.Domain.Auth.User", "TestUser")
                         .WithMany("ProductionProcessManualTest")
                         .HasForeignKey("TestUserId");
 
@@ -3365,27 +3365,27 @@ namespace techiz.Persistence.Migrations
                     b.Navigation("TestUser");
                 });
 
-            modelBuilder.Entity("techiz.Domain.Entities.ProductionTimeProcess", b =>
+            modelBuilder.Entity("eShop.Domain.Entities.ProductionTimeProcess", b =>
                 {
-                    b.HasOne("techiz.Domain.Entities.Machine", "Machine")
+                    b.HasOne("eShop.Domain.Entities.Machine", "Machine")
                         .WithMany("ProductionTimeProcess")
                         .HasForeignKey("MachineId");
 
-                    b.HasOne("techiz.Domain.Entities.Production", "Production")
+                    b.HasOne("eShop.Domain.Entities.Production", "Production")
                         .WithMany("ProductionTimeProcess")
                         .HasForeignKey("ProductionId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("techiz.Domain.Entities.RestCause", "RestCause")
+                    b.HasOne("eShop.Domain.Entities.RestCause", "RestCause")
                         .WithMany("ProductionTimeProcess")
                         .HasForeignKey("RestCauseId");
 
-                    b.HasOne("techiz.Domain.Entities.ShiftTargetParameters", "ShiftTargetParameters")
+                    b.HasOne("eShop.Domain.Entities.ShiftTargetParameters", "ShiftTargetParameters")
                         .WithMany("ProductionTimeProcess")
                         .HasForeignKey("ShiftTargetParametersId");
 
-                    b.HasOne("techiz.Domain.Auth.User", "User")
+                    b.HasOne("eShop.Domain.Auth.User", "User")
                         .WithMany()
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -3402,15 +3402,15 @@ namespace techiz.Persistence.Migrations
                     b.Navigation("User");
                 });
 
-            modelBuilder.Entity("techiz.Domain.Entities.ProductionUser", b =>
+            modelBuilder.Entity("eShop.Domain.Entities.ProductionUser", b =>
                 {
-                    b.HasOne("techiz.Domain.Entities.Production", "Production")
+                    b.HasOne("eShop.Domain.Entities.Production", "Production")
                         .WithMany("ProductionUser")
                         .HasForeignKey("ProductionId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("techiz.Domain.Auth.User", "User")
+                    b.HasOne("eShop.Domain.Auth.User", "User")
                         .WithMany("ProductionUser")
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -3421,15 +3421,15 @@ namespace techiz.Persistence.Migrations
                     b.Navigation("User");
                 });
 
-            modelBuilder.Entity("techiz.Domain.Entities.ProductionUserRelation", b =>
+            modelBuilder.Entity("eShop.Domain.Entities.ProductionUserRelation", b =>
                 {
-                    b.HasOne("techiz.Domain.Entities.Production", "Production")
+                    b.HasOne("eShop.Domain.Entities.Production", "Production")
                         .WithMany()
                         .HasForeignKey("ProductionId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("techiz.Domain.Auth.User", "User")
+                    b.HasOne("eShop.Domain.Auth.User", "User")
                         .WithMany("ProductionUserRelation")
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -3440,15 +3440,15 @@ namespace techiz.Persistence.Migrations
                     b.Navigation("User");
                 });
 
-            modelBuilder.Entity("techiz.Domain.Entities.QualityInfo", b =>
+            modelBuilder.Entity("eShop.Domain.Entities.QualityInfo", b =>
                 {
-                    b.HasOne("techiz.Domain.Entities.Quality", "Quality")
+                    b.HasOne("eShop.Domain.Entities.Quality", "Quality")
                         .WithMany()
                         .HasForeignKey("QualityId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("techiz.Domain.Entities.QualityOperation", "QualityOperation")
+                    b.HasOne("eShop.Domain.Entities.QualityOperation", "QualityOperation")
                         .WithMany()
                         .HasForeignKey("QualityOperationId")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -3459,15 +3459,15 @@ namespace techiz.Persistence.Migrations
                     b.Navigation("QualityOperation");
                 });
 
-            modelBuilder.Entity("techiz.Domain.Entities.QualityOperation", b =>
+            modelBuilder.Entity("eShop.Domain.Entities.QualityOperation", b =>
                 {
-                    b.HasOne("techiz.Domain.Auth.User", null)
+                    b.HasOne("eShop.Domain.Auth.User", null)
                         .WithMany("QualityOperations")
                         .HasForeignKey("AuthorizedPersonId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("techiz.Domain.Entities.Quality", "Quality")
+                    b.HasOne("eShop.Domain.Entities.Quality", "Quality")
                         .WithMany()
                         .HasForeignKey("QualityId")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -3476,9 +3476,9 @@ namespace techiz.Persistence.Migrations
                     b.Navigation("Quality");
                 });
 
-            modelBuilder.Entity("techiz.Domain.Entities.QualityOperationDocument", b =>
+            modelBuilder.Entity("eShop.Domain.Entities.QualityOperationDocument", b =>
                 {
-                    b.HasOne("techiz.Domain.Entities.QualityOperation", "QualityOperation")
+                    b.HasOne("eShop.Domain.Entities.QualityOperation", "QualityOperation")
                         .WithMany()
                         .HasForeignKey("QualityOperationId")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -3487,15 +3487,15 @@ namespace techiz.Persistence.Migrations
                     b.Navigation("QualityOperation");
                 });
 
-            modelBuilder.Entity("techiz.Domain.Entities.QualityUser", b =>
+            modelBuilder.Entity("eShop.Domain.Entities.QualityUser", b =>
                 {
-                    b.HasOne("techiz.Domain.Entities.Quality", "Quality")
+                    b.HasOne("eShop.Domain.Entities.Quality", "Quality")
                         .WithMany()
                         .HasForeignKey("QualityId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("techiz.Domain.Auth.User", "User")
+                    b.HasOne("eShop.Domain.Auth.User", "User")
                         .WithMany()
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -3506,19 +3506,19 @@ namespace techiz.Persistence.Migrations
                     b.Navigation("User");
                 });
 
-            modelBuilder.Entity("techiz.Domain.Entities.RouteInfo", b =>
+            modelBuilder.Entity("eShop.Domain.Entities.RouteInfo", b =>
                 {
-                    b.HasOne("techiz.Domain.Entities.Production", "Production")
+                    b.HasOne("eShop.Domain.Entities.Production", "Production")
                         .WithMany("RouteInfo")
                         .HasForeignKey("ProductionId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("techiz.Domain.Auth.User", "User")
+                    b.HasOne("eShop.Domain.Auth.User", "User")
                         .WithMany()
                         .HasForeignKey("UserId");
 
-                    b.HasOne("techiz.Domain.Entities.WorkCentre", "WorkCentre")
+                    b.HasOne("eShop.Domain.Entities.WorkCentre", "WorkCentre")
                         .WithMany("RouteInfo")
                         .HasForeignKey("WorkCentreId")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -3531,15 +3531,15 @@ namespace techiz.Persistence.Migrations
                     b.Navigation("WorkCentre");
                 });
 
-            modelBuilder.Entity("techiz.Domain.Entities.RouteInfoUser", b =>
+            modelBuilder.Entity("eShop.Domain.Entities.RouteInfoUser", b =>
                 {
-                    b.HasOne("techiz.Domain.Entities.RouteInfo", "RouteInfo")
+                    b.HasOne("eShop.Domain.Entities.RouteInfo", "RouteInfo")
                         .WithMany("RouteInfoUser")
                         .HasForeignKey("RouteInfoId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("techiz.Domain.Auth.User", "User")
+                    b.HasOne("eShop.Domain.Auth.User", "User")
                         .WithMany()
                         .HasForeignKey("UserId");
 
@@ -3548,15 +3548,15 @@ namespace techiz.Persistence.Migrations
                     b.Navigation("User");
                 });
 
-            modelBuilder.Entity("techiz.Domain.Entities.SetupVerification", b =>
+            modelBuilder.Entity("eShop.Domain.Entities.SetupVerification", b =>
                 {
-                    b.HasOne("techiz.Domain.Entities.Machine", "Machine")
+                    b.HasOne("eShop.Domain.Entities.Machine", "Machine")
                         .WithMany("SetupVerification")
                         .HasForeignKey("MachineId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("techiz.Domain.Entities.Production", "Production")
+                    b.HasOne("eShop.Domain.Entities.Production", "Production")
                         .WithMany("SetupVerification")
                         .HasForeignKey("ProductionId")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -3567,39 +3567,39 @@ namespace techiz.Persistence.Migrations
                     b.Navigation("Production");
                 });
 
-            modelBuilder.Entity("techiz.Domain.Entities.SetupVerificationDChange", b =>
+            modelBuilder.Entity("eShop.Domain.Entities.SetupVerificationDChange", b =>
                 {
-                    b.HasOne("techiz.Domain.Entities.Machine", "Machine")
+                    b.HasOne("eShop.Domain.Entities.Machine", "Machine")
                         .WithMany("SetupVerificationDChange")
                         .HasForeignKey("MachineId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("techiz.Domain.Entities.ProductionOperations", "NewPanel")
+                    b.HasOne("eShop.Domain.Entities.ProductionOperations", "NewPanel")
                         .WithMany()
                         .HasForeignKey("NewPanelId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("techiz.Domain.Entities.ProductionOperations", "OldPanel")
+                    b.HasOne("eShop.Domain.Entities.ProductionOperations", "OldPanel")
                         .WithMany()
                         .HasForeignKey("OldPanelId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("techiz.Domain.Entities.Production", "Production")
+                    b.HasOne("eShop.Domain.Entities.Production", "Production")
                         .WithMany("SetupVerificationDChange")
                         .HasForeignKey("ProductionId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("techiz.Domain.Entities.SetupVerificationDetails", "SetupVerificationDetailsNew")
+                    b.HasOne("eShop.Domain.Entities.SetupVerificationDetails", "SetupVerificationDetailsNew")
                         .WithMany()
                         .HasForeignKey("SetupVerificationDetailsNewId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("techiz.Domain.Entities.SetupVerificationDetails", "SetupVerificationDetailsOld")
+                    b.HasOne("eShop.Domain.Entities.SetupVerificationDetails", "SetupVerificationDetailsOld")
                         .WithMany()
                         .HasForeignKey("SetupVerificationDetailsOldId")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -3619,19 +3619,19 @@ namespace techiz.Persistence.Migrations
                     b.Navigation("SetupVerificationDetailsOld");
                 });
 
-            modelBuilder.Entity("techiz.Domain.Entities.SetupVerificationDetails", b =>
+            modelBuilder.Entity("eShop.Domain.Entities.SetupVerificationDetails", b =>
                 {
-                    b.HasOne("techiz.Domain.Entities.BomKitInfo", "BomKitInfo")
+                    b.HasOne("eShop.Domain.Entities.BomKitInfo", "BomKitInfo")
                         .WithMany("SetupVerificationDetails")
                         .HasForeignKey("BomKitInfoId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("techiz.Domain.Entities.Machine", "Machine")
+                    b.HasOne("eShop.Domain.Entities.Machine", "Machine")
                         .WithMany("SetupVerificationDetails")
                         .HasForeignKey("MachineId");
 
-                    b.HasOne("techiz.Domain.Entities.SetupVerification", "SetupVerification")
+                    b.HasOne("eShop.Domain.Entities.SetupVerification", "SetupVerification")
                         .WithMany("SetupVerificationDetails")
                         .HasForeignKey("SetupVerificationId")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -3644,19 +3644,19 @@ namespace techiz.Persistence.Migrations
                     b.Navigation("SetupVerification");
                 });
 
-            modelBuilder.Entity("techiz.Domain.Entities.SetupVerificationInfo", b =>
+            modelBuilder.Entity("eShop.Domain.Entities.SetupVerificationInfo", b =>
                 {
-                    b.HasOne("techiz.Domain.Entities.BomKitInfo", "BomKitInfo")
+                    b.HasOne("eShop.Domain.Entities.BomKitInfo", "BomKitInfo")
                         .WithMany("SetupVerificationInfo")
                         .HasForeignKey("BomKitInfoId");
 
-                    b.HasOne("techiz.Domain.Entities.Machine", "Machine")
+                    b.HasOne("eShop.Domain.Entities.Machine", "Machine")
                         .WithMany("SetupVerificationInfo")
                         .HasForeignKey("MachineId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("techiz.Domain.Entities.Production", "Production")
+                    b.HasOne("eShop.Domain.Entities.Production", "Production")
                         .WithMany("SetupVerificationInfo")
                         .HasForeignKey("ProductionId")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -3669,19 +3669,19 @@ namespace techiz.Persistence.Migrations
                     b.Navigation("Production");
                 });
 
-            modelBuilder.Entity("techiz.Domain.Entities.ShiftDefinitionProcess", b =>
+            modelBuilder.Entity("eShop.Domain.Entities.ShiftDefinitionProcess", b =>
                 {
-                    b.HasOne("techiz.Domain.Entities.Line", "Line")
+                    b.HasOne("eShop.Domain.Entities.Line", "Line")
                         .WithMany("ShiftDefinitionProcess")
                         .HasForeignKey("LineId");
 
-                    b.HasOne("techiz.Domain.Entities.ShiftDefinition", "ShiftDefinition")
+                    b.HasOne("eShop.Domain.Entities.ShiftDefinition", "ShiftDefinition")
                         .WithMany("ShiftDefinitionProcess")
                         .HasForeignKey("ShiftDefinitionId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("techiz.Domain.Auth.User", "User")
+                    b.HasOne("eShop.Domain.Auth.User", "User")
                         .WithMany()
                         .HasForeignKey("UserId");
 
@@ -3692,25 +3692,25 @@ namespace techiz.Persistence.Migrations
                     b.Navigation("User");
                 });
 
-            modelBuilder.Entity("techiz.Domain.Entities.ShiftTargetParameters", b =>
+            modelBuilder.Entity("eShop.Domain.Entities.ShiftTargetParameters", b =>
                 {
-                    b.HasOne("techiz.Domain.Entities.Line", "Line")
+                    b.HasOne("eShop.Domain.Entities.Line", "Line")
                         .WithMany("ShiftTargetParameters")
                         .HasForeignKey("LineId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("techiz.Domain.Entities.RestCause", "RestCause")
+                    b.HasOne("eShop.Domain.Entities.RestCause", "RestCause")
                         .WithMany("ShiftTargetParameters")
                         .HasForeignKey("RestCauseId");
 
-                    b.HasOne("techiz.Domain.Entities.ShiftDefinition", "ShiftDefinition")
+                    b.HasOne("eShop.Domain.Entities.ShiftDefinition", "ShiftDefinition")
                         .WithMany("ShiftTargetParameters")
                         .HasForeignKey("ShiftDefinitionId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("techiz.Domain.Auth.User", "User")
+                    b.HasOne("eShop.Domain.Auth.User", "User")
                         .WithMany("ShiftTargetParameters")
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -3725,19 +3725,19 @@ namespace techiz.Persistence.Migrations
                     b.Navigation("User");
                 });
 
-            modelBuilder.Entity("techiz.Domain.Entities.WorkProcessRoute", b =>
+            modelBuilder.Entity("eShop.Domain.Entities.WorkProcessRoute", b =>
                 {
-                    b.HasOne("techiz.Domain.Entities.Production", "Production")
+                    b.HasOne("eShop.Domain.Entities.Production", "Production")
                         .WithMany("WorkProcessRoute")
                         .HasForeignKey("ProductionId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("techiz.Domain.Auth.User", null)
+                    b.HasOne("eShop.Domain.Auth.User", null)
                         .WithMany("WorkProcessRoute")
                         .HasForeignKey("UserId");
 
-                    b.HasOne("techiz.Domain.Entities.WorkProcessTemplate", "WorkProcessTemplate")
+                    b.HasOne("eShop.Domain.Entities.WorkProcessTemplate", "WorkProcessTemplate")
                         .WithMany("WorkProcessRoute")
                         .HasForeignKey("WorkProcessTemplateId")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -3748,23 +3748,23 @@ namespace techiz.Persistence.Migrations
                     b.Navigation("WorkProcessTemplate");
                 });
 
-            modelBuilder.Entity("techiz.Domain.Entities.WorkProcessRouteTimeHistories", b =>
+            modelBuilder.Entity("eShop.Domain.Entities.WorkProcessRouteTimeHistories", b =>
                 {
-                    b.HasOne("techiz.Domain.Entities.RestCause", "RestCause")
+                    b.HasOne("eShop.Domain.Entities.RestCause", "RestCause")
                         .WithMany("WorkProcessRouteTimeHistories")
                         .HasForeignKey("RestCauseId");
 
-                    b.HasOne("techiz.Domain.Entities.ShiftTargetParameters", "ShiftTargetParameters")
+                    b.HasOne("eShop.Domain.Entities.ShiftTargetParameters", "ShiftTargetParameters")
                         .WithMany("WorkProcessRouteTimeHistories")
                         .HasForeignKey("ShiftTargetParametersId");
 
-                    b.HasOne("techiz.Domain.Auth.User", "User")
+                    b.HasOne("eShop.Domain.Auth.User", "User")
                         .WithMany()
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("techiz.Domain.Entities.WorkProcessRoute", "WorkProcessRoute")
+                    b.HasOne("eShop.Domain.Entities.WorkProcessRoute", "WorkProcessRoute")
                         .WithMany("WorkProcessRouteTimeHistories")
                         .HasForeignKey("WorkProcessRouteId")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -3779,13 +3779,13 @@ namespace techiz.Persistence.Migrations
                     b.Navigation("WorkProcessRoute");
                 });
 
-            modelBuilder.Entity("techiz.Domain.Entities.WorkProcessRouteUser", b =>
+            modelBuilder.Entity("eShop.Domain.Entities.WorkProcessRouteUser", b =>
                 {
-                    b.HasOne("techiz.Domain.Auth.User", "User")
+                    b.HasOne("eShop.Domain.Auth.User", "User")
                         .WithMany()
                         .HasForeignKey("UserId");
 
-                    b.HasOne("techiz.Domain.Entities.WorkProcessRoute", "WorkProcessRoute")
+                    b.HasOne("eShop.Domain.Entities.WorkProcessRoute", "WorkProcessRoute")
                         .WithMany("WorkProcessRouteUser")
                         .HasForeignKey("WorkProcessRouteId")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -3796,7 +3796,7 @@ namespace techiz.Persistence.Migrations
                     b.Navigation("WorkProcessRoute");
                 });
 
-            modelBuilder.Entity("techiz.Domain.Auth.User", b =>
+            modelBuilder.Entity("eShop.Domain.Auth.User", b =>
                 {
                     b.Navigation("Product");
 
@@ -3819,14 +3819,14 @@ namespace techiz.Persistence.Migrations
                     b.Navigation("WorkProcessRoute");
                 });
 
-            modelBuilder.Entity("techiz.Domain.Entities.BomKitInfo", b =>
+            modelBuilder.Entity("eShop.Domain.Entities.BomKitInfo", b =>
                 {
                     b.Navigation("SetupVerificationDetails");
 
                     b.Navigation("SetupVerificationInfo");
                 });
 
-            modelBuilder.Entity("techiz.Domain.Entities.Line", b =>
+            modelBuilder.Entity("eShop.Domain.Entities.Line", b =>
                 {
                     b.Navigation("Machine");
 
@@ -3835,7 +3835,7 @@ namespace techiz.Persistence.Migrations
                     b.Navigation("ShiftTargetParameters");
                 });
 
-            modelBuilder.Entity("techiz.Domain.Entities.Machine", b =>
+            modelBuilder.Entity("eShop.Domain.Entities.Machine", b =>
                 {
                     b.Navigation("ProductionLog");
 
@@ -3852,24 +3852,24 @@ namespace techiz.Persistence.Migrations
                     b.Navigation("SetupVerificationInfo");
                 });
 
-            modelBuilder.Entity("techiz.Domain.Entities.Menu", b =>
+            modelBuilder.Entity("eShop.Domain.Entities.Menu", b =>
                 {
                     b.Navigation("MenuPermission");
 
                     b.Navigation("items");
                 });
 
-            modelBuilder.Entity("techiz.Domain.Entities.Permission", b =>
+            modelBuilder.Entity("eShop.Domain.Entities.Permission", b =>
                 {
                     b.Navigation("MenuPermission");
                 });
 
-            modelBuilder.Entity("techiz.Domain.Entities.Product", b =>
+            modelBuilder.Entity("eShop.Domain.Entities.Product", b =>
                 {
                     b.Navigation("ProductionInputHistories");
                 });
 
-            modelBuilder.Entity("techiz.Domain.Entities.Production", b =>
+            modelBuilder.Entity("eShop.Domain.Entities.Production", b =>
                 {
                     b.Navigation("BomKitInfo");
 
@@ -3898,12 +3898,12 @@ namespace techiz.Persistence.Migrations
                     b.Navigation("WorkProcessRoute");
                 });
 
-            modelBuilder.Entity("techiz.Domain.Entities.ProductionOperations", b =>
+            modelBuilder.Entity("eShop.Domain.Entities.ProductionOperations", b =>
                 {
                     b.Navigation("ProductionProcessManualTest");
                 });
 
-            modelBuilder.Entity("techiz.Domain.Entities.RestCause", b =>
+            modelBuilder.Entity("eShop.Domain.Entities.RestCause", b =>
                 {
                     b.Navigation("ProductionTimeProcess");
 
@@ -3912,26 +3912,26 @@ namespace techiz.Persistence.Migrations
                     b.Navigation("WorkProcessRouteTimeHistories");
                 });
 
-            modelBuilder.Entity("techiz.Domain.Entities.RouteInfo", b =>
+            modelBuilder.Entity("eShop.Domain.Entities.RouteInfo", b =>
                 {
                     b.Navigation("RouteInfoUser");
                 });
 
-            modelBuilder.Entity("techiz.Domain.Entities.SetupVerification", b =>
+            modelBuilder.Entity("eShop.Domain.Entities.SetupVerification", b =>
                 {
                     b.Navigation("ProductionOperations");
 
                     b.Navigation("SetupVerificationDetails");
                 });
 
-            modelBuilder.Entity("techiz.Domain.Entities.ShiftDefinition", b =>
+            modelBuilder.Entity("eShop.Domain.Entities.ShiftDefinition", b =>
                 {
                     b.Navigation("ShiftDefinitionProcess");
 
                     b.Navigation("ShiftTargetParameters");
                 });
 
-            modelBuilder.Entity("techiz.Domain.Entities.ShiftTargetParameters", b =>
+            modelBuilder.Entity("eShop.Domain.Entities.ShiftTargetParameters", b =>
                 {
                     b.Navigation("ProductionOperations");
 
@@ -3940,17 +3940,17 @@ namespace techiz.Persistence.Migrations
                     b.Navigation("WorkProcessRouteTimeHistories");
                 });
 
-            modelBuilder.Entity("techiz.Domain.Entities.WareHouse", b =>
+            modelBuilder.Entity("eShop.Domain.Entities.WareHouse", b =>
                 {
                     b.Navigation("BomKitInfo");
                 });
 
-            modelBuilder.Entity("techiz.Domain.Entities.WorkCentre", b =>
+            modelBuilder.Entity("eShop.Domain.Entities.WorkCentre", b =>
                 {
                     b.Navigation("RouteInfo");
                 });
 
-            modelBuilder.Entity("techiz.Domain.Entities.WorkProcessRoute", b =>
+            modelBuilder.Entity("eShop.Domain.Entities.WorkProcessRoute", b =>
                 {
                     b.Navigation("Product");
 
@@ -3959,7 +3959,7 @@ namespace techiz.Persistence.Migrations
                     b.Navigation("WorkProcessRouteUser");
                 });
 
-            modelBuilder.Entity("techiz.Domain.Entities.WorkProcessTemplate", b =>
+            modelBuilder.Entity("eShop.Domain.Entities.WorkProcessTemplate", b =>
                 {
                     b.Navigation("WorkProcessRoute");
                 });

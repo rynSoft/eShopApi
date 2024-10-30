@@ -1,9 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text.Json.Serialization;
-using techiz.Domain.Entities;
+using eShop.Domain.Entities;
 
-namespace techiz.Domain.Auth
+namespace eShop.Domain.Auth
 {
     public class AuthenticationResponse
     {

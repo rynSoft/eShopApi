@@ -1,20 +1,20 @@
 ﻿using System;
-using techiz.Domain.Auth;
-using techiz.Domain.Entities;
-using techiz.Persistence.Seeds;
+using eShop.Domain.Auth;
+using eShop.Domain.Entities;
+using eShop.Persistence.Seeds;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
-using techiz.Domain.Enum;
-using techiz.Persistence.Mapper;
+using eShop.Domain.Enum;
+using eShop.Persistence.Mapper;
 using Microsoft.AspNetCore.Http;
-using techiz.Domain;
+using eShop.Domain;
 using System.Linq;
 using Microsoft.Extensions.Logging;
 
-namespace techiz.Persistence
+namespace eShop.Persistence
 {
     public class appDbContext :  IdentityDbContext<User, IdentityRole<Guid>,Guid> , IAppDbContext
     {
@@ -155,7 +155,7 @@ namespace techiz.Persistence
             if (!optionsBuilder.IsConfigured)
             {
                 optionsBuilder
-                .UseNpgsql("User ID=postgres;Password=oXit23-24;Server=217.116.199.183;Port=5433;Database=techiz;Integrated Security=true;Pooling=true;", option => {
+                .UseNpgsql("User ID=postgres;Password=oXit23-24;Server=217.116.199.183;Port=5433;Database=eShop;Integrated Security=true;Pooling=true;", option => {
                 option.EnableRetryOnFailure();
                 });
             }

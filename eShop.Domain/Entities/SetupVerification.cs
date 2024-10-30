@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations.Schema;
-namespace techiz.Domain.Entities
+namespace eShop.Domain.Entities
 {
     public class SetupVerification : BaseSimpleModel
     {

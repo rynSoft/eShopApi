@@ -1,11 +1,11 @@
 ﻿using MediatR;
 //using Udea.Api.Domain.Entities;
-using techiz.Persistence;
+using eShop.Persistence;
 using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
 
-namespace techiz.Service.Features.CustomerFeatures.Queries
+namespace eShop.Service.Features.CustomerFeatures.Queries
 {
     //public class GetCustomerByIdQuery : IRequest<Customer>
     //{

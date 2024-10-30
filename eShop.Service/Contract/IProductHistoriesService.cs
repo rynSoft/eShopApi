@@ -1,14 +1,14 @@
 ﻿using System;
-using techiz.Domain.Auth;
-using techiz.Domain.Common;
+using eShop.Domain.Auth;
+using eShop.Domain.Common;
 using System.Threading.Tasks;
-using techiz.Domain.Dtos;
+using eShop.Domain.Dtos;
 using System.Collections.Generic;
-using techiz.Domain.Dtos.ProductionProcessManual;
-using techiz.Domain.Entities;
-using techiz.Domain.Enum;
+using eShop.Domain.Dtos.ProductionProcessManual;
+using eShop.Domain.Entities;
+using eShop.Domain.Enum;
 
-namespace techiz.Service.Contract
+namespace eShop.Service.Contract
 {
     public interface IProductHistoriesService
     {

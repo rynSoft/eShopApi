@@ -1,9 +1,9 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using techiz.Service.Contract;
+using eShop.Service.Contract;
 using System.Threading.Tasks;
-using techiz.Domain.Common;
-using techiz.Domain.Dtos;
-namespace techizApi.Controllers
+using eShop.Domain.Common;
+using eShop.Domain.Dtos;
+namespace eShopApi.Controllers
 {
     [ApiController]
     [Route("api/ProductionMachineMatch")]

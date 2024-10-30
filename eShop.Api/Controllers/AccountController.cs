@@ -1,17 +1,17 @@
 ﻿using System;
 using Microsoft.AspNetCore.Mvc;
-using techiz.Domain.Auth;
-using techiz.Service.Contract;
+using eShop.Domain.Auth;
+using eShop.Service.Contract;
 using System.Threading.Tasks;
 using Microsoft.Extensions.Caching.Memory;
 using Serilog;
-using techiz.Domain.Dtos;
-using techiz.Domain.Utilities;
-using techizApi.Auth;
+using eShop.Domain.Dtos;
+using eShop.Domain.Utilities;
+using eShopApi.Auth;
 using Microsoft.AspNetCore.Http;
-using techiz.Service;
+using eShop.Service;
 
-namespace techizApi.Controllers
+namespace eShopApi.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]

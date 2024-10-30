@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace techiz.Domain.Settings
+namespace eShop.Domain.Settings
 {
     public class ApplicationDetail
     {

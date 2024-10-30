@@ -10,16 +10,16 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc.ViewFeatures;
 using Microsoft.EntityFrameworkCore;
 using Newtonsoft.Json;
-using techiz.Domain;
-using techiz.Domain.Common;
-using techiz.Domain.Dtos;
-using techiz.Domain.Entities;
-using techiz.Domain.Enum;
-using techiz.Domain.Interfaces;
-using techiz.Persistence;
-using techiz.Service.Contract;
+using eShop.Domain;
+using eShop.Domain.Common;
+using eShop.Domain.Dtos;
+using eShop.Domain.Entities;
+using eShop.Domain.Enum;
+using eShop.Domain.Interfaces;
+using eShop.Persistence;
+using eShop.Service.Contract;
 
-namespace techiz.Service.Implementation;
+namespace eShop.Service.Implementation;
 
 public class ProductionOperationsService : IProductionOperationsService
 {

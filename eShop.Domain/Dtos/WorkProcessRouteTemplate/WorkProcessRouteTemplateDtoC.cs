@@ -2,7 +2,7 @@ using Microsoft.EntityFrameworkCore.Metadata.Internal;
 using System;
 using System.ComponentModel.DataAnnotations.Schema;
 
-namespace techiz.Domain.Dtos;
+namespace eShop.Domain.Dtos;
 
 public class WorkProcessRouteTemplateDtoC
 {

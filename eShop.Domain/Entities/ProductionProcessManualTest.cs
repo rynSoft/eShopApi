@@ -1,8 +1,8 @@
 using System;
-using techiz.Domain.Auth;
-using techiz.Domain.Enum;
+using eShop.Domain.Auth;
+using eShop.Domain.Enum;
 
-namespace techiz.Domain.Entities;
+namespace eShop.Domain.Entities;
 
 public class ProductionProcessManualTest : BaseSimpleModel
 {

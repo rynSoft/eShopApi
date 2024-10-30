@@ -1,7 +1,7 @@
 using System.Collections.Generic;
 using System.Linq;
 
-namespace techiz.Domain.Dtos
+namespace eShop.Domain.Dtos
 {
     public class BaseResponseDto<TData>
     {

@@ -1,9 +1,9 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using techiz.Domain.Settings;
-using techiz.Service.Contract;
+using eShop.Domain.Settings;
+using eShop.Service.Contract;
 using System.Threading.Tasks;
 
-namespace techizApi.Controllers
+namespace eShopApi.Controllers
 {
     [ApiController]
     [Route("api/v{version:apiVersion}/Mail")]

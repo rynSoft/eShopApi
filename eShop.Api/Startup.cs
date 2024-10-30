@@ -9,16 +9,16 @@ using Microsoft.Extensions.Diagnostics.HealthChecks;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using Microsoft.FeatureManagement;
-using techiz.Domain.Settings;
-using techiz.Infrastructure.Extension;
-using techiz.Persistence;
-using techiz.Service;
+using eShop.Domain.Settings;
+using eShop.Infrastructure.Extension;
+using eShop.Persistence;
+using eShop.Service;
 using Serilog;
 using System;
 using System.IO;
-using techizApi.Auth;
+using eShopApi.Auth;
 
-namespace techizApi
+namespace eShopApi
 {
     public class Startup
     {

@@ -1,12 +1,12 @@
 ﻿
 using Microsoft.AspNetCore.Mvc;
-using techiz.Service.Contract;
+using eShop.Service.Contract;
 using System.Threading.Tasks;
-using techiz.Domain.Common;
-using techiz.Domain.Dtos;
-using techiz.Domain.Enum;
+using eShop.Domain.Common;
+using eShop.Domain.Dtos;
+using eShop.Domain.Enum;
 
-namespace techizApi.Controllers
+namespace eShopApi.Controllers
 {
     [ApiController]
     [Route("api/WorkProcessRouteTimeHistories")]

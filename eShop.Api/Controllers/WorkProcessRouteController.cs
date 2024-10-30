@@ -1,16 +1,16 @@
 ﻿using MediatR;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using techiz.Service.Contract;
-using techiz.Domain.Entities;
+using eShop.Service.Contract;
+using eShop.Domain.Entities;
 using System;
 using System.Threading.Tasks;
-using techiz.Domain.Common;
-using techiz.Domain.Dtos;
+using eShop.Domain.Common;
+using eShop.Domain.Dtos;
 using System.Collections.Generic;
-using techiz.Service.Implementation;
+using eShop.Service.Implementation;
 
-namespace techizApi.Controllers
+namespace eShopApi.Controllers
 {
     //[Authorize]
     [ApiController]

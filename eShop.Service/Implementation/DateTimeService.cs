@@ -1,7 +1,7 @@
 ﻿using System;
-using techiz.Service.Contract;
+using eShop.Service.Contract;
 
-namespace techiz.Service.Implementation
+namespace eShop.Service.Implementation
 {
     public class DateTimeService : IDateTimeService
     {

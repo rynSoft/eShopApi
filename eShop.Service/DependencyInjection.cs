@@ -7,17 +7,17 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.IdentityModel.Tokens;
 using Newtonsoft.Json;
-using techiz.Domain.Auth;
-using techiz.Domain.Common;
-using techiz.Domain.Settings;
-using techiz.Persistence;
+using eShop.Domain.Auth;
+using eShop.Domain.Common;
+using eShop.Domain.Settings;
+using eShop.Persistence;
 using System;
 using System.Reflection;
 using System.Text;
-using techiz.Service.Contract;
-using techiz.Service.Implementation;
+using eShop.Service.Contract;
+using eShop.Service.Implementation;
 
-namespace techiz.Service
+namespace eShop.Service
 {
     public static class DependencyInjection
     {

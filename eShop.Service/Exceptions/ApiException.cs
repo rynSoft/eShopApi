@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Globalization;
 
-namespace techiz.Service.Exceptions
+namespace eShop.Service.Exceptions
 {
     public class ApiException : Exception
     {

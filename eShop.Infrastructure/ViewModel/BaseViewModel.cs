@@ -1,5 +1,5 @@
 ﻿using System;
-namespace techiz.Infrastructure.ViewModel
+namespace eShop.Infrastructure.ViewModel
 {
     public class BaseViewModel
     {

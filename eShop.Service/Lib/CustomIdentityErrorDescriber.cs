@@ -1,6 +1,6 @@
 using Microsoft.AspNetCore.Identity;
 
-namespace techiz.Service;
+namespace eShop.Service;
 
 public class CustomIdentityErrorDescriber : IdentityErrorDescriber
 {

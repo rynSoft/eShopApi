@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace techiz.Infrastructure.ViewModel
+namespace eShop.Infrastructure.ViewModel
 {
     public class RoleViewModel
     {

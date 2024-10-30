@@ -1,11 +1,11 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using techiz.Service.Contract;
+using eShop.Service.Contract;
 using System.Threading.Tasks;
-using techiz.Domain.Common;
-using techiz.Domain.Dtos;
-using techiz.Service.Implementation;
+using eShop.Domain.Common;
+using eShop.Domain.Dtos;
+using eShop.Service.Implementation;
 
-namespace techizApi.Controllers
+namespace eShopApi.Controllers
 {
     //[Authorize]
     [ApiController]

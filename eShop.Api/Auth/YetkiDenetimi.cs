@@ -15,11 +15,11 @@ using System.Net;
 using System.Net.Http;
 using System.Threading.Tasks;
 using SQLitePCL;
-using techiz.Domain.Auth;
-using techiz.Persistence;
-using techizApi.Auth;
+using eShop.Domain.Auth;
+using eShop.Persistence;
+using eShopApi.Auth;
 
-namespace techizApi.Auth
+namespace eShopApi.Auth
 {
 
     public class tempClaim

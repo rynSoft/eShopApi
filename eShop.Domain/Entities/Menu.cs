@@ -1,9 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
-using techiz.Domain;
+using eShop.Domain;
 
-namespace techiz.Domain.Entities
+namespace eShop.Domain.Entities
 {
     public class Menu : BaseSimpleModel
     {

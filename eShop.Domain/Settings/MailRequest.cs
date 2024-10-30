@@ -1,4 +1,4 @@
-﻿namespace techiz.Domain.Settings
+﻿namespace eShop.Domain.Settings
 {
     public class MailRequest
     {

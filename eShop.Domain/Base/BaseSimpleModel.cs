@@ -2,7 +2,7 @@
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
-namespace techiz.Domain
+namespace eShop.Domain
 {
     public class BaseSimpleModel : IBaseSimpleModel
     {

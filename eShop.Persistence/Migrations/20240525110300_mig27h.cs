@@ -5,7 +5,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 #pragma warning disable CA1814 // Prefer jagged arrays over multidimensional
 
-namespace techiz.Persistence.Migrations
+namespace eShop.Persistence.Migrations
 {
     /// <inheritdoc />
     public partial class mig27h : Migration
@@ -363,7 +363,7 @@ namespace techiz.Persistence.Migrations
                 {
                     { new Guid("209bdb76-1880-4404-9ed7-5b58019737b8"), 0, "Salih", "76bc7a1d-0125-48fb-befc-5210d20e58a9", "salih@.com", true, "salih@.com", null, true, false, null, "BASICUSER@GMAIL.COM", "SUPERADMIN", "AQAAAAEAACcQAAAAEBLjouNqaeiVWbN0TbXUS3+ChW3d7aQIk/BQEkWBxlrdRRngp14b0BIH0Rp65qD6mA==", null, false, null, "Dürüs", null, false, "Salih" },
                     { new Guid("79c7ac50-14ea-423a-b15f-2ad80324c150"), 0, "Tolga", "ef7328d6-7747-46da-ae12-163fa5148704", "tolga@.com", true, "tolga@.com", null, true, false, null, "BASICUSER@GMAIL.COM", "BASICUSER", "AQAAAAEAACcQAAAAEBLjouNqaeiVWbN0TbXUS3+ChW3d7aQIk/BQEkWBxlrdRRngp14b0BIH0Rp65qD6mA==", null, false, null, "Bagin", null, false, "Tolga" },
-                    { new Guid("9faf5982-c5ce-4cbf-aee4-fff61fb4d933"), 0, "Techiz", "384a7ba2-57af-470d-85aa-65a37ebf368e", "techiz@sentytech.com", true, "techiz@sentytech.com", null, true, false, null, "BASICUSER@GMAIL.COM", "BASICUSER", "AQAAAAEAACcQAAAAEBLjouNqaeiVWbN0TbXUS3+ChW3d7aQIk/BQEkWBxlrdRRngp14b0BIH0Rp65qD6mA==", null, false, null, "Techiz", null, false, "Techiz" },
+                    { new Guid("9faf5982-c5ce-4cbf-aee4-fff61fb4d933"), 0, "eShop", "384a7ba2-57af-470d-85aa-65a37ebf368e", "eShop@sentytech.com", true, "eShop@sentytech.com", null, true, false, null, "BASICUSER@GMAIL.COM", "BASICUSER", "AQAAAAEAACcQAAAAEBLjouNqaeiVWbN0TbXUS3+ChW3d7aQIk/BQEkWBxlrdRRngp14b0BIH0Rp65qD6mA==", null, false, null, "eShop", null, false, "eShop" },
                     { new Guid("b1d25d4c-4eff-4656-9461-e0535772cdf2"), 0, "Hakan", "c52b81fd-d26b-4a71-8210-09a3b23c61b3", "hakan@.com", false, "hakan@.com", null, true, false, null, "SUPERADMIN@GMAIL.COM", "SUPERADMIN", "AQAAAAEAACcQAAAAEBLjouNqaeiVWbN0TbXUS3+ChW3d7aQIk/BQEkWBxlrdRRngp14b0BIH0Rp65qD6mA==", null, false, null, "YILDIRIM", null, false, "hakanyildirim" },
                     { new Guid("e61dc68e-c997-4423-af3e-e5f78d966cbc"), 0, "Cagan", "162ccbfb-deaa-400a-93b7-947866207a3c", "cagan@.com", true, "cagan@.com", null, true, false, null, "BASICUSER@GMAIL.COM", "SUPERADMIN", "AQAAAAEAACcQAAAAEBLjouNqaeiVWbN0TbXUS3+ChW3d7aQIk/BQEkWBxlrdRRngp14b0BIH0Rp65qD6mA==", null, false, null, "Turhan", null, false, "cagan" }
                 });
@@ -757,7 +757,7 @@ namespace techiz.Persistence.Migrations
                     { new Guid("5b9ab9d2-93ed-4470-97a7-c2af2efd18d0"), 0, "Salih", "a9da13c1-a37d-4228-8cee-ad2191cb1da4", "salih@.com", true, "salih@.com", null, true, false, null, "BASICUSER@GMAIL.COM", "SUPERADMIN", "AQAAAAEAACcQAAAAEBLjouNqaeiVWbN0TbXUS3+ChW3d7aQIk/BQEkWBxlrdRRngp14b0BIH0Rp65qD6mA==", null, false, null, "Dürüs", null, false, "Salih" },
                     { new Guid("7894403c-d01b-47ec-8916-3c15ad0c92e4"), 0, "Tolga", "1ad8fe35-b553-4aeb-aa62-5b01da172a84", "tolga@.com", true, "tolga@.com", null, true, false, null, "BASICUSER@GMAIL.COM", "BASICUSER", "AQAAAAEAACcQAAAAEBLjouNqaeiVWbN0TbXUS3+ChW3d7aQIk/BQEkWBxlrdRRngp14b0BIH0Rp65qD6mA==", null, false, null, "Bagin", null, false, "Tolga" },
                     { new Guid("84630f27-bcf6-48b9-b4c3-df27d5a70d7d"), 0, "Cagan", "46774a41-8702-430a-a506-be73b4e6d2a6", "cagan@.com", true, "cagan@.com", null, true, false, null, "BASICUSER@GMAIL.COM", "SUPERADMIN", "AQAAAAEAACcQAAAAEBLjouNqaeiVWbN0TbXUS3+ChW3d7aQIk/BQEkWBxlrdRRngp14b0BIH0Rp65qD6mA==", null, false, null, "Turhan", null, false, "cagan" },
-                    { new Guid("9053d0d8-bab0-4a17-95fd-ebef15254aa4"), 0, "Techiz", "8239b64f-459f-41c4-b740-184476c05d2a", "techiz@sentytech.com", true, "techiz@sentytech.com", null, true, false, null, "BASICUSER@GMAIL.COM", "BASICUSER", "AQAAAAEAACcQAAAAEBLjouNqaeiVWbN0TbXUS3+ChW3d7aQIk/BQEkWBxlrdRRngp14b0BIH0Rp65qD6mA==", null, false, null, "Techiz", null, false, "Techiz" }
+                    { new Guid("9053d0d8-bab0-4a17-95fd-ebef15254aa4"), 0, "eShop", "8239b64f-459f-41c4-b740-184476c05d2a", "eShop@sentytech.com", true, "eShop@sentytech.com", null, true, false, null, "BASICUSER@GMAIL.COM", "BASICUSER", "AQAAAAEAACcQAAAAEBLjouNqaeiVWbN0TbXUS3+ChW3d7aQIk/BQEkWBxlrdRRngp14b0BIH0Rp65qD6mA==", null, false, null, "eShop", null, false, "eShop" }
                 });
 
             migrationBuilder.UpdateData(

@@ -3,7 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 
-namespace techiz.Service.Exceptions
+namespace eShop.Service.Exceptions
 {
     public class ValidationException : Exception
     {

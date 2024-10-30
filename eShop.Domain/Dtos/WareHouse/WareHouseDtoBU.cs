@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace techiz.Domain.Dtos
+namespace eShop.Domain.Dtos
 {
     public class WareHouseDtoBU
     {

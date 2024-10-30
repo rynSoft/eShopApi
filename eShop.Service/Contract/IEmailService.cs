@@ -1,7 +1,7 @@
-﻿using techiz.Domain.Settings;
+﻿using eShop.Domain.Settings;
 using System.Threading.Tasks;
 
-namespace techiz.Service.Contract
+namespace eShop.Service.Contract
 {
     public interface IEmailService
     {

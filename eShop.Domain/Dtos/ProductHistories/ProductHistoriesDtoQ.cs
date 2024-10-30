@@ -1,9 +1,9 @@
 using System;
 using System.Collections.Generic;
 using System.Xml.Linq;
-using techiz.Domain.Auth;
+using eShop.Domain.Auth;
 
-namespace techiz.Domain.Dtos
+namespace eShop.Domain.Dtos
 {
   public class ProductHistoriesDtoQ
     {

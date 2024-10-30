@@ -1,7 +1,7 @@
-﻿using techiz.Domain;
+﻿using eShop.Domain;
 using System;
 
-namespace techiz.Domain.Entities
+namespace eShop.Domain.Entities
 {
     public class MenuPermission :  BaseSimpleModel
     {

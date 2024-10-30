@@ -3,12 +3,12 @@ using MailKit.Security;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
 using MimeKit;
-using techiz.Domain.Settings;
+using eShop.Domain.Settings;
 using System.Threading.Tasks;
-using techiz.Service.Contract;
-using techiz.Service.Exceptions;
+using eShop.Service.Contract;
+using eShop.Service.Exceptions;
 
-namespace techiz.Service.Implementation
+namespace eShop.Service.Implementation
 {
     public class MailService : IEmailService
     {

@@ -1,9 +1,9 @@
-﻿using techiz.Domain.Auth;
-using techiz.Domain.Enum;
+﻿using eShop.Domain.Auth;
+using eShop.Domain.Enum;
 using System;
 using System.Collections.Generic;
 
-namespace techiz.Persistence.Seeds
+namespace eShop.Persistence.Seeds
 {
     public static class DefaultUser
     {
@@ -75,11 +75,11 @@ namespace techiz.Persistence.Seeds
                    new User
                 {
                     Id = Guid.NewGuid(),
-                    UserName = "Techiz",
-                    Email = "techiz@sentytech.com",
-                    Eposta = "techiz@sentytech.com",
-                    Ad = "Techiz",
-                    Soyad = "Techiz",
+                    UserName = "eShop",
+                    Email = "eShop@sentytech.com",
+                    Eposta = "eShop@sentytech.com",
+                    Ad = "eShop",
+                    Soyad = "eShop",
                     EmailConfirmed = true,
 
                     PhoneNumberConfirmed = false,

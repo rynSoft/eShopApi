@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace techiz.Service.Contract
+namespace eShop.Service.Contract
 {
     public interface IAuthenticatedUserService
     {

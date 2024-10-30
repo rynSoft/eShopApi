@@ -1,7 +1,7 @@
 ﻿using System.Net;
 using System.Net.Sockets;
 
-namespace techiz.Domain.Common
+namespace eShop.Domain.Common
 {
     public class IpHelper
     {

@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace techiz.Domain.Auth
+namespace eShop.Domain.Auth
 {
     public class ResetPasswordRequest
     {

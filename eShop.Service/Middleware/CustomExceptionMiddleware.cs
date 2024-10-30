@@ -4,9 +4,9 @@ using Newtonsoft.Json;
 using System;
 using System.Net;
 using System.Threading.Tasks;
-using techiz.Service.Exceptions;
+using eShop.Service.Exceptions;
 
-namespace techiz.Service.Middleware
+namespace eShop.Service.Middleware
 {
     public class CustomExceptionMiddleware
     {

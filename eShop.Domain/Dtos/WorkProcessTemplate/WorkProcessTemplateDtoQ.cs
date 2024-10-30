@@ -1,8 +1,8 @@
 using System;
 using System.Collections.Generic;
-using techiz.Domain.Enum;
+using eShop.Domain.Enum;
 
-namespace techiz.Domain.Dtos;
+namespace eShop.Domain.Dtos;
 
 public class WorkProcessTemplateDtoQ
 {

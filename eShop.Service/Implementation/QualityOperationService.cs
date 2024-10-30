@@ -3,12 +3,12 @@ using Microsoft.AspNetCore.WebUtilities;
 using Microsoft.Extensions.Options;
 using Microsoft.FeatureManagement;
 using Microsoft.IdentityModel.Tokens;
-using techiz.Domain.Auth;
-using techiz.Domain.Common;
-using techiz.Domain.Enum;
-using techiz.Domain.Settings;
-using techiz.Service.Contract;
-using techiz.Service.Exceptions;
+using eShop.Domain.Auth;
+using eShop.Domain.Common;
+using eShop.Domain.Enum;
+using eShop.Domain.Settings;
+using eShop.Service.Contract;
+using eShop.Service.Exceptions;
 using System;
 using System.Collections.Generic;
 using System.IdentityModel.Tokens.Jwt;
@@ -17,19 +17,19 @@ using System.Security.Claims;
 using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
-using techiz.Persistence;
+using eShop.Persistence;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
-using techiz.Domain.Entities;
+using eShop.Domain.Entities;
 using AutoMapper;
-using techiz.Domain.Dtos;
-using techiz.Persistence.Repositories;
-using techiz.Domain.Interfaces;
+using eShop.Domain.Dtos;
+using eShop.Persistence.Repositories;
+using eShop.Domain.Interfaces;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.AspNetCore.Http;
 using System.Transactions;
 
-namespace techiz.Service.Implementation
+namespace eShop.Service.Implementation
 {
     public class QualityOperationService : IQualityOperationService
     {

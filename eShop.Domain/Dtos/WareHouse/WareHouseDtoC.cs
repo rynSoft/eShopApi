@@ -1,4 +1,4 @@
-namespace techiz.Domain.Dtos;
+namespace eShop.Domain.Dtos;
 
 public class WareHouseDtoC
 {

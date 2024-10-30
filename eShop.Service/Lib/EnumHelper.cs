@@ -6,7 +6,7 @@ using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Reflection;
 
-namespace techiz.Service;
+namespace eShop.Service;
 public static class EnumHelper<T>
     where T : struct, Enum // This constraint requires C# 7.3 or later.
 {

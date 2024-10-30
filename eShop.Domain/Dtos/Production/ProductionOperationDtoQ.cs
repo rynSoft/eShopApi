@@ -1,7 +1,7 @@
 using System;
 using System.Collections.Generic;
 
-namespace techiz.Domain.Dtos
+namespace eShop.Domain.Dtos
 {
   public class ProductionOperationDtoQ
     {

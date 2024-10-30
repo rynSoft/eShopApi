@@ -1,8 +1,8 @@
 ﻿using Microsoft.AspNetCore.Identity;
-using techiz.Domain.Enum;
+using eShop.Domain.Enum;
 using System.Collections.Generic;
 
-namespace techiz.Persistence.Seeds
+namespace eShop.Persistence.Seeds
 {
     public static class MappingUserRole
     {

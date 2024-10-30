@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace techiz.Domain.Common
+namespace eShop.Domain.Common
 {
     public class Response<T>
     {

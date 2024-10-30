@@ -1,10 +1,10 @@
 ﻿
-using techiz.Domain.Entities;
-using techiz.Domain.Utilities;
+using eShop.Domain.Entities;
+using eShop.Domain.Utilities;
 using System;
 using System.Collections.Generic;
 
-namespace techiz.Persistence.Seeds
+namespace eShop.Persistence.Seeds
 {
     public static class SeedPermission
     {

@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace techiz.Domain
+namespace eShop.Domain
 {
     public class BaseEntity
     {

@@ -1,6 +1,6 @@
 ﻿using Microsoft.AspNetCore.Authorization;
 
-namespace techizApi.Auth
+namespace eShopApi.Auth
 {
     public class PermissionRequirement : IAuthorizationRequirement
     {

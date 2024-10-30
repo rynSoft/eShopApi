@@ -1,9 +1,9 @@
 ﻿using Microsoft.AspNetCore.Identity;
-using techiz.Domain.Enum;
+using eShop.Domain.Enum;
 using System.Collections.Generic;
-using techiz.Domain.Entities;
+using eShop.Domain.Entities;
 
-namespace techiz.Persistence.Seeds
+namespace eShop.Persistence.Seeds
 {
 
     public static class SeedWorkCentre
