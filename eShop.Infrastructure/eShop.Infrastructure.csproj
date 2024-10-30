@@ -2,7 +2,7 @@
 
   <PropertyGroup>
     <TargetFramework>net8.0</TargetFramework>
-    <PackageId>techiz.Infrastructure</PackageId>
+    <PackageId>eShop.Infrastructure</PackageId>
   </PropertyGroup>
 
   <ItemGroup>
@@ -32,7 +32,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\techiz.Service\techiz.Service.csproj" />
+    <ProjectReference Include="..\eShop.Service\eShop.Service.csproj" />
   </ItemGroup>
 
 </Project>

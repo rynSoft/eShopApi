@@ -2,7 +2,7 @@
 
   <PropertyGroup>
     <TargetFramework>net8.0</TargetFramework>
-    <PackageId>techiz.Persistence</PackageId>
+    <PackageId>eShop.Persistence</PackageId>
   </PropertyGroup>
 
   <ItemGroup>
@@ -14,11 +14,11 @@
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
     <PackageReference Include="Npgsql.EntityFrameworkCore.PostgreSQL" Version="8.0.0" />
-    <PackageReference Include="System.IdentityModel.Tokens.Jwt" Version="6.17.0" />
+    <PackageReference Include="System.IdentityModel.Tokens.Jwt" Version="7.6.2" />
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\techiz.Domain\techiz.Domain.csproj" />
+    <ProjectReference Include="..\eShop.Domain\eShop.Domain.csproj" />
   </ItemGroup>
 
 </Project>
