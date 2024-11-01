@@ -160,19 +160,19 @@ public class DashboardService : IDashboardService
    
     public async Task<ResponseModel> GetProduction_4()
     {
-        var production = await _appDbContext.Production.OrderByDescending(x => x.Id).ToListAsync();
-        return new ResponseModel(production);
+        //var production = await _appDbContext.Production.OrderByDescending(x => x.Id).ToListAsync();
+        return new ResponseModel(null);
     }
 
     public async Task<ResponseModel> GetProduction_5()
     {
-        var production = await _appDbContext.Production.OrderByDescending(x => x.Id).ToListAsync();
-        return new ResponseModel(production);
+        //var production = await _appDbContext.Production.OrderByDescending(x => x.Id).ToListAsync();
+        return new ResponseModel(null);
     }
 
     public async Task<ResponseModel> GetProduction_6()
     {
-        var production = await _appDbContext.Production.OrderByDescending(x => x.Id).ToListAsync();
-        return new ResponseModel(production);
+        //var production = await _appDbContext.Production.OrderByDescending(x => x.Id).ToListAsync();
+        return new ResponseModel(null);
     }
 }

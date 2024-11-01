@@ -8,31 +8,20 @@ namespace eShopApi.Controllers
 {
     //[Authorize]
     [ApiController]
-    [Route("api/Line")]
-    public class LineController : ControllerBase
+    [Route("api/Product")]
+    public class ProductController : ControllerBase
     {
-        private readonly ILineService _LineService;
+        private readonly IProductService _productService;
     
-        public LineController(ILineService LineService)
+        public ProductController(IProductService productService)
         {
-            _LineService = LineService;
+            _productService = productService;
         }
     
         [HttpGet(nameof(GetAll))]
         public async Task<IActionResult> GetAll()
         {
-            var result = await _LineService.GetAll();
-            if (result is not null)
-            {
-                return Ok(result);
-            }
-            return BadRequest("No records found");
-        }
-
-        [HttpGet(nameof(GetAllFilter))]
-        public async Task<IActionResult> GetAllFilter()
-        {
-            var result = await _LineService.GetAllFilter();
+            var result = await _productService.GetAll();
             if (result is not null)
             {
                 return Ok(result);
@@ -43,7 +32,7 @@ namespace eShopApi.Controllers
         [HttpGet(nameof(GetById))]
         public async Task<IActionResult> GetById(int id)
         {
-            var result = await _LineService.GetById(id);
+            var result = await _productService.GetById(id);
             if (result is not null)
             {
                 return Ok(result);
@@ -52,21 +41,21 @@ namespace eShopApi.Controllers
         }
     
         [HttpPost(nameof(Add))]
-        public async Task<ActionResult<ResponseModel>> Add(LineDtoC dto)
+        public async Task<ActionResult<ResponseModel>> Add(ProductDtoC dto)
         { 
-            return await _LineService.Add(dto);
+            return await _productService.Add(dto);
         }
         
         [HttpPost(nameof(Update))]
-        public async Task<ActionResult<ResponseModel>> Update(LineDtoC dto)
+        public async Task<ActionResult<ResponseModel>> Update(ProductDtoC dto)
         { 
-            return await _LineService.Update(dto);
+            return await _productService.Update(dto);
         }
 
         [HttpDelete(nameof(Delete))]
         public async Task<ActionResult<ResponseModel>> Delete(int Id)
         {
-            var result = _LineService.Delete(Id);
+            var result = _productService.Delete(Id);
             if (result is not null)
             {
                 return Ok(result.Result);

@@ -8,13 +8,13 @@ using eShop.Domain.Interfaces;
 
 namespace eShop.Service.Contract
 {
-    public interface ICameraService
+    public interface IProductService
     {
         Task<ResponseModel> GetAll();
         Task<ResponseModel> GetById(int id);
         Task<ResponseModel> GetByLineId(int id);
-        Task<ResponseModel> Add(CameraDtoC dto);
-        Task<ResponseModel> Update(CameraDtoC dto);
+        Task<ResponseModel> Add(ProductDtoC dto);
+        Task<ResponseModel> Update(ProductDtoC dto);
         Task<ResponseModel> Delete(int id);
      }
 }

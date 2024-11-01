@@ -59,12 +59,11 @@ namespace eShop.Infrastructure.Extension
             serviceCollection.AddTransient<IDateTimeService, DateTimeService>();
             serviceCollection.AddTransient<IAccountService, AccountService>();
             serviceCollection.AddTransient<IRoleService, RoleService>();
-           
-            serviceCollection.AddTransient<ILineService, LineService>();
+
            
             serviceCollection.AddTransient<IDashboardService, DashboardService>();
            
-            serviceCollection.AddTransient<ICameraService, CameraService>();
+            serviceCollection.AddTransient<IProductService, ProductService>();
            
 
 

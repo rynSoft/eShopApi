@@ -21,9 +21,6 @@ namespace eShop.Persistence
         public DbSet<User> User { get; set; }
         public DbSet<IdentityRole<Guid>> Role { get; set; }
         public DbSet<RefreshToken> RefreshToken { get; set; }
-        public DbSet<Production> Production { get; set; }
-        public DbSet<Line> Line { get; set; }
-        public DbSet<Camera> Camera { get; set; }
 
         public DbSet<Product> Product { get; set; }
 

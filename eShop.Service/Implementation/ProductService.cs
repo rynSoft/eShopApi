@@ -12,13 +12,13 @@ using eShop.Service.Contract;
 
 namespace eShop.Service.Implementation;
 
-public class CameraService : ICameraService
+public class ProductService : IProductService
 {
-    private readonly IRepository<Camera> _repository;
+    private readonly IRepository<Product> _repository;
     private readonly IMapper _mapper;
     private readonly IAppDbContext _appDbContext;
     
-    public CameraService(IRepository<Camera> repository, 
+    public ProductService(IRepository<Product> repository, 
            IAppDbContext appDbContext,
            IMapper mapper)
     {
@@ -29,7 +29,8 @@ public class CameraService : ICameraService
     
     public async Task<ResponseModel> GetAll()
     {
-        return  new  ResponseModel(_mapper.Map<List<CameraDtoQ>>(await _appDbContext.Camera.OrderBy(x=>x.Id).ToListAsync()));
+       return  new  ResponseModel(_mapper.Map<List<ProductDtoQ>>(await _appDbContext.Product.OrderBy(x=>x.Id).ToListAsync()));
+
     }
     public async Task<ResponseModel> GetById(int id)
     {
@@ -40,21 +41,21 @@ public class CameraService : ICameraService
         return new ResponseModel(await _repository.GetWhereAsync(x=>x.Id ==id));
     }
 
-    public async Task<ResponseModel> Add(CameraDtoC dto)
+    public async Task<ResponseModel> Add(ProductDtoC dto)
     {  
-        var entity = _mapper.Map<Camera>(dto);
+        var entity = _mapper.Map<Product>(dto);
         return await _repository.AddAsync(entity);
     }
-    public async Task<ResponseModel> Update(CameraDtoC dto)
+    public async Task<ResponseModel> Update(ProductDtoC dto)
     {
-        var entity = _mapper.Map<Camera>(dto);
+        var entity = _mapper.Map<Product>(dto);
         return new ResponseModel((await _repository.UpdateAsync(entity)));
     }
 
     public async Task<ResponseModel> Delete(int id)
     {
-        Camera machina = await _repository.GetSingleAsync(x => x.Id == id);
-        return new ResponseModel((await _repository.DeleteAsync(machina)));
+        Product product = await _repository.GetSingleAsync(x => x.Id == id);
+        return new ResponseModel((await _repository.DeleteAsync(product)));
     }
 
 

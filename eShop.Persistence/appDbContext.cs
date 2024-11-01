@@ -39,12 +39,6 @@ namespace eShop.Persistence
         public DbSet<User> User { get; set; }
     
         public DbSet<RefreshToken> RefreshToken { get; set; }
-        public DbSet<Production> Production { get; set; }
-     
-        public DbSet<Line> Line { get; set; }
-      
-      
-        public DbSet<Camera> Camera { get; set; }
 
         public DbSet<Material> Material { get; set; }
       
@@ -109,7 +103,7 @@ namespace eShop.Persistence
             if (!optionsBuilder.IsConfigured)
             {
                 optionsBuilder
-                .UseNpgsql("User ID=postgres;Password=oXit23-24;Server=217.116.199.183;Port=5433;Database=eShop;Integrated Security=true;Pooling=true;", option => {
+                .UseNpgsql("User ID=postgres;Password=A192408a#;Server=85.214.12.11;Port=5432;Database=eShop;Pooling=true;", option => {
                 option.EnableRetryOnFailure();
                 });
             }

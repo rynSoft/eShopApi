@@ -14,28 +14,17 @@ namespace eShop.Infrastructure.Mapping
         public MappingProfile()
         {
 
-            #region Line
 
-            CreateMap<Line, LineDtoC>()
-                .ReverseMap();
-            CreateMap<LineDtoC, Line>()
-                .ReverseMap();
-            CreateMap<Line, LineDtoQ>()
-                .ReverseMap();
-            CreateMap<LineDtoQ, Line>()
-                .ReverseMap();
 
-            #endregion
+            #region Product
 
-            #region Camera
-
-            CreateMap<Camera, CameraDtoC>()
+            CreateMap<Product, ProductDtoC>()
                 .ReverseMap();
-            CreateMap<CameraDtoC, Camera>()
+            CreateMap<ProductDtoC, Product>()
                 .ReverseMap();
-            CreateMap<Camera, CameraDtoQ>()
+            CreateMap<Product, ProductDtoQ>()
                 .ReverseMap();
-            CreateMap<CameraDtoQ, Camera>()
+            CreateMap<ProductDtoQ, Product>()
                 .ReverseMap();
 
             #endregion

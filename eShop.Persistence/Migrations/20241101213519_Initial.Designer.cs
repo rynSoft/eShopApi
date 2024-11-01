@@ -2,6 +2,7 @@
 using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 using eShop.Persistence;
@@ -11,9 +12,11 @@ using eShop.Persistence;
 namespace eShop.Persistence.Migrations
 {
     [DbContext(typeof(appDbContext))]
-    partial class appDbContextModelSnapshot : ModelSnapshot
+    [Migration("20241101213519_Initial")]
+    partial class Initial
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -43,19 +46,19 @@ namespace eShop.Persistence.Migrations
                     b.HasData(
                         new
                         {
-                            Id = "349eab65-a508-40e8-9470-4378351b0e56",
+                            Id = "ccd8dac9-1d84-4ba2-ad73-0621b8ddd4ab",
                             Name = "sistemadmin",
                             NormalizedName = "SISTEMADMIN"
                         },
                         new
                         {
-                            Id = "93f15963-d79c-4df4-b231-4f530ada00c6",
+                            Id = "aea0cebf-e106-4de9-8b24-ff043e4b5b17",
                             Name = "admin",
                             NormalizedName = "ADMIN"
                         },
                         new
                         {
-                            Id = "80c08013-89a0-4eb7-bbc6-55e4257e9cc1",
+                            Id = "02a199d9-be66-4988-8eb3-37b9fe96a95d",
                             Name = "depo",
                             NormalizedName = "DEPO"
                         });
@@ -291,10 +294,10 @@ namespace eShop.Persistence.Migrations
                     b.HasData(
                         new
                         {
-                            Id = new Guid("441ec584-2937-416d-8d90-9af9f114d62d"),
+                            Id = new Guid("65217fea-4a15-4154-928b-4cbfef53f80d"),
                             AccessFailedCount = 0,
                             Ad = "Hakan",
-                            ConcurrencyStamp = "6fc65e08-2445-4706-82c3-022d5a6f39f6",
+                            ConcurrencyStamp = "f07e197a-c71f-4e42-a5a1-29ec44dec85f",
                             Email = "hakan@.com",
                             EmailConfirmed = false,
                             Eposta = "hakan@.com",
@@ -310,10 +313,10 @@ namespace eShop.Persistence.Migrations
                         },
                         new
                         {
-                            Id = new Guid("8e2de0b0-90b4-49f5-9562-429d53d22616"),
+                            Id = new Guid("48af3a8e-cb3d-49a0-8bba-97580c8df050"),
                             AccessFailedCount = 0,
                             Ad = "Tolga",
-                            ConcurrencyStamp = "16e0bf01-c1a8-4572-9863-357c22ea5bfe",
+                            ConcurrencyStamp = "152ab07c-29b2-496f-b6ec-2300c35c725a",
                             Email = "tolga@.com",
                             EmailConfirmed = true,
                             Eposta = "tolga@.com",
@@ -329,10 +332,10 @@ namespace eShop.Persistence.Migrations
                         },
                         new
                         {
-                            Id = new Guid("4ef493a9-0508-464f-8558-ea71535eef03"),
+                            Id = new Guid("8e2ed5bf-afc4-4b75-8116-b2419b373a5e"),
                             AccessFailedCount = 0,
                             Ad = "Salih",
-                            ConcurrencyStamp = "03fdc75c-7b75-488f-982a-57c8f2c34516",
+                            ConcurrencyStamp = "56695399-1ef2-4f0c-bc25-d80965f5f741",
                             Email = "salih@.com",
                             EmailConfirmed = true,
                             Eposta = "salih@.com",
@@ -348,10 +351,10 @@ namespace eShop.Persistence.Migrations
                         },
                         new
                         {
-                            Id = new Guid("46bc1227-98fb-4022-aeae-4a9a767c95d6"),
+                            Id = new Guid("cfd11b99-dde3-474a-aad0-cd2015f9d747"),
                             AccessFailedCount = 0,
                             Ad = "Cagan",
-                            ConcurrencyStamp = "0a248121-6b6e-4f5a-a179-d5200b978941",
+                            ConcurrencyStamp = "cf4981d2-2f0b-4189-b0bf-c8133155e012",
                             Email = "cagan@.com",
                             EmailConfirmed = true,
                             Eposta = "cagan@.com",
@@ -367,10 +370,10 @@ namespace eShop.Persistence.Migrations
                         },
                         new
                         {
-                            Id = new Guid("2ddbf7ea-6498-44b8-9bd7-b0c94b8ff0bd"),
+                            Id = new Guid("5a77d16f-7897-47c3-bf75-608b28649d2a"),
                             AccessFailedCount = 0,
                             Ad = "eShop",
-                            ConcurrencyStamp = "ae5bc797-c38d-41ad-9e2c-a401b55e4975",
+                            ConcurrencyStamp = "2f2ec740-5fdd-4fe8-981f-f1e3f84e8324",
                             Email = "eShop@sentytech.com",
                             EmailConfirmed = true,
                             Eposta = "eShop@sentytech.com",
@@ -504,7 +507,7 @@ namespace eShop.Persistence.Migrations
                         {
                             Id = 1,
                             Active = true,
-                            CreateDate = new DateTimeOffset(new DateTime(2024, 11, 2, 0, 41, 50, 212, DateTimeKind.Unspecified).AddTicks(9526), new TimeSpan(0, 3, 0, 0, 0)),
+                            CreateDate = new DateTimeOffset(new DateTime(2024, 11, 2, 0, 35, 18, 870, DateTimeKind.Unspecified).AddTicks(3164), new TimeSpan(0, 3, 0, 0, 0)),
                             Icon = "pi pi-fw pi-globe",
                             IsDeleted = false,
                             Label = "Panel",
@@ -514,7 +517,7 @@ namespace eShop.Persistence.Migrations
                         {
                             Id = 2,
                             Active = true,
-                            CreateDate = new DateTimeOffset(new DateTime(2024, 11, 2, 0, 41, 50, 212, DateTimeKind.Unspecified).AddTicks(9568), new TimeSpan(0, 3, 0, 0, 0)),
+                            CreateDate = new DateTimeOffset(new DateTime(2024, 11, 2, 0, 35, 18, 870, DateTimeKind.Unspecified).AddTicks(3208), new TimeSpan(0, 3, 0, 0, 0)),
                             Icon = "fa fa-gavel",
                             IsDeleted = false,
                             Label = "Kullanıcı",
@@ -524,7 +527,7 @@ namespace eShop.Persistence.Migrations
                         {
                             Id = 3,
                             Active = true,
-                            CreateDate = new DateTimeOffset(new DateTime(2024, 11, 2, 0, 41, 50, 212, DateTimeKind.Unspecified).AddTicks(9570), new TimeSpan(0, 3, 0, 0, 0)),
+                            CreateDate = new DateTimeOffset(new DateTime(2024, 11, 2, 0, 35, 18, 870, DateTimeKind.Unspecified).AddTicks(3211), new TimeSpan(0, 3, 0, 0, 0)),
                             Icon = "fa fa-balance-scale",
                             IsDeleted = false,
                             Label = "Kullanıcı Grup",
@@ -534,7 +537,7 @@ namespace eShop.Persistence.Migrations
                         {
                             Id = 5,
                             Active = true,
-                            CreateDate = new DateTimeOffset(new DateTime(2024, 11, 2, 0, 41, 50, 212, DateTimeKind.Unspecified).AddTicks(9573), new TimeSpan(0, 3, 0, 0, 0)),
+                            CreateDate = new DateTimeOffset(new DateTime(2024, 11, 2, 0, 35, 18, 870, DateTimeKind.Unspecified).AddTicks(3213), new TimeSpan(0, 3, 0, 0, 0)),
                             Icon = "pi pi-fw pi-id-card",
                             IsDeleted = false,
                             Label = "Tanımlar",
@@ -626,7 +629,7 @@ namespace eShop.Persistence.Migrations
                         {
                             Id = 1,
                             Active = true,
-                            CreateDate = new DateTimeOffset(new DateTime(2024, 11, 2, 0, 41, 50, 212, DateTimeKind.Unspecified).AddTicks(9857), new TimeSpan(0, 3, 0, 0, 0)),
+                            CreateDate = new DateTimeOffset(new DateTime(2024, 11, 2, 0, 35, 18, 870, DateTimeKind.Unspecified).AddTicks(3479), new TimeSpan(0, 3, 0, 0, 0)),
                             IsDeleted = false,
                             Name = "Permissions.Genel.All"
                         },
@@ -634,7 +637,7 @@ namespace eShop.Persistence.Migrations
                         {
                             Id = 2,
                             Active = true,
-                            CreateDate = new DateTimeOffset(new DateTime(2024, 11, 2, 0, 41, 50, 213, DateTimeKind.Unspecified).AddTicks(208), new TimeSpan(0, 3, 0, 0, 0)),
+                            CreateDate = new DateTimeOffset(new DateTime(2024, 11, 2, 0, 35, 18, 870, DateTimeKind.Unspecified).AddTicks(3793), new TimeSpan(0, 3, 0, 0, 0)),
                             IsDeleted = false,
                             Name = "Üretim Bandı"
                         },
@@ -642,7 +645,7 @@ namespace eShop.Persistence.Migrations
                         {
                             Id = 3,
                             Active = true,
-                            CreateDate = new DateTimeOffset(new DateTime(2024, 11, 2, 0, 41, 50, 213, DateTimeKind.Unspecified).AddTicks(546), new TimeSpan(0, 3, 0, 0, 0)),
+                            CreateDate = new DateTimeOffset(new DateTime(2024, 11, 2, 0, 35, 18, 870, DateTimeKind.Unspecified).AddTicks(4047), new TimeSpan(0, 3, 0, 0, 0)),
                             IsDeleted = false,
                             Name = "Etiketleme"
                         },
@@ -650,7 +653,7 @@ namespace eShop.Persistence.Migrations
                         {
                             Id = 4,
                             Active = true,
-                            CreateDate = new DateTimeOffset(new DateTime(2024, 11, 2, 0, 41, 50, 213, DateTimeKind.Unspecified).AddTicks(859), new TimeSpan(0, 3, 0, 0, 0)),
+                            CreateDate = new DateTimeOffset(new DateTime(2024, 11, 2, 0, 35, 18, 870, DateTimeKind.Unspecified).AddTicks(4300), new TimeSpan(0, 3, 0, 0, 0)),
                             IsDeleted = false,
                             Name = "Display Montajı"
                         },
@@ -658,7 +661,7 @@ namespace eShop.Persistence.Migrations
                         {
                             Id = 5,
                             Active = true,
-                            CreateDate = new DateTimeOffset(new DateTime(2024, 11, 2, 0, 41, 50, 213, DateTimeKind.Unspecified).AddTicks(1159), new TimeSpan(0, 3, 0, 0, 0)),
+                            CreateDate = new DateTimeOffset(new DateTime(2024, 11, 2, 0, 35, 18, 870, DateTimeKind.Unspecified).AddTicks(4537), new TimeSpan(0, 3, 0, 0, 0)),
                             IsDeleted = false,
                             Name = "Programlama"
                         },
@@ -666,7 +669,7 @@ namespace eShop.Persistence.Migrations
                         {
                             Id = 6,
                             Active = true,
-                            CreateDate = new DateTimeOffset(new DateTime(2024, 11, 2, 0, 41, 50, 213, DateTimeKind.Unspecified).AddTicks(2117), new TimeSpan(0, 3, 0, 0, 0)),
+                            CreateDate = new DateTimeOffset(new DateTime(2024, 11, 2, 0, 35, 18, 870, DateTimeKind.Unspecified).AddTicks(4821), new TimeSpan(0, 3, 0, 0, 0)),
                             IsDeleted = false,
                             Name = "Panelden Ayırma"
                         },
@@ -674,7 +677,7 @@ namespace eShop.Persistence.Migrations
                         {
                             Id = 7,
                             Active = true,
-                            CreateDate = new DateTimeOffset(new DateTime(2024, 11, 2, 0, 41, 50, 213, DateTimeKind.Unspecified).AddTicks(2466), new TimeSpan(0, 3, 0, 0, 0)),
+                            CreateDate = new DateTimeOffset(new DateTime(2024, 11, 2, 0, 35, 18, 870, DateTimeKind.Unspecified).AddTicks(5091), new TimeSpan(0, 3, 0, 0, 0)),
                             IsDeleted = false,
                             Name = "Test"
                         },
@@ -682,7 +685,7 @@ namespace eShop.Persistence.Migrations
                         {
                             Id = 8,
                             Active = true,
-                            CreateDate = new DateTimeOffset(new DateTime(2024, 11, 2, 0, 41, 50, 213, DateTimeKind.Unspecified).AddTicks(2781), new TimeSpan(0, 3, 0, 0, 0)),
+                            CreateDate = new DateTimeOffset(new DateTime(2024, 11, 2, 0, 35, 18, 870, DateTimeKind.Unspecified).AddTicks(5343), new TimeSpan(0, 3, 0, 0, 0)),
                             IsDeleted = false,
                             Name = "Kalite Süreçler"
                         },
@@ -690,7 +693,7 @@ namespace eShop.Persistence.Migrations
                         {
                             Id = 9,
                             Active = true,
-                            CreateDate = new DateTimeOffset(new DateTime(2024, 11, 2, 0, 41, 50, 213, DateTimeKind.Unspecified).AddTicks(3079), new TimeSpan(0, 3, 0, 0, 0)),
+                            CreateDate = new DateTimeOffset(new DateTime(2024, 11, 2, 0, 35, 18, 870, DateTimeKind.Unspecified).AddTicks(5632), new TimeSpan(0, 3, 0, 0, 0)),
                             IsDeleted = false,
                             Name = "Kalite Onaylar"
                         },
@@ -698,7 +701,7 @@ namespace eShop.Persistence.Migrations
                         {
                             Id = 10,
                             Active = true,
-                            CreateDate = new DateTimeOffset(new DateTime(2024, 11, 2, 0, 41, 50, 213, DateTimeKind.Unspecified).AddTicks(3365), new TimeSpan(0, 3, 0, 0, 0)),
+                            CreateDate = new DateTimeOffset(new DateTime(2024, 11, 2, 0, 35, 18, 870, DateTimeKind.Unspecified).AddTicks(5888), new TimeSpan(0, 3, 0, 0, 0)),
                             IsDeleted = false,
                             Name = "Kalite Operasyonlar"
                         },
@@ -706,7 +709,7 @@ namespace eShop.Persistence.Migrations
                         {
                             Id = 11,
                             Active = true,
-                            CreateDate = new DateTimeOffset(new DateTime(2024, 11, 2, 0, 41, 50, 213, DateTimeKind.Unspecified).AddTicks(3747), new TimeSpan(0, 3, 0, 0, 0)),
+                            CreateDate = new DateTimeOffset(new DateTime(2024, 11, 2, 0, 35, 18, 870, DateTimeKind.Unspecified).AddTicks(6185), new TimeSpan(0, 3, 0, 0, 0)),
                             IsDeleted = false,
                             Name = "Depo Tanımları"
                         },
@@ -714,7 +717,7 @@ namespace eShop.Persistence.Migrations
                         {
                             Id = 12,
                             Active = true,
-                            CreateDate = new DateTimeOffset(new DateTime(2024, 11, 2, 0, 41, 50, 213, DateTimeKind.Unspecified).AddTicks(4046), new TimeSpan(0, 3, 0, 0, 0)),
+                            CreateDate = new DateTimeOffset(new DateTime(2024, 11, 2, 0, 35, 18, 870, DateTimeKind.Unspecified).AddTicks(6424), new TimeSpan(0, 3, 0, 0, 0)),
                             IsDeleted = false,
                             Name = "Hat Tanımları"
                         },
@@ -722,7 +725,7 @@ namespace eShop.Persistence.Migrations
                         {
                             Id = 13,
                             Active = true,
-                            CreateDate = new DateTimeOffset(new DateTime(2024, 11, 2, 0, 41, 50, 213, DateTimeKind.Unspecified).AddTicks(4342), new TimeSpan(0, 3, 0, 0, 0)),
+                            CreateDate = new DateTimeOffset(new DateTime(2024, 11, 2, 0, 35, 18, 870, DateTimeKind.Unspecified).AddTicks(6723), new TimeSpan(0, 3, 0, 0, 0)),
                             IsDeleted = false,
                             Name = "Makine Tanımları"
                         },
@@ -730,7 +733,7 @@ namespace eShop.Persistence.Migrations
                         {
                             Id = 14,
                             Active = true,
-                            CreateDate = new DateTimeOffset(new DateTime(2024, 11, 2, 0, 41, 50, 213, DateTimeKind.Unspecified).AddTicks(4641), new TimeSpan(0, 3, 0, 0, 0)),
+                            CreateDate = new DateTimeOffset(new DateTime(2024, 11, 2, 0, 35, 18, 870, DateTimeKind.Unspecified).AddTicks(6993), new TimeSpan(0, 3, 0, 0, 0)),
                             IsDeleted = false,
                             Name = "Vardiya Tanımları"
                         },
@@ -738,7 +741,7 @@ namespace eShop.Persistence.Migrations
                         {
                             Id = 15,
                             Active = true,
-                            CreateDate = new DateTimeOffset(new DateTime(2024, 11, 2, 0, 41, 50, 213, DateTimeKind.Unspecified).AddTicks(4940), new TimeSpan(0, 3, 0, 0, 0)),
+                            CreateDate = new DateTimeOffset(new DateTime(2024, 11, 2, 0, 35, 18, 870, DateTimeKind.Unspecified).AddTicks(7265), new TimeSpan(0, 3, 0, 0, 0)),
                             IsDeleted = false,
                             Name = "Oee Gösterim"
                         },
@@ -746,7 +749,7 @@ namespace eShop.Persistence.Migrations
                         {
                             Id = 16,
                             Active = true,
-                            CreateDate = new DateTimeOffset(new DateTime(2024, 11, 2, 0, 41, 50, 213, DateTimeKind.Unspecified).AddTicks(5236), new TimeSpan(0, 3, 0, 0, 0)),
+                            CreateDate = new DateTimeOffset(new DateTime(2024, 11, 2, 0, 35, 18, 870, DateTimeKind.Unspecified).AddTicks(7522), new TimeSpan(0, 3, 0, 0, 0)),
                             IsDeleted = false,
                             Name = "Vardiya - Hat Hedef Miktar Tanımları"
                         },
@@ -754,7 +757,7 @@ namespace eShop.Persistence.Migrations
                         {
                             Id = 17,
                             Active = true,
-                            CreateDate = new DateTimeOffset(new DateTime(2024, 11, 2, 0, 41, 50, 213, DateTimeKind.Unspecified).AddTicks(5520), new TimeSpan(0, 3, 0, 0, 0)),
+                            CreateDate = new DateTimeOffset(new DateTime(2024, 11, 2, 0, 35, 18, 870, DateTimeKind.Unspecified).AddTicks(7773), new TimeSpan(0, 3, 0, 0, 0)),
                             IsDeleted = false,
                             Name = "Mola Tanımları"
                         },
@@ -762,7 +765,7 @@ namespace eShop.Persistence.Migrations
                         {
                             Id = 18,
                             Active = true,
-                            CreateDate = new DateTimeOffset(new DateTime(2024, 11, 2, 0, 41, 50, 213, DateTimeKind.Unspecified).AddTicks(5841), new TimeSpan(0, 3, 0, 0, 0)),
+                            CreateDate = new DateTimeOffset(new DateTime(2024, 11, 2, 0, 35, 18, 870, DateTimeKind.Unspecified).AddTicks(8027), new TimeSpan(0, 3, 0, 0, 0)),
                             IsDeleted = false,
                             Name = "Tamamlanan Kalite Operasyonları"
                         },
@@ -770,7 +773,7 @@ namespace eShop.Persistence.Migrations
                         {
                             Id = 19,
                             Active = true,
-                            CreateDate = new DateTimeOffset(new DateTime(2024, 11, 2, 0, 41, 50, 213, DateTimeKind.Unspecified).AddTicks(6155), new TimeSpan(0, 3, 0, 0, 0)),
+                            CreateDate = new DateTimeOffset(new DateTime(2024, 11, 2, 0, 35, 18, 870, DateTimeKind.Unspecified).AddTicks(8277), new TimeSpan(0, 3, 0, 0, 0)),
                             IsDeleted = false,
                             Name = "Üretim Planlama"
                         },
@@ -778,7 +781,7 @@ namespace eShop.Persistence.Migrations
                         {
                             Id = 20,
                             Active = true,
-                            CreateDate = new DateTimeOffset(new DateTime(2024, 11, 2, 0, 41, 50, 213, DateTimeKind.Unspecified).AddTicks(6491), new TimeSpan(0, 3, 0, 0, 0)),
+                            CreateDate = new DateTimeOffset(new DateTime(2024, 11, 2, 0, 35, 18, 870, DateTimeKind.Unspecified).AddTicks(8684), new TimeSpan(0, 3, 0, 0, 0)),
                             IsDeleted = false,
                             Name = "Üretim Planlama Görüntüle"
                         },
@@ -786,7 +789,7 @@ namespace eShop.Persistence.Migrations
                         {
                             Id = 21,
                             Active = true,
-                            CreateDate = new DateTimeOffset(new DateTime(2024, 11, 2, 0, 41, 50, 213, DateTimeKind.Unspecified).AddTicks(6833), new TimeSpan(0, 3, 0, 0, 0)),
+                            CreateDate = new DateTimeOffset(new DateTime(2024, 11, 2, 0, 35, 18, 870, DateTimeKind.Unspecified).AddTicks(8968), new TimeSpan(0, 3, 0, 0, 0)),
                             IsDeleted = false,
                             Name = "Üretim Planlama Kaydet"
                         },
@@ -794,7 +797,7 @@ namespace eShop.Persistence.Migrations
                         {
                             Id = 22,
                             Active = true,
-                            CreateDate = new DateTimeOffset(new DateTime(2024, 11, 2, 0, 41, 50, 213, DateTimeKind.Unspecified).AddTicks(7153), new TimeSpan(0, 3, 0, 0, 0)),
+                            CreateDate = new DateTimeOffset(new DateTime(2024, 11, 2, 0, 35, 18, 870, DateTimeKind.Unspecified).AddTicks(9228), new TimeSpan(0, 3, 0, 0, 0)),
                             IsDeleted = false,
                             Name = "Üretim Planlama Sil"
                         },
@@ -802,7 +805,7 @@ namespace eShop.Persistence.Migrations
                         {
                             Id = 23,
                             Active = true,
-                            CreateDate = new DateTimeOffset(new DateTime(2024, 11, 2, 0, 41, 50, 213, DateTimeKind.Unspecified).AddTicks(7447), new TimeSpan(0, 3, 0, 0, 0)),
+                            CreateDate = new DateTimeOffset(new DateTime(2024, 11, 2, 0, 35, 18, 870, DateTimeKind.Unspecified).AddTicks(9547), new TimeSpan(0, 3, 0, 0, 0)),
                             IsDeleted = false,
                             Name = "Kit Hazırlama"
                         },
@@ -810,7 +813,7 @@ namespace eShop.Persistence.Migrations
                         {
                             Id = 24,
                             Active = true,
-                            CreateDate = new DateTimeOffset(new DateTime(2024, 11, 2, 0, 41, 50, 213, DateTimeKind.Unspecified).AddTicks(7745), new TimeSpan(0, 3, 0, 0, 0)),
+                            CreateDate = new DateTimeOffset(new DateTime(2024, 11, 2, 0, 35, 18, 870, DateTimeKind.Unspecified).AddTicks(9838), new TimeSpan(0, 3, 0, 0, 0)),
                             IsDeleted = false,
                             Name = "Kit Doğrulama"
                         },
@@ -818,7 +821,7 @@ namespace eShop.Persistence.Migrations
                         {
                             Id = 25,
                             Active = true,
-                            CreateDate = new DateTimeOffset(new DateTime(2024, 11, 2, 0, 41, 50, 213, DateTimeKind.Unspecified).AddTicks(8041), new TimeSpan(0, 3, 0, 0, 0)),
+                            CreateDate = new DateTimeOffset(new DateTime(2024, 11, 2, 0, 35, 18, 871, DateTimeKind.Unspecified).AddTicks(227), new TimeSpan(0, 3, 0, 0, 0)),
                             IsDeleted = false,
                             Name = "Setup Verification"
                         },
@@ -826,7 +829,7 @@ namespace eShop.Persistence.Migrations
                         {
                             Id = 26,
                             Active = true,
-                            CreateDate = new DateTimeOffset(new DateTime(2024, 11, 2, 0, 41, 50, 213, DateTimeKind.Unspecified).AddTicks(8337), new TimeSpan(0, 3, 0, 0, 0)),
+                            CreateDate = new DateTimeOffset(new DateTime(2024, 11, 2, 0, 35, 18, 871, DateTimeKind.Unspecified).AddTicks(516), new TimeSpan(0, 3, 0, 0, 0)),
                             IsDeleted = false,
                             Name = "Ayarlar"
                         },
@@ -834,7 +837,7 @@ namespace eShop.Persistence.Migrations
                         {
                             Id = 27,
                             Active = true,
-                            CreateDate = new DateTimeOffset(new DateTime(2024, 11, 2, 0, 41, 50, 213, DateTimeKind.Unspecified).AddTicks(8632), new TimeSpan(0, 3, 0, 0, 0)),
+                            CreateDate = new DateTimeOffset(new DateTime(2024, 11, 2, 0, 35, 18, 871, DateTimeKind.Unspecified).AddTicks(906), new TimeSpan(0, 3, 0, 0, 0)),
                             IsDeleted = false,
                             Name = "Credential"
                         },
@@ -842,7 +845,7 @@ namespace eShop.Persistence.Migrations
                         {
                             Id = 28,
                             Active = true,
-                            CreateDate = new DateTimeOffset(new DateTime(2024, 11, 2, 0, 41, 50, 213, DateTimeKind.Unspecified).AddTicks(8914), new TimeSpan(0, 3, 0, 0, 0)),
+                            CreateDate = new DateTimeOffset(new DateTime(2024, 11, 2, 0, 35, 18, 871, DateTimeKind.Unspecified).AddTicks(1374), new TimeSpan(0, 3, 0, 0, 0)),
                             IsDeleted = false,
                             Name = "Kalite"
                         },
@@ -850,7 +853,7 @@ namespace eShop.Persistence.Migrations
                         {
                             Id = 29,
                             Active = true,
-                            CreateDate = new DateTimeOffset(new DateTime(2024, 11, 2, 0, 41, 50, 213, DateTimeKind.Unspecified).AddTicks(9285), new TimeSpan(0, 3, 0, 0, 0)),
+                            CreateDate = new DateTimeOffset(new DateTime(2024, 11, 2, 0, 35, 18, 871, DateTimeKind.Unspecified).AddTicks(1766), new TimeSpan(0, 3, 0, 0, 0)),
                             IsDeleted = false,
                             Name = "Dashboard"
                         },
@@ -858,7 +861,7 @@ namespace eShop.Persistence.Migrations
                         {
                             Id = 30,
                             Active = true,
-                            CreateDate = new DateTimeOffset(new DateTime(2024, 11, 2, 0, 41, 50, 213, DateTimeKind.Unspecified).AddTicks(9583), new TimeSpan(0, 3, 0, 0, 0)),
+                            CreateDate = new DateTimeOffset(new DateTime(2024, 11, 2, 0, 35, 18, 871, DateTimeKind.Unspecified).AddTicks(2087), new TimeSpan(0, 3, 0, 0, 0)),
                             IsDeleted = false,
                             Name = "Rol Görüntüle"
                         },
@@ -866,7 +869,7 @@ namespace eShop.Persistence.Migrations
                         {
                             Id = 31,
                             Active = true,
-                            CreateDate = new DateTimeOffset(new DateTime(2024, 11, 2, 0, 41, 50, 213, DateTimeKind.Unspecified).AddTicks(9881), new TimeSpan(0, 3, 0, 0, 0)),
+                            CreateDate = new DateTimeOffset(new DateTime(2024, 11, 2, 0, 35, 18, 871, DateTimeKind.Unspecified).AddTicks(2507), new TimeSpan(0, 3, 0, 0, 0)),
                             IsDeleted = false,
                             Name = "Rol Kaydet"
                         },
@@ -874,7 +877,7 @@ namespace eShop.Persistence.Migrations
                         {
                             Id = 32,
                             Active = true,
-                            CreateDate = new DateTimeOffset(new DateTime(2024, 11, 2, 0, 41, 50, 214, DateTimeKind.Unspecified).AddTicks(178), new TimeSpan(0, 3, 0, 0, 0)),
+                            CreateDate = new DateTimeOffset(new DateTime(2024, 11, 2, 0, 35, 18, 871, DateTimeKind.Unspecified).AddTicks(2886), new TimeSpan(0, 3, 0, 0, 0)),
                             IsDeleted = false,
                             Name = "Rol Sil"
                         },
@@ -882,7 +885,7 @@ namespace eShop.Persistence.Migrations
                         {
                             Id = 33,
                             Active = true,
-                            CreateDate = new DateTimeOffset(new DateTime(2024, 11, 2, 0, 41, 50, 214, DateTimeKind.Unspecified).AddTicks(476), new TimeSpan(0, 3, 0, 0, 0)),
+                            CreateDate = new DateTimeOffset(new DateTime(2024, 11, 2, 0, 35, 18, 871, DateTimeKind.Unspecified).AddTicks(3164), new TimeSpan(0, 3, 0, 0, 0)),
                             IsDeleted = false,
                             Name = "Kullanıcı Görüntüle"
                         },
@@ -890,7 +893,7 @@ namespace eShop.Persistence.Migrations
                         {
                             Id = 34,
                             Active = true,
-                            CreateDate = new DateTimeOffset(new DateTime(2024, 11, 2, 0, 41, 50, 214, DateTimeKind.Unspecified).AddTicks(776), new TimeSpan(0, 3, 0, 0, 0)),
+                            CreateDate = new DateTimeOffset(new DateTime(2024, 11, 2, 0, 35, 18, 871, DateTimeKind.Unspecified).AddTicks(3439), new TimeSpan(0, 3, 0, 0, 0)),
                             IsDeleted = false,
                             Name = "Kullanıcı Kaydet"
                         },
@@ -898,7 +901,7 @@ namespace eShop.Persistence.Migrations
                         {
                             Id = 35,
                             Active = true,
-                            CreateDate = new DateTimeOffset(new DateTime(2024, 11, 2, 0, 41, 50, 214, DateTimeKind.Unspecified).AddTicks(1060), new TimeSpan(0, 3, 0, 0, 0)),
+                            CreateDate = new DateTimeOffset(new DateTime(2024, 11, 2, 0, 35, 18, 871, DateTimeKind.Unspecified).AddTicks(3696), new TimeSpan(0, 3, 0, 0, 0)),
                             IsDeleted = false,
                             Name = "Kullanıcı Sil"
                         },
@@ -906,7 +909,7 @@ namespace eShop.Persistence.Migrations
                         {
                             Id = 36,
                             Active = true,
-                            CreateDate = new DateTimeOffset(new DateTime(2024, 11, 2, 0, 41, 50, 214, DateTimeKind.Unspecified).AddTicks(1405), new TimeSpan(0, 3, 0, 0, 0)),
+                            CreateDate = new DateTimeOffset(new DateTime(2024, 11, 2, 0, 35, 18, 871, DateTimeKind.Unspecified).AddTicks(3953), new TimeSpan(0, 3, 0, 0, 0)),
                             IsDeleted = false,
                             Name = "KullaniciGrup All"
                         },
@@ -914,7 +917,7 @@ namespace eShop.Persistence.Migrations
                         {
                             Id = 37,
                             Active = true,
-                            CreateDate = new DateTimeOffset(new DateTime(2024, 11, 2, 0, 41, 50, 214, DateTimeKind.Unspecified).AddTicks(1719), new TimeSpan(0, 3, 0, 0, 0)),
+                            CreateDate = new DateTimeOffset(new DateTime(2024, 11, 2, 0, 35, 18, 871, DateTimeKind.Unspecified).AddTicks(4200), new TimeSpan(0, 3, 0, 0, 0)),
                             IsDeleted = false,
                             Name = "LogAll"
                         });
