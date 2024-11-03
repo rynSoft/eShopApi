@@ -25,7 +25,7 @@ namespace eShop.Persistence
         private readonly IHttpContextAccessor _httpContextAccessor;
         public appDbContext(DbContextOptions<appDbContext> options, IHttpContextAccessor httpcontextaccessor) : base(options)
         {
-            ChangeTracker.QueryTrackingBehavior = QueryTrackingBehavior.NoTracking;
+             ChangeTracker.QueryTrackingBehavior = QueryTrackingBehavior.NoTracking;
             _httpContextAccessor = httpcontextaccessor;
         }
 
@@ -48,8 +48,6 @@ namespace eShop.Persistence
       
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            base.OnModelCreating(modelBuilder);
-
             #region Identity
             modelBuilder.Entity<IdentityUserToken<Guid>>(x =>
             {
@@ -82,6 +80,7 @@ namespace eShop.Persistence
             modelBuilder.Entity<IdentityRole<Guid>>(entity =>
             {
                 entity.ToTable(name: "Role");
+              
             });
             #endregion
 

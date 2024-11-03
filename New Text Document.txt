@@ -1,0 +1,64 @@
+
+ --------------------
+ docker 
+ 
+-backend
+
+- visual studio developr console . 
+    docker build -t eshop-be .
+
+
+
+- windowsta ki image tar a cevirmek.
+    docker save -o C:\bin\image\eshopapi.tar eshop-be
+
+
+- windowsdan oluşan tar dosyasını linux makıneye kopyala;
+    scp C:\bin\image\eshop-be.tar root@84.252.81.174:/root
+
+
+- linuxTe imagei load ediyoruz
+    docker load -i eshopa-be.tar
+	
+- linuxte run ediyoruz imagi (containere çeviriyoruz)
+      docker run -d -p 5029:8080 eshop-be	
+-----------------------
+-----------------------
+
+-frontend
+
+- visual studio developr console . 
+    - docker build -t eshop-fe .
+	$env:NODE_ENV="production"
+	docker build -t eshop${NODE_ENV}-fe .  --build-arg NODE_ENV=${NODE_ENV} --no-cache
+
+
+- windowsta ki image tar a cevirmek.
+    docker save -o C:\bin\image\eshop-fe.tar eshop-fe
+
+- windowsdan oluşan tar dosyasını linux makıneye kopyala;
+    scp C:\bin\image\eshop-fe.tar root@84.252.81.174:/root
+
+- linuxTe imagei load ediyoruz
+    docker load -i eshop-fe.tar
+	
+- linuxte run ediyoruz imagi (containere çeviriyoruz)
+      docker run -d -p 80:80 eshop-fe	
+
+-----------------------
+
+docker build -t eshop${NODE_ENV}-fe .  --build-arg NODE_ENV=${NODE_ENV} --no-cache
+
+http://localhost:5000/swagger/index.html
+
+
+{
+  "roleId": "b06b2ace-58d1-434b-9ed6-9be0c57863e6",
+  "ad": "Yusuf",
+  "soyad": "Patat",
+  "email": "yusuf@patat.com",
+  "telefonGSM": "55",
+  "userName": "yusufPatat",
+  "password": "A192408a#",
+  "confirmPassword": "A192408a#"
+}

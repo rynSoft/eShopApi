@@ -9,7 +9,7 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace eShop.Persistence.Migrations
 {
     /// <inheritdoc />
-    public partial class Initial : Migration
+    public partial class migInitial : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -322,9 +322,9 @@ namespace eShop.Persistence.Migrations
                 columns: new[] { "Id", "ConcurrencyStamp", "Name", "NormalizedName" },
                 values: new object[,]
                 {
-                    { "02a199d9-be66-4988-8eb3-37b9fe96a95d", null, "depo", "DEPO" },
-                    { "aea0cebf-e106-4de9-8b24-ff043e4b5b17", null, "admin", "ADMIN" },
-                    { "ccd8dac9-1d84-4ba2-ad73-0621b8ddd4ab", null, "sistemadmin", "SISTEMADMIN" }
+                    { "4644969b-9b6e-40bc-bc5e-69c67fc1352b", null, "depo", "DEPO" },
+                    { "b06b2ace-58d1-434b-9ed6-9be0c57863e6", null, "sistemadmin", "SISTEMADMIN" },
+                    { "be654eda-bfa7-4872-84cd-7e5359fb1ee9", null, "admin", "ADMIN" }
                 });
 
             migrationBuilder.InsertData(
@@ -332,10 +332,10 @@ namespace eShop.Persistence.Migrations
                 columns: new[] { "Id", "Active", "CreateDate", "CreatorId", "EditDate", "EditorId", "Icon", "IsDeleted", "Label", "ParentMenuId", "RouteLink" },
                 values: new object[,]
                 {
-                    { 1, true, new DateTimeOffset(new DateTime(2024, 11, 2, 0, 35, 18, 870, DateTimeKind.Unspecified).AddTicks(3164), new TimeSpan(0, 3, 0, 0, 0)), null, null, null, "pi pi-fw pi-globe", false, "Panel", null, "/" },
-                    { 2, true, new DateTimeOffset(new DateTime(2024, 11, 2, 0, 35, 18, 870, DateTimeKind.Unspecified).AddTicks(3208), new TimeSpan(0, 3, 0, 0, 0)), null, null, null, "fa fa-gavel", false, "Kullanıcı", null, "/kullanıcı" },
-                    { 3, true, new DateTimeOffset(new DateTime(2024, 11, 2, 0, 35, 18, 870, DateTimeKind.Unspecified).AddTicks(3211), new TimeSpan(0, 3, 0, 0, 0)), null, null, null, "fa fa-balance-scale", false, "Kullanıcı Grup", null, "/kullanicigrup" },
-                    { 5, true, new DateTimeOffset(new DateTime(2024, 11, 2, 0, 35, 18, 870, DateTimeKind.Unspecified).AddTicks(3213), new TimeSpan(0, 3, 0, 0, 0)), null, null, null, "pi pi-fw pi-id-card", false, "Tanımlar", null, "/tanimlar" }
+                    { 1, true, new DateTimeOffset(new DateTime(2024, 11, 2, 12, 47, 57, 759, DateTimeKind.Unspecified).AddTicks(6134), new TimeSpan(0, 3, 0, 0, 0)), null, null, null, "pi pi-fw pi-globe", false, "Panel", null, "/" },
+                    { 2, true, new DateTimeOffset(new DateTime(2024, 11, 2, 12, 47, 57, 759, DateTimeKind.Unspecified).AddTicks(6183), new TimeSpan(0, 3, 0, 0, 0)), null, null, null, "fa fa-gavel", false, "Kullanıcı", null, "/kullanıcı" },
+                    { 3, true, new DateTimeOffset(new DateTime(2024, 11, 2, 12, 47, 57, 759, DateTimeKind.Unspecified).AddTicks(6186), new TimeSpan(0, 3, 0, 0, 0)), null, null, null, "fa fa-balance-scale", false, "Kullanıcı Grup", null, "/kullanicigrup" },
+                    { 5, true, new DateTimeOffset(new DateTime(2024, 11, 2, 12, 47, 57, 759, DateTimeKind.Unspecified).AddTicks(6188), new TimeSpan(0, 3, 0, 0, 0)), null, null, null, "pi pi-fw pi-id-card", false, "Tanımlar", null, "/tanimlar" }
                 });
 
             migrationBuilder.InsertData(
@@ -343,43 +343,43 @@ namespace eShop.Persistence.Migrations
                 columns: new[] { "Id", "Active", "CreateDate", "CreatorId", "EditDate", "EditorId", "IsDeleted", "Name" },
                 values: new object[,]
                 {
-                    { 1, true, new DateTimeOffset(new DateTime(2024, 11, 2, 0, 35, 18, 870, DateTimeKind.Unspecified).AddTicks(3479), new TimeSpan(0, 3, 0, 0, 0)), null, null, null, false, "Permissions.Genel.All" },
-                    { 2, true, new DateTimeOffset(new DateTime(2024, 11, 2, 0, 35, 18, 870, DateTimeKind.Unspecified).AddTicks(3793), new TimeSpan(0, 3, 0, 0, 0)), null, null, null, false, "Üretim Bandı" },
-                    { 3, true, new DateTimeOffset(new DateTime(2024, 11, 2, 0, 35, 18, 870, DateTimeKind.Unspecified).AddTicks(4047), new TimeSpan(0, 3, 0, 0, 0)), null, null, null, false, "Etiketleme" },
-                    { 4, true, new DateTimeOffset(new DateTime(2024, 11, 2, 0, 35, 18, 870, DateTimeKind.Unspecified).AddTicks(4300), new TimeSpan(0, 3, 0, 0, 0)), null, null, null, false, "Display Montajı" },
-                    { 5, true, new DateTimeOffset(new DateTime(2024, 11, 2, 0, 35, 18, 870, DateTimeKind.Unspecified).AddTicks(4537), new TimeSpan(0, 3, 0, 0, 0)), null, null, null, false, "Programlama" },
-                    { 6, true, new DateTimeOffset(new DateTime(2024, 11, 2, 0, 35, 18, 870, DateTimeKind.Unspecified).AddTicks(4821), new TimeSpan(0, 3, 0, 0, 0)), null, null, null, false, "Panelden Ayırma" },
-                    { 7, true, new DateTimeOffset(new DateTime(2024, 11, 2, 0, 35, 18, 870, DateTimeKind.Unspecified).AddTicks(5091), new TimeSpan(0, 3, 0, 0, 0)), null, null, null, false, "Test" },
-                    { 8, true, new DateTimeOffset(new DateTime(2024, 11, 2, 0, 35, 18, 870, DateTimeKind.Unspecified).AddTicks(5343), new TimeSpan(0, 3, 0, 0, 0)), null, null, null, false, "Kalite Süreçler" },
-                    { 9, true, new DateTimeOffset(new DateTime(2024, 11, 2, 0, 35, 18, 870, DateTimeKind.Unspecified).AddTicks(5632), new TimeSpan(0, 3, 0, 0, 0)), null, null, null, false, "Kalite Onaylar" },
-                    { 10, true, new DateTimeOffset(new DateTime(2024, 11, 2, 0, 35, 18, 870, DateTimeKind.Unspecified).AddTicks(5888), new TimeSpan(0, 3, 0, 0, 0)), null, null, null, false, "Kalite Operasyonlar" },
-                    { 11, true, new DateTimeOffset(new DateTime(2024, 11, 2, 0, 35, 18, 870, DateTimeKind.Unspecified).AddTicks(6185), new TimeSpan(0, 3, 0, 0, 0)), null, null, null, false, "Depo Tanımları" },
-                    { 12, true, new DateTimeOffset(new DateTime(2024, 11, 2, 0, 35, 18, 870, DateTimeKind.Unspecified).AddTicks(6424), new TimeSpan(0, 3, 0, 0, 0)), null, null, null, false, "Hat Tanımları" },
-                    { 13, true, new DateTimeOffset(new DateTime(2024, 11, 2, 0, 35, 18, 870, DateTimeKind.Unspecified).AddTicks(6723), new TimeSpan(0, 3, 0, 0, 0)), null, null, null, false, "Makine Tanımları" },
-                    { 14, true, new DateTimeOffset(new DateTime(2024, 11, 2, 0, 35, 18, 870, DateTimeKind.Unspecified).AddTicks(6993), new TimeSpan(0, 3, 0, 0, 0)), null, null, null, false, "Vardiya Tanımları" },
-                    { 15, true, new DateTimeOffset(new DateTime(2024, 11, 2, 0, 35, 18, 870, DateTimeKind.Unspecified).AddTicks(7265), new TimeSpan(0, 3, 0, 0, 0)), null, null, null, false, "Oee Gösterim" },
-                    { 16, true, new DateTimeOffset(new DateTime(2024, 11, 2, 0, 35, 18, 870, DateTimeKind.Unspecified).AddTicks(7522), new TimeSpan(0, 3, 0, 0, 0)), null, null, null, false, "Vardiya - Hat Hedef Miktar Tanımları" },
-                    { 17, true, new DateTimeOffset(new DateTime(2024, 11, 2, 0, 35, 18, 870, DateTimeKind.Unspecified).AddTicks(7773), new TimeSpan(0, 3, 0, 0, 0)), null, null, null, false, "Mola Tanımları" },
-                    { 18, true, new DateTimeOffset(new DateTime(2024, 11, 2, 0, 35, 18, 870, DateTimeKind.Unspecified).AddTicks(8027), new TimeSpan(0, 3, 0, 0, 0)), null, null, null, false, "Tamamlanan Kalite Operasyonları" },
-                    { 19, true, new DateTimeOffset(new DateTime(2024, 11, 2, 0, 35, 18, 870, DateTimeKind.Unspecified).AddTicks(8277), new TimeSpan(0, 3, 0, 0, 0)), null, null, null, false, "Üretim Planlama" },
-                    { 20, true, new DateTimeOffset(new DateTime(2024, 11, 2, 0, 35, 18, 870, DateTimeKind.Unspecified).AddTicks(8684), new TimeSpan(0, 3, 0, 0, 0)), null, null, null, false, "Üretim Planlama Görüntüle" },
-                    { 21, true, new DateTimeOffset(new DateTime(2024, 11, 2, 0, 35, 18, 870, DateTimeKind.Unspecified).AddTicks(8968), new TimeSpan(0, 3, 0, 0, 0)), null, null, null, false, "Üretim Planlama Kaydet" },
-                    { 22, true, new DateTimeOffset(new DateTime(2024, 11, 2, 0, 35, 18, 870, DateTimeKind.Unspecified).AddTicks(9228), new TimeSpan(0, 3, 0, 0, 0)), null, null, null, false, "Üretim Planlama Sil" },
-                    { 23, true, new DateTimeOffset(new DateTime(2024, 11, 2, 0, 35, 18, 870, DateTimeKind.Unspecified).AddTicks(9547), new TimeSpan(0, 3, 0, 0, 0)), null, null, null, false, "Kit Hazırlama" },
-                    { 24, true, new DateTimeOffset(new DateTime(2024, 11, 2, 0, 35, 18, 870, DateTimeKind.Unspecified).AddTicks(9838), new TimeSpan(0, 3, 0, 0, 0)), null, null, null, false, "Kit Doğrulama" },
-                    { 25, true, new DateTimeOffset(new DateTime(2024, 11, 2, 0, 35, 18, 871, DateTimeKind.Unspecified).AddTicks(227), new TimeSpan(0, 3, 0, 0, 0)), null, null, null, false, "Setup Verification" },
-                    { 26, true, new DateTimeOffset(new DateTime(2024, 11, 2, 0, 35, 18, 871, DateTimeKind.Unspecified).AddTicks(516), new TimeSpan(0, 3, 0, 0, 0)), null, null, null, false, "Ayarlar" },
-                    { 27, true, new DateTimeOffset(new DateTime(2024, 11, 2, 0, 35, 18, 871, DateTimeKind.Unspecified).AddTicks(906), new TimeSpan(0, 3, 0, 0, 0)), null, null, null, false, "Credential" },
-                    { 28, true, new DateTimeOffset(new DateTime(2024, 11, 2, 0, 35, 18, 871, DateTimeKind.Unspecified).AddTicks(1374), new TimeSpan(0, 3, 0, 0, 0)), null, null, null, false, "Kalite" },
-                    { 29, true, new DateTimeOffset(new DateTime(2024, 11, 2, 0, 35, 18, 871, DateTimeKind.Unspecified).AddTicks(1766), new TimeSpan(0, 3, 0, 0, 0)), null, null, null, false, "Dashboard" },
-                    { 30, true, new DateTimeOffset(new DateTime(2024, 11, 2, 0, 35, 18, 871, DateTimeKind.Unspecified).AddTicks(2087), new TimeSpan(0, 3, 0, 0, 0)), null, null, null, false, "Rol Görüntüle" },
-                    { 31, true, new DateTimeOffset(new DateTime(2024, 11, 2, 0, 35, 18, 871, DateTimeKind.Unspecified).AddTicks(2507), new TimeSpan(0, 3, 0, 0, 0)), null, null, null, false, "Rol Kaydet" },
-                    { 32, true, new DateTimeOffset(new DateTime(2024, 11, 2, 0, 35, 18, 871, DateTimeKind.Unspecified).AddTicks(2886), new TimeSpan(0, 3, 0, 0, 0)), null, null, null, false, "Rol Sil" },
-                    { 33, true, new DateTimeOffset(new DateTime(2024, 11, 2, 0, 35, 18, 871, DateTimeKind.Unspecified).AddTicks(3164), new TimeSpan(0, 3, 0, 0, 0)), null, null, null, false, "Kullanıcı Görüntüle" },
-                    { 34, true, new DateTimeOffset(new DateTime(2024, 11, 2, 0, 35, 18, 871, DateTimeKind.Unspecified).AddTicks(3439), new TimeSpan(0, 3, 0, 0, 0)), null, null, null, false, "Kullanıcı Kaydet" },
-                    { 35, true, new DateTimeOffset(new DateTime(2024, 11, 2, 0, 35, 18, 871, DateTimeKind.Unspecified).AddTicks(3696), new TimeSpan(0, 3, 0, 0, 0)), null, null, null, false, "Kullanıcı Sil" },
-                    { 36, true, new DateTimeOffset(new DateTime(2024, 11, 2, 0, 35, 18, 871, DateTimeKind.Unspecified).AddTicks(3953), new TimeSpan(0, 3, 0, 0, 0)), null, null, null, false, "KullaniciGrup All" },
-                    { 37, true, new DateTimeOffset(new DateTime(2024, 11, 2, 0, 35, 18, 871, DateTimeKind.Unspecified).AddTicks(4200), new TimeSpan(0, 3, 0, 0, 0)), null, null, null, false, "LogAll" }
+                    { 1, true, new DateTimeOffset(new DateTime(2024, 11, 2, 12, 47, 57, 759, DateTimeKind.Unspecified).AddTicks(6545), new TimeSpan(0, 3, 0, 0, 0)), null, null, null, false, "Permissions.Genel.All" },
+                    { 2, true, new DateTimeOffset(new DateTime(2024, 11, 2, 12, 47, 57, 759, DateTimeKind.Unspecified).AddTicks(6823), new TimeSpan(0, 3, 0, 0, 0)), null, null, null, false, "Üretim Bandı" },
+                    { 3, true, new DateTimeOffset(new DateTime(2024, 11, 2, 12, 47, 57, 759, DateTimeKind.Unspecified).AddTicks(7144), new TimeSpan(0, 3, 0, 0, 0)), null, null, null, false, "Etiketleme" },
+                    { 4, true, new DateTimeOffset(new DateTime(2024, 11, 2, 12, 47, 57, 759, DateTimeKind.Unspecified).AddTicks(7439), new TimeSpan(0, 3, 0, 0, 0)), null, null, null, false, "Display Montajı" },
+                    { 5, true, new DateTimeOffset(new DateTime(2024, 11, 2, 12, 47, 57, 759, DateTimeKind.Unspecified).AddTicks(7753), new TimeSpan(0, 3, 0, 0, 0)), null, null, null, false, "Programlama" },
+                    { 6, true, new DateTimeOffset(new DateTime(2024, 11, 2, 12, 47, 57, 759, DateTimeKind.Unspecified).AddTicks(8034), new TimeSpan(0, 3, 0, 0, 0)), null, null, null, false, "Panelden Ayırma" },
+                    { 7, true, new DateTimeOffset(new DateTime(2024, 11, 2, 12, 47, 57, 759, DateTimeKind.Unspecified).AddTicks(8306), new TimeSpan(0, 3, 0, 0, 0)), null, null, null, false, "Test" },
+                    { 8, true, new DateTimeOffset(new DateTime(2024, 11, 2, 12, 47, 57, 759, DateTimeKind.Unspecified).AddTicks(8581), new TimeSpan(0, 3, 0, 0, 0)), null, null, null, false, "Kalite Süreçler" },
+                    { 9, true, new DateTimeOffset(new DateTime(2024, 11, 2, 12, 47, 57, 759, DateTimeKind.Unspecified).AddTicks(8840), new TimeSpan(0, 3, 0, 0, 0)), null, null, null, false, "Kalite Onaylar" },
+                    { 10, true, new DateTimeOffset(new DateTime(2024, 11, 2, 12, 47, 57, 759, DateTimeKind.Unspecified).AddTicks(9142), new TimeSpan(0, 3, 0, 0, 0)), null, null, null, false, "Kalite Operasyonlar" },
+                    { 11, true, new DateTimeOffset(new DateTime(2024, 11, 2, 12, 47, 57, 759, DateTimeKind.Unspecified).AddTicks(9484), new TimeSpan(0, 3, 0, 0, 0)), null, null, null, false, "Depo Tanımları" },
+                    { 12, true, new DateTimeOffset(new DateTime(2024, 11, 2, 12, 47, 57, 759, DateTimeKind.Unspecified).AddTicks(9759), new TimeSpan(0, 3, 0, 0, 0)), null, null, null, false, "Hat Tanımları" },
+                    { 13, true, new DateTimeOffset(new DateTime(2024, 11, 2, 12, 47, 57, 760, DateTimeKind.Unspecified).AddTicks(35), new TimeSpan(0, 3, 0, 0, 0)), null, null, null, false, "Makine Tanımları" },
+                    { 14, true, new DateTimeOffset(new DateTime(2024, 11, 2, 12, 47, 57, 760, DateTimeKind.Unspecified).AddTicks(351), new TimeSpan(0, 3, 0, 0, 0)), null, null, null, false, "Vardiya Tanımları" },
+                    { 15, true, new DateTimeOffset(new DateTime(2024, 11, 2, 12, 47, 57, 760, DateTimeKind.Unspecified).AddTicks(625), new TimeSpan(0, 3, 0, 0, 0)), null, null, null, false, "Oee Gösterim" },
+                    { 16, true, new DateTimeOffset(new DateTime(2024, 11, 2, 12, 47, 57, 760, DateTimeKind.Unspecified).AddTicks(879), new TimeSpan(0, 3, 0, 0, 0)), null, null, null, false, "Vardiya - Hat Hedef Miktar Tanımları" },
+                    { 17, true, new DateTimeOffset(new DateTime(2024, 11, 2, 12, 47, 57, 760, DateTimeKind.Unspecified).AddTicks(1175), new TimeSpan(0, 3, 0, 0, 0)), null, null, null, false, "Mola Tanımları" },
+                    { 18, true, new DateTimeOffset(new DateTime(2024, 11, 2, 12, 47, 57, 760, DateTimeKind.Unspecified).AddTicks(1474), new TimeSpan(0, 3, 0, 0, 0)), null, null, null, false, "Tamamlanan Kalite Operasyonları" },
+                    { 19, true, new DateTimeOffset(new DateTime(2024, 11, 2, 12, 47, 57, 760, DateTimeKind.Unspecified).AddTicks(1772), new TimeSpan(0, 3, 0, 0, 0)), null, null, null, false, "Üretim Planlama" },
+                    { 20, true, new DateTimeOffset(new DateTime(2024, 11, 2, 12, 47, 57, 760, DateTimeKind.Unspecified).AddTicks(2061), new TimeSpan(0, 3, 0, 0, 0)), null, null, null, false, "Üretim Planlama Görüntüle" },
+                    { 21, true, new DateTimeOffset(new DateTime(2024, 11, 2, 12, 47, 57, 760, DateTimeKind.Unspecified).AddTicks(2332), new TimeSpan(0, 3, 0, 0, 0)), null, null, null, false, "Üretim Planlama Kaydet" },
+                    { 22, true, new DateTimeOffset(new DateTime(2024, 11, 2, 12, 47, 57, 760, DateTimeKind.Unspecified).AddTicks(2606), new TimeSpan(0, 3, 0, 0, 0)), null, null, null, false, "Üretim Planlama Sil" },
+                    { 23, true, new DateTimeOffset(new DateTime(2024, 11, 2, 12, 47, 57, 760, DateTimeKind.Unspecified).AddTicks(2913), new TimeSpan(0, 3, 0, 0, 0)), null, null, null, false, "Kit Hazırlama" },
+                    { 24, true, new DateTimeOffset(new DateTime(2024, 11, 2, 12, 47, 57, 760, DateTimeKind.Unspecified).AddTicks(3184), new TimeSpan(0, 3, 0, 0, 0)), null, null, null, false, "Kit Doğrulama" },
+                    { 25, true, new DateTimeOffset(new DateTime(2024, 11, 2, 12, 47, 57, 760, DateTimeKind.Unspecified).AddTicks(3440), new TimeSpan(0, 3, 0, 0, 0)), null, null, null, false, "Setup Verification" },
+                    { 26, true, new DateTimeOffset(new DateTime(2024, 11, 2, 12, 47, 57, 760, DateTimeKind.Unspecified).AddTicks(3735), new TimeSpan(0, 3, 0, 0, 0)), null, null, null, false, "Ayarlar" },
+                    { 27, true, new DateTimeOffset(new DateTime(2024, 11, 2, 12, 47, 57, 760, DateTimeKind.Unspecified).AddTicks(4023), new TimeSpan(0, 3, 0, 0, 0)), null, null, null, false, "Credential" },
+                    { 28, true, new DateTimeOffset(new DateTime(2024, 11, 2, 12, 47, 57, 760, DateTimeKind.Unspecified).AddTicks(4295), new TimeSpan(0, 3, 0, 0, 0)), null, null, null, false, "Kalite" },
+                    { 29, true, new DateTimeOffset(new DateTime(2024, 11, 2, 12, 47, 57, 760, DateTimeKind.Unspecified).AddTicks(4566), new TimeSpan(0, 3, 0, 0, 0)), null, null, null, false, "Dashboard" },
+                    { 30, true, new DateTimeOffset(new DateTime(2024, 11, 2, 12, 47, 57, 760, DateTimeKind.Unspecified).AddTicks(4837), new TimeSpan(0, 3, 0, 0, 0)), null, null, null, false, "Rol Görüntüle" },
+                    { 31, true, new DateTimeOffset(new DateTime(2024, 11, 2, 12, 47, 57, 760, DateTimeKind.Unspecified).AddTicks(5105), new TimeSpan(0, 3, 0, 0, 0)), null, null, null, false, "Rol Kaydet" },
+                    { 32, true, new DateTimeOffset(new DateTime(2024, 11, 2, 12, 47, 57, 760, DateTimeKind.Unspecified).AddTicks(5376), new TimeSpan(0, 3, 0, 0, 0)), null, null, null, false, "Rol Sil" },
+                    { 33, true, new DateTimeOffset(new DateTime(2024, 11, 2, 12, 47, 57, 760, DateTimeKind.Unspecified).AddTicks(5727), new TimeSpan(0, 3, 0, 0, 0)), null, null, null, false, "Kullanıcı Görüntüle" },
+                    { 34, true, new DateTimeOffset(new DateTime(2024, 11, 2, 12, 47, 57, 760, DateTimeKind.Unspecified).AddTicks(6019), new TimeSpan(0, 3, 0, 0, 0)), null, null, null, false, "Kullanıcı Kaydet" },
+                    { 35, true, new DateTimeOffset(new DateTime(2024, 11, 2, 12, 47, 57, 760, DateTimeKind.Unspecified).AddTicks(6290), new TimeSpan(0, 3, 0, 0, 0)), null, null, null, false, "Kullanıcı Sil" },
+                    { 36, true, new DateTimeOffset(new DateTime(2024, 11, 2, 12, 47, 57, 760, DateTimeKind.Unspecified).AddTicks(6562), new TimeSpan(0, 3, 0, 0, 0)), null, null, null, false, "KullaniciGrup All" },
+                    { 37, true, new DateTimeOffset(new DateTime(2024, 11, 2, 12, 47, 57, 760, DateTimeKind.Unspecified).AddTicks(6836), new TimeSpan(0, 3, 0, 0, 0)), null, null, null, false, "LogAll" }
                 });
 
             migrationBuilder.InsertData(
@@ -387,11 +387,8 @@ namespace eShop.Persistence.Migrations
                 columns: new[] { "Id", "AccessFailedCount", "Ad", "ConcurrencyStamp", "Email", "EmailConfirmed", "Eposta", "Image", "IsActive", "LockoutEnabled", "LockoutEnd", "NormalizedEmail", "NormalizedUserName", "PasswordHash", "PhoneNumber", "PhoneNumberConfirmed", "SecurityStamp", "Soyad", "TelefonGSM", "TwoFactorEnabled", "UserName" },
                 values: new object[,]
                 {
-                    { new Guid("48af3a8e-cb3d-49a0-8bba-97580c8df050"), 0, "Tolga", "152ab07c-29b2-496f-b6ec-2300c35c725a", "tolga@.com", true, "tolga@.com", null, true, false, null, "BASICUSER@GMAIL.COM", "BASICUSER", "AQAAAAEAACcQAAAAEBLjouNqaeiVWbN0TbXUS3+ChW3d7aQIk/BQEkWBxlrdRRngp14b0BIH0Rp65qD6mA==", null, false, null, "Bagin", null, false, "Tolga" },
-                    { new Guid("5a77d16f-7897-47c3-bf75-608b28649d2a"), 0, "eShop", "2f2ec740-5fdd-4fe8-981f-f1e3f84e8324", "eShop@sentytech.com", true, "eShop@sentytech.com", null, true, false, null, "BASICUSER@GMAIL.COM", "BASICUSER", "AQAAAAEAACcQAAAAEBLjouNqaeiVWbN0TbXUS3+ChW3d7aQIk/BQEkWBxlrdRRngp14b0BIH0Rp65qD6mA==", null, false, null, "eShop", null, false, "eShop" },
-                    { new Guid("65217fea-4a15-4154-928b-4cbfef53f80d"), 0, "Hakan", "f07e197a-c71f-4e42-a5a1-29ec44dec85f", "hakan@.com", false, "hakan@.com", null, true, false, null, "SUPERADMIN@GMAIL.COM", "SUPERADMIN", "AQAAAAEAACcQAAAAEBLjouNqaeiVWbN0TbXUS3+ChW3d7aQIk/BQEkWBxlrdRRngp14b0BIH0Rp65qD6mA==", null, false, null, "YILDIRIM", null, false, "hakanyildirim" },
-                    { new Guid("8e2ed5bf-afc4-4b75-8116-b2419b373a5e"), 0, "Salih", "56695399-1ef2-4f0c-bc25-d80965f5f741", "salih@.com", true, "salih@.com", null, true, false, null, "BASICUSER@GMAIL.COM", "SUPERADMIN", "AQAAAAEAACcQAAAAEBLjouNqaeiVWbN0TbXUS3+ChW3d7aQIk/BQEkWBxlrdRRngp14b0BIH0Rp65qD6mA==", null, false, null, "Dürüs", null, false, "Salih" },
-                    { new Guid("cfd11b99-dde3-474a-aad0-cd2015f9d747"), 0, "Cagan", "cf4981d2-2f0b-4189-b0bf-c8133155e012", "cagan@.com", true, "cagan@.com", null, true, false, null, "BASICUSER@GMAIL.COM", "SUPERADMIN", "AQAAAAEAACcQAAAAEBLjouNqaeiVWbN0TbXUS3+ChW3d7aQIk/BQEkWBxlrdRRngp14b0BIH0Rp65qD6mA==", null, false, null, "Turhan", null, false, "cagan" }
+                    { new Guid("b1701107-9c07-465b-a930-80c0d5cee81e"), 0, "eShop", "8d7cb34e-e4aa-4e1d-b374-d993a4173736", "eShop@sentytech.com", true, "eShop@sentytech.com", null, true, false, null, "BASICUSER@GMAIL.COM", "BASICUSER", "AQAAAAEAACcQAAAAEBLjouNqaeiVWbN0TbXUS3+ChW3d7aQIk/BQEkWBxlrdRRngp14b0BIH0Rp65qD6mA==", null, false, null, "eShop", null, false, "eShop" },
+                    { new Guid("f7cb7e57-daad-4147-a36e-f6eaed02ba08"), 0, "Hakan", "80d6e944-62d9-477d-93fa-fd90c56293ea", "hakan@.com", false, "hakan@.com", null, true, false, null, "SUPERADMIN@GMAIL.COM", "SUPERADMIN", "AQAAAAEAACcQAAAAEBLjouNqaeiVWbN0TbXUS3+ChW3d7aQIk/BQEkWBxlrdRRngp14b0BIH0Rp65qD6mA==", null, false, null, "YILDIRIM", null, false, "hakanyildirim" }
                 });
 
             migrationBuilder.CreateIndex(

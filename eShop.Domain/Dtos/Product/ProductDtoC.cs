@@ -18,7 +18,6 @@ public class ProductDtoC
     public string Width { get; set; }
 
     public string Height { get; set; }
-    public string Wieght { get; set; }
     public string CustomsNr { get; set; }
     public string BuyingPrice { get; set; }
     public string InvoiceNr { get; set; }

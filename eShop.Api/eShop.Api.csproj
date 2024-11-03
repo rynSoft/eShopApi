@@ -3,9 +3,11 @@
   <PropertyGroup>
     <TargetFramework>net8.0</TargetFramework>
     <RootNamespace>eShopApi</RootNamespace>
-    <DockerDefaultTargetOS>Linux</DockerDefaultTargetOS>
+    <!--<DockerDefaultTargetOS>Linux</DockerDefaultTargetOS>
     <UserSecretsId>c3100b5f-eeac-4112-9937-63f946e6e9de</UserSecretsId>
-    <EnableSdkContainerDebugging>True</EnableSdkContainerDebugging>
+    <EnableSdkContainerDebugging>True</EnableSdkContainerDebugging>-->
+	<DockerDefaultTargetOS>Linux</DockerDefaultTargetOS>
+	<UserSecretsId>b232e399-6458-4cf8-b850-d8d568466374</UserSecretsId>
   </PropertyGroup>
 
   <ItemGroup>

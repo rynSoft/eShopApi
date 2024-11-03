@@ -13,13 +13,13 @@ namespace eShop.Domain.Enum
 
     public static class Constants
     {
-        public static readonly string SistemAdmin ;
-        public static readonly string Admin;
+        public static readonly Guid SistemAdmin ;
+        public static readonly Guid Admin;
         public static readonly string Depo;
         public static readonly string Misafir;
 
-        public static readonly string SistemAdminUser ;
-        public static readonly string VillaUser ;
+        public static readonly Guid SistemAdminUser ;
+        public static readonly Guid VillaUser ;
       
     }
 }

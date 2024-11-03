@@ -41,7 +41,7 @@ namespace eShopApi.Controllers
             return Ok(await _accountService.TokenSessionControl());
         }
 
-        [HttpPost("register"),YetkiDenetimi(Permissions.Kullanici.Kaydet)]
+        [HttpPost("register")]
         public async Task<IActionResult> RegisterAsync(RegisterRequest request)
         {
             var origin = Request.Headers["origin"];

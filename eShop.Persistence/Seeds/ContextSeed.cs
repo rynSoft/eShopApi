@@ -3,6 +3,7 @@ using Microsoft.EntityFrameworkCore;
 using eShop.Domain.Auth;
 using System.Collections.Generic;
 using eShop.Domain.Entities;
+using System;
 
 namespace eShop.Persistence.Seeds
 {
@@ -10,11 +11,13 @@ namespace eShop.Persistence.Seeds
     {
         public static void Seed(this ModelBuilder modelBuilder)
         {
-            CreateRoles(modelBuilder);
+
+
+            CreateIdentityRoles(modelBuilder);
 
             CreateBasicUsers(modelBuilder);
 
-            MapUserRole(modelBuilder);
+            //MapUserRole(modelBuilder);
             
             CreateMenu(modelBuilder);
 
@@ -22,11 +25,12 @@ namespace eShop.Persistence.Seeds
             
         }
 
-        private static void CreateRoles(ModelBuilder modelBuilder)
+        private static void CreateIdentityRoles(ModelBuilder modelBuilder)
         {
             List<IdentityRole> roles = DefaultRoles.IdentityRoleList();
             modelBuilder.Entity<IdentityRole>().HasData(roles);
         }
+
 
         private static void CreateBasicUsers(ModelBuilder modelBuilder)
         {
@@ -36,8 +40,8 @@ namespace eShop.Persistence.Seeds
 
         private static void MapUserRole(ModelBuilder modelBuilder)
         {
-            //var identityUserRoles = MappingUserRole.IdentityUserRoleList();
-            //modelBuilder.Entity<IdentityUserRole<string>>().HasData(identityUserRoles);
+            var identityUserRoles = MappingUserRole.IdentityUserRoleList();
+            modelBuilder.Entity<IdentityUserRole<Guid>>().HasData(identityUserRoles);
         }
 
         private static void CreateMenu(ModelBuilder modelBuilder)
