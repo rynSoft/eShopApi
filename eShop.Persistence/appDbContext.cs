@@ -48,7 +48,7 @@ namespace eShop.Persistence
       
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-          
+            base.OnModelCreating(modelBuilder);
 
             #region Identity
             modelBuilder.Entity<IdentityUserToken<Guid>>(x =>
